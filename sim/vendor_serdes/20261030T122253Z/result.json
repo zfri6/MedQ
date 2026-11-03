@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "details": [],
+  "profile": "EG4 vendor ODDR functional model",
+  "simulation_define": false,
+  "stage": "C:/Users/zhang/AppData/Local/Temp/medq_eg4_serdes_qhvkfcf1",
+  "input_sha256": {
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.3\\rtl\\tmds_serdes.v": "22445b06b322fc2504c7bb737e77e56eb148035b300056db9a2b8e2e57ba5e40",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.3\\tb\\vendor\\tb_tmds_serdes_eg4.v": "af0d2ffd69a8836035c10ed49c2839ed722b2e495d91632d9faca02e8af6b887",
+    "C:\\Anlogic\\TD_6.2.1_Engineer_6.2.168.116\\sim_release\\eg4\\eg_logic_io.v": "3eef9298b0496750534698232f87be61982b759c92df6bee7e04de3eba979245",
+    "C:\\Anlogic\\TD_6.2.1_Engineer_6.2.168.116\\sim_release\\eg4\\eg_phy_glbl.v": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7"
+  },
+  "scope": "serializer only, clocks driven by TB; no PLL/SDRAM/board/timing-closure claim"
+}

@@ -1,0 +1,7 @@
+{
+  "scope": "actual RTL TB PPM converted to PNG; zoom uses nearest-neighbor, no redraw",
+  "source": "sim/tests/modelsim/tb_dual_ui/dual_ui_0.ppm",
+  "source_sha256": "2055b8bfb575d70143cc69869c539195abc6d77350c3664c56671b450d1f65ea",
+  "preview": "sim/ui/independent_switch/ordinary_tickets.png",
+  "board_test": "not_tested"
+}

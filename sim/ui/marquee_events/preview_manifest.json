@@ -1,0 +1,53 @@
+{
+  "scope": "native-size crops of 12 actual RTL frames, no redraw, no board evidence",
+  "frames": [
+    {
+      "frame": "sim/ui/v03_rtl/frame_00.png",
+      "sha256": "3a974d81c772302b6ef2c8afb5bff9e1a35654d0b911807ea101dd0c7d0197fa"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_01.png",
+      "sha256": "2a81e37b1cbdac2b1c541eb816beca419df48e998c48daed38d04449b115545b"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_02.png",
+      "sha256": "449b8c2cd3a05a3f898d67fd74e7b8f5e44e60b9b36dfa2770dac24802351f35"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_03.png",
+      "sha256": "c3ba7eba26674574cdf2587e129bef02d11a15779b74e56b71e5f842b1996938"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_04.png",
+      "sha256": "b051a82cb64e29eeca87572aba1bfc949cad6b53f91108af7cbe72738cf73096"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_05.png",
+      "sha256": "ad2ce080f7cd552fe37a1f6ede72ca2140b52464066a793920e266ee65facefe"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_06.png",
+      "sha256": "f708d1f674c31cfeff421519eb93c025a2066e887677e37c7f9b6eb0109814bb"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_07.png",
+      "sha256": "c1a967080e994bb51f56f477b3aa70c55717f8d2201e202f30fcc47a66a65d04"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_08.png",
+      "sha256": "5a8fb7a5ae1771fa3696cdf99d756310a1d307a2a285cc07484b96238b3e7bd6"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_09.png",
+      "sha256": "ea86f5722263fd37ecf5219ee855ff3a31c5a0e48859f61d75bbf0c275c7da71"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_10.png",
+      "sha256": "295ac3da302e28d0c905bcc1b4b8d5084f8b04e1577868d7b72a7205540f29e6"
+    },
+    {
+      "frame": "sim/ui/v03_rtl/frame_11.png",
+      "sha256": "3b7ec6a100c21cc7ca42317f85ddd43a8ed4e7d62f3af38832649163c550a033"
+    }
+  ]
+}

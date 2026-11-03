@@ -1,0 +1,74 @@
+[
+  {
+    "ticket": "C01",
+    "text": "请C01号张伟民到A诊室就诊",
+    "clips": [
+      1,
+      19,
+      3,
+      4,
+      51,
+      21,
+      52,
+      14,
+      18
+    ],
+    "duration_seconds": 3.43775,
+    "file": "assets/speech_previews/C01_张伟民.wav",
+    "sha256": "0104181458899498f3c8c6a11f2a1a7c3f77b5740411231e6c21db03ca44f1f2"
+  },
+  {
+    "ticket": "A02",
+    "text": "请A02号黄凯文到A诊室就诊",
+    "clips": [
+      1,
+      2,
+      3,
+      5,
+      51,
+      27,
+      52,
+      14,
+      18
+    ],
+    "duration_seconds": 3.484,
+    "file": "assets/speech_previews/A02_黄凯文.wav",
+    "sha256": "85dd2dfcaee0aa662dd242b68566a73889cc23551cbd40286b32bc2cc7732708"
+  },
+  {
+    "ticket": "B09",
+    "text": "请B09号蒋欣怡到B诊室就诊",
+    "clips": [
+      1,
+      17,
+      3,
+      12,
+      51,
+      49,
+      52,
+      15,
+      18
+    ],
+    "duration_seconds": 3.33675,
+    "file": "assets/speech_previews/B09_蒋欣怡.wav",
+    "sha256": "c33e4e011aa60e238ef2a60a2d89b83d8ae051af705a4a5b74e938aef16230a4"
+  },
+  {
+    "ticket": "D05",
+    "text": "请D05号蔡宇航到B诊室就诊",
+    "clips": [
+      1,
+      20,
+      3,
+      8,
+      51,
+      40,
+      52,
+      15,
+      18
+    ],
+    "duration_seconds": 3.3338125,
+    "file": "assets/speech_previews/D05_蔡宇航.wav",
+    "sha256": "ebdd80feb0cb4458e5febf5ca851e6f45b212e2e832d9f1dc2744ef80687e6ad"
+  }
+]

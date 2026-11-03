@@ -1,0 +1,116 @@
+standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        40
+  #input                   11
+  #output                  29
+  #inout                    0
+
+Gate Statistics
+#Basic gates            17401
+  #and                   3165
+  #nand                     0
+  #or                    2335
+  #nor                      0
+  #xor                    405
+  #xnor                     0
+  #buf                      0
+  #not                   1508
+  #bufif1                  32
+  #MX21                  3774
+  #FADD                     0
+  #DFF                   6182
+  #LATCH                    0
+#MACRO_ADD               1194
+#MACRO_EQ                 390
+#MACRO_MULT                25
+#MACRO_MUX               4891
+#MACRO_OTHERS              27
+
+Report Hierarchy Area:
++----------------------------------------------------------------------+
+|Instance               |Module                |gates  |seq    |macros |
++----------------------------------------------------------------------+
+|top                    |top                   |11219  |6182   |1636   |
+|  u_asset_loader       |asset_loader          |5289   |2121   |191    |
+|    u_bmp              |bmp_parser            |138    |397    |35     |
+|    u_fat32            |fat32_reader          |837    |846    |77     |
+|    u_sd_card_ctrl     |sd_card_ctrl          |619    |227    |30     |
+|      u_spi            |sd_spi_master         |21     |40     |4      |
+|    u_words            |medq_async_fifo       |55     |87     |7      |
+|  u_audio_mixer        |audio_mixer           |0      |16     |4      |
+|  u_audio_pcm_player   |audio_pcm_player      |376    |301    |89     |
+|    u_fifo             |medq_async_fifo       |41     |79     |6      |
+|  u_audio_sample_clk   |audio_sample_clk      |2      |20     |3      |
+|  u_audio_tone_gen     |audio_tone_gen        |25     |40     |3      |
+|  u_audio_wave         |medq_audio_wave       |31     |267    |26     |
+|  u_board_inputs       |medq_board_inputs     |0      |16     |0      |
+|  u_cdc_param          |cdc_bus_handshake     |8      |75     |1      |
+|    u_sync_ack         |cdc_sync_bit          |0      |2      |0      |
+|    u_sync_req         |cdc_sync_bit          |0      |2      |0      |
+|  u_cdc_qstate         |cdc_bus_handshake     |8      |103    |1      |
+|    u_sync_ack         |cdc_sync_bit          |0      |2      |0      |
+|    u_sync_req         |cdc_sync_bit          |0      |2      |0      |
+|  u_dual_announcer     |medq_dual_announcer   |141    |60     |25     |
+|  u_dual_service       |medq_dual_service     |376    |226    |62     |
+|    a                  |medq_room_service     |188    |113    |31     |
+|    b                  |medq_room_service     |188    |113    |31     |
+|  u_font_rom           |font_rom              |0      |0      |1      |
+|  u_frame_reader_main  |frame_reader          |106    |150    |16     |
+|    pixels             |medq_async_fifo       |61     |95     |7      |
+|  u_frame_reader_trans |frame_reader          |57     |98     |10     |
+|    pixels             |medq_async_fifo       |25     |71     |3      |
+|  u_hdmi_tx_core       |hdmi_tx_core          |414    |875    |144    |
+|    te0                |hdmi_terc4_encoder    |0      |0      |0      |
+|    te1                |hdmi_terc4_encoder    |0      |0      |0      |
+|    te2                |hdmi_terc4_encoder    |0      |0      |0      |
+|    u_sched            |hdmi_packet_scheduler |190    |182    |32     |
+|    u_tmds_ch0         |hdmi_tmds_encoder     |37     |15     |32     |
+|    u_tmds_ch1         |hdmi_tmds_encoder     |36     |15     |32     |
+|    u_tmds_ch2         |hdmi_tmds_encoder     |36     |15     |32     |
+|  u_inputs             |medq_v03_inputs       |319    |186    |19     |
+|  u_media_base_cdc     |cdc_bus_handshake     |8      |12     |1      |
+|    u_sync_ack         |cdc_sync_bit          |0      |2      |0      |
+|    u_sync_req         |cdc_sync_bit          |0      |2      |0      |
+|  u_media_control      |medq_media_control    |101    |58     |15     |
+|  u_media_valid_cdc    |cdc_bus_handshake     |8      |12     |1      |
+|    u_sync_ack         |cdc_sync_bit          |0      |2      |0      |
+|    u_sync_req         |cdc_sync_bit          |0      |2      |0      |
+|  u_medq_pll           |medq_pll              |0      |0      |1      |
+|  u_osd_compositor     |osd_compositor        |40     |27     |45     |
+|  u_osd_renderer       |osd_renderer          |2847   |384    |876    |
+|    u_dual_scene       |medq_dual_ui_scene    |2723   |268    |854    |
+|  u_param_ctrl         |param_ctrl            |0      |88     |7      |
+|  u_rst_mem            |rst_sync              |0      |2      |0      |
+|  u_rst_pix            |rst_sync              |0      |2      |0      |
+|  u_rst_sys            |rst_sync              |0      |2      |0      |
+|  u_sdram_arbiter      |sdram_arbiter         |131    |52     |7      |
+|  u_sdram_ctrl_wrap    |sdram_ctrl_wrap       |424    |611    |47     |
+|    u_hardware         |medq_sdram_adapter    |424    |611    |47     |
+|      u_core           |sdr_as_ram            |96     |480    |6      |
+|        u1_init_ref    |sdr_init_ref          |19     |81     |1      |
+|        u2_wrrd        |sdr_wrrd              |77     |399    |5      |
+|      u_device         |sdram                 |0      |0      |0      |
+|  u_seg_scan           |seg_scan              |43     |31     |4      |
+|  u_ser_clk            |tmds_serdes           |2      |8      |1      |
+|  u_ser_d0             |tmds_serdes           |0      |18     |1      |
+|  u_ser_d1             |tmds_serdes           |0      |18     |1      |
+|  u_ser_d2             |tmds_serdes           |0      |18     |1      |
+|  u_service_cdc        |cdc_bus_handshake     |8      |20     |1      |
+|    u_sync_ack         |cdc_sync_bit          |0      |2      |0      |
+|    u_sync_req         |cdc_sync_bit          |0      |2      |0      |
+|  u_service_guard      |medq_service_guard    |11     |29     |2      |
+|  u_subtitle_notify    |medq_subtitle_notify  |12     |28     |2      |
+|  u_sys_pll            |sys_pll               |0      |0      |1      |
+|  u_transition_engine  |transition_engine     |4      |24     |0      |
+|  u_uart_cmd           |uart_cmd              |75     |48     |6      |
+|  u_uart_rx            |uart_rx               |24     |58     |3      |
+|  u_uart_tx            |uart_tx               |12     |19     |4      |
+|  u_video_timing       |video_timing          |7      |41     |10     |
+|  u_clinic_enable_sys  |cdc_sync_bit          |0      |2      |0      |
+|  u_fault_sync         |cdc_sync_bit          |0      |2      |0      |
+|  u_ready_sync         |cdc_sync_bit          |0      |2      |0      |
+|  u_underrun_sync      |cdc_sync_bit          |0      |2      |0      |
+|  u_video_align        |medq_video_align      |0      |9      |0      |
++----------------------------------------------------------------------+

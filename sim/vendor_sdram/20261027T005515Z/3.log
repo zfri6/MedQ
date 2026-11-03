@@ -1,0 +1,16 @@
+$ C:\modeltech64_10.4\win64\vsim.exe -c work.tb_top -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c work.tb_top -do "run -all; quit -f" 
+# Start time: 08:55:17 on Oct 27,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Error (suppressible): (vopt-7063) tb_top.v(89): Failed to find 'state' in hierarchical name '/dut/u_sdram_ctrl_wrap/state'.
+# 
+# Optimization failed
+# Error loading design
+Error loading design
+# End time: 08:55:18 on Oct 27,2026, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0, Suppressed Errors: 1

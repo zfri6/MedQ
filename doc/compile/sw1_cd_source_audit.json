@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "previous_sealed_release": {
+    "status": "PASS",
+    "archive": "deliverables/MedQ_v0.3_20261030T183526Z.zip",
+    "archive_sha256": "6cca143b10e269c30b509ba0d94fd75ebfbd06b7fbdede7265bdedb10f47c2b4",
+    "bitstream": "deliverables/MedQ_v0.3_UI_20261030T183319Z.bit",
+    "bitstream_sha256": "873cd18c39ab687babdaef70420280419598f6836a7dcce8872f2291b8d80249",
+    "files": 1188,
+    "extraction_hash_check": "PASS",
+    "protected_v02_files": 891,
+    "board_test": "not_tested"
+  },
+  "changed_RTL_from_previous_sealed": [
+    "rtl/font_rom.hex",
+    "rtl/font_v03.hex",
+    "rtl/medq_dual_announcer.v",
+    "rtl/medq_dual_layout.vh",
+    "rtl/medq_dual_service.v",
+    "rtl/medq_dual_ui_scene.v",
+    "rtl/medq_room_service.v",
+    "rtl/medq_v03_inputs.v",
+    "rtl/top.v"
+  ],
+  "unchanged_IP_constraint_files": 17,
+  "new_behavior": "doc/spec/sw1_live_return_cd_20261031.md",
+  "independent_number_sequences": [
+    "A01..A99",
+    "B01..B99",
+    "C01..C99",
+    "D01..D99"
+  ],
+  "queue_capacity_each": 16,
+  "max_successful_per_room": 198,
+  "successful_completed_missed_counter_bits": 8,
+  "core_clock_and_memory_contract": "unchanged",
+  "voice_assets": 21,
+  "board_test": "not_tested"
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "actual RTL frame exports for visual review; not a replacement runtime image engine",
+  "source_capture_manifest": "sim/ui/v03_rtl/capture_manifest.json",
+  "files": {
+    "sim/ui/patient_names/actual_subtitle_frames.png": "7af26f95ab9456332d616c7af840fdff049f3d6e7a0ae573bc2215a08c71db53",
+    "sim/ui/patient_names/page_00.bmp": "e784907d6d1bfa8e9585afaa681a6862d47d09dc1eceb5964638dcf8ee724e2d",
+    "sim/ui/patient_names/page_01.bmp": "e60a8d5858fd57958736b6f60b60e4e07f4377b9c7439af00319a062f9a373a7",
+    "sim/ui/patient_names/page_02.bmp": "c3ca66c7150aace95a9cfd61b52a0babe1154eceb6aea7944c4dadc8646eb76e",
+    "sim/ui/patient_names/page_03.bmp": "a067824ea376b18ca35432cf253026197eab99626cf2c258aac99dc74e6915ac",
+    "sim/ui/patient_names/page_04.bmp": "f7238ffc9d8bae064f0095b844b915b3e25977e3d641285bb322c18ab6aad7f2",
+    "sim/ui/patient_names/page_05.bmp": "5d697169f77ccd4bc15428344be343ec45a7dc9015a6e2a9e99713b6da3d9ddb",
+    "sim/ui/patient_names/page_06.bmp": "1bd529e426c33dc9562d3a4f4cb311b453b02ebc688eae5c38fcdb87ff03c1ff",
+    "sim/ui/patient_names/page_07.bmp": "50a67e70e7ddff263d490642698223549e8463f95c81d722ba7ef95646db49a7",
+    "sim/ui/patient_names/page_08.bmp": "7adff6b1bc587fad011b6ca5c1b7ab57f6c847bc1de912b7cf18c9d4a60ed22c",
+    "sim/ui/patient_names/page_09.bmp": "4f5ed3aabcb236eb3c336fdbcc3c03d18e7fa67167459ef2fdf15a2e275816bb",
+    "sim/ui/patient_names/page_10.bmp": "1374c98ff19855b1d14ae7c81c9ccee6c999cacf7b1f77733f524bd0c7ec0421",
+    "sim/ui/patient_names/page_11.bmp": "237b188adc03064126fec5ef84b3dbfe72fcd85116cda0d7879406cadc1476f5"
+  }
+}

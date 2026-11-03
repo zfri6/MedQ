@@ -1,0 +1,34 @@
+$ C:\modeltech64_10.4\win64\vsim.exe -c work.tb_top -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c work.tb_top -do "run -all; quit -f" 
+# Start time: 00:33:34 on Nov 01,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_top(fast)
+# Loading work.sd_spi_master(fast)
+# run -all
+# CHECK original SDRAM controller in complete MedQ top, physical refreshes=20392
+# PASS V0.3 full board pins: real 10ms debounce, A/B strict return priority, doctor semantics, SW1-off enqueue/live marquee, UART ACK/NAK/CRC, five admissions, 35 PCM clips, 12 continuous full VGA/HDMI frames
+# INFO frames=21 memory_bursts=28079 audio_samples=16447 OSD_pixels=6248225
+# ** Note: $finish    : tb_top.v(166)
+#    Time: 342646300 ns  Iteration: 2  Instance: /tb_top
+# End time: 00:34:46 on Nov 01,2026, Elapsed time: 0:01:12
+# Errors: 0, Warnings: 0, Suppressed Errors: 5

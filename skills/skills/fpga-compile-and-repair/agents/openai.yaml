@@ -1,0 +1,6 @@
+interface:
+  display_name: "Compile & Repair"
+  short_description: "运行 tool-first 编译/静态诊断并以最小补丁修复"
+  default_prompt: "Use $fpga-compile-and-repair to run RTL compile or lint checks, parse diagnostics, and converge minimal repair patches."
+policy:
+  allow_implicit_invocation: true

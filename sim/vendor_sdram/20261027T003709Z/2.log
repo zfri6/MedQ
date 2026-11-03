@@ -1,0 +1,16 @@
+$ C:\modeltech64_10.4\win64\vlog.exe +define+MEDQ_VENDOR_PLL -sv -suppress 2121 +incdir+.+compat -work work global_def.v sdr_as_ram.enc.v sdr_init_ref.enc.v sdr_wrrd.enc.v eg_phy_sdram_2m_32.v tb_sdram_hardware.v medq_sdram_adapter.v sdram.v medq_sdram_device_model.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+Start time: 08:37:09 on Oct 27,2026
+vlog "+define+MEDQ_VENDOR_PLL" -sv -suppress 2121 "+incdir+.+compat" -work work global_def.v sdr_as_ram.enc.v sdr_init_ref.enc.v sdr_wrrd.enc.v eg_phy_sdram_2m_32.v tb_sdram_hardware.v medq_sdram_adapter.v sdram.v medq_sdram_device_model.v 
+-- Compiling module sdr_as_ram
+-- Compiling module sdr_init_ref
+-- Compiling module EG_PHY_SDRAM_2M_32
+-- Compiling module tb_sdram_hardware
+-- Compiling module medq_sdram_adapter
+-- Compiling module sdram
+-- Compiling module medq_sdram_device_model
+
+Top level modules:
+	tb_sdram_hardware
+End time: 08:37:09 on Oct 27,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0, Suppressed Errors: 1

@@ -1,0 +1,19 @@
+{
+  "origin": "RTL osd_renderer + synchronous font_rom",
+  "raster": [
+    640,
+    480
+  ],
+  "actual_scan_hz": 59.523809523809526,
+  "call_ease_frames": 16,
+  "call_ease_ms": 268.8,
+  "reduced_motion_30frame_identical": true,
+  "snapshots_sha256": {
+    "sim/tests/modelsim/tb_medq_ui/ui_frame_17.ppm": "bb4b98b295b19d5667ef63e43567a2a838faeb2cf1a2227f70ccd7f76fbf29b6",
+    "sim/tests/modelsim/tb_medq_ui/ui_frame_20.ppm": "132c2969878485dc90cba1105e203502332da1d13b14e715882a59a20c232a4d",
+    "sim/tests/modelsim/tb_medq_ui/ui_frame_21.ppm": "406d3a82fae7c43d7836b2b896d2158d2fc6860b8554cf59fae164844eea1359",
+    "sim/tests/modelsim/tb_medq_ui/ui_frame_22.ppm": "34a5d4c61c10a03e3a754bc56375c4dc733bdb20e659674f038e2585a0e59f11",
+    "sim/tests/modelsim/tb_medq_ui/ui_frame_24.ppm": "1fe0bb56a4aa7861576ea69c17ff9f853df913406408b20fe3469a237b53f23b",
+    "sim/tests/modelsim/tb_medq_ui/ui_frame_25.ppm": "e475c8c33c77d9a4ddf8b3a94e90db45b6ef24d7e9e4c2fce440cf9193594061"
+  }
+}

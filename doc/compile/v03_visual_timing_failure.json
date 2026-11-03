@@ -1,0 +1,12 @@
+{
+  "status": "EXPECTED_REJECT",
+  "native_result": "prj/td/runs/20261030T181445Z_52673429/result.json",
+  "slack_ns": {
+    "SWNS": -1.801,
+    "HWNS": 0.023
+  },
+  "root_cause": "Pixel coordinate to rounded rectangle/background averaging to renderer blend; 43 logic levels and chained procedural fill averages. 12 setup endpoints fail in 25MHz pixel domain; no bitstream accepted.",
+  "repair_plan": "Use mutually exclusive panel branches and explicit known underlying colors; bound sprite coordinate arithmetic. Prove exact RTL pixel identity before full reruns.",
+  "protected_clocks_and_constraints": "unchanged",
+  "board_test": "not_tested"
+}

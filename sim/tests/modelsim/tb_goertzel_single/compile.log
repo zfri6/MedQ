@@ -1,0 +1,120 @@
+
+===== vlog =====
+$ C:\modeltech64_10.4\win64\vlog.exe -work work +incdir+C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl +incdir+C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb +define+SIMULATION C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/al_ip/afifo_8i_32o_1024.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/asset_loader.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_announcer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_mixer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_pcm_player.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_sample_clk.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_tone_gen.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/av_sync_monitor.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/bilinear_scaler.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/bmp_parser.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/buzzer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/cdc_bus_handshake.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/cdc_pulse.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/cdc_sync_bit.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/fat32_reader.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/font_rom.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/frame_reader.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/goertzel_spectrum.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_bch_ecc.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_packet_scheduler.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_terc4_encoder.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_tmds_encoder.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_tx_core.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/key_debounce.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/latency_probe.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_async_fifo.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_audio_wave.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_board_inputs.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_call_cdc.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_call_feedback.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_dual_announcer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_dual_service.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_dual_ui_scene.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_media_control.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_room_service.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_sdram_adapter.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_service_guard.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_subtitle_notify.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_ui_scene.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_v03_inputs.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_video_align.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/osd_compositor.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/osd_renderer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/param_ctrl.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/queue_fsm.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/rst_sync.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sd_card_ctrl.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sd_spi_master.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sdram_arbiter.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sdram_ctrl_wrap.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/seg_scan.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/spectrum_render.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/spi_flash_store.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/tmds_serdes.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/top.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/top_skeleton.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/transition_engine.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/uart_cmd.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/uart_rx.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/uart_tx.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/video_timing.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+Start time: 14:20:12 on Nov 03,2026
+vlog -work work "+incdir+C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl" "+incdir+C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb" "+define+SIMULATION" C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/al_ip/afifo_8i_32o_1024.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/asset_loader.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_announcer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_mixer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_pcm_player.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_sample_clk.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/audio_tone_gen.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/av_sync_monitor.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/bilinear_scaler.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/bmp_parser.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/buzzer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/cdc_bus_handshake.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/cdc_pulse.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/cdc_sync_bit.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/fat32_reader.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/font_rom.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/frame_reader.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/goertzel_spectrum.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_bch_ecc.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_packet_scheduler.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_terc4_encoder.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_tmds_encoder.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/hdmi_tx_core.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/key_debounce.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/latency_probe.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_async_fifo.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_audio_wave.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_board_inputs.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_call_cdc.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_call_feedback.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_dual_announcer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_dual_service.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_dual_ui_scene.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_media_control.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_room_service.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_sdram_adapter.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_service_guard.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_subtitle_notify.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_ui_scene.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_v03_inputs.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/medq_video_align.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/osd_compositor.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/osd_renderer.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/param_ctrl.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/queue_fsm.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/rst_sync.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sd_card_ctrl.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sd_spi_master.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sdram_arbiter.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/sdram_ctrl_wrap.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/seg_scan.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/spectrum_render.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/spi_flash_store.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/tmds_serdes.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/top.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/top_skeleton.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/transition_engine.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/uart_cmd.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/uart_rx.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/uart_tx.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/rtl/video_timing.v 
+-- Compiling module afifo_8i_32o_1024
+-- Compiling module fifo_cross_domain_addr_process_al_afifo_8i_32o_1024
+-- Compiling module ram_infer_afifo_8i_32o_1024
+-- Compiling module asset_loader
+-- Compiling module audio_announcer
+-- Compiling module audio_mixer
+-- Compiling module audio_pcm_player
+-- Compiling module audio_sample_clk
+-- Compiling module audio_tone_gen
+-- Compiling module av_sync_monitor
+-- Compiling module bilinear_scaler
+-- Compiling module bmp_parser
+-- Compiling module buzzer
+-- Compiling module cdc_bus_handshake
+-- Compiling module cdc_pulse
+-- Compiling module cdc_sync_bit
+-- Compiling module fat32_reader
+-- Compiling module font_rom
+-- Compiling module frame_reader
+-- Compiling module goertzel_spectrum
+-- Compiling module hdmi_bch_ecc
+-- Compiling module hdmi_packet_scheduler
+-- Compiling module hdmi_terc4_encoder
+-- Compiling module hdmi_tmds_encoder
+-- Compiling module hdmi_tx_core
+-- Compiling module key_debounce
+-- Compiling module latency_probe
+-- Compiling module medq_async_fifo
+-- Compiling module medq_audio_wave
+-- Compiling module medq_board_inputs
+-- Compiling module medq_call_cdc
+-- Compiling module medq_call_feedback
+-- Compiling module medq_dual_announcer
+-- Compiling module medq_dual_service
+-- Compiling module medq_dual_ui_scene
+-- Compiling module medq_media_control
+-- Compiling module medq_room_service
+-- Compiling module medq_sdram_adapter
+-- Compiling module medq_service_guard
+-- Compiling module medq_subtitle_notify
+-- Compiling module medq_ui_scene
+-- Compiling module medq_v03_inputs
+-- Compiling module medq_video_align
+-- Compiling module osd_compositor
+-- Compiling module osd_renderer
+-- Compiling module param_ctrl
+-- Compiling module queue_fsm
+-- Compiling module rst_sync
+-- Compiling module sd_card_ctrl
+-- Compiling module sd_spi_master
+-- Compiling module sdram_arbiter
+-- Compiling module sdram_ctrl_wrap
+-- Compiling module seg_scan
+-- Compiling module spectrum_render
+-- Compiling module spi_flash_store
+-- Compiling module tmds_serdes
+-- Compiling module top
+-- Compiling module top_skeleton
+-- Compiling module transition_engine
+-- Compiling module uart_cmd
+-- Compiling module uart_rx
+-- Compiling module uart_tx
+-- Compiling module video_timing
+
+Top level modules:
+	afifo_8i_32o_1024
+	hdmi_bch_ecc
+	medq_call_cdc
+	medq_call_feedback
+	medq_sdram_adapter
+	top
+	top_skeleton
+End time: 14:20:12 on Nov 03,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+[exit code 0]
+
+===== vlog testbench =====
+$ C:\modeltech64_10.4\win64\vlog.exe -sv -work work +incdir+C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb +define+SIMULATION C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/medq_dual_ui_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/osd_compositor_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/osd_renderer_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/queue_fsm_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/sd_card_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/sim_anlogic_stubs.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/spectrum_render_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_goertzel_single.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+Start time: 14:20:12 on Nov 03,2026
+vlog -sv -work work "+incdir+C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb" "+define+SIMULATION" C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/medq_dual_ui_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/osd_compositor_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/osd_renderer_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/queue_fsm_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/sd_card_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/sim_anlogic_stubs.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/spectrum_render_reference_model.v C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_goertzel_single.v 
+-- Compiling module medq_dual_ui_reference_model
+-- Compiling module osd_compositor_reference
+-- Compiling module osd_renderer_reference
+-- Compiling module queue_fsm_reference
+-- Compiling module sd_card_model
+-- Compiling module clk_wize
+-- Compiling module pll_mem
+** Warning: (vlog-2083) C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/spectrum_render_reference_model.v(4): Carriage return (0x0D) is not followed by a newline (0x0A).
+
+** Warning: (vlog-2083) C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/spectrum_render_reference_model.v(6): Carriage return (0x0D) is not followed by a newline (0x0A).
+
+** Warning: (vlog-2083) C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/spectrum_render_reference_model.v(12): Carriage return (0x0D) is not followed by a newline (0x0A).
+
+** Warning: (vlog-2083) C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/spectrum_render_reference_model.v(15): Carriage return (0x0D) is not followed by a newline (0x0A).
+
+-- Compiling module spectrum_render_reference
+-- Compiling module tb_goertzel_single
+
+Top level modules:
+	medq_dual_ui_reference_model
+	osd_compositor_reference
+	osd_renderer_reference
+	queue_fsm_reference
+	sd_card_model
+	clk_wize
+	pll_mem
+	spectrum_render_reference
+	tb_goertzel_single
+End time: 14:20:12 on Nov 03,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 4
+
+[exit code 0]

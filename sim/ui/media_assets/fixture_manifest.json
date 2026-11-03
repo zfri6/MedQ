@@ -1,0 +1,414 @@
+{
+  "sectors": 6144,
+  "spc": 8,
+  "fat_sectors": 8,
+  "directory_order": [
+    {
+      "name": "CLIP14.PCM",
+      "cluster": 3,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "97f9cf7197a351c4534333d7797a77695d90c4a0fe42625fe24c0d417299fb5a"
+    },
+    {
+      "name": "CLIP16.PCM",
+      "cluster": 4,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "3208ff3db4f173aedd440dd7d9de5bff80a9186dcd6fe15c06356037bd7fb445"
+    },
+    {
+      "name": "CLIP23.PCM",
+      "cluster": 5,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "a8e7910c2d5bbb2f2a6dfec8bbf62be71df08fa9a4f6961b7e553173db6452be"
+    },
+    {
+      "name": "CLIP29.PCM",
+      "cluster": 6,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "950d47c9137b52d05206ad9bb6535e29cbea0067aa49aea54261ba37bebe8b31"
+    },
+    {
+      "name": "CLIP33.PCM",
+      "cluster": 7,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "1c68a30f23793dc3787840e0f04d78c1d1005572cb3bd91c9a64f28d4d02d2f7"
+    },
+    {
+      "name": "CLIP30.PCM",
+      "cluster": 8,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "da114cfb99fdd0c0534ba287b58911da23f1a0e55eb66fd3feb9736549112cb7"
+    },
+    {
+      "name": "CLIP32.PCM",
+      "cluster": 9,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "2d2ce00f0ef17cdcea08d4a654d8b6608544d67a76707f640d7ee45d739f984e"
+    },
+    {
+      "name": "CLIP26.PCM",
+      "cluster": 10,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "611ed84af753033efe040966387017a9fa36d5ac68712525a3b64aeff62e23c9"
+    },
+    {
+      "name": "CLIP17.PCM",
+      "cluster": 11,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "0f45040b2c18dc6d7a863307de3295ee79178674d3c37583e1fee8f3b6708e46"
+    },
+    {
+      "name": "CLIP46.PCM",
+      "cluster": 12,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "13444679b3d2bff096fed0c1463509b3dca98665c6194c0b080409cf386bd553"
+    },
+    {
+      "name": "CLIP13.PCM",
+      "cluster": 13,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "6fa8aa11cd81a7aa29f920e6378c8f902375df6c8a53a87ee0e07b1561d293fc"
+    },
+    {
+      "name": "CLIP43.PCM",
+      "cluster": 14,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "7c3fda50cefe2368520cd9ef31ec282cbf837b0da282e0b80312e2a66b909bd7"
+    },
+    {
+      "name": "CLIP48.PCM",
+      "cluster": 15,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "fefb74ddc7af5ffadfa7a83a450a2ad70d16743736793470e0f47ab169fc3ac8"
+    },
+    {
+      "name": "CLIP06.PCM",
+      "cluster": 16,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "b9a92b32d12d8278f5c10b18664d5af6a7553e5a26ef5cf627225413e4c67ad7"
+    },
+    {
+      "name": "CLIP41.PCM",
+      "cluster": 17,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "46164c3159a2ffbc9c78566552c015b4cdd900cb032cd6d6788b66b8d910319a"
+    },
+    {
+      "name": "CLIP07.PCM",
+      "cluster": 18,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "5074d765a4846847403b9c4f6d08a9c578d3cd41035fbb688a729fefc4ed68e8"
+    },
+    {
+      "name": "CLIP40.PCM",
+      "cluster": 19,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "7a7f9d6fdff764655b32a41f52c2d03834b5ae9530f5a59343bfb1b64f3872c7"
+    },
+    {
+      "name": "CLIP00.PCM",
+      "cluster": 20,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "2aafef5bd6d589b7e1ced45be39128e9e2601e501f3d8f1a15db210929690009"
+    },
+    {
+      "name": "CLIP28.PCM",
+      "cluster": 21,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "da2ac416e81026380296db8dc64a4faabf29785b3f45e456dbeebc64cd233e65"
+    },
+    {
+      "name": "DOC02.BMP",
+      "cluster": 22,
+      "bytes": 921654,
+      "clusters": 226,
+      "sha256": "c88791ac05e6f4c17b4f3558d418889acf748c1b025b298d9f37729d412787f6"
+    },
+    {
+      "name": "CLIP25.PCM",
+      "cluster": 248,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "f0fd09617fea61b6097dbbcff99ef3044a0a9b6569d5fd2c043b449c426f5eea"
+    },
+    {
+      "name": "CLIP53.PCM",
+      "cluster": 249,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "bececeb0c5af677107392c8a4fb6dbed1b09a39655545eabd452091aa29ea5ff"
+    },
+    {
+      "name": "CLIP21.PCM",
+      "cluster": 250,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "35ff90c644b9a36e93cd26264cbe166036c6efafc5bb641db8ee8c67dede1673"
+    },
+    {
+      "name": "CLIP36.PCM",
+      "cluster": 251,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "6721f16866427924c22ab00fe1ce0a96b5f0a818a93e46dfcfc1944693d312fe"
+    },
+    {
+      "name": "CLIP22.PCM",
+      "cluster": 252,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "6d0e0418f5c13657f546346f3b2392b77005c7dcc521fb3b062a9acad912639a"
+    },
+    {
+      "name": "CLIP15.PCM",
+      "cluster": 253,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "6eca062b90d3f4a303fed3743bb7d502b958330d7f91522547f2128931d2b1e2"
+    },
+    {
+      "name": "CLIP10.PCM",
+      "cluster": 254,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "31f8662f07cc1d4dc7b528c396687e9d67ae768ec61553d74a3e662a83d2e07f"
+    },
+    {
+      "name": "CLIP52.PCM",
+      "cluster": 255,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "7c0fe424aec794481ca243e94e1896f0cfea5c3d9e2fcc0b1fc3715014674d9f"
+    },
+    {
+      "name": "CLIP05.PCM",
+      "cluster": 256,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "b6fcfce4a59dd84c10b3cf935073b8d8668465ade262b44a008f851b91910223"
+    },
+    {
+      "name": "UNUSED.BMP",
+      "cluster": 257,
+      "bytes": 31,
+      "clusters": 1,
+      "sha256": "b930e95403bf4babe9e48a09acc731021b95234ccabfe805ed6ce576510643c0"
+    },
+    {
+      "name": "CLIP19.PCM",
+      "cluster": 258,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "82001f6c49d68fbf0f7287204074864acee7a5320530d1ea3a9da71ac8e230a2"
+    },
+    {
+      "name": "CLIP50.PCM",
+      "cluster": 259,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "2f30d08b0bdc9e2380431f74ec30f97fe2e0d06acfd64c80438eb380b80ba937"
+    },
+    {
+      "name": "CLIP08.PCM",
+      "cluster": 260,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "21a57d7a72798204ebc6f084d556669b061c94724296f938cb4393527c9a8c12"
+    },
+    {
+      "name": "CLIP24.PCM",
+      "cluster": 261,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "d7c2dedfe450f3a7792d404e7fc0cd797322f15f8a2813f40680cf9b2cfd0b2e"
+    },
+    {
+      "name": "CLIP20.PCM",
+      "cluster": 262,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "d66da2124c81b9290810f8b03f3d8f4c69d64276a3a443a72cdf659510243c5a"
+    },
+    {
+      "name": "CLIP44.PCM",
+      "cluster": 263,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "a0786c42e038adc82851349b5ebe0a6698a622a7073fc1a11671c8e8f4ea51b1"
+    },
+    {
+      "name": "CLIP39.PCM",
+      "cluster": 264,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "040a6d3d7b92e3141c114c933c5b6a2f83eb05ba32d858e4ca1de8847cd2e406"
+    },
+    {
+      "name": "CLIP31.PCM",
+      "cluster": 265,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "5b761c452b473d8ac3f2ca35c1ffacd2da24f460c79f7bb12fb943032dcc07ef"
+    },
+    {
+      "name": "CLIP38.PCM",
+      "cluster": 266,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "522ed7d5bb81b9c18b0f76fc3786be78448803ee6d442040cd058a14456c19b5"
+    },
+    {
+      "name": "CLIP03.PCM",
+      "cluster": 267,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "5c9fc01d9027f3e21dfd2e46acd9585519f850acde9cb460c9713a00b03516a2"
+    },
+    {
+      "name": "CLIP04.PCM",
+      "cluster": 268,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "413479c7153a07031362333a8db8b7a9ab5b751b3a5c667e0c75368146f84d23"
+    },
+    {
+      "name": "CLIP02.PCM",
+      "cluster": 269,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "4e7caf1ba3541d1076a1026e9aa590b99e0df18cf5df2993abef62d69b589b66"
+    },
+    {
+      "name": "CLIP37.PCM",
+      "cluster": 270,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "8d6f36a02fc687e0a047d3f586c90d83639b30b91ccd3dbe16af09dbce0b85c0"
+    },
+    {
+      "name": "CLIP18.PCM",
+      "cluster": 271,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "f005dc4416939726877398b683ddd0ed34f7d78bad757e116e10bf199fb9f6fb"
+    },
+    {
+      "name": "CLIP42.PCM",
+      "cluster": 272,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "a6831f6a521d129c53527e4000a07f23219fdb30eb8bffc2b0fc8ad62e7710aa"
+    },
+    {
+      "name": "CLIP47.PCM",
+      "cluster": 273,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "5b06ec5b1544ec45d3c67d1950ea740d2cc2da06ab970ec4b1ca46ad2c618869"
+    },
+    {
+      "name": "CLIP11.PCM",
+      "cluster": 274,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "6d078e5b199896364da2a8439b40f2cb54a6a371ad651a444839b83c95cdb3a5"
+    },
+    {
+      "name": "CLIP35.PCM",
+      "cluster": 275,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "dd28b1f9015a4f4df3f4208bdc3bd427fd6cd2217c51da49a5c0dbf13b6e8f52"
+    },
+    {
+      "name": "CLIP12.PCM",
+      "cluster": 276,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "635a3f1224b33173178334b749b43add6980969620741bc3d7bc60a6422ca6cc"
+    },
+    {
+      "name": "CLIP51.PCM",
+      "cluster": 277,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "24836f886cb166f5a9465e10e8c2821e7d12232deccb88861190c965eee204ca"
+    },
+    {
+      "name": "CLIP45.PCM",
+      "cluster": 278,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "4b4a3d5284b3475cf82c083a904dd498a69188034f7e161022623c1d7218b979"
+    },
+    {
+      "name": "COVER.BMP",
+      "cluster": 279,
+      "bytes": 921654,
+      "clusters": 226,
+      "sha256": "ef493ecdc26838aa05788cf264184d92ed4a7def5419151f3d8fe338a68e2c6c"
+    },
+    {
+      "name": "CLIP09.PCM",
+      "cluster": 505,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "b34760589380e1abc1c1e41ffbdaabae6988995d2f2013867c280896eb054bd3"
+    },
+    {
+      "name": "CLIP34.PCM",
+      "cluster": 506,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "3d210841b6e6b291918a40bbbba55a6011ffab96313f491cb5e37673e4e9d38a"
+    },
+    {
+      "name": "CLIP27.PCM",
+      "cluster": 507,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "44ba013b15588f85aaf44e711eac5a0b5ca0f05ce886ef1db7ffcae8bfcdc3bc"
+    },
+    {
+      "name": "CLIP49.PCM",
+      "cluster": 508,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "79465b1260b02cdfd4307210cf1e1a8078b1b56dfb6cd3b867aae31d8d9c4daf"
+    },
+    {
+      "name": "DOC01.BMP",
+      "cluster": 509,
+      "bytes": 921654,
+      "clusters": 226,
+      "sha256": "be94e60a122672c5988cdf4fe7574f2788f223987fa99a6e0d7527ca723d3de0"
+    },
+    {
+      "name": "CLIP01.PCM",
+      "cluster": 735,
+      "bytes": 6,
+      "clusters": 1,
+      "sha256": "1006da04c025cb270d5de7ac9ef08b1ed16b2df149afe58144ca853fc8aa9d2e"
+    }
+  ],
+  "fixture_sha256": "a4cbd9c59d6d94e7cc0f4fac5854c642bccefc20ffb0f668aeec690f2a8d7bb7"
+}

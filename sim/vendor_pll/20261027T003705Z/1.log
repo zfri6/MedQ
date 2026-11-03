@@ -1,0 +1,26 @@
+$ C:\modeltech64_10.4\win64\vlog.exe -work work eg_logic_clk.v eg_phy_pll.v eg_phy_glbl.v medq_pll.v sys_pll.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+Start time: 08:37:05 on Oct 27,2026
+vlog -work work eg_logic_clk.v eg_phy_pll.v eg_phy_glbl.v medq_pll.v sys_pll.v 
+-- Compiling module EG_LOGIC_BUFG
+-- Compiling module EG_LOGIC_BUFIO
+-- Compiling module EG_LOGIC_BUFGMUX
+-- Compiling module EG_PHY_PLL
+-- Compiling module prediv_mux
+-- Compiling module eg_dphase_sel
+-- Compiling module eg_clko_premux
+-- Compiling module eg_clko_ctrl
+-- Compiling module eg_pll_div128
+-- Compiling module eg_pll_div2
+-- Compiling module glbl
+-- Compiling module medq_pll
+-- Compiling module sys_pll
+
+Top level modules:
+	EG_LOGIC_BUFIO
+	EG_LOGIC_BUFGMUX
+	glbl
+	medq_pll
+	sys_pll
+End time: 08:37:06 on Oct 27,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

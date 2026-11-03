@@ -1,0 +1,2997 @@
+
+=== PDF PAGE 1 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TangDynasty® TCL Command User Guide 
+ 
+ 
+上海安路信息科技股份有限公司 
+ 
+SWUG_105（V1.0）2024 年 11月 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PDF PAGE 2 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com I 
+2024.11   
+ 
+目 录 
+目 录 ................................ ......................  I 
+1 概述 ................................ .....................  1 
+2 Tcl 命令及脚本的运行方法 ................................ .. 1 
+2.1 在TD 界面模式下Console 窗口运行 ........................................... 1 
+2.2 TD 命令模式下运行 .......................................................... 1 
+2.2.1 Windows 系统 ......................................................... 1 
+2.2.2 Linux 系统 ........................................................... 2 
+3 Tcl 脚本运行工程 ................................ .......... 3 
+3.1 工程模式 .................................................................. 3 
+3.1.1 工程模式脚本结构 .................................................... 3 
+3.1.2 工程模式脚本示例 .................................................... 3 
+3.2 非工程模式 ................................................................ 5 
+3.2.1 非工程模式脚本结构 .................................................. 5 
+3.2.2 非工程模式脚本示例 .................................................. 5 
+3.3 使用现有工程运行single run 模式 ........................................... 6 
+3.3.1 single run 脚本结构 .................................................. 6 
+3.3.2 single run 脚本示例 .................................................. 6 
+3.4 更多示例 .................................................................. 7 
+4 Tcl 命令 ................................ ................ 10 
+4.1 工程管理 ................................................................. 10 
+4.1.1 import_device ...................................................... 10 
+4.1.2 create_project ..................................................... 10 
+4.1.3 open_project ....................................................... 11 
+=== PDF PAGE 3 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com II 
+2024.11   
+ 
+4.1.4 close_project ...................................................... 12 
+4.1.5 top_module ......................................................... 12 
+4.1.6 add_files .......................................................... 12 
+4.1.7 add_dir ............................................................ 13 
+4.1.8 add_include_dir .................................................... 14 
+4.1.9 create_run ......................................................... 14 
+4.1.10 launch_runs ....................................................... 16 
+4.1.11 open_run .......................................................... 16 
+4.1.12 wait_run .......................................................... 17 
+4.1.13 reset_runs ........................................................ 17 
+4.1.14 set_param ......................................................... 18 
+4.1.15 report_param ...................................................... 18 
+4.1.16 clear_param ....................................................... 19 
+4.1.17 set_seed_param .................................................... 19 
+4.1.18 report_seed_param ................................................. 21 
+4.1.19 save_best_bits .................................................... 21 
+4.1.20 save_design ....................................................... 21 
+4.1.21 generate_elaborate_package ........................................ 21 
+4.2 Syn/Phy Properties 设置 ................................................... 22 
+4.2.1 Syn/Phy Properties(Parameters) ..................................... 22 
+4.2.2 参数释义 ........................................................... 23 
+4.2.3 使用说明及命令示例 ................................................. 23 
+4.3 文件输入输出 ............................................................. 24 
+4.3.1 read_hdl ........................................................... 24 
+4.3.2 read_adc ........................................................... 25 
+4.3.3 read_ip_adc ........................................................ 26 
+4.3.4 read_sdc ........................................................... 26 
+=== PDF PAGE 4 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com III 
+2024.11   
+ 
+4.3.5 clear_adc .......................................................... 27 
+4.3.6 clear_sdc .......................................................... 27 
+4.3.7 write_verilog ...................................................... 27 
+4.3.8 write_sdf .......................................................... 28 
+4.3.9 import_db .......................................................... 28 
+4.3.10 export_db ......................................................... 29 
+4.4 时序约束 ................................................................. 30 
+4.4.1 对象获取命令 ....................................................... 30 
+4.4.2 all_clocks ......................................................... 31 
+4.4.3 all_inputs ......................................................... 31 
+4.4.4 all_outputs ........................................................ 32 
+4.4.5 all_registers ...................................................... 33 
+4.4.6 get_ports .......................................................... 33 
+4.4.7 get_cells .......................................................... 34 
+4.4.8 get_nets ........................................................... 35 
+4.4.9 get_regs ........................................................... 36 
+4.4.10 get_pins .......................................................... 37 
+4.4.11 get_clocks ........................................................ 37 
+4.4.12 create_clock ...................................................... 38 
+4.4.13 create_generated_clock ............................................ 40 
+4.4.14 derive_clocks ..................................................... 42 
+4.4.15 rename_clock ...................................................... 43 
+4.4.16 set_clock_latency ................................................. 44 
+4.4.17 set_clock_uncertainty ............................................. 46 
+4.4.18 set_input_delay ................................................... 47 
+4.4.19 set_output_delay .................................................. 49 
+4.4.20 set_min_delay ..................................................... 52 
+=== PDF PAGE 5 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com IV 
+2024.11   
+ 
+4.4.21 set_max_delay ..................................................... 54 
+4.4.22 set_multicycle_path ............................................... 56 
+4.4.23 set_false_path .................................................... 59 
+4.4.24 set_clock_groups .................................................. 60 
+4.4.25 set_clock_sense ................................................... 61 
+4.4.26 set_clock_route_enforce ........................................... 62 
+4.4.27 set_clock_route ................................................... 62 
+4.4.28 set_cross_domain_timing ........................................... 63 
+4.5 分步运行命令 ............................................................. 64 
+4.5.1 elaborate .......................................................... 64 
+4.5.2 optimize_rtl ....................................................... 64 
+4.5.3 optimize_gate ...................................................... 64 
+4.5.4 map_macro .......................................................... 65 
+4.5.5 map ................................................................ 65 
+4.5.6 pack ............................................................... 65 
+4.5.7 legalize_phy_inst .................................................. 65 
+4.5.8 place .............................................................. 66 
+4.5.9 route .............................................................. 66 
+4.6 优化命令 ................................................................. 67 
+4.6.1 phys_opt ........................................................... 67 
+4.6.2 fix_hold ........................................................... 67 
+4.7 设计分析 ................................................................. 68 
+4.7.1 report_area ........................................................ 68 
+4.7.2 report_logic_level ................................................. 68 
+4.7.3 report_hfn ......................................................... 69 
+4.7.4 report_analysis .................................................... 70 
+4.7.5 report_cells ....................................................... 71 
+=== PDF PAGE 6 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com V 
+2024.11   
+ 
+4.7.6 report_nets ........................................................ 72 
+4.7.7 report_qor ......................................................... 73 
+4.8 时序分析 ................................................................. 74 
+ report_timing_summary ................................................ 74 
+4.8.1 report_timing_path ................................................. 75 
+4.8.2 report_clock_intersection .......................................... 76 
+4.8.3 report_clock_summary ............................................... 76 
+4.8.4 report_timing_exception ............................................ 77 
+4.8.5 report_timing_ignored .............................................. 77 
+4.8.6 update_timing ...................................................... 78 
+4.8.7 check_timing ....................................................... 79 
+4.9 位流文件生成器 ........................................................... 80 
+4.9.1 bitgen ............................................................. 80 
+附录一 Device db 文件名 ................................ .... 83 
+版本信息 ................................ .................. 84 
+免责声明 ................................ .................. 84 
+ 
+    
+=== PDF PAGE 7 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 1 
+2024.11   
+ 
+1 概述 
+TangDynasty®（TD） 支持使用Tcl 命令行或 Tcl 脚本来执行 FPGA 设计流程。本文介绍 TD 支持的 Tcl
+命令以及使用方法。 
+2 Tcl 命令及脚本的运行方法 
+2.1 在 TD界面模式下 Console 窗口运行 
+在GUI 界面中，在Console 窗口可以运行Tcl 命令。 
+ 
+图 2-1 Console 窗口运行 Tcl 命令 
+注： 
+在 Console 窗口中，Tcl 命令须在适当的阶段运行， 例如在open_run phy_1 后不能在Console 运行Syn
+阶段的Flow Step 命令(elaborate/optimize_rtl/optimize_gate 等)。 
+2.2 TD 命令模式下运行 
+2.2.1 Windows系统 
+1. 在 Windows 下启动 TD CMD 窗口：  
+Start → All Programs → td_commands_prompt 
+2. 运行Tcl 命令：在此CMD 窗口中可直接运行单独的Tcl 命令； 
+3. 运行Tcl 脚本：进入Tcl 脚本所在目录，执行命令source demo.tcl 
+
+=== PDF PAGE 8 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 2 
+2024.11   
+ 
+ 
+图 2-2 Windows CMD窗口运行 Tcl脚本 
+2.2.2 Linux系统 
+ TD Shell 中执行 
+1. Linux 下 TD 命令模式启动：/td_install_dir/td.sh 
+2. 运行Tcl 命令：在此Shell 中可直接运行单独的Tcl 命令； 
+3. 运行Tcl 脚本：进入Tcl 脚本所在目录，执行命令source test.tcl 
+ 
+图 2-3  Linux Terminal 中运行 Tcl 脚本 
+ 启动TD 命令模式时直接执行 
+1. 在Terminal 中，进入tcl 脚本所在目录 
+2. /td_install_dir/td.sh demo.tcl 
+  
+
+=== PDF PAGE 9 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 3 
+2024.11   
+ 
+3 Tcl 脚本运行工程 
+本节介绍如何编写完整的TD Tcl 脚本运行整个流程。主要分为工程模式和非工程模式。 
+3.1 工程模式 
+工程模式需要先用Tcl 命令创建一个TD 工程，基于此工程管理的方式来进行后续流程的命令。 
+3.1.1 工程模式脚本结构 
+1. 创建工程（create_project） 
+2. 打开工程（open_project） 
+3. 设置工程top module 名字（top_module） 
+4. 添加源文件和约束文件（add_files） 
+5. 如果需要多个run，添加run（create_run） 
+创建工程后，syn_1 和 phy_1 是默认就存在的，不需要再创建。 
+6. 设置参数（set_param） 
+a) multi run 模式下set_param 命令需使用-run 选项指定参数设置对应的run 名称。 
+b) 可以使用set_seed_param 为active run 设置multi seeds，同时需要设置enable_seed
+参数为on 
+7. 启动运行并等待运行结束（launch_runs, wait_run） 
+8. 筛选并保存最好结果（save_best_bits） 
+9. 关闭工程（close_project） 
+3.1.2 工程模式脚本示例 
+以下为包含multi runs 和multi seeds 功能的脚本示例： 
+create_project test ./ -family ph1 -device PH1A100SFG676 -speed 2 
+open_project ./test.al 
+ 
+top_module run_led 
+ 
+=== PDF PAGE 10 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 4 
+2024.11   
+ 
+add_files ./run_led.v 
+add_files ./top.adc 
+add_files ./top.sdc 
+ 
+# Creating a new run phy_2 
+create_run -constrset constraint_1 -syn_run syn_1 phy_2 
+ 
+set_param -run syn_1 flow qor_monitor on 
+set_param -run syn_1 rtl reg_threshold 0 
+set_param -run syn_1 gate pack_seq_in_io off 
+set_param -run phy_1 place pr_strategy 1 
+set_param -run phy_2 place pr_strategy 2 
+ 
+# Set multi_seed for active run 
+set_param -run phy_1 flow enable_seed on 
+set_seed_param -num 6 -init 5 -step 5 -jobs 3 
+ 
+# Resetting Syn run will automatically reset all Phy runs under the Syn run. 
+reset_runs syn_1 
+launch_runs {syn_1 phy_1 phy_2} -jobs 2 
+ 
+wait_run syn_1 -quiet 
+wait_run phy_1 -quiet 
+wait_run phy_2 -quiet 
+ 
+save_best_bits 
+close_project 
+=== PDF PAGE 11 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 5 
+2024.11   
+ 
+ 
+3.2 非工程模式 
+3.2.1 非工程模式脚本结构 
+1. import_device 
+2. 设置参数（set_param） 
+3. 添加源文件（read_hdl） 
+4. 添加约束文件，运行综合阶段分步命令以及每个步骤后需要产生各种报告和输出文件的命令 
+注：read_adc 需在optmize_rtl 前执行， read_sdc 及read_sdc -ip 需在optimize_gate 或
+map_macro 前执行。 
+5. legalize_phy_inst 命令 
+6. read_sdc 及read_sdc -ip 再次读入SDC 文件 
+7. 布局布线阶段分布命令以及每个步骤后需要产生各种报告和输出文件的命令 
+3.2.2 非工程模式脚本示例 
+import_device ph1_100.db -package PH1A100SFG676 -speed 2 
+ 
+set_param flow qor_monitor on 
+set_param rtl reg_threshold 0 
+set_param gate pack_seq_in_io off 
+set_param place pr_strategy 1 
+ 
+read_hdl -file {./run_led.v} -top run_led 
+ 
+read_adc ./top.adc 
+optimize_rtl 
+ 
+read_sdc ./top.sdc 
+optimize_gate 
+legalize_phy_inst 
+read_sdc ./top.sdc 
+ 
+export_db ./gate.db 
+report_qor -step gate -file gate.qor 
+report_area -file gate.area 
+ 
+=== PDF PAGE 12 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 6 
+2024.11   
+ 
+place 
+report_qor -step place -file place.qor 
+update_timing -mode manhattan 
+report_timing_summary -file place_timing_smry.rpt 
+ 
+route 
+export_db ./route.db 
+report_qor -step route -file route.qor 
+report_area -file route.area 
+update_timing -mode final 
+report_timing_summary -file route_timing_smry.rpt 
+ 
+bitgen -bit ./run_led.bit 
+ 
+3.3 使用现有工程运行 single run 模式 
+在现有工程中，源文件已经完成添加，可以直接使用此工程以single run 模式运行流程，省去添
+加源文件的步骤。 
+3.3.1 single run脚本结构 
+1. import_device 
+2. 以 single run 模式打开工程（open_project） 
+3. 设置参数（set_param） 
+4. 添加约束文件，运行综合阶段分步命令以及每个步骤后需要产生各种报告和输出文件的命令 
+注：read_adc 需在optmize_rtl 前执行， read_sdc 及read_sdc -ip 需在optimize_gate 或
+map_macro 前执行。 
+5. legalize_phy_inst 命令 
+6. read_sdc 及read_sdc -ip 再次读入SDC 文件 
+7. 布局布线阶段分布命令以及每个步骤后需要产生各种报告和输出文件的命令 
+3.3.2 single run脚本示例 
+import_device ph1_100.db -package PH1A100SFG676 -speed 2 
+open_project -single_run ./test.al 
+ 
+set_param -run syn_1 flow qor_monitor on 
+set_param -run syn_1 rtl reg_threshold 0 
+=== PDF PAGE 13 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 7 
+2024.11   
+ 
+set_param -run syn_1 gate pack_seq_in_io off 
+set_param -run phy_1 place pr_strategy 1 
+ 
+elaborate -top run_led 
+read_adc ./top.adc 
+optimize_rtl 
+ 
+read_sdc ./top.sdc 
+optimize_gate 
+legalize_phy_inst 
+read_sdc ./top.sdc 
+ 
+export_db ./gate.db 
+report_qor -step gate -file gate.qor 
+report_area -file gate.area 
+ 
+place 
+report_qor -step place –file place.qor 
+update_timing -mode manhattan 
+report_timing_summary -file place_timing_smry.rpt 
+ 
+route 
+export_db ./route.db 
+report_qor -step route -file route.qor 
+report_area -file route.area 
+update_timing -mode final 
+report_timing_summary -file route_timing_smry.rpt 
+ 
+bitgen -bit ./run_led.bit 
+close_project 
+ 
+3.4 更多示例 
+当需要在某个中间步骤后生成非默认产生的报告或输出文件时， 可以参考如下示例。此示例为工程
+模式脚本中，在optimize_gate 后产生logic level 分析报告： 
+import_device ph1_100.db -package PH1A100SFG676 -speed 2 
+create_project test ./ -family ph1 -device PH1A100SFG676 -speed 2 
+open_project ./test.al 
+top_module run_led 
+ 
+add_files ./run_led.v 
+add_files ./top.adc 
+=== PDF PAGE 14 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 8 
+2024.11   
+ 
+add_files ./top.sdc 
+ 
+set_param -run syn_1 flow qor_monitor on 
+set_param -run syn_1 rtl reg_threshold 0 
+set_param -run syn_1 gate pack_seq_in_io off 
+set_param -run phy_1 place pr_strategy 1 
+ 
+reset_runs syn_1 
+launch_runs syn_1 
+wait_run syn_1 -quiet 
+ 
+open_run syn_1 
+report_logic_level -file ./gate.logiclvl 
+ 
+legalize_phy_inst 
+read_sdc ./top.sdc 
+place 
+report_qor -step place -file place.qor 
+update_timing -mode manhattan 
+report_timing_summary -file place_timing_smry.rpt 
+ 
+route 
+export_db ./route.db 
+report_qor -step route -file route.qor 
+report_area -file route.area 
+update_timing -mode final 
+report_timing_summary -file route_timing_smry.rpt 
+ 
+bitgen -bit ./run_led.bit 
+close_project 
+ 
+同样的场景也可以使用下面的纯工程模式脚本，以下示例在optimize_rtl 和 optimize_gate 后产
+生中间网表文件。 
+import_device ph1_100.db -package PH1A100SFG676 -speed 2 
+create_project test ./ -family ph1 -device PH1A100SFG676 -speed 2 
+open_project ./test.al 
+top_module run_led 
+ 
+add_files ./run_led.v 
+add_files ./top.adc 
+add_files ./top.sdc 
+ 
+set_param -run syn_1 flow qor_monitor on 
+=== PDF PAGE 15 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 9 
+2024.11   
+ 
+set_param -run syn_1 rtl reg_threshold 0 
+set_param -run syn_1 gate pack_seq_in_io off 
+set_param -run phy_1 place pr_strategy 1 
+ 
+reset_runs syn_1 
+launch_runs -step rtl syn_1 
+wait_run syn_1 -quiet 
+open_run syn_1 
+write_verilog ./rtl.v 
+ 
+launch_runs -step gate syn_1 
+wait_run syn_1 -quiet 
+open_run syn_1 
+write_verilog ./gate.v 
+ 
+launch_runs -step bitgen phy_1 
+wait_run phy_1 -quiet 
+ 
+close_project 
+=== PDF PAGE 16 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 10 
+2024.11   
+ 
+4 Tcl 命令 
+本章节按照Tcl 命令的功能类别介绍各命令的用法。 
+4.1 工程管理 
+4.1.1 import_device 
+导入所使用的device。 
+命令参数： 
+import_device -package <package_name> [-speed <speed_number>] db_name 
+参数释义： 
+-package <package_name>:  
+（必选）指定导入device 的型号及封装 
+-speed <speed_number>:  
+（可选）指定导入device 的速度等级。若未使用此选项则使用该器件默认速度等级。 
+db_name:  
+（必选）指定导入device 的db 文件名。db 文件名列表见附件一。 
+命令示例： 
+import_device ph1_100.db -package PH1A100SFG676 -speed 2 
+4.1.2 create_project 
+创建工程，指定工程.al 文件所在路径，工程名称（即.al 文件名） ，以及所使用的器件 
+命令参数： 
+create_project <project_name> <project_directory> -family <device_family> -device <de
+vice_part_number> [-speed <speed_grade>] 
+参数释义： 
+project_name：  
+（必选）指定工程名称，即.al 文件名（不带.al 后缀） 。 
+project_directory： 
+=== PDF PAGE 17 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 11 
+2024.11   
+ 
+（必选）指定工程根路径，即.al 文件所在绝对路径或相对路径。 
+-family <device_family>： 
+（必选）指定所使用器件的family。具体器件列表见附录一 
+-device <device_part_number>： 
+（必选）指定所使用器件的型号。具体器件列表见附录一 
+-speed <speed_grade>： 
+（可选）指定所使用器件的速度等级。若未使用此选项则使用该器件默认速度等级。 
+注： 
+ project_name 和 project_directory 两个参数所在的位置不限，但是 project_name 需要在
+project_directory 的前面. 
+ project_directory（除目录分隔符“/”以外）禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+ project_name 禁用以下字符：*\/|:”?<>CS 且不能以数字开头。 
+命令示例： 
+create_project test ./ -family ph1 -device PH1A100SFG676 -speed 2 
+create_project test -family ph1 -device PH1A100SFG676 ./ 
+4.1.3 open_project 
+通过.al 文件打开工程，默认以multi_run 模式打开。 
+命令参数： 
+open_project [-single_run] <project_file> 
+参数释义： 
+project_file:  
+（必选）.al 文件的绝对路径或相对路径及文件名。 
+-single_run:  
+（可选）是否以single_run 模式打开工程。若不使用此选项，则为默认multi_run 模式。 
+注： 
+ .al 文件目录（除目录分隔符“/”以外）禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+ .al 文件名禁用以下字符：*\/|:”?<>CS 且不能以数字开头。 
+命令示例： 
+=== PDF PAGE 18 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 12 
+2024.11   
+ 
+打开tcl 脚本所在目录下的example.al 工程： 
+open_project ./example.al 
+4.1.4 close_project 
+关闭当前工程。 
+命令参数： 
+close_project 
+4.1.5 top_module 
+工程模式下，设置design 的top module 名字。 
+命令参数： 
+top_module <top_name> 
+参数释义： 
+top_name:  
+（必选）工程top module 的名字 
+命令示例： 
+top_module my_top 
+4.1.6 add_files 
+向工程中添加文件，可以添加HDL 代码源文件，adc 或 sdc 约束文件，ip 文件。 
+命令参数： 
+add_files [-list <.list/.slist file>] [<file_path_name>] 
+参数释义： 
+-list <.list/.slist file>:  
+（可选）指定列表文件.list 或.slist 来添加源文件。其中.list 文件由GUI project 中导出
+（Project -> Export -> Export Soource File List）；.slist 文件由用户创建，使用.slist
+添加源文件无法指定fileset。格式如下： 
+<absolute or relative path>/<file1 name> 
+<absolute or relative path>/<file2 name> 
+=== PDF PAGE 19 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 13 
+2024.11   
+ 
+<absolute or relative path>/<file2 name> 
+…… 
+其中，相对路径以.al 文件所在路径为当前目录。以下为.slist 内容的一个例子： 
+./src/define.v 
+./src/top.v 
+./src/led_output.v 
+file_path_name: 
+（可选）指定添加单个或一组源文件的绝对路径或相对路径及文件名。 若为一组文件， 则写在
+大括号{}内，文件之间以空格分隔。 
+注： 
+ 文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+ .list/.slist 文件名禁用以下字符：*\/|:”?<>C;S 且不能以数字开头。 
+命令示例： 
+1）add_files {./src/devine.v ./src/top.v} 
+2）add_files -list srcfiles.list 
+3）add_files -list srcfiles.slist 
+4.1.7 add_dir 
+将一个路径下的.v/.vhd/.vhdl/.sv/.ipc 文件添加进工程，不包含.adc,.sdc 约束文件 
+命令参数： 
+add_files [-r] <dir> 
+参数释义： 
+-r:  
+（可选）递归地搜索dir 下的所有子路径 
+dir: 
+（必选）添加的源文件所在的绝对路径或相对于.al 文件所在目录的相对路径 
+注： 
+文件路径（除目录分隔符“/”以外）禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+=== PDF PAGE 20 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 14 
+2024.11   
+ 
+命令示例： 
+add_dir -r ./src 
+4.1.8 add_include_dir 
+添加include 路径,默认递归搜索。 
+命令参数： 
+add_include_dir <dir> 
+参数释义： 
+dir: 
+（必选）include 文件所在的路径， 
+注： 
+文件路径（除目录分隔符“/”以外）禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+add_include_dir ./src/include_files 
+4.1.9 create_run 
+创建multi run。 
+命令参数： 
+create_run [-syn_run <syn_run_name>] -constrset <constrset_name> <run_name> 
+参数释义： 
+-syn_run <syn_run_name>: 
+（可选）当创建phy run 时， 需指定此选项， 其中syn_run_name 为phy run 所继承的syn run
+的名字，如syn_1 
+-constrset <constrset_name>： 
+（必选）指定所创建的run 使用的约束集 
+run_name： 
+（必选）所创建的run 设定的名字，如syn_2, phy_3 
+注： 
+=== PDF PAGE 21 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 15 
+2024.11   
+ 
+run 的命名禁用以下字符：*\/|:”?[]<>C 且不能以数字开头。 
+命令示例： 
+create_run -constrset constraint_1 syn_1 
+create_run -syn_run syn_1 -constrset constraint_1 phy_2 
+  
+=== PDF PAGE 22 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 16 
+2024.11   
+ 
+4.1.10 launch_runs 
+启动multi runs 
+命令参数： 
+launch_runs [-step <design/rtl/gate/place/route/bitgen>] [-jobs <int>] <run_name_lis
+t> 
+参数释义： 
+-step <design/rtl/gate/place/route/bitgen>: 
+（可选）启动 run 运行到指定step。可取值为design,rtl,gate,place,route,bitgen。当不
+使用此选项时，syn 默认运行到gate step，phy 默认运行到bitgen step。 
+-jobs <int>： 
+（可选）设置最大并行数量。其取值范围为1-6。默认为1。 
+run_name_list： 
+（必选）待启动run 的名字。若为一次性启动多个run， 则写在大括号{}内， 不同run name 之
+间以空格分隔。 
+命令示例： 
+launch_runs {phy_1 phy_2} -jobs 2 
+4.1.11 open_run 
+打开指定run 当前运行完的step 的db。 
+命令参数： 
+open_run <run_name> 
+参数释义： 
+run_name： 
+（必选）指定要打开db 的run 的名字 
+命令示例： 
+open_run syn_1 
+  
+=== PDF PAGE 23 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 17 
+2024.11   
+ 
+4.1.12 wait_run 
+等待当前run 结束再进行下一个命令。默认在等待过程中会不断输出信息。 
+命令参数： 
+wait_run [-quiet] <run_name> 
+参数释义： 
+-quiet: 
+（可选）关闭打印输出。若不是用此选项，则默认在等待过程中不断输出打印信息。 
+run_name： 
+（必选）当前正在运行的run 的名字 
+命令示例： 
+wait_run syn_1 
+4.1.13 reset_runs 
+回退指定的run。默认回退run 至初始状态。 
+命令参数： 
+reset_runs <run_name_list> [-prev_step] [-f] 
+参数释义： 
+run_name_list： 
+（必选）待回退run 的名字。 若为一次性回退多个run， 则写在大括号{}内， 不同run name 之
+间以空格分隔。 
+-prev_step： 
+（可选）使用此选项时，将run 仅回退至前一个步骤。不使用此选项时，回退至初始状态。 
+-f： 
+（可选）将该 run 的文件夹删除，只在不使用-prev_step 选项时生效。 
+命令示例： 
+reset_runs {phy_1 phy_2} 
+  
+=== PDF PAGE 24 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 18 
+2024.11   
+ 
+4.1.14 set_param 
+设置各step 的参数。 
+命令参数： 
+set_param [-run <run_name>] <step_name> <param> <value> 
+参数释义： 
+-run <run_name>: 
+（可选）指定将参数设置到某一个run 中。在GUI Console 或multi_run 模式的脚本中此项为
+必选项，  
+step_name： 
+（必选）指定 step， 可取值为flow，design，rtl，gate，place，route，timing，sim，bitgen 
+param： 
+（必选）指定参数名 
+value： 
+（必选）设置参数值 
+命令示例： 
+set_param gate map_strategy 2 
+set_param -run phy_1 route fix_hold on 
+注： 
+step, param 和 value 的详细信息和关系，请见“SYN Properties 设置”和“PHY properties 设置”
+章节。 
+4.1.15 report_param 
+打印db 中的参数。在不加任何options 时，打印db 中非默认的参数和参数值。 
+命令参数： 
+report_param [-file <file_path_name>] [-detail] [-stage <flow/design/rtl/gate/place/r
+oute/timing/sim/bitgen>]  
+参数释义： 
+-file <file_path_name>： 
+=== PDF PAGE 25 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 19 
+2024.11   
+ 
+（可选） 将结果输出到文件中。file_path_name 为输出文件的绝对路径或相对路径及文件名。 
+-detail: 
+（可选）非默认和默认的参数均打印。当不使用此选项时，只打印非默认的参数。 
+-stage <stage_name>： 
+（可选）仅打印指定stage 的参数，stage_name 可取值为flow，design，rtl，gate，place，
+route，timing，sim，bitgen。当不使用此选项时，打印全部stage 的参数。 
+命令示例： 
+report_param -stage place 
+4.1.16 clear_param 
+重置db 中所有的参数为默认值，清除未注册的参数。 
+命令参数： 
+clear_param 
+4.1.17 set_seed_param 
+为active phy run 配置multi seed，仅在multi run 模式的脚本中有效。注意multi seed run
+是有记忆的，在不进行设置的时候会使用上一次的设置。 
+命令参数： 
+set_seed_param [-num <int>] [-init <int>] [-step <int>] [-jobs <int>] [-save <int>] 
+[-genBit <on/off>] [-disable] [-random <on/off>] [-filter <on/off>] [-rwns <double>] [-pw
+ns <double>] [-congestion <int>] [-farm <on/off>] [-ip <lsf_server_address>] [-queue <lsf
+_queue_name>] 
+参数释义： 
+-num <int>: 
+（可选）设置seed 的数量，类型为整数，默认为1 
+-init <int>： 
+（可选）设置最小的seed 值，类型为整数，默认为0 
+-step <int>： 
+（可选）设置seeds 之间的步长，类型为整数，默认为10 
+=== PDF PAGE 26 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 20 
+2024.11   
+ 
+-jobs <int>： 
+（可选）设置允许同时运行的 seeds 数量。Farm 上运行时自动开启为最大并行数量。类型为
+整数，默认为3 
+-save <int>： 
+（可选）设置运行结束后保留的seeds 数量，类型为整数，默认为1 
+-genBit <on/off>： 
+（可选）是否生成bit 文件，默认为on 
+-disable： 
+（可选）对于已经使能multi seed 的工程，通过此选项关闭multi seed。 
+-random <on/off>： 
+（可选）是否随机生成seeds，默认为off 
+-filter <on/off>： 
+（可选）是否开启过滤功能，通过过滤功能可以提前结束不合理的seeds。默认为off。当此
+选项设置为on 时，根据-rwns，-pwns，-congestion 指定的阈值来判断是否提前结束。 
+-rwns <double>： 
+（可选）设置route 的wns 阈值，当-filter on 时，route 阶段的wns 小于该阈值的seed 将
+被提前结束。默认为0，单位ns。 
+-pwns <double>： 
+（可选）设置place 的wns 阈值，当-filter on 时，place 阶段的wns 小于该阈值的seed 将
+被提前结束。默认为0，单位ns。 
+-congestion <int>： 
+（可选）设置congestion 的阈值，当-filter on 时，congestion 值大于该阈值的seed 将被
+提前结束。默认为100，表示布线资源被100%占用。 
+-farm <on/off>: 
+（可选）是否开启farm 运行，默认为off。 
+-ip <lsf_server_address>： 
+（可选）开启farm 时，设置LSF 服务器地址。 
+-queue <lsf_queue_name>： 
+=== PDF PAGE 27 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 21 
+2024.11   
+ 
+（可选）开启farm 时，设置LSF 工作队列的名字。 
+命令示例： 
+set_seed_param -num 10 -jobs 5 -save 2 
+4.1.18 report_seed_param 
+打印当前工程的multi seed 的设置。 
+命令参数： 
+report_seed_param 
+4.1.19 save_best_bits 
+在多个runs 的结果中选择时序最佳的bitgen 结果文件， 复制到<project_name>_Runs/best_result
+目录下。 
+命令参数： 
+save_best_bits 
+4.1.20 save_design 
+Open Run 后，若在 Console 中运行Tcl 命令对design 做了修改，可使用save_design 命令将修改
+保存到对应的db 文件中，使修改内容在后续的运行步骤中生效。 
+命令参数： 
+save_design 
+4.1.21 generate_elaborate_package 
+产生 elaborated db 文件包。此文件包中包含 elaborate.db，约束文件和运行脚本。输出文件路
+径为<project directory>/elaborate_package/<project_name>_elaborate.db。 
+使用步骤：工程active syn 至少运行到read_design, open_run 后在Console 中运行此命令。 
+注：原工程中的参数设置在产生的elaborate db 中会恢复默认值。 
+命令参数： 
+generate_elaborate_package 
+  
+=== PDF PAGE 28 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 22 
+2024.11   
+ 
+4.2 Syn/Phy Properties 设置 
+TD User Guide（TD GUI Help -> Software User Guide -> TD User Guide）中9.6 章节给出TD 
+软件界面 Properties 可选项说明。这些Properties 也可以通过下面这条Tcl 命令来设置。 
+set_param [-run <run_name>] <step_name> <param> <value> 
+此命令的各部分用法请见本文档3.1 章节。 
+本章节介绍如何使用set_param 命令设置Syn/Phy Properties（Parameters）。 
+4.2.1 Syn/Phy Properties(Parameters) 
+表 4-1 Syn Properties(Parameters) 
+step param value Default value 
+flow 
+message standard/simple/verbose standard 
+qor_monitor on/off on 
+syn_ip_flow off/ip off 
+thread auto/2/4/8/16/32 auto 
+rtl 
+(Read Design) 
+default_reg_initial auto/0/1 auto 
+hdl_warning_level normal/simple normal 
+rtl 
+(Optimize RTL) 
+fix_undriven 0/1/auto 0 
+infer_fsm 
+off/manual/auto/one_hot/ 
+sequential 
+off 
+infer_rom on/off on 
+infer_shifter on/off on 
+keep_hierarchy auto/flatten/all auto 
+merge_equal on/off on 
+min_control_set 1～999999（整数） 8 
+min_ripple_len auto/0～999999（整数） auto 
+seq_syn on/off on 
+gate 
+eram_cascade_height auto/0～16 auto 
+map_mode 
+auto/area_prior/ 
+logic_level_prior/balance_explore 
+auto 
+map_strategy 1/2/3/4/5 1 
+pack_effort medium/high/low medium 
+pack_seq_in_io auto/on/off auto 
+report standard/simple/verbose standard 
+ 
+=== PDF PAGE 29 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 23 
+2024.11   
+ 
+表 4-2 Phy Properties(Parameters) 
+step param value Default value 
+flow 
+enable_seed off/on off 
+hfn_to_clock 1000000000 or less 1000000000 
+speedup_effort 0/1/2/3/4/5 0 
+place 
+effort medium/high medium 
+hfn_opt_effort medium/low/high medium 
+logic_level_opt off/on off 
+macro_ performance 
+auto/dsp_wirelength/dsp_crit_path/
+ram_wirelength/ram_crit_path/ 
+dsp_ram_wirelength/ 
+dsp_ram_crit_path/macro_congestion 
+auto 
+max_fanout 9～999999（整数） 999999 
+opt_timing medium/off/low/high/ultra medium 
+pack_mode 
+auto/lower_pin_density/ 
+adaptive_pin_density/more_lut_pair 
+auto 
+post_place_opt auto/medium/high/ultra auto 
+pr_strategy 
+PH1: 1～11 
+PH2: 1～5, 12～17 
+1 
+route 
+effort normal/routability normal 
+fix_hold off/on/High (High only for PH2) off 
+post_route_opt auto/medium/high/ultra/off auto 
+timing normal/off/greedy normal 
+4.2.2 参数释义 
+表 4-1 和表 4-2 中参数和取值的释义请参考TD User Guide：TD GUI Help -> Software User 
+Guide -> TD User Guide -> 9.6 章节 
+4.2.3 使用说明及命令示例 
+在multi_run 的脚本中，-run 选项为必选项，指定设置的参数所作用的run name。例如： 
+set_param -run phy_1 route fix_hold on 
+在 Tcl 脚本中使用此命令，需要放在对应 step 的 命 令 前 执 行 。 例 如 ， 如 下 命 令 设 置
+default_reg_initial 为0，并运行Read Design step。 
+set_param -run syn_1 rtl default_reg_initial 0 
+launch_runs -step design syn_1  
+=== PDF PAGE 30 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 24 
+2024.11   
+ 
+4.3 文件输入输出 
+4.3.1 read_hdl 
+非工程模式下，读入HDL 源文件并解析 
+命令参数： 
+read_hdl [-help] [-file <file_path_name>] [-dir <dir_path>] [-global_include <global_
+include_file_path_name >] [-included_dir <included_dir_path>] [-define <define_name/defin
+e_name=define_value>] -top <top_module_name> 
+参数释义： 
+-help: 
+（可选）打印帮助信息。 
+-file <file_path_name>： 
+（可选）指定读入的一个或多个源文件的绝对路径或相对路径及文件名， 支持.v,.sv 和.vhd，
+TD 会根据文件后缀自动选择对应的语言标准。解析多个文件时需要放在双引号""中，不同文
+件之间用空格分隔。 
+示例 1：read_hdl -file "in1.v in2.sv in3.vh d"。 指定 3 个 HDL 文件，分别按后缀以
+Verilog、SystemVerilog 以及VHDL 的语法解析； 
+示例2：read_hdl -file "sv::in1.v"，无视后缀，按照SystemVerilog 的语法解析 in1.v； 
+示例3：read_hdl -file "vlib::lib1::in3.vhd", 按 VHDL 库 lib1 解析in3.vhd。 
+注： 
+-file 和-dir 需要至少使用其中一个。 
+-dir <dir_path>： 
+（可选）读入并解析指定目录中的所有文件。 
+注： 
+ -file 和-dir 需要至少使用其中一个。 
+ 文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+-global_include <global_include_file_path_name>： 
+（可选）设置全局include 文件, global_include_file_path_name 为全局include 文件的绝
+对路径或相对路径及文件名。 
+=== PDF PAGE 31 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 25 
+2024.11   
+ 
+-included_dir <included_dir_path>： 
+（可选）设置include 文件所在的文件夹名称。 
+注： 
+文件路径（除目录分隔符“/”以外）禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+-define <define_name/define_name=define_value>： 
+（可选）设置宏定义。 宏定义的设置有两种方式： 声明-define <define_name>和赋值-define 
+<define_name=define_value>。 当同时设置多个宏定义时， 需要加在""内， 不同宏定义之间用
+空格分隔。 
+示例1：read_hdl -define NAME 的含义是声明一个名为NAME 的宏定义； 
+示例2： read_hdl -define NAME=VALUE的含义是声明一个名为NAME 的宏定义并赋值为VALUE; 
+示例3：read_hdl -define "NAME1 NAME2=VALUE2" 的含义是声明一个名为NAME1 的宏定义，
+声明一个名为NAME2 的宏定义并赋值为VALUE2; 
+-top <top_module_name>: 
+（必选）指定top module name。 
+命令示例： 
+read_verilog -file {./src/top.v ./ip/my_ip.vhd} -top top 
+4.3.2 read_adc 
+读取和解析project adc 文件。 
+命令参数： 
+read_adc <file_path_name> 
+参数释义： 
+file_path_name： 
+（必选）指定要读取的adc 文件的绝对路径或相对路径及文件名。相对路径以Tcl 脚本所在路
+径为当前目录 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+read_adc ./src/constraints/top.adc  
+=== PDF PAGE 32 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 26 
+2024.11   
+ 
+4.3.3 read_ip_adc 
+读取和解析IP adc 文件。 
+命令参数： 
+read_ip_adc -ip <ip_model_name> -file <file_path_name> 
+参数释义： 
+-ip <ip_model_name>： 
+（必选）指定读入的adc 文件所对应的IP。 
+-file <file_path_name>： 
+（必选）指定要读取的adc 文件的绝对路径或相对路径及文件名。 相对路径以Tcl 脚本所在路
+径为当前目录 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+read_ip_adc -ip my_ip -file ./ip_srcs/my_ip.adc 
+4.3.4 read_sdc 
+读取和解析sdc 文件。 
+命令参数： 
+read_sdc [-ip <ip_model_name>] <file_path_name> 
+参数释义： 
+-ip <ip_model_name> 
+（可选）读取IP sdc 文件时， 需使用-ip 选项指定此sdc 文件所对应的IP。不使用此选项时，
+表示读取的sdc 文件为整个project 的 sdc 文件 
+file_path_name： 
+（必选）指定要读取的sdc 文件的绝对路径或相对路径及文件名。 相对路径以Tcl 脚本所在路
+径为当前目录 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+=== PDF PAGE 33 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 27 
+2024.11   
+ 
+命令示例： 
+read_sdc ./src/constraints/top.sdc 
+read_sdc -ip my_ip ./ip_srcs/my_ip.sdc 
+4.3.5 clear_adc 
+清空adc 约束信息。 
+命令参数： 
+clear_adc 
+命令示例： 
+clear_adc 
+read_adc my_new_pin_location.adc 
+4.3.6 clear_sdc 
+清除所有sdc 约束信息，包括用户sdc 和 IP sdc 约束信息。 
+命令参数： 
+clear_sdc 
+命令示例： 
+clear_sdc 
+read_sdc my_new_constraints.sdc 
+read_sdc -ip my_ip my_new_ip_constraints.sdc 
+4.3.7 write_verilog 
+输出中间过程Verilog 网表文件。 
+命令参数： 
+write_verilog [<file_path_name>] 
+参数释义： 
+file_path_name: 
+（可选）指定输出文件的绝对路径或相对路径及文件名。当不指定file_path_name 时，默认
+在当前目录下产生<design_top_name>_out.v 
+=== PDF PAGE 34 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 28 
+2024.11   
+ 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+write_verilog ./sim_netlist/top.v 
+4.3.8 write_sdf 
+输出标准延时文件。 
+命令参数： 
+write_sdf [-h/-help] [-check_corner <SLOW/FAST/SLOW_FAST>] [-file <file_path_name>] 
+参数释义： 
+-h/-help: 
+（可选）打印基本用法 
+-check_corner <SLOW/FAST/SLOW_FAST>： 
+（可选）指定检查的工艺角，默认为SLOW_FAST。 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名。当不使用此选项是，将在当前目录下生成<top_module_name>.sdf 文件。 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+write_sdf ./sim_netlist/top.sdf 
+4.3.9 import_db 
+导入design checkpoint “db”文件。 
+命令参数： 
+import_db <db_file_path_name> 
+参数释义： 
+db_file_path_name： 
+=== PDF PAGE 35 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 29 
+2024.11   
+ 
+（必选）导入的db 文件的绝对路径或相对路径及文件名。 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+import_db ./place.db 
+4.3.10 export_db 
+导出design checkpoint “db”文件。 
+命令参数： 
+export_db <db_file_path_name> 
+参数释义： 
+db_file_path_name： 
+（必选）导出的db 文件的绝对路径或相对路径及文件名。 
+注： 
+文件路径（除目录分隔符“/”以外）和文件名禁用以下字符：*\/|:”?<>C 且不能以数字开头。 
+命令示例： 
+export_db ./place.db 
+  
+=== PDF PAGE 36 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 30 
+2024.11   
+ 
+4.4 时序约束 
+TD 时序分析工具支持的所有时序约束命令，请参考SWUG200_TangDynasty 时序约束用户手册。 
+本节详细介绍TD 时序分析工具支持的所有命令。 
+4.4.1 对象获取命令 
+本节介绍了获取对象的各种方式，包括时钟、节点、输入管脚、输出管脚等对象。 
+本节涉及的对象获取指令如下表所示，后文将对每条指令的选项和使用进行详细介绍。 
+表 4-3 对象获取命令表 
+命令 描述 
+all_clocks 返回设计中的所有时钟 
+all_inputs 返回设计中的所有输入和双向端口 
+all_outputs 返回设计中的所有输出和双向端口 
+all_registers 返回设计中的所有寄存器 
+get_ports 返回设计中的用户指定的输入、输出和双向端口 
+get_cells 返回设计中的指定单元实例 
+get_nets 返回设计中的指定线网 
+get_regs 返回设计中的指定寄存器 
+get_pins 返回设计中的端口或单元的指定引脚 
+get_clocks 返回设计中用户指定的时钟 
+ 
+时序电路中包括cell、reg、pin、net 和 port 在内的多种节点，在与时钟约束和时序路径约束嵌
+套使用的过程中需要根据实际应用情况选择合适的节点。它们之间的相互关系如下： 
+ cell 一般指在代码中实例化的模块（inst） ，或者是综合后网表中的LUT、RAM、DSP 以及 PLL
+等； 
+ reg 指模块中的寄存器； 
+ pin 每个cell 都有相应的pin，即cell 的输入输出信号（并非芯片的引脚） ； 
+ net 即pin 与 pin 之间的连线； 
+port 在顶层文件中声明的输入输出端口，即FPGA 外部的芯片进行通信的管脚。 
+  
+=== PDF PAGE 37 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 31 
+2024.11   
+ 
+4.4.2 all_clocks 
+命令参数：  
+all_clocks [-o] 
+参数释义： 
+all_clocks：仅命令 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+使用说明： 
+返回设计中的所有的时钟。 注意，td5.6 版本之后如果不使用-o 选项将不会执行该命令， 使用-o 选
+项返回对象。 
+命令示例： 
+在 sdc 文件中创建一个名为 sys_clk 的时钟，可在 console 中输入本命令查询到项目中使用的所
+有时钟。 
+create_clock -name sys_clk -period 10 [get_ports sys_clk] 
+>>all_clocks -o 
+clocks: sys_clk 
+4.4.3 all_inputs 
+命令参数：  
+all_inputs [-o] 
+参数释义： 
+all_inputs：仅命令 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+使用说明： 
+返回设计中的所有输入端口和双向端口。注意，td5.6 版本之后如果不使用-o 选项将不会执行该命
+令，使用-o 选项返回对象。 
+命令示例： 
+在 verilog 中定义了输入 sys_clk、sys_rstn 和输出 beep，可在 console 中输入本命令查询到所
+有输入。 
+=== PDF PAGE 38 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 32 
+2024.11   
+ 
+module beep (sys_clk, sys_rstn, beep); 
+input sys_clk ; 
+input sys_rstn ; 
+output beep 
+…//其他逻辑语句略 
+>>all_inputs -o 
+ports: sys_clk sys_rstn 
+4.4.4 all_outputs 
+命令参数：  
+get_ports [-o] 
+参数释义： 
+get_ports：仅命令 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+使用说明： 
+返回设计中的所有输出端口和双向端口。 注意，td5.6 版本之后如果不使用-o 选项将不会执行该命
+令，使用-o 选项返回对象。 
+命令示例： 
+在 verilog 中定义了输入 sys_clk、sys_rstn 和输出 beep，可在 console 中输入本命令查询到所
+有输入。 
+module beep (sys_clk, sys_rstn, beep); 
+input sys_clk ; 
+input sys_rstn ; 
+output beep 
+…//其他逻辑语句略 
+>>all_outputs -o 
+ports: beep 
+  
+=== PDF PAGE 39 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 33 
+2024.11   
+ 
+4.4.5 all_registers 
+命令参数：  
+all_registers [-o] 
+参数释义： 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+使用说明： 
+返回设计中的所有寄存器。 注意，td5.6 版本之后如果不使用-o 选项将不会执行该命令， 使用-o 选
+项返回对象。 
+命令示例： 
+在设计中有多个寄存器，假设有三个寄存器，分别如下：test_reg1、test_reg2、test_reg3。 
+>>all_registers -o 
+regs: test_reg1 test_reg2 test_reg3 
+ 
+4.4.6 get_ports 
+命令参数：  
+get_ports [-nocase] [-nowarn] [-o] <filter> 
+参数释义： 
+-nocase：表示不区分大小写 
+-nowarn：表示没有匹配成功时也不给出警告或错误 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+<filter>：被匹配的目标字符串名称 
+使用说明： 
+返回设计中的用户指定的输入 （input） 、 输出 （output） 和双向 （inout） 端口。本指令与get_pins 
+的区别在于，get_pins 可以搜索得到设计中所有的管脚，get_ports 只会得到顶层模块中的管脚， 也就
+是设计的实际输入输出端口。支持输入多字段，格式如下：get_ports { A B C }。注意，td5.6 版本
+之后如果不使用-o 选项将返回uid 码型，用户不可读的字符串。 
+命令示例： 
+=== PDF PAGE 40 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 34 
+2024.11   
+ 
+在 verilog 中定义了输入 sys_clk、sys_rstn 和输出 beep，可在 console 中输入本命令查询到所
+有输入。 
+module beep (sys_clk, sys_rstn, beep); 
+input sys_clk ; 
+input sys_rstn ; 
+output beep 
+…//其他逻辑语句略 
+>>get_ports * 
+Ports： beep sys_clk sys_rstn 
+4.4.7 get_cells 
+命令参数：  
+get_cells [-hierarchical] [-hier] [-nocase] [-nowarn] [-o] <filter> 
+参数释义： 
+-hierarchical 或-hier:表示层次化搜索， 将在每一层次的模块中匹配对应名称 （在 TD 中用 “/”
+来区分层级） 
+-nocase：表示不区分大小写 
+-nowarn：表示没有匹配成功时也不给出警告 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+<filter>：被匹配的目标字符串名称 
+使用说明： 
+返回设计中的实例。支持输入多字段，格式如下：get_cells { A* B* C* }。在本命令中有两种匹
+配机制， 默认模式和层级模式 （-hierarchical 或-hier）。默认模式下， 匹配 inst 名称时会需要同时
+匹配路径（即层级地址） ， 模式中的所有的层级都是一层一层的进行匹配的， 此时电路使用“/” 来描述
+模块之间的层级关系。层级模式下， 系统会递归地在当前层次以下的各个层级找到与 inst 名称匹配的
+目标并将结果返回。注意，td5.6 版本之后如果不使用-o 选项将返回uid 码型，用户不可读的字符串。 
+命令示例： 
+不区分大小写的寻找一个名为“reg”的 cell 
+>>get_cells -o -nocase reg 
+=== PDF PAGE 41 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 35 
+2024.11   
+ 
+收集名称开头包含“reg”的所有 cell 
+>>get_cells –o reg* 
+收集设计中所有以 A 开头的 cell 
+>>get_cells –o A* 
+4.4.8 get_nets 
+命令参数：  
+get_nets [-hierarchical] [-hier] [-nocase] [-nowarn] [-o] <filter> 
+参数释义：  
+-hierarchical 或-hier:表示层次化搜索， 将在每一层次的模块中匹配对应名称 （在 TD 中用 “/”
+来区分层级） 
+-nocase：表示不区分大小写 
+-nowarn：表示没有匹配成功时也不给出警告 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+<filter>：被匹配的目标字符串名称 
+使用说明： 
+返回连接到端口或引脚的实例。支持输入多字段，格式如下：get_nets { A* B* C* }。在一个实
+际的设计中，系统中的模块（module）之间会有层次化的结构，上下层模块可能嵌套使用，用 “/”来
+表示它们之间的关系。 如get_cells 所述， 使用 “/” 来描述打平状态下的模块之间的调用关系， 如 B/Z。 
+TD 中的 nets 可以简化分为以下三类（以下三类按命名优先级排序） ： 
+（1）与输入输出 port 相连的 net，由输入输出 port 命名； 
+（2）与寄存器的输出 Q 端相连的 net，由寄存器的名字命名（与源文件中 reg 类型的变量名对
+应） 。此时 net 和 cell 一样具有层级结构，具体寻找模式请见下文。 
+（3）由用户在 verilog 中定义的 wire 型 net，由 wire 名命名。 
+要注意的是， 以上三类net 中， 除了顶层模块的输入输出相连以及与寄存器输出相连的 net， 其他 
+net 都有可能在RTL 和gate 的综合过程中被优化而不再存在，而在优化过程中也可能产生大量源文件
+中没有的信号，所以不推荐试图用这些名字来搜索 net。 
+在以上三类 net 中，第2 类net 由于与寄存器（每个 reg 都可以看成一个 cell）相关，所以和
+cell 一样具有层级结构，隶属于某一层module。 
+默认模式中， 匹配 net 名称时会需要同时匹配路径 （即层级地址） ， 此时完整的net 名称应该包含
+=== PDF PAGE 42 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 36 
+2024.11   
+ 
+层级路径。模式中的所有的层级都是一层一层的进行匹配的。 
+在分层模式（- hierarchical / -hier）中，无需给出层级地址，系统会递归地在当前层次以下的
+各个层级找到与net 名称匹配的目标并将结果返回。 
+注意，td5.6 版本之后如果不使用-o 选项将返回uid 码型，用户不可读的字符串。 
+命令示例： 
+不区分大小写的寻找一个名为“beep”的 net 
+get_nets –o –nocase beep 
+>>get_nets -o beep 
+RUN-1002 : start command "get_nets beep" 
+nets: beep 
+收集名称开头包含“reg”的所有 net 
+>>get_nets -o reg* 
+4.4.9 get_regs 
+命令参数：  
+get_regs [-hierarchical] [-hier] [-nocase] [-nowarn] [-o] <filter> 
+参数释义：  
+-hierarchical 或-hier:表示层次化搜索， 将在每一层次的模块中匹配对应名称 （在 TD 中用 “/”
+来区分层级） 
+-nocase：表示不区分大小写 
+-nowarn：表示没有匹配成功时也不给出警告 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+<filter>：被匹配的目标字符串名称 
+使用说明： 
+返回设计中与相应字符串名称匹配的寄存器的集合。支持输入多字段，格式如下：get_regs { A* 
+B* C* } 。软件在寻找对应的reg 时，会先找到与寄存器的输出Q 端相连的net，然后通过该以reg 名
+字命名的net 找到对应的reg 单元，因此用于搜索reg 对象的字段规则与get_nets 命令一致，具体细
+节可参见get_nets 部分。注意，td5.6 版本之后如果不使用-o 选项将返回uid 码型，用户不可读的字
+符串。 
+=== PDF PAGE 43 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 37 
+2024.11   
+ 
+命令示例： 
+不区分大小写的寻找一个名为“reg”的寄存器 
+>>get_regs -o–nocase reg 
+收集名称开头包含“reg”的所有寄存器 
+>>get_regs –o reg 
+4.4.10 get_pins 
+命令参数：  
+get_pins [-hierarchical] [-hier] [-nocase] [-nowarn] [-o] <filter> 
+参数释义： 
+-hierarchical 或-hier:表示层次化搜索， 将在每一层次的模块中匹配对应名称 （在 TD 中用 “/”
+来区分层级） 
+-nocase：表示不区分大小写 
+-nowarn：表示没有匹配成功时也不给出警告 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+<filter>：被匹配的目标字符串名称 
+使用说明： 
+使用本命令可返回 设计中与相应字符串名称匹配的管脚的集合。支持输入多字段，格式如下：  
+get_pins { A*.o B*.o C*.i }。注意，td5.6 版本之后如果不使用-o 选项将返回uid 码型，用户不可
+读的字符串。 
+命令示例： 
+不区分大小写的寻找一个名为“reg”的 pin 
+>>get_pins -o–nocase *.reg 
+收集名称开头包含“reg”的所有 pin 
+>>get_pins –o *.*reg* 
+4.4.11 get_clocks 
+命令参数： 
+get_clocks [-include_generated_clocks][-nocase] [-nowarn] [-v] [-o] <filter>  
+=== PDF PAGE 44 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 38 
+2024.11   
+ 
+参数释义： 
+-nocase：表示不区分大小写 
+-nowarn：表示没有匹配成功时也不给出警告 
+-o:表示返回转译后的名字，td5.6 版本之后新加功能 
+-include_generated_clocks:表示返回指定主时钟的所有生成时钟 
+-v ：反选择功能，即使用该参数后可以选取<filter>之外的所有时钟 
+<filter>：被匹配的目标字符串名称 
+使用说明： 
+返回已在SDC 约束文件中定义的时钟集合。 支持输入多字段， 格式如下：get_clocks { A* B* C* }。
+注意，td5.6 版本之后如果不使用-o 选项将返回uid 码型，用户不可读的字符串。 
+命令示例： 
+得到设计中所有的时钟. 
+>>get_clocks –o * 
+RUN-1002 : start command "get_clocks *" 
+clocks: sys_clk 
+4.4.12 create_clock 
+命令参数 
+ -name {<clock name>} 
+ -period <time ns> 
+ -waveform {<rise time ns> <fall time ns>} 
+ [<Target>] 
+ -add 
+参数释义 
+-name {<clock name>} 
+用于指定时钟名字， 该名字将用于时序分析和其它时序约束命令中的使用。 该参数不能省略， 否则
+报错。 
+-period <time ns> 
+=== PDF PAGE 45 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 39 
+2024.11   
+ 
+用于指定时钟的周期，时间单位为纳秒（ns） ，数值为正，数字格式是保留小数点后三位。 
+-waveform {<rise time ns> <fall time ns>} 
+用于指定时钟第一个上升沿与第一个下降沿的时间点， 可以指定不同相位或者不同占空比，时间单
+位为纳秒（ns） ，数字格式是保留小数点后三位。如果省略该参数，TD 时序分析工具将该项默认为相位
+为零，占空比为50%的时钟波形。当设置的时间点不在周期内时，TD 时序分析工具将报错提醒。 
+[<Target>] 
+用于指定时钟在FPGA 内的时钟源点， 一般对象是I/O 管脚 （可以使用get_ports 来约束） 或者FPGA
+内硬核的时钟管脚（可以使用get_pins 来约束） 。 
+-add 
+用于指定对同一时钟对象进行多次约束， 可以约束为不同的频率、 不同的相位或不同的占空比， 一
+般用于时钟 MUX 的约束。如果省略该参数，并且用户对同一时钟对象进行了多次约束，TD 时序分析工
+具将最后的一次约束覆盖之前的约束。 
+使用说明 
+定义一个主时钟，同时指定其属性，如名称，周期，上升下降沿时间或占空比等。 
+命令示例 
+1、标准示例： 
+create_clock -name clk_25m -period 40.000 -waveform {0.000 20.000} [get_ports {clk_25
+m}] 
+2、缺失-waveform 示例： 
+create_clock -name clk_25m -period 40.000  [get_ports {clk_25m}] 
+3、调整约束不同的相位示例： 
+create_clock -name clk_50m -period 20.000 -waveform {5.000 15.000} [get_ports {clk_50
+m}] 
+4、调整约束不同的占空比示例： 
+create_clock -name clk_100m -period 10.000 -waveform {0.000 3.000} [get_ports {clk_10
+0m}] 
+5、调整约束不同的频率-add 示例： 
+create_clock -name clk_25m_add -period 50.000 -waveform {0.000 25.000} \ 
+[get_ports {clk_25m}] –add 
+=== PDF PAGE 46 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 40 
+2024.11   
+ 
+6、调整约束不同的频率和占空比-add 示例： 
+create_clock -name clk_50m_add -period 5.000 -waveform {0.000 3.000} \ 
+[get_ports {clk_50m}] –add 
+7、调整约束不同的频率、不同占空比和不同相位的-add 示例： 
+create_clock -name clk_100m_add -period 10.000 -waveform {1.000 5.000} \ 
+[get_ports {clk_100m}] –add 
+8、虚拟时钟的约束示例： 
+create_clock -name clk_virtual -period 10.000 -waveform {0.000 5.000} 
+9、FPGA 内部硬核serdes 的时钟约束示例： 
+create_clock -name clk_rserdes_1 -period 6.400 -waveform {0.000 3.200} \ 
+[get_pins {u_serdes_top/u_dual_hss/serdes_dual_inst.l0_rx_out2clk}] 
+4.4.13 create_generated_clock 
+命令参数 
+ -name <clock name> 
+ -source [<source>] 
+ -master_clock <clock name> 
+ -divide_by <factor>  
+ -multiply_by <factor>  
+ -edges {<edge0><edge1><edge2>} 
+ -edge_shift {<shift0><shift1><shift2>}  
+ -invert 
+ [<Target>] 
+ -add_phase <phase_num> 
+ -duty_cycle < duty_cycle_num> 
+参数释义 
+-name <clock name> 
+=== PDF PAGE 47 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 41 
+2024.11   
+ 
+用于指定生成时钟的名字， 该名字将用于时序分析和其它时序约束命令中的使用。 该参数不能省略，
+否则报错。 
+-source [<source>] 
+用于指定生成时钟的驱动时钟源点，该源点可以是物理上存在的任意时钟节点。 
+-master_clock <clock name> 
+用于指定时钟源点上的驱动时钟， 同一个时钟源点可能会被约束多个不同时钟， 因此需要指定约束
+目标的驱动时钟是哪一个。 
+-divide_by <factor>  
+用于指定生成时钟和驱动时钟的分频系数， 数值为正， 数据格式支持小数点后三位。 与multiply_by
+参数存在互斥行为。 
+-multiply_by <factor>  
+用于指定生成时钟和驱动时钟的倍频系数，数值为正，数据格式支持小数点后三位。与divide_by
+参数存在互斥行为。 
+-edges {<edge0><edge1><edge2>}  
+用于指定生成时钟的沿与驱动时钟的沿的对应关系，对应关系如下： 
+ 驱动时钟的<edge0>沿生成时钟的第1 个上升沿 
+ 驱动时钟的<edge1>沿生成时钟的第1 个下降沿 
+ 驱动时钟的<edge2>沿生成时钟的第2 个上升沿 
+注意，edge_x 必须是整数且edge0 大于等于1。 
+-edge_shift {<shift0><shift1><shift2>}  
+该选项仅在-edge 选项存在且在-edge 选项中有且仅有三个整数时才有效，用于指定生成时钟的
+沿与驱动时钟的沿的偏移关系，shift 值单位为ns，该值的正负表示偏移的方向，为正时late 向右偏
+移，为负时earlier 向左偏移。该参数仅当使用-edges {<edge0> <edge1> <edge2> }时才生效。 
+-invert 
+该参数与-divide_by 或-multiply_by 这两个参数配合使用，仅指定生成时钟的波形反转。 
+[<Target>] 
+用于指定生成时钟在FPGA 内的时钟起点。 
+-add 
+用于指定对同一生成时钟对象进行多次约束， 可以约束为不同的频率、 不同的相位或不同的占空比，
+=== PDF PAGE 48 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 42 
+2024.11   
+ 
+一般用于时钟 MUX 的约束。如果省略该参数，并且用户对同一时钟对象进行了多次约束，TD 时序分析
+工具将最后的一次约束覆盖之前的约束。 
+-phase <phase_num> 
+指定 generated clock 波形的相位移动，phase_num 取值范围是0~360 之间，数据格式支持小数
+点后三位。 
+-duty_cycle < duty_cycle_num > 
+配合-multiply_by 选项使用， 用以调节生成时钟占空比，duty_cycle_num 取值范围是0~100 之间，
+数据格式支持小数点后三位。 
+使用说明 
+create_generated_clock 是用来说明generated clock与master clock的频率与相位 （边沿） 关
+系，根据source pin 找到master clock 从而确定两者之间的关系。 
+注意：在使用create_generated_clock 时，参数-divede_by/ -multiply_by / -edges 三者有且
+仅能使用其中一个。create_generation_clock 约束的输入时钟可以是主时钟或其他生成时钟。 
+命令示例 
+1、分频示例： 
+create_generated_clock  -name pll_gen1 -source [get_pins {u_pll/pll_inst.clkc[0]}] \ 
+-divide_by 2 –phase 180  [get_nets {u_buttons_led0/clk_25m}] 
+2、倍频示例： 
+create_generated_clock  -name pll_gen2 -source [get_pins {u_pll/pll_inst.clkc[1]}] \ 
+multiply_by 2 -duty_cycle 0.4 [get_nets {u_buttons_led1/clk_25m}] 
+3、沿的对应关系示例： 
+create_generated_clock  -name clk_50m -source [get_ports {clk_200m}] -master_clock \ 
+[get_clocks {clk_200m}] -edges {1 5 9} -edge_shift {-1 1 -1} [get_nets {clk_50m}] 
+4.4.14 derive_clocks 
+命令参数 
+ -instance  [<instance>] 
+参数释义 
+-instance [<instance>] 
+=== PDF PAGE 49 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 43 
+2024.11   
+ 
+该选项指定TD 具体自动约束哪个单元，后面需要指定[get_cells {u_pll/u_xxxxx/pll_inst}]的
+例化位置。如果用户不指定该参数，drive_clocks 命令会自动约束所有的时钟相关的单元，生成相应
+的 generated clocks，生成时钟的频率、相位都将严格按照内部的参数设定，且生成的时钟名为“单
+元名.输出接口名” 。 
+使用说明 
+使用该命令TD 时序分析工具会自动约束时钟单元的输出时钟。注意，时钟单元的参考时钟需要用
+户约束。时钟单元有PLL、LCLK、DBUF、DBUF_HXT 等时钟缓冲器。 
+命令示例 
+ u_pll/pll_inst PLL 示例： 
+derive_clocks -instance [get_cells {u_pll/pll_inst}] 
+ 约束所有PLL 示例： 
+derive_clocks 
+4.4.15 rename_clock 
+命令参数 
+ -name <clock name>  
+ [<Target>] 
+参数释义 
+-name <clock name> 
+用于指定生成时钟的名字，该名字将用于时序分析和其它时序约束命令中的使用。 
+ [<Target>] 
+用于指定软件自动生成时钟对象。 
+使用说明 
+注意，rename_clock 需要在使用derive_clocks 命令的情况下使用， 一般通过TD 的Timing Wizard
+进行生成时钟的重命名的操作。如下图所示。 
+=== PDF PAGE 50 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 44 
+2024.11   
+ 
+ 
+图 4-1 生成时钟的重命名操作图 
+命令示例 
+1、标准示例： 
+derive_clocks 
+rename_clock -name {pll_l} [get_clocks {u_pll_clk/pll_inst.clkc[0]}] 
+rename_clock -name {pll_2} [get_clocks {u_pll_clk/pll_inst.clkc[1]}] 
+rename_clock -name {pll_3} [get_clocks {u_pll_clk/pll_inst.clkc[2]}] 
+4.4.16 set_clock_latency 
+命令参数 
+ <delay value> 
+ -min 
+ -max 
+ -rise  
+ -fall  
+ -early  
+ -late 
+ -source   
+ [<Target>] 
+ -clock 
+
+=== PDF PAGE 51 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 45 
+2024.11   
+ 
+参数释义 
+<delay value> 
+指定延迟的值，数据格式支持小数点后三位。 
+-min  
+指定本命令在fast corner 下分析。 
+-max 
+指定本命令在slow corner 下分析。 
+-rise  
+指定时钟上升延迟 
+-fall  
+指定时钟下降延迟 
+-early  
+指定同一corner 下时钟最小源延迟 
+-late 
+指定同一corner 下时钟最大源延迟 
+-source 
+指定为时钟source latency，如果不使用该参数，默认为network latency，在布线后的时序分析
+中，该值将被实际的布线延时所替代。 
+[<Target>] 
+指明时钟源， 可以是pins 或clocks， 如果target 为pins 则指其上的时钟。 若指定要约束的时钟，
+可以是单个时钟，可以是多个时钟一起约束。 
+-clock 
+当target 的对象为clock 时不需额外设置-clock 选项；当target 对象为pins，且该管脚同时被
+多个clock 驱动时，可以用-clock 来指定要设定的时钟。 
+使用说明 
+设定时钟延迟的最大最小值。 
+命令示例 
+1、源延迟最大值示例： 
+=== PDF PAGE 52 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 46 
+2024.11   
+ 
+set_clock_latency -late -source 1.2 [get_clocks {clk_25m}] 
+2、源延迟最小值示例： 
+set_clock_latency -early -source 0.9 [get_clocks {clk_25m}] 
+3、源延迟不指定最值示例： 
+set_clock_latency  -source 1 [get_clocks {clk_50m}] 
+4、不指定-source 示例： 
+set_clock_latency  2 [get_clocks {clk_100m}] 
+5、源延迟不指定最值多个时钟目标示例： 
+set_clock_latency  -source 1 [get_clocks {pll_1 pll_2 pll_3}] 
+6、示例指定 CLK1 时钟的上升延迟为 1.2，下降延迟为 0.9 
+set_clock_latency 1.2 -rise [get_clocks CLK1] 
+set_clock_latency 0.9 -fall [get_clocks CLK1] 
+4.4.17 set_clock_uncertainty 
+命令参数 
+ [<Target>] 
+ -setup /-hold 
+ <uncertainty value> 
+参数释义 
+[<Target>] 
+指定要约束的时钟，可以是单个时钟，可以是多个时钟一起约束。 
+-setup /-hold 
+指明本命令所对应的是最大/最小路径时序分析时所对应的数值。如果该选项没有指明，则对两种
+检查同时生效。setup uncertainty 在 setup 时序分析时减少了时钟的setup required time; hold 
+uncertainty 在hold 时序分析时增加了时钟的hold required time; 
+<uncertainty value> 
+指定uncertainty 的值，数据格式支持小数点后三位。 
+使用说明 
+=== PDF PAGE 53 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 47 
+2024.11   
+ 
+对时钟的偏移和抖动进行建模，也就是对时钟的偏差进行建模。 
+注意：目前仅支持对于单个时钟本身设置而不支持跨时钟域的uncertainty 定义。 
+命令示例 
+1、指定-setup 示例： 
+set_clock_uncertainty -setup 1 [get_clocks {pll_2}] 
+2、指定-hold 示例： 
+set_clock_uncertainty -hold 1.1 [get_clocks {pll_2}] 
+3、不指定-setup/-hold 示例： 
+set_clock_uncertainty 1.3 [get_clocks {pll_3}] 
+4、指定多个目标时钟： 
+set_clock_uncertainty 1.3 [get_clocks {pll_1 pll_2 pll_3}] 
+5、指定所有目标时钟： 
+set_clock_uncertainty 1.3 [all_clocks] 
+4.4.18 set_input_delay 
+命令参数 
+ -clock <clock name> 
+ -min / -max 
+ -add_delay 
+ -rise 
+ -fall 
+ -clock_fall 
+ -source_latency_included 
+ -network_latency_included 
+ -reference_pin 
+ <delay value> 
+ [<Target>] 
+=== PDF PAGE 54 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 48 
+2024.11   
+ 
+参数释义 
+-clock <clock name> 
+指定输入延时所对应的时钟。 
+-min / -max 
+-max：表示最大的输入延迟；用于时序分析中建立时间（setup time）的分析。 
+-min：表示最小的输入延迟；用于时序分析中保持时间（hold time）的分析。 
+-add_delay 
+当有多个set_input_delay 设置在同一个目标端口上时，-add_delay 工具会计算多个delay 值的
+和作为目标端口的 input delay 值。 如果不使用该参数， 在同 一 clock 和 pin 上先后输入多个
+input_delay 的情况下，后面设定的input_delay 会覆盖前面的input delay。 
+-rise 
+指上升沿延迟， 指定输入延迟应用于指定端口上的上升沿转换。默认设置是对上升沿和下降沿转换
+都应用延迟。 
+-fall 
+指下降沿延迟， 指定输入延迟应用于指定端口上的下降沿转换。默认设置是对上升沿和下降沿转换
+都应用延迟。 
+-clock_fall 
+时序分析时delay 值以时钟下降沿作为参考，该选项须同-clock 一起使用。 
+-source_latency_included 
+指定已包含的时钟的源延迟，时序分析时从input delay 中减去clock source latency。 
+-network_latency_included 
+指定已包含的时钟的网络延迟，时序分析时从input delay 中减去clock network latency。 
+-reference_pin 
+为 input delay 添加一个参考点，该点是 时钟树上的某一节点 ，工具会考虑 节点处的 source 
+latency 和 network latency，用作input delay 的时序分析。 
+<delay value> 
+指定输入延迟的数值，数据格式支持小数点后三位。 
+[<Target>] 
+=== PDF PAGE 55 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 49 
+2024.11   
+ 
+指定输入 ports 的对象列表。 
+使用说明 
+设置输入端口的延时，用于定义外部信号到达fpga 的输入端口所需的延时。 
+命令示例 
+1、多个目标的min 示例： 
+set_input_delay -clock [get_clocks clk_virtual] -min 2.000 [get_ports {{button[0]} {b
+utton[1]}}] 
+2、多个目标的max 示例： 
+set_input_delay -clock [get_clocks clk_virtual] -max 8.000 [get_ports {{button[0]} {b
+utton[1]}}] 
+3、-add_delay 的示例： 
+set_input_delay -max 0.8 -clock [get_clocks virtual_clk_d] -add_delay [get_ports {d_r
+gmii_rxdv}] 
+set_input_delay -min -0.6 -clock [get_clocks virtual_clk_d] -add_delay [get_ports {d_
+rgmii_rxdv}] 
+4、-add_delay 与-clock_fall 的示例： 
+set_input_delay -max 0.8 -clock_fall -clock [get_clocks virtual_clk_d] -add_delay [ge
+t_ports {d_rgmii_rxdv}] 
+set_input_delay -min -0.6 -clock_fall -clock [get_clocks virtual_clk_d] -add_delay [g
+et_ports {d_rgmii_rxdv}] 
+4.4.19 set_output_delay 
+命令参数 
+ -clock <clock name> 
+ -min / -max 
+ -add_delay 
+ -rise 
+ -fall 
+ -clock_fall 
+=== PDF PAGE 56 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 50 
+2024.11   
+ 
+ -source_latency_included 
+ -network_latency_included 
+ -reference_pin 
+ <delay value> 
+ [<Target>] 
+参数释义 
+-clock <clock name> 
+指定输出延时所对应的时钟。 
+-min / -max 
+-max：表示最大的输出延迟；用于时序分析中建立时间（setup time）的分析。 
+-min：表示最小的输出延迟；用于时序分析中保持时间（hold time）的分析。 
+-add_delay 
+当有多个 set_output_delay 设置在同一个目标端口上时，-add_delay 工具会计算多个 delay 值
+的和作为目标端口的 output delay 值。如果不使用该参数，在同一 clock 和 pin 上先后输入多个 
+output_delay 的情况下，后面设定的output_delay 会覆盖前面的output delay。 
+-rise 
+指上升沿延迟， 指定输出延迟应用于指定端口上的上升沿转换。默认设置是对上升沿和下降沿转换
+都应用延迟。 
+-fall 
+指下降沿延迟， 指定输出延迟应用于指定端口上的下降沿转换。默认设置是对上升沿和下降沿转换
+都应用延迟。 
+-clock_fall 
+时序分析时delay 值以时钟下降沿作为参考，该选项须同-clock 一起使用。 
+-source_latency_included 
+时序分析时从output delay 中减除clock source latency。 
+-network_latency_included 
+时序分析时从output delay 中减除clock network latency。 
+-reference_pin 
+=== PDF PAGE 57 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 51 
+2024.11   
+ 
+为output delay 添加一个参考点，工具会考虑参考点处的source latency 和network latency，
+用作output delay 的时序分析。 
+<delay value> 
+指定输出延迟的数值，数据格式支持小数点后三位。 
+[<Target>] 
+指定输出ports 的对象列表。 
+使用说明 
+设置输出端口的延时，用于定义信号从fpga 输出端口到达外部寄存器所需的时间。 
+当数据从fpga 内部送入外部寄存器数据时，会有时钟launch clk 以及capture clock，前者负责
+将数据从内部寄存器中送出， 后者要在setup 和hold 都满足的情况下将数据锁入fpga 外部寄存器。 在
+这个过程中， 如果路径的setup 或hold check不能满足， 则会导致采样数据出错， 利用set_output_delay
+定义一个准确的外部延时，可以帮助捕获这样来自于外部的时序隐患，也可以指导TD 软件时序分析工
+具在优化时尽量满足时序条件。 
+在设置约束的过程中， 注意区分系统同步和源同步情况。 在系统同步情况下，set_output_delay 时
+launch clk 应该为fpga 内部的数据发送时钟，capture clk 应该为fpga 外部数据锁存时钟，如果没
+有，可以设置一个虚拟时钟。如果外部数据的capture clk 也来自FPGA 芯片，此时软件在时序分析时
+会自动考虑该时钟在FPGA 内部的延时。 
+命令示例 
+1、多个目标的min 示例： 
+set_output_delay -clock [get_clocks clk_virtual] -min 2.000 [get_ports {{button[0]} 
+{button[1]}}] 
+2、多个目标的max 示例： 
+set_output_delay -clock [get_clocks clk_virtual] -max 8.000 [get_ports {{button[0]} 
+{button[1]}}] 
+3、-add_delay 的示例： 
+set_output_delay -clock output_b_clk -max 1.0 [get_ports {b_rgmii_txdv}] -add_delay 
+set_output_delay -clock output_b_clk -min -0.8 [get_ports {b_rgmii_txdv}] -add_delay 
+4、-add_delay 与-clock_fall 的示例： 
+set_output_delay -clock output_b_clk -clock_fall -max 1.0 [get_ports {b_rgmii_txdv}] 
+-add_delay 
+=== PDF PAGE 58 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 52 
+2024.11   
+ 
+set_output_delay -clock output_b_clk -clock_fall -min -0.8 [get_ports {b_rgmii_txdv}]
+  -add_delay 
+4.4.20 set_min_delay 
+命令参数 
+ -from  [<source node>] 
+ -rise_from [<source>] 
+ -fall_from [<source>] 
+ -through [<node>] 
+ -rise_through [<node>] 
+ -fall_through [<node>] 
+ -to [<target node>] 
+ -rise_to [<target>] 
+ -fall_to [<target>] 
+ -rise 
+ -fall 
+ <Delay value> 
+参数释义 
+-from  [<source node>] 
+为时序路径的起点，可以是clocks、cells、regs、ports 或pins 等对象。 
+-rise_from [<source>] 
+以上升沿作为参考，其中对象是clocks 或者是startpoints。 
+-fall_from [<source>] 
+以下降沿作为参考，其中对象是clocks 或者是startpoints。 
+-through [<node>] 
+指定了该时序路径必须通过的中间点，可以是pins 或 nets 对象。 
+-rise_through 
+指定了该时序路径上升沿必须通过的中间点，可以是regs、pins 或nets 对象。 
+=== PDF PAGE 59 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 53 
+2024.11   
+ 
+-fall_through 
+指定了该时序路径下降沿必须通过的中间点，可以是regs、pins 或nets 对象。 
+-to [<target node>] 
+为时序路径的终点，可以是 clocks、regs、ports 或pins 等对象。 
+-rise_to [<target>] 
+以上升沿作为参考，其中对象是clocks 或者endpoints。 
+-fall_to [<target>] 
+以下降沿作为参考，其中对象是clocks 或者endpoints。 
+-rise 
+指用于上升沿的路径延迟。 
+-fall 
+指用于下降沿的路径延迟。 
+<Delay value> 
+延时数值，数字格式是保留小数点后三位。 
+使用说明 
+Min delay 约束用于指定路径的最小要求延时。 
+注意：如果使用了-from/-to 选项，指定目标必须是时序路径的起止点。使用pin name 作为对象
+时，-from 后应为时钟管脚，-to 后应为寄存器的非时钟的输入端口。-from 对象为时钟管脚时，约束
+对象包含所有被该时钟驱动的路径。to 或者from 对象为cell 时， 约束对象包含所有在该cell 中的寄
+存器。-through 约束对象为经过该节点的所有路径。 
+SDC 中可以用于I/O 约束的命令包括set_input_delay / set_output_delay 和set_max_delay / 
+set_min_delay。其中，只有那些从FPGA 管脚进入和/或输出都不经过任何时序元件的纯组合逻辑路径
+可以用set_max_delay / set_min_delay 来约束，其余I/O 时序路径都建议由set_input_delay / 
+set_output_delay 来约束。如果对FPGA 的I/O 不加任何约束，不仅综合和实现时不会考虑I/O 时
+序，而且在时序分析时不会有这些未约束的路径。 
+命令示例 
+1、典型示例1： 
+set_max_delay -from [get_ports {x y}] -to [get_ports {sum}] 7 
+set_min_delay -from [get_ports {x y}] -to [get_ports {sum}] 3 
+=== PDF PAGE 60 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 54 
+2024.11   
+ 
+2、典型示例2： 
+set_max_delay -from [get_clocks {clk0}] -to [get_clocks {clk1}] 4 
+set_min_delay -from [get_clocks {clk0}] -to [get_clocks {clk1}] 2.5 
+4.4.21 set_max_delay 
+命令参数 
+ -from [<source node>] 
+ -rise_from [<source>] 
+ -fall_from [<source>] 
+ -through [<node>] 
+ -rise_through [<node>] 
+ -fall_through [<node>] 
+ -to [<target node>] 
+ -rise_to [<target>] 
+ -fall_to [<target>] 
+ -rise-fall 
+ <Delay value> 
+ -datapath_only 
+参数释义 
+-from [<source node>] 
+为时序路径的起点，可以是clocks、cells、regs、ports 或pins 等对象。 
+-rise_from [<source>] 
+以上升沿作为参考，其中对象是clocks 或者是startpoints。 
+-fall_from [<source>] 
+以下降沿作为参考，其中对象是clocks 或者是startpoints。 
+-through [<node>] 
+指定了该时序路径必须通过的中间点，可以是pins 或 nets 对象。 
+=== PDF PAGE 61 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 55 
+2024.11   
+ 
+-rise_through 
+指定了该时序路径上升沿必须通过的中间点，可以是regs、pins 或nets 对象。 
+-fall_through 
+指定了该时序路径下降沿必须通过的中间点，可以是regs、pins 或nets 对象。 
+-to [<target node>] 
+为时序路径的终点，可以是clocks、regs、ports 或pins 等对象的列表。 
+-rise_to [<target>] 
+以上升沿作为参考，其中对象是clocks 或者是endpoints。 
+-fall_to [<target>] 
+以下降沿作为参考，其中对象是clocks 或者是endpoints。 
+-rise 
+指用于上升沿的路径延迟。 
+-fall 
+指用于下降沿的路径延迟。 
+<Delay value> 
+延时数值，数字格式是保留小数点后三位。 
+-datapath_only 
+-datapath_only 选项可用于消除时钟的 jitter/skew/pessimism 计算，仅考虑第一个触发器的
+Clock-to-Q 延迟、触发器之间的连线延迟以及第二个触发器的建立时间。 
+使用说明 
+Max delay 约束用于设定路径的最大允许延时。 
+如果使用了-from/-to 选项，指定目标必须是时序路径的起止点。使用pin name 或者collection 
+作为对象时，-from 后应为时序路径起点，包括寄存器时钟管脚或input port。-from 对象为时钟管脚
+时， 约束对象包含所有被该时钟驱动的路径。-from 对象为input port时， 约束对象为以该input port
+为起点的时序路径。如果-from pin 不施加在时序路径起点，行为和施加在时序路径起点一致。-to 后
+应为寄存器的非时钟的输入端口或output port 。to 或者from 对象为cell 时，约束对象包含所有在
+该 cell 中的寄存器。-through 约束对象为经过该节点的所有路径。 
+注意：仅 set_max_delay 支持这个-datapath_only 选项。当-datapath_only 选项配合-from 使用
+时，clock jitter/skew/pessimism 的影响都将忽略，同时hold 的分析将被false path，软件自动加
+=== PDF PAGE 62 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 56 
+2024.11   
+ 
+上这个约束。 
+命令示例 
+1、典型示例1： 
+set_max_delay -from [get_ports {x y}] -to [get_ports {sum}] 7 
+set_min_delay -from [get_ports {x y}] -to [get_ports {sum}] 3 
+2、典型示例2： 
+set_max_delay -from [get_clocks {clk0}] -to [get_clocks {clk1}] 4 
+set_min_delay -from [get_clocks {clk0}] -to [get_clocks {clk1}] 2.5 
+4.4.22 set_multicycle_path 
+命令参数 
+ -setup /-hold  
+ -start /-end  
+ -from  [<source node>] 
+ -rise_from [<source>] 
+ -fall_from [<source>] 
+ -through [<node>] 
+ -rise_through [<node>] 
+ -fall_through [<node>] 
+ -to  [<target node>] 
+ -rise_to [<target>] 
+ -fall_to [<target>] 
+ -rise 
+ -fall 
+ <multiplier value> 
+参数释义 
+-setup /-hold  
+=== PDF PAGE 63 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 57 
+2024.11   
+ 
+该选项设定该命令所约束的时序路径类型。 -setup 指示 建立 （最大延迟）计算将使用指定的
+path_multiplier，请注意，更改设置的 path_multiplier 也会影响默认的保持检查。-hold 指示保持
+（最小延迟）计算将使用指定的path_multiplier。 
+-start /-end  
+指定延时值对应的是launch clock 还是capture clock 的周期数， 默认情况下，setup check（默
+认是-end）使用 capture clock 的周期数，向后移动。而 hold check （默认是-start）使用 launch 
+clock 的周期数，向后移动。 
+-from  [<source node>] 
+为时序路径的起点，可以是 clocks、regs、ports 或pins 等对象的列表。 
+-rise_from [<source>] 
+以上升沿作为参考，其中对象是clocks 或者是startpoints。 
+-fall_from [<source>] 
+以下降沿作为参考，其中对象是clocks 或者是startpoints。 
+-through [<node>] 
+指定了该时序路径必须通过的中间点，可以是pins 或 nets 的列表。 
+-to  [<target node>] 
+为时序路径的终点，可以是clocks、regs、ports 或pins 等对象的列表。 
+-rise_to [<target>] 
+以上升沿作为参考，其中对象是clocks 或者是endpoints。 
+-fall_to [<target>] 
+以下降沿作为参考，其中对象是clocks 或者是endpoints。 
+-rise 
+指用于上升沿的路径延迟。 
+-fall 
+指用于下降沿的路径延迟。 
+<multiplier value> 
+指定为时钟周期数。 
+使用说明 
+=== PDF PAGE 64 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 58 
+2024.11   
+ 
+设置允许多个时钟周期延时的时序路径。 
+通常情况下，两个同步的reg 进行timing check 时，组合逻辑的delay 必须在一个时钟周期内到
+达，才能满足setup 的时序。但在某些情况下，从一个寄存器输出到另外一个寄存器的data 端可以允
+许不止一个周期的时间， 而且又不影响逻辑的功能。 此时， 可以将这样的路径约束为multicycle path。 
+需要特别注意的是，在时序分析工具中，进行hold check 分析时将默认使用setup check 的前一
+个时钟沿，这就导致了仅约束一条N 周期的setup multicycle path 时，hold check 实际上会按照N-
+1 个周期分析，这在大多数场景下并非是用户本意，因此需要对同路径约束一条针对hold 的 N-1 个时
+钟周期的约束。 
+ 
+图 4-2 set_multicycle_path 约束示意图 
+如上图所示，在默认条件下，setup check所用的capture 时钟沿默认为一个周期， 此时hold check
+所用的capture 时钟沿默认为前一个周期的时钟沿，即launch clock 所在的时钟沿；当用户按照需求
+对 setup check 设置了数值为 3 的多周期时，setup check 所用的capture 时钟沿从1st edge 向后调
+整到3rd edge，与此同时，hold check 所用时钟沿自动变成其前一个时钟沿，即2nd edge,此时本条
+时序的最小延迟将从0 变为两个周期； 若用户想要维持原来的对最小延迟的设置， 可以通过补充一条对
+hold check 设置2 个多周期的指令来实现。 
+多周期可以是相对于source clock（-start） ，也可以是相对于destination clock（-end） ，对于
+跨时钟域的路径， 可以使用这两个选项加以指定， 在缺省时，setup check默认为-end，hold check 默
+认为-start。 
+尽量使用clock 作为-from /-to 的对象，此时约束的路径将包含所有由-from clock 驱动的寄存
+器和端口到-to clock 驱动的寄存器和端口之间的路径，这样会比选择节点作为对象更高效。 
+使用pin name或者clock 作为对象时，-from 后应为时钟管脚，-to 后应为寄存器的非时钟的输入
+端口。-from 对象为时钟管脚时， 约束对象包含所有被该时钟驱动的路径。to 或者from 对象为cell 时，
+约束对象包含所有在该cell 中的寄存器。through 约束对象为经过该节点的所有路径。 
+命令示例 
+
+=== PDF PAGE 65 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 59 
+2024.11   
+ 
+set_multicycle_path -setup -from [get_regs { rx_a_1d.q }] -to [get_regs { rx_a_2d.d
+ }] 3 
+set_multicycle_path -hold -end -from [get_regs {rx_a_1d.q}] -to [get_regs {rx_a_2d.
+d}] 2 
+4.4.23 set_false_path 
+命令参数 
+ -from  [<source node>] 
+ -rise_from [<source>] 
+ -fall_from [<source>] 
+ -through [<node>] 
+ -to  [<target node>] 
+ -rise_to [<target>] 
+ -fall_to [<target>] 
+ -setup 
+ -hold 
+参数释义 
+-from [<source node>] 
+指定时序路径的起点，可以是clocks、regs、ports 或pins 等对象的列表。 
+-rise_from [<source>] 
+以上升沿作为参考，其中对象是clocks 或者是startpoints。 
+-fall_from [<source>] 
+以下降沿作为参考，其中对象是clocks 或者是startpoints。 
+-through [<node>] 
+指定该时序路径必须通过的中间点，对象可以是pins 或nets。 
+-to [<target node>] 
+为时序路径的终点，可以是 clocks、regs、ports 或pins 等对象。 
+-rise_to [<target>] 
+=== PDF PAGE 66 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 60 
+2024.11   
+ 
+以上升沿作为参考，其中对象是clocks 或者是endpoints。 
+-fall_to [<target>] 
+以下降沿作为参考，其中对象是clocks 或者是endpoints。 
+-setup/-hold 
+-setup 和-hold 分别对应只在setup/recovery check 或 hold/removal check 时起约束作用。如
+果不指定该参数，TD 默认是对setup 和hold 同时起作用。 
+使用说明 
+设定时序路径为虚假路径，时序工具不对其进行时序分析。 
+如果使用clock 作为-from / -to 的对象，此时的false path 将包含所有由-from clock 驱动的
+寄存器和端口到-to clock驱动的寄存器和端口之间的路径， 这样会比选择节点作为对象更高效。-setup 
+和-hold 分别对应只在setup /recovery check或 hold/removal check 时起约束作用。 默认是对setup 
+和 hold 同时起作用。 
+命令示例 
+1、约束两个时钟示例： 
+set_false_path -from [get_clocks clk_25m] -to [get_clocks clk_25m_add] 
+2、约束两个寄存器示例： 
+set_false_path  -from [get_regs {rx_b_1d}] -to [get_regs {tx_b2c}] 
+3、约束两个时钟指定不同的沿示例： 
+set_false_path  -rise_from [get_clocks {rgmii_rxc}] -fall_to [get_clocks {Sdr_clk}] 
+set_false_path  -rise_from [get_clocks {rgmii_rxc}] -rise_to [get_clocks {Sdr_clk}] 
+4.4.24 set_clock_groups 
+命令参数 
+ -name [<group_name>] 
+ -exclusive 
+ -asynchronous 
+ -group [<clock name>] 
+参数释义 
+-name[<group_name>] 
+=== PDF PAGE 67 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 61 
+2024.11   
+ 
+要创建的时钟组的名称。如果未指定名称，将自动分配名称。 
+-exclusive 
+该选项表示时钟之间是互斥的，即时钟不会在同一时刻同时有效。 
+-asynchronous 
+该选项应用于异步时钟,指被约束时钟有完全不同的时钟源。 
+-group [<clock name>] 
+要定义的时钟集合。 
+注意：在同一指令内只用一个-group 选项时，选项后的对象与其他所有时钟之间互斥；当 
+在同一指令内有多个-group 选项时，这些选项后的对象相互之间互斥。 
+使用说明 
+为时钟域设定分组，不分析跨时钟组的时序路径。 
+set_clock_groups 命令禁止时钟组之间的时序分析，不是禁用同一组中的时钟之间的时序分析。
+set_false_path 约束仅禁止单方向的时序分析， 时钟组约束的两个方向上时序分析都将被禁止。 另外，
+可以使用-group 选项多次指定多个时钟组。注意设计中至少有两个组是有效的，set_clock_groups 约
+束才能有效。 
+命令示例 
+create_clock –name CLK2 –period 10.0 [get_ports CLK2] 
+create_clock –name CLK3 –period 5.0 [get_ports CLK3] 
+set_clock_groups -exclusive –group CLK2 –group CLK3 
+4.4.25 set_clock_sense 
+命令参数 
+ -stop_propagation 
+ -clocks [<list>] 
+ [<Target>] 
+参数释义 
+-stop_propagation 
+停止“-clocks [<list>]”中指定的时钟从“[<Target>]”指定的对象开始不传播。 
+-clocks [<list>] 
+=== PDF PAGE 68 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 62 
+2024.11   
+ 
+指定要 应用 set_clock_sense 的时钟对象的列表 。如果不指定 -clocks 选项，则会考虑通过
+“[<Target>]”指定的对象的所有时钟。 
+[<Target>] 
+指定的网表对象，对象类型可以是pins、ports 和nets。 
+使用说明 
+该命令可以实现定义的时钟从指定的网表对象停止时钟的传播功能。 
+命令举例 
+set_clock_sense -stop_propagation –clocks [get_clocks {clk_1}] [get_pins { rx_a_mux.o }] 
+4.4.26 set_clock_route_enforce 
+命令参数 
+ [<net name>] 
+参数释义 
+[<net name>] 
+指定时钟的net 源节点。 
+使用说明 
+用于指定特定时钟线网只走专用全局时钟互连。 
+注意： 对于某些应用场景， 可手动指定一些clock 线网只走时钟网络， 若指定的时钟只走时钟网络
+时， 可能会导致布局布线失败，TD 会及时给出error。 注意不能与set_clock_route 命令同时使用， 这
+两条命令关系是互斥的。例如，多 bank 的源同步应用场景，建议使用该命令约束时钟net，可以保证
+源同步时钟只走专用全局时钟互连，从而可以保证时钟的skew 较小。 
+命令示例 
+set_clock_route_enforce {clk_1_net} 
+4.4.27 set_clock_route 
+命令参数 
+ [<net name>] 
+参数释义 
+[<net name>] 
+=== PDF PAGE 69 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 63 
+2024.11   
+ 
+指定时钟的net 源节点。 
+使用说明 
+用于指定特定时钟线网不走专用全局时钟互连。 
+注意： 对于design 中clock 数目超过了器件的限制时， 可手动指定一些clock 线网不走时钟网络，
+若指定的时钟不走时钟网络时，可能会导致布局布线失败，TD 会及时给出 error。如果没有显式指定
+时，TD 软件内部将自动判断时钟的重要性来决定哪些超出数量的时钟不走全局时钟网络，而一旦用此
+命令手动指定了任意时钟信号布线， 就必须将所有不走全局时钟网络的时钟一一指定。 此外， 如果在代
+码中显式的使用了 BUFG 等时钟类型的资源，同时使用了该命令，则该命令无效。另外注意不能与
+set_clock_route_enforce 命令同时使用，这两条命令关系是互斥的。 
+命令示例 
+set_clock_route {clk_1_net} 
+4.4.28 set_cross_domain_timing 
+命令参数 
+ all 
+ self 
+ domain 
+参数释义 
+all  
+默认选项，表示分析任意两个时钟之间的时序 
+self 
+表示只分析同一个时钟内部的时序，跨时钟时序被忽略 
+domain 
+表示只分析同一个时钟域内部的时序，跨时钟域的时序被忽略 
+使用说明 
+用于同时忽略所有异步或所有时钟间的时序关系。 
+注意： 用于同时忽略所有异步或所有时钟间的时序关系。master clock及其衍生的所有generated 
+clock 统称为一个时钟域。 如果没有衍生时钟，master clock本身为一个时钟域。 不同时钟域之间没有
+明确的相位关系，为异步时钟。因为这个命令将影响所有时钟，请谨慎使用该命令。 
+命令示例 
+set_cross_domain_timing domain  
+=== PDF PAGE 70 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 64 
+2024.11   
+ 
+4.5 分步运行命令 
+当使用非工程模式脚本或single run 模式脚本运行工程时，需使用以下分步运行命令。 
+4.5.1 elaborate 
+工程模式下，解析HDL 源文件。 
+命令参数： 
+elaborate [-help] -top <top_module_name> 
+参数释义： 
+-help： 
+（可选）打印帮助信息。 
+-top <top_module_name> 
+（必选）指定设计的top module 名称。 
+命令示例： 
+elaborate -top my_top 
+4.5.2 optimize_rtl 
+RTL 设计优化。 
+命令参数： 
+optimize_rtl 
+4.5.3 optimize_gate 
+资源映射及打包。此步骤为map_macro,map 及 pack 三个步骤的集成。 
+命令参数： 
+optimize_gate [-maparea <report_file_path>] [-packarea <report_file_path>] 
+参数释义： 
+-maparea <report_file_path>： 
+（可选）指定子步骤map 后的面积报告放置的绝对路径或相对路径及文件名。 
+-packarea <report_file_path>： 
+=== PDF PAGE 71 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 65 
+2024.11   
+ 
+（可选）指定子步骤pack 后的面积报告放置的绝对路径或相对路径及文件名。 
+4.5.4 map_macro 
+器件映射，主要包括RAM，DSP，SHIFTER，进位链，PAD 等。 
+命令参数： 
+map_macro 
+4.5.5 map 
+优化组合逻辑并映射为LUTs。 
+命令参数： 
+map 
+4.5.6 pack 
+将相关资源打包为SLICE。 
+命令参数： 
+pack 
+4.5.7 legalize_phy_inst 
+网表规范化处理。 
+命令参数： 
+legalize_phy_inst 
+命令示例： 
+open_project -single_run ./test.al 
+elaborate -top my_top 
+optimize_rtl 
+optimize_gate 
+legalize_phy_inst 
+read_sdc ./test.sdc 
+place 
+=== PDF PAGE 72 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 66 
+2024.11   
+ 
+route 
+注： 
+Tcl 脚本运行流程时， 在optimize_gate 或pack 命令后需使用legalize_phy_inst，并且需要read_sdc
+再次读入SDC 文件，然后执行布局布线相关命令。 
+4.5.8 place 
+运行布局。 
+命令参数： 
+place 
+4.5.9 route 
+运行布线。 
+命令参数： 
+route 
+  
+=== PDF PAGE 73 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 67 
+2024.11   
+ 
+4.6 优化命令 
+本章节介绍可以在import db 后使用的优化布局布线和时序的命令。 
+4.6.1 phys_opt 
+在布线后使用phys_opt 优化时序。 
+命令参数： 
+phys_opt [-effort <low/medium/high/ultra>] -post_route 
+参数释义： 
+-effort <low/medium/high/ultra>： 
+（可选）指定当前优化的力度，由low～ultra 力度越来越大。此选项可与其他任意选项搭配
+使用，当不使用此选项是，默认力度为medium。 
+-post_route： 
+（必选）执行在布线后可进行的优化。 
+命令示例： 
+phys_opt -post_route -effort high 
+4.6.2 fix_hold 
+单独调用布线后的fix_hold 优化 
+命令参数： 
+fix_hold 
+命令示例： 
+import_db route.db 
+fix_hold 
+  
+=== PDF PAGE 74 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 68 
+2024.11   
+ 
+4.7 设计分析 
+本章节介绍提供设计分析手段的Tcl 命令 
+4.7.1 report_area 
+打印面积报告。 
+命令参数： 
+report_area [-file <file_path_name>] [-verbose] [-io_info] 
+参数释义： 
+-file <file_path_name>: 
+（可选）打印信息输出到文件。file_path_name 为输出文件的绝对路径或相对路径及文件名。 
+-verbose: 
+（可选）打印更详细的面积报告。 
+-io_info： 
+（可选）在面积报告中输出详细IO 信息。 
+命令示例： 
+report_area –file ./place.area –io_info 
+4.7.2 report_logic_level 
+打印逻辑级数报告 
+命令参数： 
+report_logic_level [-h/-help] [-file <file_path_name>] [-worst_n <int>] [-no_header] 
+参数释义： 
+-h/-help: 
+打印基本用法 
+-file <file_path_name>： 
+（必选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。因report_logic_level 输出内容较多，-file 为必选项将输出保存到文件。 
+-worst_n <int>: 
+=== PDF PAGE 75 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 69 
+2024.11   
+ 
+（可选）报告中只包含setup slack 最差的指定数量的路径， 给出这些路径的逻辑级数和时序
+信息。数值为整数。 
+-no_header： 
+（可选）不打印报告的头信息。头信息主要包含软件版本和器件信息。 
+命令示例： 
+report_logic_level –file gate.lvl 
+4.7.3 report_hfn 
+输出high fanout net 的信息。 
+命令参数： 
+report_hfn <mode> [-net <net_name>] [-limit <int>] [-min <int>] [-max <int>] [-file <
+file_path_name>] [-timing] 
+参数释义： 
+mode: 
+（必选）指定当前扇出分析的阶段，可取值为rtl/gate/place/route。 
+-net <net_name>： 
+（可选）指定需打印扇出分析详细信息的net 对象，其中net_name 需写在大括号{}内。当不
+使用此选项时，将按照扇出降序排列默认打印前20 条 net 的扇出摘要信息。 
+-limit <int>： 
+（可选）指定打印扇出摘要信息的net 数目，默认值20。此选项不能与-net 同时使用。 
+-min <int>： 
+（可选）指定打印high fanout net 的最小fanout。此选项不能与-net 同时使用。 
+-max <int>： 
+（可选）指定打印high fanout net 的最大fanout。此选项不能与-net 同时使用。 
+-file <file_path_name>： 
+（可选）将打印信息输出到文件。file_path_name 指定输出文件的绝对路径或相对路径及文
+件名。 
+-timing： 
+（可选）打印high fanout net 的slack 和net delay 信息。 
+=== PDF PAGE 76 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 70 
+2024.11   
+ 
+命令示例： 
+report_hfn gate 
+report_hfn place -net {rst} –timing 
+report_hfn route –min 100 –timing 
+4.7.4 report_analysis 
+打印当前阶段critical path 或net 相关的信息。 
+命令参数： 
+report_analysis <mode> [-timing] [-congesiton] [-file <file_path_name>] [-max_path_nu
+m <int>] [-path_num_per_ep <int>]  [-slack_threshold <int>] [-debug] [-full] 
+参数释义： 
+mode: 
+（必选）指定当前分析的阶段， 可取值为basic/manhattan/final， 分别指gate/place/route
+阶段。 
+-timing： 
+（可选）分析并打印时序信息。-timing 和-congestion 两个选项中需至少使用一个。 
+-congesiton： 
+（可选）分析并打印拥塞信息，需与-file 同时使用。-timing 和-congestion 两个选项中需
+至少使用一个。 
+-file <file_path_name>： 
+（可选）与-congestion 一起使用， 指定拥塞信息输出到文件的绝对路径或相对路径以及文件
+名。 
+-max_path_num <int>： 
+（可选）指定分析path 的最大数目，默认值为10。 
+-path_num_per_ep <int>： 
+（可选）指定每个endpoint 分析path 的数目，默认值为3。 
+-slack_threshold <int>： 
+（可选）指定分析的critical path 的 slack 最大值，单位ps，默认值为-1，即默认只分析
+slack 为负的path。当需要分析slack 为正值或自定义负值范围的path 时，可使用此选项来指定
+=== PDF PAGE 77 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 71 
+2024.11   
+ 
+slack 阈值。 
+-debug： 
+（可选）打印更详细的分析过程。 
+-full： 
+（可选）当 mode 为 final 且指定-timing 选项时，同时打印出 manhattan mode 的 slack 和
+delay 值，用以比较分析。 
+命令示例： 
+report_analysis final -congestion -file ./congestion_analysis.rpt 
+4.7.5 report_cells 
+打印指定cell 的信息。 
+命令参数： 
+report_cells <cell_name> [-help] [-connection] [-pin_loc] [-mode <basic/manhattan/fin
+al>] [-timing] [-hold] 
+参数释义： 
+cell_name: 
+（必选）指定需要打印信息的cell 名字。cell 名字需写在大括号{}内，支持通配符模糊匹配。
+如需打印多个cell 的信息，不同的cell name 用空格分隔。也可使用get_cells 命令来获取cell
+名字。 
+-help： 
+（可选）打印基本用法。 
+-connection： 
+（可选）打印指定cell 各个pin 连接nets 的信息。 
+-pin_loc： 
+（可选）与-connection 一起使用，打印指定cell 各个pin 的位置信息。 
+-mode <basic/manhattan/final>： 
+（可选）当使用-timing 选项是， 需使用-mode 选项指定当前的阶段。basic/manhattan/final
+分别指gate/place/route 阶段。 
+-timing： 
+=== PDF PAGE 78 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 72 
+2024.11   
+ 
+（可选）需与-mode 一起使用，打印每个pin 的slack。默认只打印setup 时序的信息。 
+-hold： 
+（可选）需与-timing 一起使用，将同时打印hold 时序的信息。 
+命令示例： 
+report_cells {o_dat_reg[1]} -connection -mode manhattan -timing -hold 
+4.7.6 report_nets 
+打印指定net 的信息。 
+命令参数： 
+report_nets <net_name> [-help] [-connection] [-mode <basic/manhattan/final>] [-timin
+g] [-hold] [-pin_output_limit <int>] [-of_pins <pin_name>]  
+参数释义： 
+net_name: 
+（必选）指定需要打印信息的 net 名字。net 名字需写在大括号{}内，支持通配符模糊匹配。
+如需打印多个 net 的信息，不同的 net name 用空格分隔。也可使用 get_nets 命令来获取 net 名
+字。 
+-help： 
+（可选）打印基本用法。 
+-connection： 
+（可选）打印指定net 连接的cells 的信息。 
+-mode <basic/manhattan/final>： 
+（可选）当使用-timing 选项是， 需使用-mode 选项指定当前的阶段。basic/manhattan/final
+分别指gate/place/route 阶段。 
+-timing： 
+（可选）需与-mode 一起使用，打印每个pin 的slack。默认只打印setup 时序的信息。 
+-hold： 
+（可选）需与-timing 一起使用，将同时打印hold 时序的信息。 
+-pin_output_limit <int>： 
+（可选）限制打印各类pin（input，output，inout）的数目，以控制打印篇幅。 
+=== PDF PAGE 79 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 73 
+2024.11   
+ 
+-of_pins <pin_name>： 
+（可选）通过当前net 连接的pin 名字来索引并打印对应net 的信息。pin 名字需写在大括号
+{}内，当需指定多个pin 时， 不同的pin name 之间用空格分隔。也可以使用get_pins 命令来获取
+pin 名字。 
+命令示例： 
+report_nets {datgen_din[0]} -connection -mode manhattan -timing -hold 
+4.7.7 report_qor 
+打印指定阶段的QOR 信息，并进行自动化的QOR 分析，给出相应的优化建议。 
+在GUI project 运行流程时，gate、place 和route 阶段的输出报告分别为 
+<project_name>_Runs/syn_*/gate.qor 
+<project_name>_Runs/phy_*/place.qor 
+<project_name>_Runs/phy_*/route.qor 
+Tcl 脚本中当使用 optimize_gate/pack,place,route 命令时，会自动调用 report_qor 命令产生
+QOR 报告。工程模式脚本QOR 报告产生的目录跟GUI project 运行的情况一样。非工程模式的脚本QOR
+报告产生在当前目录下。 
+命令参数： 
+report_qor -step <gate/place/route> [-file <file_path_name>] 
+参数释义： 
+-step <gate/place/route>: 
+（必选）指定当前进行QOR 分析的阶段。 
+-file <file_path_name>： 
+（可选）将打印信息输出到文件。file_path_name 指定输出文件的绝对路径或相对路径及文
+件名。若不使用此选项，则将结果打印在terminal 或 log 里。 
+命令示例： 
+report_qor -step gate -file gate.qor 
+  
+=== PDF PAGE 80 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 74 
+2024.11   
+ 
+4.8 时序分析 
+ report_timing_summary 
+打印整个design 的时序分析报告。 
+命令参数： 
+report_timing_summary [-h/-help] [-file <file_path_name>] [-ep_num <int>] [-path_num 
+<int>] [-include_ignored] [-viol_only] [-no_header] 
+参数释义： 
+-h/-help: 
+（可选）打印基本用法 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+-ep_num <int>： 
+（可选）报告展示时序路径终点的数目，默认值为10. 
+-path_num <int>： 
+（可选）报告展示针对每个时序路径终点分析时序路径的数目，默认值为1. 
+-include_ignored： 
+（可选）报告包含被set_false_path 和 set_clock_groups 排除的时序路径。 
+-viol_only： 
+（可选）报告只包含出现时序违例（即slack 为负）的时序路径。 
+-no_header： 
+（可选）不打印报告的头信息。头信息主要包含软件版本和器件信息。 
+命令示例： 
+report_timing_summary -file route.timing 
+  
+=== PDF PAGE 81 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 75 
+2024.11   
+ 
+4.8.1 report_timing_path 
+打印指定path 的时序分析报告。 
+命令参数： 
+report_timing_path [-h/-help] [-file <file_path_name>] [-ep_num <int>] [-path_num <in
+t>] [-from <startpoint>] [-through <thrupoint>] [-to <endpoint>] [-no_header] 
+参数释义： 
+-h/-help: 
+（可选）打印基本用法 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+-ep_num <int>： 
+（可选）报告展示时序路径终点的数目，默认值为10. 
+-path_num <int>： 
+（可选）报告展示针对每个时序路径终点分析时序路径的数目，默认值为1. 
+-from <startpoint>： 
+（可选）指定时序路径的起点（get_pins/get_regs/get_ports/get_cells/get_clocks）。 
+-through <thrupoint>： 
+（可选）指定时序路径经过的点（get_pins/get_nets/get_cells）。 
+-to <endpoint>： 
+（可选）指定时序路径的终点（get_pins/get_regs/get_ports/get_cells/get_clocks）。 
+-no_header： 
+（可选）不打印报告的头信息。头信息主要包含软件版本和器件信息。 
+命令示例： 
+report_timing_path -file a2b.timing -from [get_regs {datgen_din[0]}] 
+  
+=== PDF PAGE 82 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 76 
+2024.11   
+ 
+4.8.2 report_clock_intersection 
+打印时钟交互报告，显示跨时钟域路径的时序约束健康程度，以及时序分析风险。 
+命令参数： 
+report_clock_intersection [-h/-help] [-file <file_path_name>] 
+参数释义： 
+-h/-help: 
+（可选）打印基本用法 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+命令示例： 
+report_clock_intersection -file clk_inter.rpt 
+4.8.3 report_clock_summary 
+打印时钟树结构。 
+命令参数： 
+report_clock_summary [-h/-help] [-file <file_path_name>] [-clocks <clock_list>] 
+参数释义： 
+-h/-help: 
+（可选）打印基本用法 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+-clocks <clock_list>： 
+（可选）指定只对某个或某些时钟打印时钟树结构。clock_list 如果是多个时钟，需写在大
+括号{}内，以空格分隔；或用get_clocks 命令来获取clock list 对象。 
+命令示例： 
+report_clock_summary -file clk_smry.rpt 
+=== PDF PAGE 83 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 77 
+2024.11   
+ 
+4.8.4 report_timing_exception 
+打印set_max_delay/set_multicycle_path相关的path 信息， 包括被set_false_path 覆盖的path。 
+命令参数： 
+report_timing_exception [-h/-help] [-file <file_path_name>] [-ep_num <int>] [-path_nu
+m <int>] [-viol_only] [-no_header] 
+参数释义： 
+-h/-help: 
+（可选）打印基本用法 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+-ep_num <int>： 
+（可选）报告展示时序路径终点的数目，默认值为10. 
+-path_num <int>： 
+（可选）报告展示针对每个时序路径终点分析时序路径的数目，默认值为1. 
+-viol_only： 
+（可选）报告只包含出现时序违例（即slack 为负）的时序路径。 
+-no_header： 
+（可选）不打印报告的头信息。头信息主要包含软件版本和器件信息。 
+命令示例： 
+report_timing_exception -file exception.timing 
+4.8.5 report_timing_ignored 
+打印set_false_path/set_clock_groups 相关的path 信息 
+命令参数： 
+report_timing_ignored [-h/-help] [-file <file_path_name>] [-ep_num <int>] [-path_num 
+<int>] [-no_header] 
+参数释义： 
+=== PDF PAGE 84 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 78 
+2024.11   
+ 
+-h/-help: 
+（可选）打印基本用法 
+-file <file_path_name>： 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+-ep_num <int>： 
+（可选）报告展示时序路径终点的数目，默认值为10. 
+-path_num <int>： 
+（可选）报告展示针对每个时序路径终点分析时序路径的数目，默认值为1. 
+-no_header： 
+（可选）不打印报告的头信息。头信息主要包含软件版本和器件信息。 
+命令示例： 
+report_timing_ignored -file ignored.timing 
+4.8.6 update_timing 
+更新timing db 数据。import db 后第一次做STA 时，或者网表变更后刷新时序库数据。 
+命令参数： 
+update_timing [-mode <basic/manhattan/final>] [-check_corner <fast/slow>] 
+参数释义： 
+-mode <basic/manhattan/final>: 
+（可选）指定当前的阶段。basic/manhattan/final 分别指gate/place/route 阶段。 
+-check_corner <fast/slow>： 
+（可选）指定工艺角。当不使用此选项时，fast corner 和slow corner 都会分析。 
+命令示例： 
+update_timing -mode manhattan 
+  
+=== PDF PAGE 85 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 79 
+2024.11   
+ 
+4.8.7 check_timing 
+检查SDC 健康程度。  
+命令参数： 
+check_timing [-file <file_path_name>] [-verbose] 
+参数释义： 
+-file <file_path_name>: 
+（可选）保存报告内容到文本文件。file_path_name 为输出文件的绝对路径或相对路径及文
+件名，后缀名不限。 
+-verbose: 
+（可选）展示详细信息。 
+命令示例： 
+check_timing -verbose 
+  
+=== PDF PAGE 86 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 80 
+2024.11   
+ 
+4.9 位流文件生成器 
+4.9.1 bitgen 
+设置位流文件（bitstream）产生所需的参数，并生成位流文件。  
+命令参数： 
+bitgen [-bit <bitfile_path_name>] [-bin <binfile_path_name>] [-gen_mask] [-hd <strin
+g>] [-id <string>] [-version <string>] [-security] [-no_date_info] [-compress] [-embedded
+_compress] [-seu_all] [-unused_io_status <pullup/pulldown/keeper/none>] [-g { param_1:val
+ue_1 param_2:value_2 … param_1:value_1 param_2:value_2 … param_n:value_n }] 
+参数释义： 
+ 基本选项General Option 
+-bit <bitfile_path_name>: 
+（可选）指定 bit 文件的绝对路径或相对路径及文件名。-bit 和-bin 两个选项需至少使用一
+个。 
+-bin <binfile_path_name>： 
+（可选）指定 bin 文件的绝对路径或相对路径及文件名。-bit 和-bin 两个选项需至少使用一
+个。 
+-gen_mask： 
+（可选）生成bitstream 的 mask 文件，在对SRAM 做回读校验时不去校验mask 文件被设上
+的码点。使用此选项时需同时使用-bit 选项。如果工程存在DRAM init value ，并且需要做SRAM
+回读校验时需要设置此选项。 
+-hd <string>： 
+（可选）在 bin 文件前面添加16 字节的信息，用于离线下载。使用此选项时需同时使用-bin
+选项。此选项的值为32 位16 进制数值，默认值为00000000AA5599669100050000000000。 
+-id <string>： 
+（可选）在bin 文件前面添加2 字节的信息，作为bin 文件的id 使用，用于区分不同bin 文
+件。使用此选项时需同时使用-bin 选项。此选项的值为4 位16 进制数值。 
+-version <string>： 
+（可选）指定bit 文件的version 信号， 该配置会写到位流文件中， 并且可以从芯片中回读显
+示在download 界面。如果Download 界面存在多个bit 文件，可以通过界面显示的version 值来
+=== PDF PAGE 87 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 81 
+2024.11   
+ 
+判断当前芯片加载的bit 文件。使用此选项时需同时使用-bit 或-bin 选项。此选项的值为2 位 16
+进制数值，默认值为00. 
+-security： 
+（可选）屏蔽SRAM 回读功能。 
+-no_date_info： 
+（可选）bit 文件不写入文件创建时间信息，用于在比较不同 bit 文件时忽略时间戳的影响。 
+-compress： 
+（可选）bit 文件压缩。 使用此选项时需同时使用-bit 选项， 会同时生成非压缩的bit 文件和
+压缩的bit 文件。 
+-embedded_compress： 
+（可选）bin 文件压缩，用于嵌入式加载。 
+-seu_all: 
+（可选）开启全码流seu 检测功能。仅PH1A100 和PH1A400 支持此选项，默认不开启。 
+-unused_io_status <pullup/pulldown/keeper/none>： 
+（可选）将实际逻辑中未使用的IO 启动状态统一设定，默认值pullup。 
+ 寄存器配置指令 
+TD GUI 工程中可以在Process->Properties 窗口对影响位流文件生成的寄存器进行配置，
+详细信息请参考《SWUG110_BitWard 使用指南》中第 3 章“位流文件配置与生成”。在 Tcl 命
+令行模式下可使用bitgen 命令的-g 选项来对寄存器进行配置。格式如下： 
+-g {param_1:value_1 param_2:value_2 … param_n:value_n} 
+param 与 value 用“ : ” 分 隔 ， 不 同 param 之 间 用 空 格 分 隔. 其中 param 为 
+Process->Properties 窗口 的 Option，value 为 该 窗 口 中 的 对 应Option 的 可 选 值
+（Selection）, 如下图所示： 
+=== PDF PAGE 88 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 82 
+2024.11   
+ 
+ 
+图 4-3 Ge4nerate Bitstream Properties 
+注： 
+ param 和value 的大小写需要和界面完全一致； 
+ Generate Bitstream Properties 中的 General Option 的命令行设置方式请见前述“基本选项
+General Option”；其它的control option, startup option 和 attribute option 均可以通过-g 选
+项进行配置 
+命令示例： 
+ 将 control option 的 security 选项设置为1： 
+bitgen -bit top.bit -g {security:1} 
+ 将 mclk_freq 为5MHz, boot_mode 为 mspix4： 
+bitgen -bit top.bit -g {mclk_freq:5MHz boot_mode:mspix4} 
+ 
+
+=== PDF PAGE 89 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 83 
+2024.11   
+ 
+附录一 Device db 文件名 
+下表中的Device family 以TD 软件中分类为准。 
+Device family Device package db 文件名 
+PH1 
+PH1A100SFG676 
+ph1_100.db 
+PH1A100SFG676X 
+PH1A100GCG324 
+PH1A100GSG324 
+PH1A60GEG324 ph1_60.db 
+PH1A60GEG324C ph1_60c.db 
+PH1A90SBG484 
+ph1_90.db PH1A90SEG324 
+PH1A90SEG325 
+PH1A180SFG676 ph1_180.db 
+PH1A400SFG900 
+ph1_400.db PH1A400SFG676 
+PH1A400SFX900 
+PH2 
+PH2A106FLG676 
+ph2_106.db 
+PH2A106FLG900 
+=== PDF PAGE 90 ===
+ 
+ 
+TangDynasty® TCL Command User Guide  
+SWUG105 www.anlogic.com 84 
+2024.11   
+ 
+版本信息 
+日期 版本 修订信息 
+2024/11/30 1.0 首次发布中文版 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+版权所有©2024 上海安路信息科技股份有限公司  
+未经本公司书面许可， 任何单位和个人都不得擅自摘抄、 复制、 翻译本文档内容的部分或全部， 并不得
+以任何形式传播。 
+免责声明  
+本文档并未授予任何知识产权的许可， 并未以明示或暗示， 或以禁止发言或其他方式授予任何知识产权
+许可；本文档仅为向用户提供使用器件的参考， 协助用户正确地使用安路科技产品之用， 其著作权归安
+路科技所有；本文档所展示的任何产品信息均不构成安路科技对所涉产品或服务作出任何明示或默示
+的声明或保证。 
+安路科技将不定期地对本文档进行更新、 修订。 用户如需获取最新版本的文档， 可通过安路科技的官方
+网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。 

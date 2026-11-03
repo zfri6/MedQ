@@ -1,0 +1,41 @@
+
+===== vsim =====
+$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_independent_call_audio -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c -voptargs="+acc" work.tb_independent_call_audio -do "run -all; quit -f" 
+# Start time: 17:00:44 on Oct 31,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_independent_call_audio(fast)
+# Loading work.medq_dual_service(fast)
+# Loading work.medq_room_service(fast)
+# Loading work.medq_dual_announcer(fast)
+# Loading work.audio_pcm_player(fast)
+# Loading work.medq_async_fifo(fast)
+# run -all
+# ** Fatal: ERROR disabled cancellation/class/ordinary sequence/drain totals C=0 q=00000000000000070014000100000100 grants=3/1 aborts=3 beats=544 bursts=17
+#    Time: 334620 ns  Scope: tb_independent_call_audio File: C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_independent_call_audio.v Line: 78
+# ** Note: $finish    : C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_independent_call_audio.v(78)
+#    Time: 334620 ns  Iteration: 2  Instance: /tb_independent_call_audio
+# End time: 17:00:46 on Oct 31,2026, Elapsed time: 0:00:02
+# Errors: 1, Warnings: 0
+
+[exit code 0]

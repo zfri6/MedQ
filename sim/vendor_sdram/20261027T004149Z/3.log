@@ -1,0 +1,42 @@
+$ C:\modeltech64_10.4\win64\vsim.exe -c work.tb_sdram_hardware work.glbl -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c work.tb_sdram_hardware work.glbl -do "run -all; quit -f" 
+# Start time: 08:41:51 on Oct 27,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sdram_hardware(fast)
+# Loading work.sys_pll(fast)
+# Loading work.EG_PHY_PLL(fast)
+# Loading work.glbl(fast)
+# run -all
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# CHECK actual encrypted core, BL4/CL3 physical data, masks, boundaries, stalls, refresh, reset; words=1311 refresh=25
+# PASS tb_sdram_hardware
+# ** Note: $finish    : tb_sdram_hardware.v(104)
+#    Time: 5661101200 ps  Iteration: 0  Instance: /tb_sdram_hardware
+# End time: 08:42:10 on Oct 27,2026, Elapsed time: 0:00:19
+# Errors: 0, Warnings: 0, Suppressed Errors: 5

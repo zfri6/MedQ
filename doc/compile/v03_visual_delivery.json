@@ -1,0 +1,6 @@
+{
+  "status": "SUPERSEDED_BY_CURRENT_REVISION",
+  "current_delivery": "doc/compile/sw1_cd_delivery.json",
+  "historical_visual_delivery": "baseline/v03_pre_sw1_queue_fix_20261031/previous/doc/compile/v03_visual_delivery.json",
+  "board_test": "not_tested"
+}

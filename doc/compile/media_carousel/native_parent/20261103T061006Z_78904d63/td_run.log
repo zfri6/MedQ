@@ -1,0 +1,2189 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     zhang
+   Run Date =   Tue Nov  3 14:10:06 2026
+
+   Run on =     LAPTOP-I7KH3N1F
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "analyze -file rtl/al_ip/afifo_8i_32o_1024.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/afifo_8i_32o_1024.v
+RUN-1002 : start command "analyze -file rtl/al_ip/clk_wize.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/clk_wize.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in rtl/al_ip/clk_wize.v(70)
+RUN-1002 : start command "analyze -file rtl/al_ip/medq_pll.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/medq_pll.v
+HDL-1007 : undeclared symbol 'medq_pll_open0', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(86)
+HDL-1007 : undeclared symbol 'medq_pll_open8', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open7', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open6', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open5', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open4', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open3', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open2', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open1', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(92)
+HDL-1007 : undeclared symbol 'medq_pll_open10', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(94)
+HDL-1007 : undeclared symbol 'medq_pll_open9', assumed default net type 'wire' in rtl/al_ip/medq_pll.v(94)
+RUN-1002 : start command "analyze -file rtl/al_ip/sdram.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/sdram.v
+RUN-1002 : start command "analyze -file rtl/al_ip/sdram_vendor/global_def.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/sdram_vendor/global_def.v
+RUN-1002 : start command "analyze -file rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v
+HDL-1007 : analyze included file rtl/al_ip/sdram_vendor/global_def.v in rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v(10)
+HDL-1007 : back to file 'rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v' in rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v(10)
+Copyright (c) 1998-2019 The OpenSSL Project.  All rights reserved.
+This product includes software developed by the OpenSSL Project
+for use in the OpenSSL Toolkit (http://www.openssl.org/)
+Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+All rights reserved.
+This product includes cryptographic software written by Eric Young (eay@cryptsoft.com)
+HDL-1007 : back to file 'rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v' in rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v(45)
+RUN-1002 : start command "analyze -file rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v
+HDL-1007 : analyze included file rtl/../user_source/hdl_source/include/global_def.v in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(11)
+HDL-1007 : back to file 'rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v' in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(11)
+HDL-1007 : undeclared symbol '**', assumed default net type '**' in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(57)
+HDL-1007 : back to file 'rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v' in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(149)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(47)
+RUN-1002 : start command "analyze -file rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(283)
+HDL-1007 : back to file 'rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v' in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(19)
+RUN-1002 : start command "analyze -file rtl/al_ip/sys_pll.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/al_ip/sys_pll.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in rtl/al_ip/sys_pll.v(89)
+RUN-1002 : start command "analyze -file rtl/asset_loader.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/asset_loader.v
+RUN-1002 : start command "analyze -file rtl/audio_announcer.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/audio_announcer.v
+RUN-1002 : start command "analyze -file rtl/audio_mixer.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/audio_mixer.v
+RUN-1002 : start command "analyze -file rtl/audio_pcm_player.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/audio_pcm_player.v
+RUN-1002 : start command "analyze -file rtl/audio_sample_clk.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/audio_sample_clk.v
+RUN-1002 : start command "analyze -file rtl/audio_tone_gen.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/audio_tone_gen.v
+RUN-1002 : start command "analyze -file rtl/av_sync_monitor.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/av_sync_monitor.v
+RUN-1002 : start command "analyze -file rtl/bilinear_scaler.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/bilinear_scaler.v
+RUN-1002 : start command "analyze -file rtl/bmp_parser.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/bmp_parser.v
+RUN-1002 : start command "analyze -file rtl/buzzer.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/buzzer.v
+RUN-1002 : start command "analyze -file rtl/cdc_bus_handshake.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/cdc_bus_handshake.v
+RUN-1002 : start command "analyze -file rtl/cdc_pulse.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/cdc_pulse.v
+RUN-1002 : start command "analyze -file rtl/cdc_sync_bit.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/cdc_sync_bit.v
+RUN-1002 : start command "analyze -file rtl/fat32_reader.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/fat32_reader.v
+RUN-1002 : start command "analyze -file rtl/font_rom.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/font_rom.v
+RUN-1002 : start command "analyze -file rtl/frame_reader.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/frame_reader.v
+RUN-1002 : start command "analyze -file rtl/goertzel_spectrum.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/goertzel_spectrum.v
+RUN-1002 : start command "analyze -file rtl/hdmi_bch_ecc.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/hdmi_bch_ecc.v
+RUN-1002 : start command "analyze -file rtl/hdmi_packet_scheduler.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/hdmi_packet_scheduler.v
+RUN-1002 : start command "analyze -file rtl/hdmi_terc4_encoder.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/hdmi_terc4_encoder.v
+RUN-1002 : start command "analyze -file rtl/hdmi_tmds_encoder.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/hdmi_tmds_encoder.v
+RUN-1002 : start command "analyze -file rtl/hdmi_tx_core.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/hdmi_tx_core.v
+RUN-1002 : start command "analyze -file rtl/key_debounce.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/key_debounce.v
+RUN-1002 : start command "analyze -file rtl/latency_probe.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/latency_probe.v
+RUN-1002 : start command "analyze -file rtl/medq_async_fifo.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_async_fifo.v
+RUN-1002 : start command "analyze -file rtl/medq_audio_wave.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_audio_wave.v
+RUN-1002 : start command "analyze -file rtl/medq_board_inputs.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_board_inputs.v
+RUN-1002 : start command "analyze -file rtl/medq_call_cdc.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_call_cdc.v
+RUN-1002 : start command "analyze -file rtl/medq_call_feedback.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_call_feedback.v
+RUN-1002 : start command "analyze -file rtl/medq_dual_announcer.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_dual_announcer.v
+HDL-1007 : analyze included file rtl/medq_patient_lookup.vh in rtl/medq_dual_announcer.v(13)
+HDL-1007 : back to file 'rtl/medq_dual_announcer.v' in rtl/medq_dual_announcer.v(13)
+RUN-1002 : start command "analyze -file rtl/medq_dual_service.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_dual_service.v
+RUN-1002 : start command "analyze -file rtl/medq_dual_ui_scene.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_dual_ui_scene.v
+HDL-1007 : analyze included file rtl/medq_dual_layout.vh in rtl/medq_dual_ui_scene.v(11)
+HDL-1007 : back to file 'rtl/medq_dual_ui_scene.v' in rtl/medq_dual_ui_scene.v(11)
+HDL-1007 : analyze included file rtl/medq_patient_lookup.vh in rtl/medq_dual_ui_scene.v(12)
+HDL-1007 : back to file 'rtl/medq_dual_ui_scene.v' in rtl/medq_dual_ui_scene.v(12)
+RUN-1002 : start command "analyze -file rtl/medq_media_control.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_media_control.v
+RUN-1002 : start command "analyze -file rtl/medq_room_service.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_room_service.v
+RUN-1002 : start command "analyze -file rtl/medq_sdram_adapter.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_sdram_adapter.v
+RUN-1002 : start command "analyze -file rtl/medq_service_guard.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_service_guard.v
+RUN-1002 : start command "analyze -file rtl/medq_subtitle_notify.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_subtitle_notify.v
+RUN-1002 : start command "analyze -file rtl/medq_ui_scene.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_ui_scene.v
+HDL-1007 : analyze included file rtl/medq_ui_layout.vh in rtl/medq_ui_scene.v(16)
+HDL-1007 : back to file 'rtl/medq_ui_scene.v' in rtl/medq_ui_scene.v(16)
+RUN-1002 : start command "analyze -file rtl/medq_v03_inputs.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_v03_inputs.v
+RUN-1002 : start command "analyze -file rtl/medq_video_align.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/medq_video_align.v
+RUN-1002 : start command "analyze -file rtl/osd_compositor.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/osd_compositor.v
+HDL-1007 : analyze included file rtl/medq_pixel_math.vh in rtl/osd_compositor.v(13)
+HDL-1007 : back to file 'rtl/osd_compositor.v' in rtl/osd_compositor.v(13)
+RUN-1002 : start command "analyze -file rtl/osd_renderer.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/osd_renderer.v
+HDL-1007 : analyze included file rtl/medq_pixel_math.vh in rtl/osd_renderer.v(20)
+HDL-1007 : back to file 'rtl/osd_renderer.v' in rtl/osd_renderer.v(20)
+RUN-1002 : start command "analyze -file rtl/param_ctrl.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/param_ctrl.v
+RUN-1002 : start command "analyze -file rtl/queue_fsm.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/queue_fsm.v
+RUN-1002 : start command "analyze -file rtl/rst_sync.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/rst_sync.v
+RUN-1002 : start command "analyze -file rtl/sd_card_ctrl.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/sd_card_ctrl.v
+RUN-1002 : start command "analyze -file rtl/sd_spi_master.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/sd_spi_master.v
+RUN-1002 : start command "analyze -file rtl/sdram_arbiter.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/sdram_arbiter.v
+RUN-1002 : start command "analyze -file rtl/sdram_ctrl_wrap.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/sdram_ctrl_wrap.v
+RUN-1002 : start command "analyze -file rtl/seg_scan.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/seg_scan.v
+RUN-1002 : start command "analyze -file rtl/spectrum_render.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/spectrum_render.v
+RUN-1002 : start command "analyze -file rtl/spi_flash_store.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/spi_flash_store.v
+RUN-1002 : start command "analyze -file rtl/tmds_serdes.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/tmds_serdes.v
+RUN-1002 : start command "analyze -file rtl/top.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/top.v
+RUN-1002 : start command "analyze -file rtl/transition_engine.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/transition_engine.v
+RUN-1002 : start command "analyze -file rtl/uart_cmd.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/uart_cmd.v
+RUN-1002 : start command "analyze -file rtl/uart_rx.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/uart_rx.v
+RUN-1002 : start command "analyze -file rtl/uart_tx.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/uart_tx.v
+RUN-1002 : start command "analyze -file rtl/video_timing.v -include_dir rtl rtl/al_ip/sdram_vendor compat"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file rtl/video_timing.v
+RUN-1002 : start command "elaborate -top top"
+HDL-1007 : elaborate module top in rtl/top.v(16)
+HDL-1007 : elaborate module medq_pll in rtl/al_ip/medq_pll.v(24)
+HDL-1007 : elaborate module EG_LOGIC_BUFG in C:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(5)
+HDL-1007 : elaborate module EG_PHY_PLL(FIN="50.000000",REFCLK_DIV=2,FBCLK_DIV=40,CLKC0_DIV=8,CLKC1_DIV=40,CLKC2_DIV=10,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",CLKC2_ENABLE="ENABLE",FEEDBK_MODE="NOCOMP",STDBY_ENABLE="DISABLE",CLKC0_CPHASE=7,CLKC1_CPHASE=39,CLKC2_CPHASE=9,GMC_GAIN=2,ICP_CURRENT=9,KVCO=2,LPF_CAPACITOR=1,LPF_RESISTOR=8,SYNC_ENABLE="DISABLE") in C:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(889)
+HDL-5007 WARNING: actual bit length 5 differs from formal bit length 1 for port 'load_reg' in rtl/al_ip/medq_pll.v(81)
+HDL-1007 : elaborate module sys_pll in rtl/al_ip/sys_pll.v(26)
+HDL-1007 : elaborate module EG_PHY_PLL(FIN="50.000000",FBCLK_DIV=20,CLKC0_DIV=20,CLKC1_DIV=20,CLKC2_DIV=20,CLKC0_ENABLE="ENABLE",CLKC1_ENABLE="ENABLE",CLKC2_ENABLE="ENABLE",FEEDBK_MODE="NOCOMP",STDBY_ENABLE="DISABLE",CLKC0_CPHASE=19,CLKC1_CPHASE=19,CLKC2_CPHASE=7,GMC_GAIN=4,ICP_CURRENT=29,KVCO=4,LPF_CAPACITOR=1,LPF_RESISTOR=2,SYNC_ENABLE="DISABLE") in C:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(889)
+HDL-5007 WARNING: actual bit length 5 differs from formal bit length 1 for port 'load_reg' in rtl/al_ip/sys_pll.v(84)
+HDL-1007 : elaborate module rst_sync in rtl/rst_sync.v(17)
+HDL-1007 : elaborate module rst_sync(POR_CYCLES=25000) in rtl/rst_sync.v(17)
+HDL-1007 : elaborate module medq_board_inputs in rtl/medq_board_inputs.v(3)
+HDL-1007 : elaborate module medq_v03_inputs in rtl/medq_v03_inputs.v(3)
+HDL-1007 : elaborate module uart_rx in rtl/uart_rx.v(3)
+HDL-1007 : elaborate module uart_tx in rtl/uart_tx.v(3)
+HDL-1007 : elaborate module uart_cmd in rtl/uart_cmd.v(3)
+HDL-1007 : elaborate module medq_dual_service(INTERVAL_CYCLES=64'b0101100101101000001011110000000) in rtl/medq_dual_service.v(2)
+HDL-1007 : elaborate module medq_room_service(INTERVAL_CYCLES=64'b0101100101101000001011110000000) in rtl/medq_room_service.v(3)
+HDL-1007 : extracting RAM for identifier 'normal_fifo' in rtl/medq_room_service.v(16)
+HDL-1007 : extracting RAM for identifier 'return_fifo' in rtl/medq_room_service.v(16)
+HDL-1007 : elaborate module medq_subtitle_notify in rtl/medq_subtitle_notify.v(4)
+HDL-1007 : elaborate module cdc_pulse in rtl/cdc_pulse.v(18)
+HDL-1007 : elaborate module cdc_sync_bit in rtl/cdc_sync_bit.v(15)
+HDL-1007 : elaborate module param_ctrl in rtl/param_ctrl.v(12)
+HDL-1007 : elaborate module seg_scan in rtl/seg_scan.v(13)
+HDL-1007 : elaborate module asset_loader(MEDIA_PROFILE=1) in rtl/asset_loader.v(3)
+HDL-1007 : extracting RAM for identifier 'aud_size_r' in rtl/asset_loader.v(51)
+HDL-1007 : extracting RAM for identifier 'aud_clus_r' in rtl/asset_loader.v(51)
+HDL-1007 : extracting RAM for identifier 'aud_pool_off_r' in rtl/asset_loader.v(55)
+HDL-1007 : extracting RAM for identifier 'pixel_fifo' in rtl/asset_loader.v(105)
+HDL-1007 : elaborate module sd_card_ctrl in rtl/sd_card_ctrl.v(3)
+HDL-1007 : elaborate module sd_spi_master in rtl/sd_spi_master.v(3)
+HDL-1007 : elaborate module fat32_reader(NAMED_PCM=1,NAMED_BMP=1) in rtl/fat32_reader.v(3)
+HDL-1007 : extracting RAM for identifier 'sector0' in rtl/fat32_reader.v(46)
+HDL-1007 : extracting RAM for identifier 'sector1' in rtl/fat32_reader.v(46)
+HDL-1007 : extracting RAM for identifier 'sector2' in rtl/fat32_reader.v(46)
+HDL-1007 : extracting RAM for identifier 'sector3' in rtl/fat32_reader.v(46)
+HDL-1007 : elaborate module bmp_parser in rtl/bmp_parser.v(3)
+HDL-1007 : elaborate module medq_async_fifo(W=57,AW=10) in rtl/medq_async_fifo.v(3)
+HDL-1007 : extracting RAM for identifier 'mem' in rtl/medq_async_fifo.v(13)
+HDL-1007 : elaborate module sdram_arbiter in rtl/sdram_arbiter.v(3)
+HDL-1007 : elaborate module sdram_ctrl_wrap in rtl/sdram_ctrl_wrap.v(3)
+HDL-1007 : elaborate module medq_sdram_adapter in rtl/medq_sdram_adapter.v(4)
+HDL-1007 : extracting RAM for identifier 'buffer' in rtl/medq_sdram_adapter.v(27)
+HDL-1007 : elaborate module sdr_as_ram(self_refresh_open=0) in rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v(12)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(47)
+HDL-1007 : elaborate module sdr_init_ref(self_refresh_open=0) in rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v(13)
+HDL-5007 WARNING: concatenation with an unsized literal will be treated as 32 bits in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(283)
+HDL-1007 : elaborate module ** in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(3)
+HDL-5317 WARNING: input port '**' is not connected on this instance in rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v(17)
+HDL-1007 : elaborate module sdram in rtl/al_ip/sdram.v(14)
+HDL-1007 : elaborate module EG_PHY_SDRAM_2M_32 in C:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(683)
+HDL-1007 : elaborate module cdc_bus_handshake in rtl/cdc_bus_handshake.v(20)
+HDL-1007 : elaborate module cdc_bus_handshake(W=64) in rtl/cdc_bus_handshake.v(20)
+HDL-1007 : elaborate module video_timing in rtl/video_timing.v(14)
+HDL-1007 : elaborate module cdc_bus_handshake(W=3) in rtl/cdc_bus_handshake.v(20)
+HDL-1007 : elaborate module medq_media_control in rtl/medq_media_control.v(4)
+HDL-1007 : elaborate module cdc_bus_handshake(W=22) in rtl/cdc_bus_handshake.v(20)
+HDL-1007 : elaborate module frame_reader in rtl/frame_reader.v(3)
+HDL-1007 : elaborate module medq_async_fifo(AW=11) in rtl/medq_async_fifo.v(3)
+HDL-1007 : extracting RAM for identifier 'mem' in rtl/medq_async_fifo.v(13)
+HDL-1007 : elaborate module transition_engine in rtl/transition_engine.v(20)
+HDL-1007 : elaborate module font_rom(ADDR_W=13,HEXFILE="font_v03.hex") in rtl/font_rom.v(6)
+HDL-1007 : extracting RAM for identifier 'rom' in rtl/font_rom.v(15)
+HDL-1007 : readmemh: reading from file 'font_v03.hex' in rtl/font_rom.v(24)
+HDL-5314 WARNING: net 'rom' does not have a driver in rtl/font_rom.v(15)
+HDL-1007 : elaborate module osd_renderer(LIVE_STATUS=1,DUAL=1,MEDIA_LAYOUT=1) in rtl/osd_renderer.v(3)
+HDL-1007 : elaborate module medq_ui_scene(LIVE_STATUS=1) in rtl/medq_ui_scene.v(4)
+HDL-1007 : elaborate module medq_dual_ui_scene(COMPACT_MAP=1) in rtl/medq_dual_ui_scene.v(6)
+HDL-1007 : elaborate module audio_sample_clk in rtl/audio_sample_clk.v(3)
+HDL-1007 : elaborate module audio_tone_gen in rtl/audio_tone_gen.v(21)
+HDL-1007 : elaborate module medq_dual_announcer in rtl/medq_dual_announcer.v(3)
+HDL-1007 : elaborate module audio_pcm_player(CONTROLLED=1) in rtl/audio_pcm_player.v(3)
+HDL-1007 : elaborate module medq_async_fifo in rtl/medq_async_fifo.v(3)
+HDL-1007 : extracting RAM for identifier 'mem' in rtl/medq_async_fifo.v(13)
+HDL-1007 : elaborate module audio_mixer in rtl/audio_mixer.v(25)
+HDL-1007 : elaborate module medq_audio_wave in rtl/medq_audio_wave.v(4)
+HDL-1007 : elaborate module medq_video_align in rtl/medq_video_align.v(4)
+HDL-1007 : elaborate module osd_compositor in rtl/osd_compositor.v(3)
+HDL-1007 : elaborate module hdmi_tx_core in rtl/hdmi_tx_core.v(3)
+HDL-1007 : elaborate module hdmi_packet_scheduler in rtl/hdmi_packet_scheduler.v(3)
+HDL-1007 : extracting RAM for identifier 'fifo' in rtl/hdmi_packet_scheduler.v(27)
+HDL-1007 : elaborate module hdmi_terc4_encoder in rtl/hdmi_terc4_encoder.v(2)
+HDL-1007 : elaborate module hdmi_tmds_encoder in rtl/hdmi_tmds_encoder.v(3)
+HDL-1007 : elaborate module tmds_serdes in rtl/tmds_serdes.v(3)
+HDL-1007 : elaborate module EG_LOGIC_ODDR in C:\Anlogic\TD_6.2.1_Engineer_6.2.168.116\arch/eagle_macro.v(66)
+HDL-1007 : elaborate module latency_probe in rtl/latency_probe.v(24)
+HDL-1007 : elaborate module av_sync_monitor in rtl/av_sync_monitor.v(27)
+HDL-1007 : elaborate module medq_service_guard in rtl/medq_service_guard.v(3)
+HDL-1007 : elaborate module cdc_bus_handshake(W=8) in rtl/cdc_bus_handshake.v(20)
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
+HDL-1200 : Current top model is top
+HDL-1100 : Inferred 16 RAMs.
+RUN-1003 : finish command "elaborate -top top" in  4.877095s wall, 4.468750s user + 0.312500s system = 4.781250s CPU (98.0%)
+
+RUN-1004 : used memory is 820 MB, reserved memory is 809 MB, peak memory is 820 MB
+MEDQ_STAGE_ELABORATED
+RUN-1002 : start command "read_adc prj/constr/top.adc"
+RUN-1002 : start command "set_pin_assignment  clk50mhz   LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  KEY[0]   LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  KEY[1]   LOCATION = B2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  KEY[2]   LOCATION = B1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  KEY[3]   LOCATION = C1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  SW[0]   LOCATION = C8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  SW[1]   LOCATION = C7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  SW[2]   LOCATION = C6; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  SW[3]   LOCATION = C5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  LED[0]   LOCATION = A4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  LED[1]   LOCATION = A3; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  LED[2]   LOCATION = C10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  LED[3]   LOCATION = B12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[0]   LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[1]   LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[2]   LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[3]   LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[4]   LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[5]   LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[6]   LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_DATA[7]   LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[0]   LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[1]   LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[2]   LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[3]   LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[4]   LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[5]   LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[6]   LOCATION = E16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SEG_SEL[7]   LOCATION = F16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  BUZZER   LOCATION = H11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  UART_RX   LOCATION = F12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  UART_TX   LOCATION = D12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SD_SCLK   LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SD_MOSI   LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  SD_MISO   LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; "
+RUN-1002 : start command "set_pin_assignment  SD_nCS   LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  HDMI_CLK_P   LOCATION = C3; IOSTANDARD = LVDS33; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  HDMI_D0_P   LOCATION = G5; IOSTANDARD = LVDS33; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  HDMI_D1_P   LOCATION = F1; IOSTANDARD = LVDS33; PULLTYPE = NONE; "
+RUN-1002 : start command "set_pin_assignment  HDMI_D2_P   LOCATION = E1; IOSTANDARD = LVDS33; PULLTYPE = NONE; "
+RUN-1001 : Starting of IO setups legality check.
+RUN-1001 : Starting of IO vref setups legality check.
+RUN-1002 : start command "read_sdc prj/constr/top.sdc"
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 1 | Optimize RTL
+SYN-1001 : Stage 1.1 | Check Design Sanity
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.032070s wall, 0.031250s user + 0.000000s system = 0.031250s CPU (97.4%); Memory(MB): used = 820, reserved = 809, peak = 820;
+
+SYN-1079 : finish stage Check Design Sanity. Total instances: 130205, Total nets: 295421.
+
+SYN-1001 : Stage 1.2 | Initialize Design
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 4.530196s wall, 4.125000s user + 0.296875s system = 4.421875s CPU (97.6%); Memory(MB): used = 820, reserved = 809, peak = 820;
+
+SYN-1079 : finish stage Initialize Design. Total instances: 96150, Total nets: 246590.
+
+SYN-1001 : Stage 1.3 | Flatten Module
+SYN-1011 : Flatten model top
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 1.049738s wall, 1.000000s user + 0.031250s system = 1.031250s CPU (98.2%); Memory(MB): used = 820, reserved = 808, peak = 821;
+
+SYN-1079 : finish stage Flatten Module. Total instances: 96788, Total nets: 243874.
+
+SYN-1001 : Stage 1.4 | Uniform Instance
+SYN-5013 WARNING: Undriven net: model "top" / net "u_sdram_ctrl_wrap/u_hardware/u_core/u2_wrrd/Sdr_init_ref_ba[1]" in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(0)
+		the net's pin: pin "i1[1]" in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(0)
+SYN-5013 WARNING: Undriven net: model "top" / net "u_sdram_ctrl_wrap/u_hardware/u_core/u2_wrrd/Sdr_init_ref_ba[0]" in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(0)
+		the net's pin: pin "i1[0]" in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(0)
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.145370s wall, 0.140625s user + 0.000000s system = 0.140625s CPU (96.7%); Memory(MB): used = 811, reserved = 809, peak = 821;
+
+SYN-1079 : finish stage Uniform Instance. Total instances: 95956, Total nets: 243032.
+
+SYN-1001 : Stage 1.5 | Optimize Design
+SYN-1066 : Inferred FSM for state register 'u_asset_loader/state_reg' in module 'top'
+----------------------------------------------
+     Previous Encoding       New Encoding
+----------------------------------------------
+                  0000     00000000000001
+                  0001     00000000000010
+                  0010     00000000000100
+                  0011     00000000001000
+                  0100     00000000010000
+                  0101     00000000100000
+                  1101     00000001000000
+                  0111     00000010000000
+                  1000     00000100000000
+                  1001     00001000000000
+                  1011     00010000000000
+                  1100     00100000000000
+                  0110     01000000000000
+                  1010     10000000000000
+----------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_asset_loader/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_asset_loader/wm_state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    11             0010
+                    01             0100
+                    10             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_asset_loader/wm_state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_asset_loader/u_sd_card_ctrl/phase_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000          0000001
+                   001          0000010
+                   010          0000100
+                   011          0001000
+                   100          0010000
+                   101          0100000
+                   110          1000000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_asset_loader/u_sd_card_ctrl/phase_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_audio_pcm_player/mem_state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_audio_pcm_player/mem_state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_audio_pcm_player/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000            00001
+                   011            00010
+                   001            00100
+                   010            01000
+                   100            10000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_audio_pcm_player/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_av_sync_monitor/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_av_sync_monitor/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_frame_reader_main/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_frame_reader_main/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_frame_reader_trans/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_frame_reader_trans/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_latency_probe/state_sys_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_latency_probe/state_sys_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_media_control/phase_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_media_control/phase_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_sdram_arbiter/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_sdram_arbiter/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_sdram_ctrl_wrap/u_hardware/refresh_state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                   000            00001
+                   001            00010
+                   010            00100
+                   011            01000
+                   100            10000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_sdram_ctrl_wrap/u_hardware/refresh_state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_sdram_ctrl_wrap/u_hardware/u_core/u2_wrrd/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                  0000              001
+                  0001              010
+                  0010              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_sdram_ctrl_wrap/u_hardware/u_core/u2_wrrd/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_transition_engine/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00              001
+                    01              010
+                    10              100
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_transition_engine/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1066 : Inferred FSM for state register 'u_uart_rx/state_reg' in module 'top'
+--------------------------------------------
+     Previous Encoding     New Encoding
+--------------------------------------------
+                    00             0001
+                    01             0010
+                    10             0100
+                    11             1000
+--------------------------------------------
+SYN-1067 : encoded FSM with state register 'u_uart_rx/state_reg' using encoding 'one_hot' in model 'top'
+SYN-1057 : Inferred 15 FSM(s)
+SYN-1001 : Optimize 16 less-than instances
+SYN-1032 : 217709/12212 useful/useless nets, 93285/464 useful/useless insts
+SYN-1001 : Bypass 1 mux instances
+SYN-1021 : Optimized 21 onehot mux instances.
+SYN-1068 : Optimized 76 binary mux instances.
+SYN-1019 : Optimized 22 mux instances.
+SYN-1021 : Optimized 6 onehot mux instances.
+SYN-1001 : Optimize 2149 less-than instances
+SYN-1016 : Merged 10708 instances.
+SYN-1025 : Merged 17 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_asset_loader/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 64 x 32	 write mode: NORMAL
+	 port b size: 64 x 32	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/ramread0_syn_5)
+	 port mode: single dual port
+	 port a size: 64 x 32	 write mode: NORMAL
+	 port b size: 64 x 32	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 64 x 22	 write mode: NORMAL
+	 port b size: 64 x 22	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/ramread3_syn_4)
+	 port mode: single dual port
+	 port a size: 64 x 32	 write mode: NORMAL
+	 port b size: 64 x 32	 write mode: READBEFOREWRITE
+SYN-1025 : Merged 2 RAM ports.
+SYN-1027 : Infer Logic DRAM(u_asset_loader/ramread4_syn_5) read 16x44, write 16x44
+SYN-1026 : Infer Logic BRAM(u_asset_loader/u_fat32/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 128 x 8	 write mode: NORMAL
+	 port b size: 128 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/u_fat32/ramread1_syn_4)
+	 port mode: single dual port
+	 port a size: 128 x 8	 write mode: NORMAL
+	 port b size: 128 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/u_fat32/ramread2_syn_4)
+	 port mode: single dual port
+	 port a size: 128 x 8	 write mode: NORMAL
+	 port b size: 128 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/u_fat32/ramread3_syn_4)
+	 port mode: single dual port
+	 port a size: 128 x 8	 write mode: NORMAL
+	 port b size: 128 x 8	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_asset_loader/u_words/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 1024 x 57	 write mode: NORMAL
+	 port b size: 1024 x 57	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_audio_pcm_player/u_fifo/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 512 x 32	 write mode: NORMAL
+	 port b size: 512 x 32	 write mode: READBEFOREWRITE
+SYN-1027 : Infer Logic DRAM(u_dual_service/a/ramread0_syn_4) read 16x8, write 16x8
+SYN-1027 : Infer Logic DRAM(u_dual_service/a/ramread1_syn_4) read 16x8, write 16x8
+SYN-1027 : Infer Logic DRAM(u_dual_service/b/ramread0_syn_4) read 16x8, write 16x8
+SYN-1027 : Infer Logic DRAM(u_dual_service/b/ramread1_syn_4) read 16x8, write 16x8
+SYN-1026 : Infer Logic BRAM(u_frame_reader_main/pixels/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 2048 x 32	 write mode: NORMAL
+	 port b size: 2048 x 32	 write mode: READBEFOREWRITE
+SYN-1026 : Infer Logic BRAM(u_frame_reader_trans/pixels/ramread0_syn_4)
+	 port mode: single dual port
+	 port a size: 2048 x 32	 write mode: NORMAL
+	 port b size: 2048 x 32	 write mode: READBEFOREWRITE
+SYN-1027 : Infer Logic DRAM(u_hdmi_tx_core/u_sched/ramread0_syn_4) read 64x32, write 64x32
+SYN-1027 : Infer Logic DRAM(u_hdmi_tx_core/u_sched/ramread0_syn_5) read 64x32, write 64x32
+SYN-1027 : Infer Logic DRAM(u_hdmi_tx_core/u_sched/ramread0_syn_6) read 64x32, write 64x32
+SYN-1027 : Infer Logic DRAM(u_hdmi_tx_core/u_sched/ramread0_syn_7) read 64x32, write 64x32
+SYN-1025 : Merged 1 RAM ports.
+SYN-1026 : Infer Logic BRAM(u_sdram_ctrl_wrap/u_hardware/ramread0_syn_86)
+	 port mode: single dual port
+	 port a size: 256 x 32	 write mode: NORMAL
+	 port b size: 256 x 32	 write mode: READBEFOREWRITE
+SYN-1023 : Infer 9 Logic DRAMs, 14 Logic BRAMs.
+USR-1002 : Derived clock:  create_generated_clock -name {u_medq_pll/pll_inst.clkc[0]} -source [get_ports {clk50mhz}] -master_clock {clk_sys} -multiply_by 2.5000 -duty_cycle 50.0000 [get_pins {u_medq_pll/pll_inst.clkc[0]}]
+USR-1002 : Derived clock:  create_generated_clock -name {u_medq_pll/pll_inst.clkc[1]} -source [get_ports {clk50mhz}] -master_clock {clk_sys} -divide_by 2.0000 -duty_cycle 50.0000 [get_pins {u_medq_pll/pll_inst.clkc[1]}]
+USR-1002 : Derived clock:  create_generated_clock -name {u_sys_pll/pll_inst.clkc[0]} -source [get_ports {clk50mhz}] -master_clock {clk_sys} -multiply_by 1.0000 -duty_cycle 50.0000 [get_pins {u_sys_pll/pll_inst.clkc[0]}]
+USR-1002 : Derived clock:  create_generated_clock -name {u_sys_pll/pll_inst.clkc[1]} -source [get_ports {clk50mhz}] -master_clock {clk_sys} -multiply_by 1.0000 -duty_cycle 50.0000 [get_pins {u_sys_pll/pll_inst.clkc[1]}]
+USR-1002 : Derived clock:  create_generated_clock -name {u_sys_pll/pll_inst.clkc[2]} -source [get_ports {clk50mhz}] -master_clock {clk_sys} -multiply_by 1.0000 -phase 144 -duty_cycle 50.0000 [get_pins {u_sys_pll/pll_inst.clkc[2]}]
+SYN-1016 : Merged 74576 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 25.755206s wall, 23.359375s user + 1.765625s system = 25.125000s CPU (97.6%); Memory(MB): used = 1359, reserved = 1371, peak = 1359;
+
+SYN-1079 : finish stage Optimize Design. Total instances: 25001, Total nets: 31726.
+
+SYN-1001 : Stage 1.6 | Optimize Iteratively
+SYN-1019 : Optimized 138 mux instances.
+SYN-1021 : Optimized 432 onehot mux instances.
+SYN-1014 : Optimize round 1
+SYN-1044 : Optimized 60 inv instances.
+SYN-1017 : Remove 43 const input seq instances
+SYN-1018 : Transformed 8 mux instances.
+SYN-1019 : Optimized 332 mux instances.
+SYN-1020 : Optimized 2311 distributor mux.
+SYN-1001 : Optimize 148 less-than instances
+SYN-1019 : Optimized 62 mux instances.
+SYN-2595 : bram inst: u_asset_loader/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/ramread0_syn_5 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/ramread3_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/u_fat32/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/u_fat32/ramread1_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/u_fat32/ramread2_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/u_fat32/ramread3_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_asset_loader/u_words/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_audio_pcm_player/u_fifo/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_frame_reader_main/pixels/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_frame_reader_trans/pixels/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
+SYN-2595 : bram inst: u_sdram_ctrl_wrap/u_hardware/ramread0_syn_86 is set to PDPW/SP from DP for resource saving
+SYN-2593 : bram inst: u_asset_loader/ramread0_syn_4 will be optimized to a new one with A-width 22 due to unused data out
+SYN-2593 : bram inst: u_frame_reader_main/pixels/ramread0_syn_4 will be optimized to a new one with A-width 24 due to unused data out
+SYN-2593 : bram inst: u_frame_reader_trans/pixels/ramread0_syn_4 will be optimized to a new one with A-width 24 due to unused data out
+SYN-1001 : Optimize constant input of 1 erams.
+SYN-1016 : Merged 7583 instances.
+SYN-1015 : Optimize round 1, 21024 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 56 inv instances.
+SYN-1017 : Remove 6 const input seq instances
+SYN-1019 : Optimized 227 mux instances.
+SYN-1020 : Optimized 187 distributor mux.
+SYN-1001 : Optimize 2 less-than instances
+SYN-1019 : Optimized 225 mux instances.
+SYN-2593 : bram inst: u_asset_loader/ramread0_syn_5 will be optimized to a new one with A-width 60 due to unused data out
+SYN-1016 : Merged 864 instances.
+SYN-1015 : Optimize round 2, 2218 better
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_asset_loader/ramread0_syn_4" in rtl/asset_loader.v(197) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_asset_loader/ramread0_syn_4" in rtl/asset_loader.v(197) / pin "beb[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_asset_loader/ramread0_syn_5" in rtl/asset_loader.v(197) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_asset_loader/ramread0_syn_5" in rtl/asset_loader.v(197) / pin "beb[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_frame_reader_main/pixels/ramread0_syn_4" in rtl/medq_async_fifo.v(45) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_frame_reader_main/pixels/ramread0_syn_4" in rtl/medq_async_fifo.v(45) / pin "beb[0]"
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-3010 : Optimized 115 DFF(s)
+SYN-1014 : Optimize round 1
+SYN-1020 : Optimized 191 distributor mux.
+SYN-1019 : Optimized 28 mux instances.
+SYN-1016 : Merged 805 instances.
+SYN-1015 : Optimize round 1, 1313 better
+SYN-1014 : Optimize round 2
+SYN-1044 : Optimized 4 inv instances.
+SYN-1019 : Optimized 2 mux instances.
+SYN-1020 : Optimized 36 distributor mux.
+SYN-1016 : Merged 97 instances.
+SYN-1015 : Optimize round 2, 142 better
+SYN-1014 : Optimize round 3
+SYN-1044 : Optimized 1 inv instances.
+SYN-1016 : Merged 1 instances.
+SYN-1015 : Optimize round 3, 2 better
+SYN-1014 : Optimize round 4
+SYN-1015 : Optimize round 4, 0 better
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 14.801698s wall, 13.531250s user + 1.000000s system = 14.531250s CPU (98.2%); Memory(MB): used = 1183, reserved = 1202, peak = 1359;
+
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 24458, Total nets: 30033.
+
+SYN-1001 : Stage 1.7 | Check Design
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.009158s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (170.6%); Memory(MB): used = 1183, reserved = 1202, peak = 1359;
+
+SYN-1079 : finish stage Check Design. Total instances: 24458, Total nets: 30033.
+
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 46.328330s wall, 42.203125s user + 3.093750s system = 45.296875s CPU (97.8%); Memory(MB): used = 1183, reserved = 1202, peak = 1359;
+
+SYN-1079 : finish stage Optimize RTL. Total instances: 24458, Total nets: 30033.
+
+RUN-1003 : finish command "optimize_rtl" in  46.336704s wall, 42.218750s user + 3.093750s system = 45.312500s CPU (97.8%)
+
+RUN-1004 : used memory is 1183 MB, reserved memory is 1202 MB, peak memory is 1359 MB
+RUN-1002 : start command "report_area -file prj/td/reports/MedQv03_rtl.area"
+RUN-1001 : standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        40
+  #input                   11
+  #output                  29
+  #inout                    0
+
+Gate Statistics
+#Basic gates            17401
+  #and                   3165
+  #nand                     0
+  #or                    2335
+  #nor                      0
+  #xor                    405
+  #xnor                     0
+  #buf                      0
+  #not                   1508
+  #bufif1                  32
+  #MX21                  3774
+  #FADD                     0
+  #DFF                   6182
+  #LATCH                    0
+#MACRO_ADD               1194
+#MACRO_EQ                 390
+#MACRO_MULT                25
+#MACRO_MUX               4891
+#MACRO_OTHERS              27
+
+RUN-1002 : start command "set_param gate map_mode area_prior"
+RUN-1002 : start command "set_param gate opt_area high"
+RUN-1002 : start command "set_param gate pack_effort high"
+RUN-1002 : start command "optimize_gate -packarea prj/td/reports/MedQv03_gate.area"
+RUN-1001 : Open license file C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/license/Anlogic.lic
+SYN-1001 : Stage 2 | Optimize Gate
+SYN-1001 : Stage 2.1 | Map Reg
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.495501s wall, 0.375000s user + 0.093750s system = 0.468750s CPU (94.6%); Memory(MB): used = 1182, reserved = 1200, peak = 1359;
+
+SYN-1079 : finish stage Map Reg. Total instances: 24458, Total nets: 30033.
+
+SYN-1001 : Stage 2.2 | Map IO
+SYN-2002 : EG_PHY_SDRAM_2M_32 instance u_sdram_ctrl_wrap/u_hardware/u_device/sdram.
+SYN-2001 : Map 95 IOs to PADs of model 'top'
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.279573s wall, 0.250000s user + 0.015625s system = 0.265625s CPU (95.0%); Memory(MB): used = 1182, reserved = 1201, peak = 1359;
+
+SYN-1001 : Stage 2.3 | Map Macro
+RUN-1002 : start command "update_pll_param -module top"
+SYN-6577 WARNING: The clock signal "u_sdram_ctrl_wrap/u_hardware/u_core/SDRAM_CLK" is added with the synthetic instruction (keep/mark_debug/dont_touch/max_fanout), which may create additional logic on this net
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2501 : 2 BUFG to GCLK
+SYN-6562 WARNING: The init value of "u_asset_loader/ramread0_syn_4(rtl/asset_loader.v(197))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/ramread0_syn_5(rtl/asset_loader.v(197))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/ramread1_syn_4(rtl/asset_loader.v(197))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/u_fat32/ramread0_syn_4(rtl/fat32_reader.v(118))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/u_fat32/ramread1_syn_4(rtl/fat32_reader.v(118))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/u_fat32/ramread2_syn_4(rtl/fat32_reader.v(119))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/u_fat32/ramread3_syn_4(rtl/fat32_reader.v(119))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_asset_loader/u_words/ramread0_syn_4(rtl/medq_async_fifo.v(45))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_audio_pcm_player/u_fifo/ramread0_syn_4(rtl/medq_async_fifo.v(45))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "u_frame_reader_main/pixels/ramread0_syn_4(rtl/medq_async_fifo.v(45))" will be ignored since gate eram_init is set to off
+SYN-6562 Similar messages will be suppressed.
+SYN-2571 : Map 25 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1016 : Merged 530 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 530 better
+SYN-2571 : Optimize after map_dsp, round 2
+SYN-2571 : Optimize after map_dsp, round 2, 0 better
+SYN-1001 : Throwback 535 control mux instances
+SYN-1001 : Generate 149 bigger adders
+SYN-1001 : Convert 9 adder
+SYN-1001 : Optimize 319 adders
+SYN-1001 : Convert 3 adder
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 1084 instances.
+SYN-2501 : Optimize round 1, 4060 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Optimize round 1
+SYN-1016 : Merged 11 instances.
+SYN-2501 : Optimize round 1, 45 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Map 1083 macro adder(s)
+SYN-2501 : Inferred 12 ROM instances
+SYN-1019 : Optimized 1579 mux instances.
+SYN-1016 : Merged 5796 instances.
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/keys_meta_reg[0]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/keys_meta_reg[1]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/keys_meta_reg[2]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/keys_meta_reg[3]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/switches_meta_reg[0]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/switches_meta_reg[1]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/switches_meta_reg[2]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_board_inputs/switches_meta_reg[3]" in rtl/medq_board_inputs.v(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_sdram_ctrl_wrap/u_hardware/u_core/u2_wrrd/Sdr_rd_dout_reg[0]" in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "top" / inst "u_sdram_ctrl_wrap/u_hardware/u_core/u2_wrrd/Sdr_rd_dout_reg[1]" in rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v(0) / pin "clk"
+SYN-5011 Similar messages will be suppressed.
+SYN-5025 WARNING: Using 0 for all undriven pins and nets
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 9.696591s wall, 8.937500s user + 0.546875s system = 9.484375s CPU (97.8%); Memory(MB): used = 1228, reserved = 1241, peak = 1359;
+
+SYN-1079 : finish stage Map Macro. Total instances: 40223, Total nets: 45267.
+
+SYN-1001 : Stage 2.4 | Map Gate
+SYN-3001 : Collect 8574 PI 4455 PO (14 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=5, #lut = 10494 (3.50), #lev = 27 (5.00), #crit_level = 11
+SYN-2551 : Post LUT mapping optimization.
+SYN-2581 : Mapping with K=5, #lut = 10010 (3.48), #lev = 25 (4.82), #crit_level = 0
+SYN-3001 : Logic optimization opt = 5.57 sec, map = 1.84 sec, post map opt = 66.91 sec.
+SYN-3001 : Mapper removed 19 lut buffers
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 82.473213s wall, 75.328125s user + 5.953125s system = 81.281250s CPU (98.6%); Memory(MB): used = 1255, reserved = 1262, peak = 1359;
+
+SYN-1001 : Packing model "top" ...
+SYN-4010 : Pack lib has 58 rtl pack models with 26 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 5873 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 133 carry chain into lslice
+SYN-4007 : Packing 2519 adder to BLE ...
+SYN-4008 : Packed 2519 adder and 132 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4013 : Packed 83 DRAM and 0 SEQ.
+RUN-1002 : start command "report_qor -step gate -file gate.qor"
+RUN-1002 : start command "start_timer"
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |        -1291                |
+|     Setup TNS             |       -44164                |
+|     Num of violated S-EP  |           36                |
+|     Hold WNS              |          549                |
+|     Hold TNS              |            0                |
+|     Num of violated H-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |         5741                |
+|     #luts                 |        10090                |
+|     #lut1                 |          184                |
+|     #lut1(~A)             |          152                |
+|     #slices               |         2283                |
+|     slices percentage     |       23.30%                |
+|     #RAMs                 |           56                |
+|     #DSPs                 |           17                |
+|     #f7mux                |        0.00%                |
+|     #MACROs               |          506                |
+|     #insts in MACRO       |         2283                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |           66                |
+|     #keep_hier            |            0                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            0                |
+|     #max_fanout_keep      |            0                |
+|     #async_reg            |          192                |
+-----------------------------------------------------------
+| Top 10% datanet fanout#   |        42.69                |
+| dff(single fanout)->dff   |          477                |
+| dff(single fanout)->dram  |            0                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total                 |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+|     u_osd_renderer        |         0.72                |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock                        |  Period            |  0     |  1     |  2    |  3     |  4     |  5    |  6    |  7    |  8    |  9    |  10   |  11   |  12   |  13  |  14  |  15  |  16  |  17  |  18  |  19  |  20  |  21  |  22  |  23  |  24  |  25  |  26  |  27  |  28  |  29  |  >=30
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clk_sys                      |  20.000ns (50MHz)  |  0     |  0     |  0    |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  280
+  u_medq_pll/pll_inst.clkc[0]  |  8.000ns (125MHz)  |  32    |  37    |  1    |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  280
+  u_medq_pll/pll_inst.clkc[1]  |  40.000ns (25MHz)  |  3260  |  1251  |  177  |  267   |  357   |  262  |  477  |  84   |  105  |  227  |  184  |  158  |  111  |  21  |  3   |  13  |  19  |  44  |  5   |  4   |  3   |  2   |  5   |  7   |  22  |  1   |  4   |  11  |  1   |  3   |  280
+  u_sys_pll/pll_inst.clkc[0]   |  20.000ns (50MHz)  |  2966  |  320   |  256  |  723   |  533   |  519  |  145  |  264  |  289  |  186  |  140  |  79   |  0    |  0   |  72  |  8   |  5   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  280
+  u_sys_pll/pll_inst.clkc[1]   |  20.000ns (50MHz)  |  1175  |  108   |  152  |  223   |  145   |  141  |  110  |  15   |  2    |  6    |  46   |  14   |  5    |  3   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  280
+  u_sys_pll/pll_inst.clkc[2]   |  20.000ns (50MHz)  |  20    |  32    |  0    |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  280
+  Total                        |  NA                |  7453  |  1748  |  586  |  1213  |  1035  |  922  |  732  |  363  |  396  |  419  |  370  |  251  |  116  |  24  |  75  |  21  |  24  |  44  |  5   |  4   |  3   |  2   |  5   |  7   |  22  |  1   |  4   |  11  |  1   |  3   |  280
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(16140 paths analyzed)
+
+Hierarchical Rent Exponent Report
++-------------------------------------------------------------------------------+
+|Inst                |Model              |Rent     |Cell     |Pin     |Term     |
++-------------------------------------------------------------------------------+
+|top                 |top                |0.13     |18803    |87504   |17       |
+|  u_osd_renderer    |osd_renderer_24    |0.72     |3956     |18598   |1783     |
+|  u_sdram_ctrl_wrap |sdram_ctrl_wrap_31 |0.50     |1153     |3985    |118      |
+|  u_asset_loader    |asset_loader_1     |0.45     |4876     |22191   |213      |
+|  u_hdmi_tx_core    |hdmi_tx_core_17    |0.38     |2042     |11772   |107      |
++-------------------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+SYN-1001 : The design has 12 dangling async_reg insts.
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  2.870309s wall, 2.703125s user + 0.156250s system = 2.859375s CPU (99.6%)
+
+RUN-1004 : used memory is 1242 MB, reserved memory is 1248 MB, peak memory is 1359 MB
+RUN-1002 : start command "report_area -file prj/td/reports/MedQv03_gate.area"
+RUN-1001 : standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        40   out of    188   21.28%
+  #input                   11
+  #output                  29
+  #inout                    0
+
+LUT Statistics
+#Total_luts             10090
+  #lut4                  8260
+  #lut5                  1782
+  #lut6                    48
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                    14704   out of  19600   75.02%
+#reg                     5873   out of  19600   29.96%
+#bram                      56   out of     64   87.50%
+  #bram9k                  56
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                       17   out of     29   58.62%
+#pad                       44   out of    188   23.40%
+  #ireg                     9
+  #oreg                    26
+  #treg                     0
+#pll                        2   out of      4   50.00%
+#gclk                       2   out of     16   12.50%
+
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 96.662913s wall, 88.390625s user + 6.781250s system = 95.171875s CPU (98.5%); Memory(MB): used = 1242, reserved = 1248, peak = 1359;
+
+RUN-1003 : finish command "optimize_gate -packarea prj/td/reports/MedQv03_gate.area" in  96.671632s wall, 88.406250s user + 6.781250s system = 95.187500s CPU (98.5%)
+
+RUN-1004 : used memory is 1242 MB, reserved memory is 1248 MB, peak memory is 1359 MB
+RUN-1002 : start command "export_db prj/td/output/MedQv03_gate.db"
+RUN-1001 : Exported flow parameters
+RUN-1001 : Exported /
+RUN-1001 : Exported libs
+RUN-1001 : Exported entities
+RUN-1001 : Exported ports
+RUN-1001 : Exported pins
+RUN-1001 : Exported instances
+RUN-1001 : Exported nets
+RUN-1001 : Exported buses
+RUN-1001 : Exported models
+RUN-1001 : Exported packer
+RUN-1001 : Exported congestions
+RUN-1001 : Exported violations
+RUN-1001 : Exported ATMR Setting
+RUN-1001 : Exported timing constraints
+RUN-1001 : Exported IO constraints
+RUN-1001 : Exported Inst constraints
+RUN-1001 : Exported ChipWatcher
+MEDQ_STAGE_SYNTHESIZED
+MEDQ_FLOW_DONE_SYNTH

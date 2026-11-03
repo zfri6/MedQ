@@ -1,0 +1,32 @@
+$ C:\modeltech64_10.4\win64\vsim.exe -c work.tb_sdram_hardware -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c work.tb_sdram_hardware -do "run -all; quit -f" 
+# Start time: 20:23:20 on Oct 30,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sdram_hardware(fast)
+# run -all
+# CHECK actual encrypted core, BL4/CL3 physical data, masks, boundaries, stalls, refresh, reset; words=1311 refresh=25
+# PASS tb_sdram_hardware
+# ** Note: $finish    : tb_sdram_hardware.v(104)
+#    Time: 5660180 ns  Iteration: 1  Instance: /tb_sdram_hardware
+# End time: 20:23:23 on Oct 30,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0, Suppressed Errors: 5

@@ -1,0 +1,10 @@
+{
+  "status": "historical_sources_changed_expected",
+  "all_test_cases_passed": true,
+  "changed_inputs": [
+    "tb/tb_v03_top_audio.v"
+  ],
+  "cause": "Expanded physical test now waits for second full sentence. Old watchdog was 150ms; actual successful second full sentence ends at 163.2713ms. New watchdog350ms only; no RTL changed. Rerunning entire43-test regression with final immutable source set.",
+  "real_SDRAM_failed_attempt": "sim/vendor_sdram/20261031T090434Z/result.json",
+  "real_SDRAM_passed_attempt": "sim/vendor_sdram/20261031T090631Z/result.json"
+}

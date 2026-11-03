@@ -1,0 +1,119 @@
+
+===== vsim =====
+$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_asset_loader -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c -voptargs="+acc" work.tb_asset_loader -do "run -all; quit -f" 
+# Start time: 00:34:10 on Nov 02,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# ** Note: (vopt-143) Recognized 2 FSMs in module "asset_loader(fast)".
+# 
+# ** Warning: C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_asset_loader.v(20): (vopt-2685) [TFMPC] - Too few port connections for 'memory'.  Expected 16, found 14.
+# 
+# ** Warning: C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_asset_loader.v(20): (vopt-2718) [TFMPC] - Missing connection for port 'fault'.
+# 
+# ** Warning: C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_asset_loader.v(20): (vopt-2718) [TFMPC] - Missing connection for port 'clk_sdram'.
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_asset_loader(fast)
+# Loading work.asset_loader(fast)
+# Loading work.sd_card_ctrl(fast)
+# Loading work.sd_spi_master(fast)
+# Loading work.fat32_reader(fast)
+# Loading work.bmp_parser(fast)
+# Loading work.bilinear_scaler(fast)
+# Loading work.medq_async_fifo(fast)
+# Loading work.sd_card_model(fast)
+# Loading work.sdram_ctrl_wrap(fast)
+# run -all
+# INFO SD div=0/0
+# INFO select pcm=0/54 size=6 pool=0e1000 images=1
+# INFO select pcm=1/54 size=6 pool=0e1002 images=1
+# INFO select pcm=2/54 size=6 pool=0e1004 images=1
+# INFO select pcm=3/54 size=6 pool=0e1006 images=1
+# INFO select pcm=4/54 size=6 pool=0e1008 images=1
+# INFO select pcm=5/54 size=6 pool=0e100a images=1
+# INFO select pcm=6/54 size=6 pool=0e100c images=1
+# INFO select pcm=7/54 size=6 pool=0e100e images=1
+# INFO select pcm=8/54 size=6 pool=0e1010 images=1
+# INFO select pcm=9/54 size=6 pool=0e1012 images=1
+# INFO select pcm=10/54 size=6 pool=0e1014 images=1
+# INFO select pcm=11/54 size=6 pool=0e1016 images=1
+# INFO select pcm=12/54 size=6 pool=0e1018 images=1
+# INFO select pcm=13/54 size=6 pool=0e101a images=1
+# INFO select pcm=14/54 size=6 pool=0e101c images=1
+# INFO select pcm=15/54 size=6 pool=0e101e images=1
+# INFO select pcm=16/54 size=6 pool=0e1020 images=1
+# INFO select pcm=17/54 size=6 pool=0e1022 images=1
+# INFO select pcm=18/54 size=6 pool=0e1024 images=1
+# INFO select pcm=19/54 size=6 pool=0e1026 images=1
+# INFO select pcm=20/54 size=6 pool=0e1028 images=1
+# INFO select pcm=21/54 size=6 pool=0e102a images=1
+# INFO select pcm=22/54 size=6 pool=0e102c images=1
+# INFO select pcm=23/54 size=6 pool=0e102e images=1
+# INFO select pcm=24/54 size=6 pool=0e1030 images=1
+# INFO select pcm=25/54 size=6 pool=0e1032 images=1
+# INFO select pcm=26/54 size=6 pool=0e1034 images=1
+# INFO select pcm=27/54 size=6 pool=0e1036 images=1
+# INFO select pcm=28/54 size=6 pool=0e1038 images=1
+# INFO select pcm=29/54 size=6 pool=0e103a images=1
+# INFO select pcm=30/54 size=6 pool=0e103c images=1
+# INFO select pcm=31/54 size=6 pool=0e103e images=1
+# INFO select pcm=32/54 size=6 pool=0e1040 images=1
+# INFO select pcm=33/54 size=6 pool=0e1042 images=1
+# INFO select pcm=34/54 size=6 pool=0e1044 images=1
+# INFO select pcm=35/54 size=6 pool=0e1046 images=1
+# INFO select pcm=36/54 size=6 pool=0e1048 images=1
+# INFO select pcm=37/54 size=6 pool=0e104a images=1
+# INFO select pcm=38/54 size=6 pool=0e104c images=1
+# INFO select pcm=39/54 size=6 pool=0e104e images=1
+# INFO select pcm=40/54 size=6 pool=0e1050 images=1
+# INFO select pcm=41/54 size=6 pool=0e1052 images=1
+# INFO select pcm=42/54 size=6 pool=0e1054 images=1
+# INFO select pcm=43/54 size=6 pool=0e1056 images=1
+# INFO select pcm=44/54 size=6 pool=0e1058 images=1
+# INFO select pcm=45/54 size=6 pool=0e105a images=1
+# INFO select pcm=46/54 size=6 pool=0e105c images=1
+# INFO select pcm=47/54 size=6 pool=0e105e images=1
+# INFO select pcm=48/54 size=6 pool=0e1060 images=1
+# INFO select pcm=49/54 size=6 pool=0e1062 images=1
+# INFO select pcm=50/54 size=6 pool=0e1064 images=1
+# INFO select pcm=51/54 size=6 pool=0e1066 images=1
+# INFO select pcm=52/54 size=6 pool=0e1068 images=1
+# INFO select pcm=53/54 size=6 pool=0e106a images=1
+# INFO select pcm=54/54 size=x pool=0e106c images=1
+# INFO select pcm=55/54 size=x pool=0e106c images=1
+# INFO select pcm=56/54 size=x pool=0e106c images=1
+# INFO select pcm=57/54 size=x pool=0e106c images=1
+# INFO select pcm=58/54 size=x pool=0e106c images=1
+# INFO select pcm=59/54 size=x pool=0e106c images=1
+# INFO select pcm=60/54 size=x pool=0e106c images=1
+# INFO select pcm=61/54 size=x pool=0e106c images=1
+# INFO select pcm=62/54 size=x pool=0e106c images=1
+# INFO select pcm=63/54 size=x pool=0e106c images=1
+# INFO select pcm=64/54 size=x pool=0e106c images=1
+# INFO full 307200-pixel framebuffer and all 54 PCM clips matched
+# PASS assets: SDHC SPI initialization, FAT32 two-sector root, PCM preload, bilinear 2x2 to VGA, reload FB1
+# ** Note: $finish    : C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_asset_loader.v(56)
+#    Time: 148088731 ns  Iteration: 0  Instance: /tb_asset_loader
+# End time: 00:34:20 on Nov 02,2026, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 3
+
+[exit code 0]

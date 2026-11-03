@@ -1,0 +1,246 @@
+{
+  "oracle": "independent direct Pillow raster; no DUT atlas, generated header or RTL imported",
+  "width": 384,
+  "height": 20,
+  "cases": [
+    {
+      "text": "请A01赵*华到A诊室就诊",
+      "width": 201,
+      "prefix": "A",
+      "ticket_bcd": 1,
+      "room": "A"
+    },
+    {
+      "text": "请B09蒋*怡到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 9,
+      "room": "B"
+    },
+    {
+      "text": "请C10患者到A诊室就诊",
+      "width": 189,
+      "prefix": "C",
+      "ticket_bcd": 16,
+      "room": "A"
+    },
+    {
+      "text": "请D99患者到B诊室就诊",
+      "width": 188,
+      "prefix": "D",
+      "ticket_bcd": 153,
+      "room": "B"
+    },
+    {
+      "text": "请C01张*民到A诊室就诊",
+      "width": 197,
+      "prefix": "C",
+      "ticket_bcd": 1,
+      "room": "A"
+    },
+    {
+      "text": "请C02李*芳到A诊室就诊",
+      "width": 200,
+      "prefix": "C",
+      "ticket_bcd": 2,
+      "room": "A"
+    },
+    {
+      "text": "请C03王*军到A诊室就诊",
+      "width": 201,
+      "prefix": "C",
+      "ticket_bcd": 3,
+      "room": "A"
+    },
+    {
+      "text": "请C04陈*怡到A诊室就诊",
+      "width": 201,
+      "prefix": "C",
+      "ticket_bcd": 4,
+      "room": "A"
+    },
+    {
+      "text": "请C05刘*帆到A诊室就诊",
+      "width": 201,
+      "prefix": "C",
+      "ticket_bcd": 5,
+      "room": "A"
+    },
+    {
+      "text": "请A01赵*华到A诊室就诊",
+      "width": 201,
+      "prefix": "A",
+      "ticket_bcd": 1,
+      "room": "A"
+    },
+    {
+      "text": "请A02黄*文到A诊室就诊",
+      "width": 202,
+      "prefix": "A",
+      "ticket_bcd": 2,
+      "room": "A"
+    },
+    {
+      "text": "请A03周*婷到A诊室就诊",
+      "width": 204,
+      "prefix": "A",
+      "ticket_bcd": 3,
+      "room": "A"
+    },
+    {
+      "text": "请A04吴*然到A诊室就诊",
+      "width": 203,
+      "prefix": "A",
+      "ticket_bcd": 4,
+      "room": "A"
+    },
+    {
+      "text": "请A05徐*娜到A诊室就诊",
+      "width": 203,
+      "prefix": "A",
+      "ticket_bcd": 5,
+      "room": "A"
+    },
+    {
+      "text": "请A06孙*明到A诊室就诊",
+      "width": 202,
+      "prefix": "A",
+      "ticket_bcd": 6,
+      "room": "A"
+    },
+    {
+      "text": "请A07林*怡到A诊室就诊",
+      "width": 204,
+      "prefix": "A",
+      "ticket_bcd": 7,
+      "room": "A"
+    },
+    {
+      "text": "请A08何*群到A诊室就诊",
+      "width": 204,
+      "prefix": "A",
+      "ticket_bcd": 8,
+      "room": "A"
+    },
+    {
+      "text": "请A09郑*梅到A诊室就诊",
+      "width": 203,
+      "prefix": "A",
+      "ticket_bcd": 9,
+      "room": "A"
+    },
+    {
+      "text": "请A10高*宇到A诊室就诊",
+      "width": 199,
+      "prefix": "A",
+      "ticket_bcd": 16,
+      "room": "A"
+    },
+    {
+      "text": "请D01马*远到B诊室就诊",
+      "width": 196,
+      "prefix": "D",
+      "ticket_bcd": 1,
+      "room": "B"
+    },
+    {
+      "text": "请D02胡*欣到B诊室就诊",
+      "width": 199,
+      "prefix": "D",
+      "ticket_bcd": 2,
+      "room": "B"
+    },
+    {
+      "text": "请D03罗*杰到B诊室就诊",
+      "width": 198,
+      "prefix": "D",
+      "ticket_bcd": 3,
+      "room": "B"
+    },
+    {
+      "text": "请D04唐*娜到B诊室就诊",
+      "width": 200,
+      "prefix": "D",
+      "ticket_bcd": 4,
+      "room": "B"
+    },
+    {
+      "text": "请D05蔡*航到B诊室就诊",
+      "width": 199,
+      "prefix": "D",
+      "ticket_bcd": 5,
+      "room": "B"
+    },
+    {
+      "text": "请B01杨*宇到B诊室就诊",
+      "width": 196,
+      "prefix": "B",
+      "ticket_bcd": 1,
+      "room": "B"
+    },
+    {
+      "text": "请B02许*雯到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 2,
+      "room": "B"
+    },
+    {
+      "text": "请B03梁*杰到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 3,
+      "room": "B"
+    },
+    {
+      "text": "请B04袁*怡到B诊室就诊",
+      "width": 200,
+      "prefix": "B",
+      "ticket_bcd": 4,
+      "room": "B"
+    },
+    {
+      "text": "请B05邓*然到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 5,
+      "room": "B"
+    },
+    {
+      "text": "请B06彭*轩到B诊室就诊",
+      "width": 198,
+      "prefix": "B",
+      "ticket_bcd": 6,
+      "room": "B"
+    },
+    {
+      "text": "请B07曹*欣到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 7,
+      "room": "B"
+    },
+    {
+      "text": "请B08韩*东到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 8,
+      "room": "B"
+    },
+    {
+      "text": "请B09蒋*怡到B诊室就诊",
+      "width": 199,
+      "prefix": "B",
+      "ticket_bcd": 9,
+      "room": "B"
+    },
+    {
+      "text": "请B10方*远到B诊室就诊",
+      "width": 196,
+      "prefix": "B",
+      "ticket_bcd": 16,
+      "room": "B"
+    }
+  ],
+  "fixture_sha256": "d6e9db31dbc65e2bf29132b0071e4c160a6f3e9c41ca97bb40b0a6c789d0cf8a"
+}

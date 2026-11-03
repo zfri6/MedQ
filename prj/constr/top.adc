@@ -1,0 +1,83 @@
+# MedQ HX4S20C main-port baseline, copied from matching DEMOs.
+# Source records: doc/hw/extracted_facts.json:main_port_baseline.
+# Static coverage checked; physical/TD validation still required.
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:73
+set_pin_assignment { clk50mhz } { LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:74
+set_pin_assignment { KEY[0] } { LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:75
+set_pin_assignment { KEY[1] } { LOCATION = B2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:76
+set_pin_assignment { KEY[2] } { LOCATION = B1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:77
+set_pin_assignment { KEY[3] } { LOCATION = C1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:78
+set_pin_assignment { SW[0] } { LOCATION = C8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:79
+set_pin_assignment { SW[1] } { LOCATION = C7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:80
+set_pin_assignment { SW[2] } { LOCATION = C6; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:81
+set_pin_assignment { SW[3] } { LOCATION = C5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:82
+set_pin_assignment { LED[0] } { LOCATION = A4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:83
+set_pin_assignment { LED[1] } { LOCATION = A3; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:84
+set_pin_assignment { LED[2] } { LOCATION = C10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:85
+set_pin_assignment { LED[3] } { LOCATION = B12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:86
+set_pin_assignment { SEG_DATA[0] } { LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:87
+set_pin_assignment { SEG_DATA[1] } { LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:88
+set_pin_assignment { SEG_DATA[2] } { LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:89
+set_pin_assignment { SEG_DATA[3] } { LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:90
+set_pin_assignment { SEG_DATA[4] } { LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:91
+set_pin_assignment { SEG_DATA[5] } { LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:92
+set_pin_assignment { SEG_DATA[6] } { LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:93
+set_pin_assignment { SEG_DATA[7] } { LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:94
+set_pin_assignment { SEG_SEL[0] } { LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:95
+set_pin_assignment { SEG_SEL[1] } { LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:96
+set_pin_assignment { SEG_SEL[2] } { LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:97
+set_pin_assignment { SEG_SEL[3] } { LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:98
+set_pin_assignment { SEG_SEL[4] } { LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:99
+set_pin_assignment { SEG_SEL[5] } { LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:100
+set_pin_assignment { SEG_SEL[6] } { LOCATION = E16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:101
+set_pin_assignment { SEG_SEL[7] } { LOCATION = F16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/HX_CESHI_EG4S_BORD/a.adc:102
+set_pin_assignment { BUZZER } { LOCATION = H11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/16_uart_rs232/uart_test.adc:3
+set_pin_assignment { UART_RX } { LOCATION = F12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/16_uart_rs232/uart_test.adc:4
+set_pin_assignment { UART_TX } { LOCATION = D12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/18_sd_card_audio/sd_card_audido.adc:1
+set_pin_assignment { SD_SCLK } { LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/18_sd_card_audio/sd_card_audido.adc:3
+set_pin_assignment { SD_MOSI } { LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/18_sd_card_audio/sd_card_audido.adc:2
+set_pin_assignment { SD_MISO } { LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HX4S20_Contest_202606/2_Example/DEMO/18_sd_card_audio/sd_card_audido.adc:4
+set_pin_assignment { SD_nCS } { LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/31_hdmi_tx_display_B/source_code/adc_sdc/hdmi.adc:1
+set_pin_assignment { HDMI_CLK_P } { LOCATION = C3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/31_hdmi_tx_display_B/source_code/adc_sdc/hdmi.adc:2
+set_pin_assignment { HDMI_D0_P } { LOCATION = G5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/31_hdmi_tx_display_B/source_code/adc_sdc/hdmi.adc:3
+set_pin_assignment { HDMI_D1_P } { LOCATION = F1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+# HX4S20_Contest_202606/2_Example/DEMO/31_hdmi_tx_display_B/source_code/adc_sdc/hdmi.adc:4
+set_pin_assignment { HDMI_D2_P } { LOCATION = E1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }

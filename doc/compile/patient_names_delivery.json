@@ -1,0 +1,154 @@
+{
+  "status": "PC_SIGNOFF_PASS",
+  "revision": "patient_names_20261102",
+  "board_test": "not_tested",
+  "specification": "doc/spec/patient_names_20261102.md",
+  "patient_table": "assets/patients.json",
+  "voice_assets": 54,
+  "voice_bytes": 2797778,
+  "audio_pool_end_word": 1621058,
+  "audio_pool_limit_word": 1634304,
+  "filename_mapping": "CLIP00..53.PCM independent of directory/copy order",
+  "screen": "surname only; anonymous outside list",
+  "speech": "actual ticket plus full name; anonymous outside list",
+  "modelsim_regression": 46,
+  "additional_modelsim_tests": 2,
+  "exhaustive_actual_PCM_sentences": 396,
+  "actual_PCM_clips": 3564,
+  "actual_signed_output_sample_checks": 32076,
+  "independent_surname_pixel_checks": 2012800,
+  "event_pixel_checks": 1065600,
+  "tool_gate_tests": 36,
+  "simulation_evidence_sha256": {
+    "sim/regression_result.json": "bb593052e689c1e2f6328cfefe4a409e881d006372bdda2817a305766d15147e",
+    "sim/vendor_sdram/latest_adapter.json": "6548e8c6710cc65ade21567809ef24720b3d66bbed7870aa996bcf5133f1bd62",
+    "sim/vendor_sdram/20261030T181722Z/result.json": "4a1f10d179d0e7b362d39ba4948fefe638d416cb09c96340879f79116d9c117e",
+    "sim/vendor_sdram/latest_adapter_real_pll.json": "49c693755f596eea70747e0bde011b314aa693136e253d16d1da597ce83d95db",
+    "sim/vendor_sdram/20261030T181725Z/result.json": "97c4efc90083797c9a36c362e580d2d9f532276c35cc8a5aef0b1a8aed2f711e",
+    "sim/vendor_sdram/latest_bandwidth_real_pll.json": "2e547be9ea8f2f9fa8af2bb8fb4abf46a1ca37f68f6975b58caffb3c97528fbb",
+    "sim/vendor_sdram/20261030T181755Z/result.json": "75b9d506a072d9bc03dcd16d0e743ca36a22ac5deb285fc78ea39934aadcfcc7",
+    "sim/vendor_sdram/latest_system.json": "79153c414b32c1f36581ecf1db2e813d49a96da4e240aff22a36269a6ea2e1b4",
+    "sim/vendor_sdram/20261101T163952Z/result.json": "90aeee4e3fd65f4e7d447920f7b7485ef9b84986161b3ea048ca6bb2202680aa",
+    "sim/vendor_sdram/latest_basic.json": "c307142c0cfc6dce3fe72252e3877d89fa54b5d8f96dbbd2d7a05790e45f7f2a",
+    "sim/vendor_sdram/20261101T164121Z/result.json": "2a9775f8f924ba574c4464b5cb8645ba33d49e2d207c0e59d20b6c8f8abddcff",
+    "sim/vendor_sdram/latest_audio.json": "7466ad8d42f0595616dab921dc028fffeac81eb6c8311a244986b0313c631589",
+    "sim/vendor_sdram/20261101T164101Z/result.json": "344c7b2819f02c39a232670e0ff0fac4236088a29ecc0c13de796a0c1d575f2e",
+    "sim/vendor_pll/latest.json": "3491c09b48b20522b8d4844beefe595a874b40d15625894b65f6d04b6c5fb512",
+    "sim/vendor_pll/20261030T182109Z/result.json": "15e1548096da03d712b80a42cab7a2bf7f3d64f38dfcd979a37615d93b009b9c",
+    "sim/vendor_serdes/latest.json": "96b1dc106f20885199eb2e500c40cbc12d27e0bc493062fd50d48fbe21c53799",
+    "sim/vendor_serdes/20261030T182113Z/result.json": "68aa3b85a016bc6741b455853259703f92746462b921d1ed71f91d7dcfb35c86",
+    "doc\\compile\\patient_names\\tb_named_pcm_20261101T163928Z\\result.json": "4090ab23454cc1a3ec9b5635ba48ce4d40fe942f4fdfe11b41f92ebd772b4d13",
+    "doc\\compile\\patient_names\\tb_patient_pcm_path_20261101T163931Z\\result.json": "855ec7e8df70c03194d50299afe5a727ff8da1be8e93342c7f5018494a34ec95"
+  },
+  "native_signoff": "doc/compile/timing_closure/20261101T163820Z_5bfe0d34/signoff.json",
+  "native_setup_hold_ns": {
+    "SWNS": 0.195,
+    "STNS": 0.0,
+    "HWNS": 0.03,
+    "HTNS": 0.0
+  },
+  "physical_resources": {
+    "IO": {
+      "used": 40,
+      "available": 188
+    },
+    "lut": {
+      "used": 15284,
+      "available": 19600
+    },
+    "reg": {
+      "used": 5977,
+      "available": 19600
+    },
+    "bram": {
+      "used": 64,
+      "available": 64
+    },
+    "bram32k": {
+      "used": 0,
+      "available": 16
+    },
+    "dsp": {
+      "used": 20,
+      "available": 29
+    },
+    "pad": {
+      "used": 44,
+      "available": 188
+    },
+    "pll": {
+      "used": 2,
+      "available": 4
+    },
+    "gclk": {
+      "used": 2,
+      "available": 16
+    }
+  },
+  "resource_change_vs_previous_sealed_release": {
+    "lut": {
+      "before": 16560,
+      "after": 15284,
+      "change": -1276
+    },
+    "reg": {
+      "before": 8191,
+      "after": 5977,
+      "change": -2214
+    },
+    "bram": {
+      "before": 52,
+      "after": 64,
+      "change": 12
+    },
+    "dsp": {
+      "before": 20,
+      "after": 20,
+      "change": 0
+    }
+  },
+  "slice_percent": 79.44,
+  "bram_headroom_blocks": 0,
+  "runtime_image_replacement": "not applied: preserve live state, scrolling and animation",
+  "image_exports": "sim/ui/patient_names/export_manifest.json",
+  "tf_card_directory": "deliverables/TF_CARD_PATIENT_NAMES_20261102",
+  "bitstream": "deliverables/MedQ_v0.3_PATIENT_NAMES_20261101T164208Z.bit",
+  "bitstream_sha256": "4b051d0d92c6389fad5453f85daa45f6abf9ff7de38a7c352652f57c26e1538e",
+  "previous_release_unchanged": {
+    "status": "PASS",
+    "archive": "deliverables/MedQ_v0.3_20261101T154319Z.zip",
+    "archive_sha256": "dbcf39e40cf306d55e61bd2820f101b8509da444464ff101287f543400085021",
+    "bitstream": "deliverables/MedQ_v0.3_EVENT_SUBTITLES_20261101T154133Z.bit",
+    "bitstream_sha256": "4a3cf25b692f34a617f1ff273073e50a5a16554dc327706ead0fcca473fa1362",
+    "files": 1951,
+    "extraction_hash_check": "PASS",
+    "protected_v02_files": 891,
+    "board_test": "not_tested"
+  },
+  "protected_hardware_files": [
+    "prj/constr/missing_info.md",
+    "prj/constr/pin_summary.md",
+    "prj/constr/top.adc",
+    "prj/constr/top.sdc",
+    "rtl/al_ip/afifo_8i_32o_1024.ipc",
+    "rtl/al_ip/afifo_8i_32o_1024.v",
+    "rtl/al_ip/clk_wize.ipc",
+    "rtl/al_ip/clk_wize.v",
+    "rtl/al_ip/medq_pll.ipc",
+    "rtl/al_ip/medq_pll.v",
+    "rtl/al_ip/sdram.v",
+    "rtl/al_ip/sdram_vendor/global_def.v",
+    "rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v",
+    "rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v",
+    "rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v",
+    "rtl/al_ip/sys_pll.ipc",
+    "rtl/al_ip/sys_pll.v",
+    "rtl/audio_pcm_player.v",
+    "rtl/frame_reader.v",
+    "rtl/hdmi_tx_core.v",
+    "rtl/osd_renderer.v",
+    "rtl/sdram_ctrl_wrap.v",
+    "rtl/tmds_serdes.v"
+  ],
+  "preserved_native_gate_parent": "doc/compile/patient_names/native_parent/20261101T163524Z_7285809e"
+}

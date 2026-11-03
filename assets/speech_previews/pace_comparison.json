@@ -1,0 +1,966 @@
+{
+  "status": "PASS",
+  "revision": "masked_smooth_20261102",
+  "clips": [
+    {
+      "id": 0,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 1,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 2,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 3,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 4,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 5,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 6,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 7,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 8,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 9,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 10,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 11,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 12,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 13,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 14,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 15,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 16,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 17,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 18,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 19,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 20,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 21,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 22,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 23,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 24,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 25,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 26,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 27,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 28,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 29,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 30,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 31,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 32,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 33,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 34,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 35,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 36,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 37,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 38,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 39,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 40,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 41,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 42,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 43,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 44,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 45,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 46,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 47,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 48,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 49,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 50,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 51,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 52,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    },
+    {
+      "id": 53,
+      "active_samples_preserved": true,
+      "zero_ends": true
+    }
+  ],
+  "sentence_comparison": [
+    {
+      "ticket": "C01",
+      "name": "张伟民",
+      "display_name": "张*民",
+      "before_seconds": 12.8400625,
+      "after_seconds": 3.43775,
+      "reduction_percent": 73.22637642924246,
+      "clips": [
+        1,
+        19,
+        3,
+        4,
+        51,
+        21,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "C02",
+      "name": "李娜芳",
+      "display_name": "李*芳",
+      "before_seconds": 12.787,
+      "after_seconds": 3.4316875,
+      "reduction_percent": 73.16268475795731,
+      "clips": [
+        1,
+        19,
+        3,
+        5,
+        51,
+        22,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "C03",
+      "name": "王磊军",
+      "display_name": "王*军",
+      "before_seconds": 12.882625,
+      "after_seconds": 3.510875,
+      "reduction_percent": 72.74720796421536,
+      "clips": [
+        1,
+        19,
+        3,
+        6,
+        51,
+        23,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "C04",
+      "name": "陈静怡",
+      "display_name": "陈*怡",
+      "before_seconds": 12.9599375,
+      "after_seconds": 3.577625,
+      "reduction_percent": 72.3947356999214,
+      "clips": [
+        1,
+        19,
+        3,
+        7,
+        51,
+        24,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "C05",
+      "name": "刘洋帆",
+      "display_name": "刘*帆",
+      "before_seconds": 12.8964375,
+      "after_seconds": 3.481625,
+      "reduction_percent": 73.00320340404085,
+      "clips": [
+        1,
+        19,
+        3,
+        8,
+        51,
+        25,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A01",
+      "name": "赵敏华",
+      "display_name": "赵*华",
+      "before_seconds": 12.65275,
+      "after_seconds": 3.3765625,
+      "reduction_percent": 73.31360771373812,
+      "clips": [
+        1,
+        2,
+        3,
+        4,
+        51,
+        26,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A02",
+      "name": "黄凯文",
+      "display_name": "黄*文",
+      "before_seconds": 12.7765625,
+      "after_seconds": 3.484,
+      "reduction_percent": 72.73131955484897,
+      "clips": [
+        1,
+        2,
+        3,
+        5,
+        51,
+        27,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A03",
+      "name": "周婷婷",
+      "display_name": "周*婷",
+      "before_seconds": 12.7873125,
+      "after_seconds": 3.47625,
+      "reduction_percent": 72.81485065763428,
+      "clips": [
+        1,
+        2,
+        3,
+        6,
+        51,
+        28,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A04",
+      "name": "吴昊然",
+      "display_name": "吴*然",
+      "before_seconds": 12.727625,
+      "after_seconds": 3.4305625,
+      "reduction_percent": 73.04632639632295,
+      "clips": [
+        1,
+        2,
+        3,
+        7,
+        51,
+        29,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A05",
+      "name": "徐琳娜",
+      "display_name": "徐*娜",
+      "before_seconds": 12.6651875,
+      "after_seconds": 3.377125,
+      "reduction_percent": 73.33537304520759,
+      "clips": [
+        1,
+        2,
+        3,
+        8,
+        51,
+        30,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A06",
+      "name": "孙杰明",
+      "display_name": "孙*明",
+      "before_seconds": 12.7230625,
+      "after_seconds": 3.451125,
+      "reduction_percent": 72.87504482509615,
+      "clips": [
+        1,
+        2,
+        3,
+        9,
+        51,
+        31,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A07",
+      "name": "林芳怡",
+      "display_name": "林*怡",
+      "before_seconds": 12.80825,
+      "after_seconds": 3.4944375,
+      "reduction_percent": 72.71729158940526,
+      "clips": [
+        1,
+        2,
+        3,
+        10,
+        51,
+        32,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A08",
+      "name": "何超群",
+      "display_name": "何*群",
+      "before_seconds": 12.787625,
+      "after_seconds": 3.491625,
+      "reduction_percent": 72.69528157105015,
+      "clips": [
+        1,
+        2,
+        3,
+        11,
+        51,
+        33,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A09",
+      "name": "郑雪梅",
+      "display_name": "郑*梅",
+      "before_seconds": 12.73475,
+      "after_seconds": 3.4125625,
+      "reduction_percent": 73.20275231158837,
+      "clips": [
+        1,
+        2,
+        3,
+        12,
+        51,
+        34,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "A10",
+      "name": "高峰宇",
+      "display_name": "高*宇",
+      "before_seconds": 12.6245625,
+      "after_seconds": 3.2945625,
+      "reduction_percent": 73.90355111315739,
+      "clips": [
+        1,
+        2,
+        4,
+        3,
+        51,
+        35,
+        52,
+        14,
+        18
+      ]
+    },
+    {
+      "ticket": "D01",
+      "name": "马宁远",
+      "display_name": "马*远",
+      "before_seconds": 12.6880625,
+      "after_seconds": 3.2229375,
+      "reduction_percent": 74.59866311345802,
+      "clips": [
+        1,
+        20,
+        3,
+        4,
+        51,
+        36,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "D02",
+      "name": "胡悦欣",
+      "display_name": "胡*欣",
+      "before_seconds": 12.6145625,
+      "after_seconds": 3.233,
+      "reduction_percent": 74.3708907859468,
+      "clips": [
+        1,
+        20,
+        3,
+        5,
+        51,
+        37,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "D03",
+      "name": "罗斌杰",
+      "display_name": "罗*杰",
+      "before_seconds": 12.7388125,
+      "after_seconds": 3.350875,
+      "reduction_percent": 73.69554658254056,
+      "clips": [
+        1,
+        20,
+        3,
+        6,
+        51,
+        38,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "D04",
+      "name": "唐莉娜",
+      "display_name": "唐*娜",
+      "before_seconds": 12.6430625,
+      "after_seconds": 3.2821875,
+      "reduction_percent": 74.03961658814863,
+      "clips": [
+        1,
+        20,
+        3,
+        7,
+        51,
+        39,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "D05",
+      "name": "蔡宇航",
+      "display_name": "蔡*航",
+      "before_seconds": 12.8171875,
+      "after_seconds": 3.3338125,
+      "reduction_percent": 73.98951603072047,
+      "clips": [
+        1,
+        20,
+        3,
+        8,
+        51,
+        40,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B01",
+      "name": "杨帆宇",
+      "display_name": "杨*宇",
+      "before_seconds": 12.669125,
+      "after_seconds": 3.17875,
+      "reduction_percent": 74.90947480587648,
+      "clips": [
+        1,
+        17,
+        3,
+        4,
+        51,
+        41,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B02",
+      "name": "许晴雯",
+      "display_name": "许*雯",
+      "before_seconds": 12.704125,
+      "after_seconds": 3.295875,
+      "reduction_percent": 74.05665482668032,
+      "clips": [
+        1,
+        17,
+        3,
+        5,
+        51,
+        42,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B03",
+      "name": "梁森杰",
+      "display_name": "梁*杰",
+      "before_seconds": 12.82625,
+      "after_seconds": 3.40825,
+      "reduction_percent": 73.42754117532404,
+      "clips": [
+        1,
+        17,
+        3,
+        6,
+        51,
+        43,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B04",
+      "name": "袁静怡",
+      "display_name": "袁*怡",
+      "before_seconds": 12.787625,
+      "after_seconds": 3.3325625,
+      "reduction_percent": 73.93915993001046,
+      "clips": [
+        1,
+        17,
+        3,
+        7,
+        51,
+        44,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B05",
+      "name": "邓超然",
+      "display_name": "邓*然",
+      "before_seconds": 12.78975,
+      "after_seconds": 3.3060625,
+      "reduction_percent": 74.15068707363318,
+      "clips": [
+        1,
+        17,
+        3,
+        8,
+        51,
+        45,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B06",
+      "name": "彭宇轩",
+      "display_name": "彭*轩",
+      "before_seconds": 12.66925,
+      "after_seconds": 3.260375,
+      "reduction_percent": 74.26544586301478,
+      "clips": [
+        1,
+        17,
+        3,
+        9,
+        51,
+        46,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B07",
+      "name": "曹颖欣",
+      "display_name": "曹*欣",
+      "before_seconds": 12.76475,
+      "after_seconds": 3.34175,
+      "reduction_percent": 73.82048218727356,
+      "clips": [
+        1,
+        17,
+        3,
+        10,
+        51,
+        47,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B08",
+      "name": "韩旭东",
+      "display_name": "韩*东",
+      "before_seconds": 12.654875,
+      "after_seconds": 3.2624375,
+      "reduction_percent": 74.21991525005186,
+      "clips": [
+        1,
+        17,
+        3,
+        11,
+        51,
+        48,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B09",
+      "name": "蒋欣怡",
+      "display_name": "蒋*怡",
+      "before_seconds": 12.8121875,
+      "after_seconds": 3.33675,
+      "reduction_percent": 73.95643796190151,
+      "clips": [
+        1,
+        17,
+        3,
+        12,
+        51,
+        49,
+        52,
+        15,
+        18
+      ]
+    },
+    {
+      "ticket": "B10",
+      "name": "方明远",
+      "display_name": "方*远",
+      "before_seconds": 12.6830625,
+      "after_seconds": 3.2421875,
+      "reduction_percent": 74.43687200942202,
+      "clips": [
+        1,
+        17,
+        4,
+        3,
+        51,
+        50,
+        52,
+        15,
+        18
+      ]
+    }
+  ],
+  "max_join_quiet_ms": 24,
+  "source_sha256": {
+    "prj/td/verify_smooth_audio.py": "b3c2f2dd02b49992b9f997ac7290e94c19f3d96256189332eda54af17b952823",
+    "sim/build_voice.ps1": "62862719a3d8e1a3e9f7dde88e4fc2f87454616a7e7b4fd1651d766ec675cd8a",
+    "sim/voice_manifest.py": "7acaf61e381a9773e89cf5a98a8ed7cf3af8ae46b383722fde56957aa4bcffaf",
+    "assets/voice_manifest.json": "11e946266d46501654c1c6a74e50707261a73dcbffa624afcfc1138c7f238e66",
+    "assets/patients.json": "b615a16e8e945c1a5af2cee11d54179527cb079067558944e5aa5297483b2444",
+    "assets/sd_root/CLIP00.PCM": "b3c1cc995983b17bf688c585ccd948407349cfec8aeb15f5e7eed9bcb96519bf",
+    "assets/sd_root/CLIP00.wav": "29f33e8e6b5b877d6ee4ddb1fb364fe522f5642a091abbb78ccdf63212ee279c",
+    "assets/sd_root/CLIP01.PCM": "0a4a6766882fe04e24381cb034e7d8ff4b49a1ba276a0088e65bbec5d9168656",
+    "assets/sd_root/CLIP01.wav": "9141955fabc84e5bf49d57aec19fad032128bd52b879606e94177f7a00dfdbfd",
+    "assets/sd_root/CLIP02.PCM": "f91305888b62d9b20b42694e24d2069ea3cae7be93b0ddcb5f4c8fb7e8e2fc83",
+    "assets/sd_root/CLIP02.wav": "f2425bcff6bf42099ca936bee310e595b4fad535549e6378298cea413609e81f",
+    "assets/sd_root/CLIP03.PCM": "a8f5d71dd804203428f1d2e253878637cf913cb9bf78a02505f7ed75db29048f",
+    "assets/sd_root/CLIP03.wav": "67e3a96057fc567ad8fc72bcb92055bc21cb08282f6675daf69cacfe72ce6510",
+    "assets/sd_root/CLIP04.PCM": "7ae25db016b97fb71c55c4552c4b18ab8500674e2e003481d591d1de4abb4a5c",
+    "assets/sd_root/CLIP04.wav": "c89cf8a2cfb21db7f2728c3230a232024c0fdc8d7b4c585a53fa743f6d523705",
+    "assets/sd_root/CLIP05.PCM": "801c2db7658a3ac341f7520b1db6a7c8c288169b363caf8b666c049b4e2db0be",
+    "assets/sd_root/CLIP05.wav": "0c260f8af08fb1b4b5ad5c10615f69e70174c1ec581fa86adb7358888335dc0e",
+    "assets/sd_root/CLIP06.PCM": "d11de41743c3da6dc1ace176d2cee6406d4bd063dbdb4df36cb3c869f6eae8e2",
+    "assets/sd_root/CLIP06.wav": "623e6e3a09084d17ac9d37776d7ade8a4a6defd1391c7af0285ce9ad3465d39f",
+    "assets/sd_root/CLIP07.PCM": "36e745e06ee187f47453dfd2b270d2308d78bf15ec51426c53ab408610eea19d",
+    "assets/sd_root/CLIP07.wav": "fa08aa0866ceaf13b87eac7b270bdfc77420978763da08b7480193d939d9444f",
+    "assets/sd_root/CLIP08.PCM": "93142b3ea6fbde901d84a8c1ce68fbc6530f4a5ee2f9d98599b0851f2f099766",
+    "assets/sd_root/CLIP08.wav": "bbbcb4da0b20086cba2507f2f0205c5e34358a62fed15d2c849abec1aa3bf4bf",
+    "assets/sd_root/CLIP09.PCM": "e0fa05b0f69ccb4234fe4b53165780ff1b3f7b305d6575d0b88cf8fba9204cf2",
+    "assets/sd_root/CLIP09.wav": "4bd03a648607e6e7dc5e7f2ae2e081a10a4c7af59b2cbef4f2f7ab5827d59a74",
+    "assets/sd_root/CLIP10.PCM": "007e4f740e21d99cfe6d73ecd41cd8ce87d871417afb1309ae1f4f6488f99bb7",
+    "assets/sd_root/CLIP10.wav": "8cfdf6de0b065ee5cca1dc2dd6a40b7027a8ec61a99a2f0589227525805bcbab",
+    "assets/sd_root/CLIP11.PCM": "f86ad52880ffb67681c1071f465a32454e8365f4b0adfc3e41f75d2205f974b7",
+    "assets/sd_root/CLIP11.wav": "c4ac83410803f2721816b1e0287855f46b02c9d6b0c2d88946160bff6df2a709",
+    "assets/sd_root/CLIP12.PCM": "0831d1355a206d3fa526157103cb184366a33ec30f172ba5ed83cf0bc792219c",
+    "assets/sd_root/CLIP12.wav": "9e633acfeb29994d98ebafce3024f5e53d2a606a9f2c536d2dd227a823a8a9c0",
+    "assets/sd_root/CLIP13.PCM": "a3c5a11fba739234ab1f6938d6f37b79a91b0ea8e5f89beb62684a52df506b2c",
+    "assets/sd_root/CLIP13.wav": "1568fbc7e985af2bde78e716b16929977d53c1927819a28509b965adc4364619",
+    "assets/sd_root/CLIP14.PCM": "374e8ff6bf1b640836f6ad0d25bb1e672ac5b7f4735297fb2c66934a2a20fe9d",
+    "assets/sd_root/CLIP14.wav": "517e4b03d5531da67f0bf88a841f526b9cf44812e2dc37e28ed9d32e92e7df5b",
+    "assets/sd_root/CLIP15.PCM": "233aff78737f428d47f3cb9aa33754b58f36d29f4af6ba1c37bb25ed005ff278",
+    "assets/sd_root/CLIP15.wav": "a252f3fa20a01d5f49fd1031c900260d24afcf37bc19a69858784f14deb8ca33",
+    "assets/sd_root/CLIP16.PCM": "2495c2f202f8bc84b176b63d8f7f1e51fba13059e02ff01d555232a83a429f74",
+    "assets/sd_root/CLIP16.wav": "380ae23617cd4c90c7080048800b14f234fa7f4b4ff7aa5c28383c9c7943dea0",
+    "assets/sd_root/CLIP17.PCM": "c3ea28d031301ed9540dc59e36a48e9e24858c4b2610533dab02deccc87bcac0",
+    "assets/sd_root/CLIP17.wav": "0de9b9c5351a0a67648655f5c44bf9b0129165361a60dc06499ca8ec20565b07",
+    "assets/sd_root/CLIP18.PCM": "4413e110534fc183db6cc98b55a9e48a57cfec8cbceb530e693c95e16c308754",
+    "assets/sd_root/CLIP18.wav": "91a25eafc4798b9bd9dd554979acf0c08effe7fc4b819e69fbfc5af8813309ec",
+    "assets/sd_root/CLIP19.PCM": "67274e44b52b5a4ff084618929ea190e1e6285cd07f3e501bf69bee66c0f0b77",
+    "assets/sd_root/CLIP19.wav": "93563de14398dbb4fb9fc3c8b5c4457824bbb5254eab33d4a53ed450ae6220b8",
+    "assets/sd_root/CLIP20.PCM": "047ea385275ab72519f7bdadbb782534667414461e9538aa2a30cf54bfe978e0",
+    "assets/sd_root/CLIP20.wav": "f0bbfa15da8e01f21c9f25c6fada72b14228349a5464fdbcae889b828edf509b",
+    "assets/sd_root/CLIP21.PCM": "39ed4db4a873e674d8bdb6afbcfdd7a9a4d17a8777d8e7f61dd0e8eb5a89f99c",
+    "assets/sd_root/CLIP21.wav": "d7b1cf7e61dcdc342b8a9e5a59abc7d59ff473111e928365e682156ade54e687",
+    "assets/sd_root/CLIP22.PCM": "dbb4152b8ac2bfe9ee75b602266ba92f77b05fec0f8390fe65391ac91d8acfd7",
+    "assets/sd_root/CLIP22.wav": "91b26beedfab87141502c45980d6d07ac814186939984a9d3e1f02c093f2f373",
+    "assets/sd_root/CLIP23.PCM": "bb1578da4ac7c23fc1dee5c5e121773206dd563943dd562a55ba89dc008a896e",
+    "assets/sd_root/CLIP23.wav": "a46d5ff6e02393ba8acf12bffedb27e7ff9cb6c559678f065d55fabf2996de26",
+    "assets/sd_root/CLIP24.PCM": "afca41a04648795b9715cd6508f33b7e84fc50993a4e1a26d09dea3f388a8878",
+    "assets/sd_root/CLIP24.wav": "bf23e6f94db59b6227308e15578a9b2bbde84dbf2d069627a4ad41739ef5a8a2",
+    "assets/sd_root/CLIP25.PCM": "d324df9e973ff51e8c2911dcbc84354ce112914571f6d602a2b615f35377fa7c",
+    "assets/sd_root/CLIP25.wav": "28bc991adc680672455ed706a483aa29fda8469ad5c5d0bb64e0e607fc8f525f",
+    "assets/sd_root/CLIP26.PCM": "45e2b08584d86a758f701f7cf66871305ae82a61cb5db49896d1a65b7719418b",
+    "assets/sd_root/CLIP26.wav": "13b345f0b0218cff9feb67e0da76bc51ee528377708432ef29109f903d0eaff0",
+    "assets/sd_root/CLIP27.PCM": "f001efac424a1e054ea5145209415294b36f2d32674808b3973d376b8ac14fb7",
+    "assets/sd_root/CLIP27.wav": "9b19d345c48378c594d88df5201a66a7f1d773f540318994b55026a021f2785d",
+    "assets/sd_root/CLIP28.PCM": "c020e99e92e4ea62f856874bbf23a518691dedb3f979491451bb46959da14b0b",
+    "assets/sd_root/CLIP28.wav": "e791fdfd10fa325b6d898f8eaef84f444c1a6b2b9148098d0f678c663ff87150",
+    "assets/sd_root/CLIP29.PCM": "ce297ebeffed2416475634aacf938b20c2f44bc711c44e7395758bfd9bf06071",
+    "assets/sd_root/CLIP29.wav": "1125e41261f28fb0b752845daca05684e2e9d01e5aae6ce028634abd1c44285a",
+    "assets/sd_root/CLIP30.PCM": "2224f68d659d12788772390ab25e27816431ec9add57a198cfce7f36c909e7f3",
+    "assets/sd_root/CLIP30.wav": "d69e9c9ecf32f88147c12a7233806dc08d7f16b4f471a9e8a568100c67a63775",
+    "assets/sd_root/CLIP31.PCM": "860aa9d14bc23ab69ccd302306a7b9c6c2844085333bd2974ba32305a3fb1b76",
+    "assets/sd_root/CLIP31.wav": "e58ccbab18549de4228e2314972870dadc122064f48e7acf0e9664df9f74d6c7",
+    "assets/sd_root/CLIP32.PCM": "62d92cb5f0baec5f6a00c56ff03be89be81248f8055c4c68a859ddd20d2f40ae",
+    "assets/sd_root/CLIP32.wav": "77b6c843ee4095d87b196d797e450d52ff84fcbc24d63a6bf30dfeddd19221b3",
+    "assets/sd_root/CLIP33.PCM": "b27dcbf26f1ac107e42782c70ab536395078710ef8108a9abad10e9a2787fbcf",
+    "assets/sd_root/CLIP33.wav": "7778c81fb03f8c4220fe953a675d6497ceb9016e6821c17ca6291975c9043493",
+    "assets/sd_root/CLIP34.PCM": "8557f7672f81742e55d803d8a37ea4835006d12698b2ac059a1ac585c576b3db",
+    "assets/sd_root/CLIP34.wav": "30617b7508bde2d5a8f6994c5f8702271bc4d234d349af9dbfbb124352909828",
+    "assets/sd_root/CLIP35.PCM": "d3479a9afc28bf1ef018bc539066406e8d1a8ea9cde110c12064ec24218ffac3",
+    "assets/sd_root/CLIP35.wav": "c7d8ffc171c50eda29e5324a8b3cdc7dd1f477d9fb3b45577b00db59e5dca7a8",
+    "assets/sd_root/CLIP36.PCM": "c113a67ad1eea7a14f51e999c47eb85e1896b196eb2a59ab19fe1953140fb62a",
+    "assets/sd_root/CLIP36.wav": "63abfe7287645c26b40e7cd1eb7bf45b5be12238651e260f6fcf2e716141c76d",
+    "assets/sd_root/CLIP37.PCM": "c9f90f8394db36329e0814132dd2056a7b2705fbc229ccb5d2edbe7c30d281cd",
+    "assets/sd_root/CLIP37.wav": "1bd5feecfb4ac2a07ac110c0a4ce1daed319826df159682252e256a497781cd7",
+    "assets/sd_root/CLIP38.PCM": "9e7b5a3ada14e3ebe8231d1b220926b64f648918346636519f2a7d1d61d1b635",
+    "assets/sd_root/CLIP38.wav": "cb9ef52e4fcccde34c583da59f0e28c18dbaeb9f108bc94e98ad6b9605fc0b4d",
+    "assets/sd_root/CLIP39.PCM": "682476f9d0f67d019fd5180bb001c296a732dd86ffaf62aeeb60d42cfae5a3f0",
+    "assets/sd_root/CLIP39.wav": "fdab99869c81fd46c81cb6ac5ce74b87e39ebb77aa765a6ffed4df0aabe33ca7",
+    "assets/sd_root/CLIP40.PCM": "95bd0f4891849c040017ca3178f3b6ecee36f4d5356683806bdaff61112c4d9c",
+    "assets/sd_root/CLIP40.wav": "3edf443c17af44e553dcf4b2ab3eb233d5f63e9eb41cd4d2bfe14ad323acf854",
+    "assets/sd_root/CLIP41.PCM": "cced1706ca40962e655c86129b641d6d0202ddc7a8130a0f27cf270c4741bf67",
+    "assets/sd_root/CLIP41.wav": "5363bdefb9c5e4a00a87a32fe9f44db7fe56cccfb4e1263715053d063c142116",
+    "assets/sd_root/CLIP42.PCM": "50450694045734ee274010e2384b475baf139d6a165750ac065297d6ec771f9e",
+    "assets/sd_root/CLIP42.wav": "6b2f0cc7d2ca7328dd62e9722dd171be7f28607da0412215a12501f007910f13",
+    "assets/sd_root/CLIP43.PCM": "7b38c3846808677ffbae3081c6bed45a1637f645cc0dab3eefbef5cca40c4491",
+    "assets/sd_root/CLIP43.wav": "5e7af229905c769e98c4c1667027a3f5cf11751ef5dad4b6e987818795d1337b",
+    "assets/sd_root/CLIP44.PCM": "acd7a428c28de445d770053c998a2744eaa90d1322a825d6c1b313bb58b85c1d",
+    "assets/sd_root/CLIP44.wav": "7dd7236d5af4d4277b77db72da5fd1c4c7feeb6601fa9ea20cc222c83e0a23c6",
+    "assets/sd_root/CLIP45.PCM": "8e5c1ba484f48d7fcdac62d20fe2386e33a6d92a2b939df260f375aeca03f463",
+    "assets/sd_root/CLIP45.wav": "b870d23ba93d56c724f56e75b5ff7eb99415b2c2e454e4defbc7fe94aad59736",
+    "assets/sd_root/CLIP46.PCM": "a3b68b181a6cb5b169ddd4a116c7df6fa93a3b7b9d6859df42fdd043fdf32458",
+    "assets/sd_root/CLIP46.wav": "ceca82db0130e1955b1661466004adadfb720582f8e9c5b6841817f856590f55",
+    "assets/sd_root/CLIP47.PCM": "7997c505d9124b94ebf0aecea155f75fb533f6e84624f20b11bfb60741f70700",
+    "assets/sd_root/CLIP47.wav": "99ae4fb97a8fb6c772794a1e9879dbad2380728482e6b167e88ae81da50aede9",
+    "assets/sd_root/CLIP48.PCM": "17ecf7e1b819b767db40d1599d31691dfb7539ce58544472ae6b25443f64f882",
+    "assets/sd_root/CLIP48.wav": "8cf854dabe6c0d646c1bfd64ba8f0e6ed28a0ce3d7af11353c17dd55efe5e391",
+    "assets/sd_root/CLIP49.PCM": "f6623b8963facae68d7b701e0f5c14d2e45ea4baa07a49caa2d3c16efa9a9e2c",
+    "assets/sd_root/CLIP49.wav": "1c3beda61f2b8ce7b8a56143bbbd14611d2401561377680d21945b1e8b1b375d",
+    "assets/sd_root/CLIP50.PCM": "da8c3c4bb39f1c010ccf18c1628adc645eae75b9c3446d6e4ea3f2a141b3b63b",
+    "assets/sd_root/CLIP50.wav": "f14e997f587075801ce243b3595e88b2e4064d0d4cad120bccbe2a3d360c9bdc",
+    "assets/sd_root/CLIP51.PCM": "e72b8834ce816ebe6e7bd22c4bc471cc23f66c1971d70bffc8dba8c1f36206d2",
+    "assets/sd_root/CLIP51.wav": "c0dcd76cd98a8a34c07db09500f710b81aa38053493e5e18c19b2957a5ff3920",
+    "assets/sd_root/CLIP52.PCM": "b0930774fd4fa4270688c8892a7e158635a23219c16ed24f3d0f3be9e4234aea",
+    "assets/sd_root/CLIP52.wav": "681fbee90c168537e22e374dd1e6b779074eafe644686d7e7e165dc9ae56b55b",
+    "assets/sd_root/CLIP53.PCM": "98f9dfdd6e2941637bfb290abc845477c66353dcf5187f41236d3b42459b0041",
+    "assets/sd_root/CLIP53.wav": "01f256d2eb11e1afea8c13c9990c76939db663c98be578e3ca07dd2c94843f9e"
+  },
+  "board_test": "not_tested",
+  "scope": "PCM waveform/assembly verification; not recorded hardware audio"
+}

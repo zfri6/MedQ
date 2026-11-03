@@ -1,0 +1,4 @@
+business_tolerance_cycles: 0
+pixel_pipeline_cycles: 2
+cdc: held_bundle_eventually_equal
+first_mismatch: stop_and_classify_dut_stimulus_expectation_sampling

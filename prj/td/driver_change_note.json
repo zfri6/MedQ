@@ -1,0 +1,6 @@
+{
+  "actual_build_driver_sha256": "707200d6a81f0900074468ecc8703c867bb30a8f4999bbe179a052e52e9704c0",
+  "current_driver_sha256": "3b5f4fc36877c86f57f0146823a567c7c28c6e06a61df2c6373e50b74120f6b5",
+  "change": "EG4 unsupported clock report is optional/removed; native SWNS/HWNS parsed; original result retained immutable, audit is read-only reinterpretation",
+  "rtl_or_constraint_change_after_build": false
+}

@@ -1,0 +1,37 @@
+
+===== vsim =====
+$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_dual_ui_visual_equivalence -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c -voptargs="+acc" work.tb_dual_ui_visual_equivalence -do "run -all; quit -f" 
+# Start time: 01:51:55 on Nov 02,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_dual_ui_visual_equivalence(fast)
+# Loading work.medq_dual_ui_scene(fast)
+# Loading work.medq_dual_ui_reference_model(fast)
+# run -all
+# PASS unchanged-layout visual equivalence (event-driven strips independently checked): 1337233 exact A/B geometry and pixel-coverage comparisons, five full VGA scans, all 592 marquee positions, all breath phases, max counters, states, services and SW1-off live frames
+# ** Note: $finish    : C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_dual_ui_visual_equivalence.v(53)
+#    Time: 61696520 ns  Iteration: 1  Instance: /tb_dual_ui_visual_equivalence
+# End time: 01:51:59 on Nov 02,2026, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 0
+
+[exit code 0]

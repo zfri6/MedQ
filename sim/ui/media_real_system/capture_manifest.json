@@ -1,0 +1,18 @@
+{
+  "scope": "Actual RTL pixels only; PPM conversion, no software UI redraw, not a board photo",
+  "animation_note": "Alpha test snapshots; full production frame-held smoothstep animation is verified separately",
+  "frames": [
+    {
+      "source": "sim/vendor_sdram/20261103T061826Z/media_top_clinic.ppm",
+      "source_sha256": "f3a9092fb5c7293a621652245f615ab6664443628b625db8bf6c239981084274",
+      "png": "sim/ui/media_real_system/media_top_clinic.png",
+      "png_sha256": "ab0a21938a4bb5c49872ff3444271c17b2b1e1f8e4847fb96c348672716f1342"
+    },
+    {
+      "source": "sim/vendor_sdram/20261103T061826Z/media_top_cover.ppm",
+      "source_sha256": "b3511ed3cbdf46ace77a37706def528c81cfd9ae5b8434a9d16fbed6c78bf1cf",
+      "png": "sim/ui/media_real_system/media_top_cover.png",
+      "png_sha256": "83b95621cefe5016781f909812ccfdb6b3691ec48ac06553757d0cc0ede62190"
+    }
+  ]
+}

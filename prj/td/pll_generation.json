@@ -1,0 +1,21 @@
+{
+  "generator": "Anlogic TD GUI IP Generator 6.2.168116",
+  "device": "EG4S20BG256",
+  "input_mhz": 50,
+  "output_mhz": [
+    125,
+    25,
+    100
+  ],
+  "phase_deg": [
+    0,
+    0,
+    0
+  ],
+  "lock_enabled": true,
+  "generated_files": {
+    "medq_pll.v": "41da1419fabe6e3521700fc99f65d40793b704d6bbd703a39eb48dff3f8a45b4",
+    "medq_pll.ipc": "03f167d77cf1fc0c684e1802cf2ca7fd50143a89507aea4086acfaf3fcf733ce"
+  },
+  "generation_path": "C:/Users/zhang/AppData/Local/Temp/medq_td_build/20261026T114539Z_5686b368/prj/td/al_ip"
+}

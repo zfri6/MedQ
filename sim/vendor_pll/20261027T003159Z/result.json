@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "details": [],
+  "input_sha256": {
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\medq_pll.v": "46b00ddce260229424fe3333dcd00d8757265f444654f88f1714929bfb14edab",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\sys_pll.v": "2d699b04f6cbed29b2241129b51784b5145f5621a6e31882435727db130a11ea",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\tb\\vendor\\tb_medq_pll_eg4.v": "0c3523b1740f8c6f188e5a6a550f0a2ff30a7f0acef6ba6e736820743ef0467b",
+    "C:\\Anlogic\\TD_6.2.1_Engineer_6.2.168.116\\sim_release\\eg4\\eg_phy_pll.v": "73671e13f74679ac630f68506ce67408455734b21cacae62aeb94f284d7a8eb8",
+    "C:\\Anlogic\\TD_6.2.1_Engineer_6.2.168.116\\sim_release\\eg4\\eg_phy_glbl.v": "95b5fed81000f5844a5a3b110a5b8e82d59a941e6f0715015e38884192ee4fb7",
+    "C:\\Anlogic\\TD_6.2.1_Engineer_6.2.168.116\\sim_release\\eg4\\eg_logic_clk.v": "686ce0c1e4df0bc3cbe1afc4de359f78da57d5521671cc27b8dc5181412a04f2"
+  },
+  "simulation_define": false,
+  "scope": "real PLL functional model only; no board measurements or STA closure",
+  "stage": "C:/Users/zhang/AppData/Local/Temp/medq_eg4_pll_94ezkp3u"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "top": "tb_sdram_hardware",
+  "details": [],
+  "input_sha256": {
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\sdram_vendor\\global_def.v": "d71c81cbc67af935bf6cb9762c0dd6cd25e5a5297e2098f880406e090ac0b446",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\sdram_vendor\\sdr_as_ram.enc.v": "767dbdfbd83d42223b77dfa7deab42ce8216a8fd6f6cb41b7e7593d9a345ba57",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\sdram_vendor\\sdr_init_ref.enc.v": "6da5945f4af793610d0d64c65c7e5d2d1c86ed4c11bc5fdeacd27eb03178b9f6",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\sdram_vendor\\sdr_wrrd.enc.v": "c7d7fe07d75f66aa88d9f986b3006319c995162434f104f9990664b374cdfdd2",
+    "C:\\Anlogic\\TD_6.2.1_Engineer_6.2.168.116\\sim_release\\eg4\\eg_phy_sdram_2m_32.v": "1786189e069c30bfb4fac258315159068492722f309072f1bbb5f2bf765d27e5",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\tb\\vendor\\tb_sdram_hardware.v": "3ca065236bff7fbbc603a078e943f5df9e5c7f0914f18f7e60694bfab2f85a12",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\medq_sdram_adapter.v": "e4d87d95ff126c4e744c7c699edf5c1b9f4a314b5e9083b104937021354753d6",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\rtl\\al_ip\\sdram.v": "1487e8583bbf52fe6d079a2854c10ebff2e569a3872a9088c1c9717ba14d17fe",
+    "C:\\Users\\zhang\\Desktop\\\u5b89\u8def\\MedQ_v0.2\\tb\\vendor\\medq_sdram_device_model.v": "817f23ef05ccf918588ef33686c192caec0ea82056671ec7b4ca9bd6211f170f"
+  },
+  "stage": "C:/Users/zhang/AppData/Local/Temp/medq_sdram_u8f4o4m7",
+  "core_defines": [],
+  "application_defines": [],
+  "simulation_define": false,
+  "real_pll": false,
+  "scope": "original encrypted controller plus independent BL4/CL3 physical SDRAM model with AC/refresh checks; optional installed PLL model; not board or routed STA evidence"
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "actual RTL frame exports for visual review; not a replacement runtime image engine",
+  "source_capture_manifest": "sim/ui/v03_rtl/capture_manifest.json",
+  "files": {
+    "sim/ui/masked_smooth/actual_subtitle_frames.png": "299602415869d111ec439de517f6ec2750c30e67f7e1411a4d46712fffced03d",
+    "sim/ui/masked_smooth/page_00.bmp": "e784907d6d1bfa8e9585afaa681a6862d47d09dc1eceb5964638dcf8ee724e2d",
+    "sim/ui/masked_smooth/page_01.bmp": "1c95c977f5c1acbb48c4a1160aec97b2df2e362541e6287bd8e0337c49af3389",
+    "sim/ui/masked_smooth/page_02.bmp": "67a774dcaa36da51f1c4843d8bf0b2825d1112fe516d43974e8d68867191a80d",
+    "sim/ui/masked_smooth/page_03.bmp": "a815c308fb19cc5c0d509d4d24e205ad2ccfd3ff9405051f31fc2b94717e30e0",
+    "sim/ui/masked_smooth/page_04.bmp": "cb926b29cc114851ddf52a3d9939586ac0edc16d5b8668e9eda9a5234bb2514d",
+    "sim/ui/masked_smooth/page_05.bmp": "b1993d935075bdfdc73fce6504632ff2e1889ae606b7215b004a92325ab7be1c",
+    "sim/ui/masked_smooth/page_06.bmp": "94bc1d95b1daa7426a4e9868d777bbac867465c649a3f923756207ac86e431db",
+    "sim/ui/masked_smooth/page_07.bmp": "e1adfa0c52d8aebca476c4ddc2041e7602982dd92d83dcf7c87c34919277dd1d",
+    "sim/ui/masked_smooth/page_08.bmp": "86057780f19b8ea9568706ff8b327abd71a7c701acd1e05a79a741cb0858df63",
+    "sim/ui/masked_smooth/page_09.bmp": "6fc496c74652a9d53f88a01062f340f1b4bf8f79b38378a7d1a2cb0eda6b6f46",
+    "sim/ui/masked_smooth/page_10.bmp": "67d08f72848394c4c3137dce5d04cb5146addcdb3cd64f0e85fa8d6d05def020",
+    "sim/ui/masked_smooth/page_11.bmp": "9a2c037a0076a16a8e5090b1c4347fbef9b5f599ae06ae86fd587d3d4d1a2e69"
+  }
+}

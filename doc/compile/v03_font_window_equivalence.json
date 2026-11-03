@@ -1,0 +1,21 @@
+{
+  "status": "SUPERSEDED",
+  "revision": "sw1_live_return_cd_20261031",
+  "scope": "A/B original glyph pixels and geometry preserved under repacking; C/D and live-off frames are intentional new behavior",
+  "production_font_words": 4096,
+  "coverage_bits": 2,
+  "sprites": 75,
+  "font_window_word_test": "sim/tests/modelsim/tb_font_window/sim_result.json",
+  "visual_reference_test": "sim/tests/modelsim/tb_dual_ui_visual_equivalence/sim_result.json",
+  "pixel_reference_test": "sim/tests/modelsim/tb_dual_ui/sim_result.json",
+  "new_call_gate_test": "sim/tests/modelsim/tb_sw1_live/sim_result.json",
+  "asset_audit": "doc/compile/sw1_cd_asset_audit.json",
+  "current_real_system": "sim\\vendor_sdram\\20261031T071235Z/result.json",
+  "capture_manifest": "sim/ui/v03_rtl/capture_manifest.json",
+  "full_top_frames": 12,
+  "distinct_frames": 12,
+  "old_paused_frame_identity_requirement": "superseded by live display requirement",
+  "board_test": "not_tested",
+  "current_revision_authority": "doc/compile/independent_switch_delivery.json",
+  "historical_only": true
+}

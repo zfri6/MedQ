@@ -1,0 +1,6 @@
+{
+  "source": "rtl/queue_fsm.v",
+  "sha256": "6f61d3a390564317f130c9941e245faf959b0547703991f3d128c8e5a2e64df9",
+  "reference": "tb\\queue_fsm_reference_model.v",
+  "change": "module name only; source before RAM prefetch change"
+}

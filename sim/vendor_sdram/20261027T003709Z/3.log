@@ -1,0 +1,45 @@
+$ C:\modeltech64_10.4\win64\vsim.exe -c work.tb_sdram_hardware work.glbl -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c work.tb_sdram_hardware work.glbl -do "run -all; quit -f" 
+# Start time: 08:37:10 on Oct 27,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Warning: sys_pll.v(79): (vopt-2241) Connection width does not match width of port 'load_reg'. The port definition is at: eg_phy_pll.v(25).
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sdram_hardware(fast)
+# Loading work.sys_pll(fast)
+# Loading work.EG_PHY_PLL(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) sys_pll.v(79): [PCDPC] - Port size (5) does not match connection size (1) for port 'load_reg'. The port definition is at: eg_phy_pll.v(25).
+#    Time: 0 fs  Iteration: 0  Instance: /tb_sdram_hardware/clocks/pll_inst File: eg_phy_pll.v
+# run -all
+# ******************** : The Attribute            REFCLK_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             FBCLK_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC0_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC1_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC2_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to          20.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC3_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# ******************** : The Attribute             CLKC4_DIV on pll instance tb_sdram_hardware.clocks.pll_inst.para_int_range_chk is set to           1.  Legal values for this attribute are           1 to         128.
+# TIMEOUT hardware state=0 refresh_state=0 received=0
+# ** Note: $finish    : tb_sdram_hardware.v(105)
+#    Time: 12 ms  Iteration: 0  Instance: /tb_sdram_hardware
+# End time: 08:37:50 on Oct 27,2026, Elapsed time: 0:00:40
+# Errors: 0, Warnings: 2, Suppressed Errors: 5

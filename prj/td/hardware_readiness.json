@@ -1,0 +1,25 @@
+{
+  "scope": "V0.3 current hardware gates; generated IP unchanged, V0.2 reports are historical only",
+  "required": {
+    "main_port_adc_checked": true,
+    "video_pll_lock_exported": true,
+    "memory_pll_generated": true,
+    "sdram_controller_bound_and_verified": true,
+    "tmds_vendor_model_verified": true,
+    "clock_and_cdc_constraints_reviewed": true,
+    "ram_inference_reviewed_in_td": true,
+    "final_resource_margin_after_sdram_reviewed": true
+  },
+  "evidence": {
+    "main_port_adc_checked": "prj/constr/pin_summary.md; check_adc.py: 40 ports, 40 assignments, 0 problems (DEMO baseline, not measured Bank voltages)",
+    "tmds_vendor_model_verified": "sim/vendor_serdes/latest.json",
+    "video_pll_lock_exported": "sim/vendor_pll/latest.json",
+    "memory_pll_generated": "sim/vendor_pll/latest.json: system/memory50MHz, SDRAM+8ns/144deg, reset/relock PASS",
+    "resource_review": "doc/compile/timing_closure/20261103T061423Z_c18a20e8/signoff.json",
+    "sdram_controller_bound_and_verified": "sim/vendor_sdram/latest_adapter.json, latest_system.json, latest_basic.json; physical command/data model, no board proof",
+    "ram_inference_reviewed_in_td": "doc/compile/timing_closure/20261103T061423Z_c18a20e8/signoff.json",
+    "final_resource_margin_after_sdram_reviewed": "doc/compile/timing_closure/20261103T061423Z_c18a20e8/signoff.json",
+    "clock_and_cdc_constraints_reviewed": "doc/compile/timing_closure/20261103T061423Z_c18a20e8/signoff.json"
+  },
+  "note": "PC simulation and routed STA passed; board validation not performed."
+}

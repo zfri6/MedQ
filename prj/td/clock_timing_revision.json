@@ -1,0 +1,28 @@
+{
+  "scope": "Current wrappers/IPC supersede historical pll_generation.json; no board proof",
+  "reference_mhz": 50,
+  "vco_mhz": 1000,
+  "system_memory_mhz": 50,
+  "sdram_phase_ns": 8,
+  "sdram_phase_degrees": 144,
+  "pixel_mhz": 25,
+  "serial_mhz": 125,
+  "feedback_mode": "NOCOMP",
+  "feedback_path": "VCO_PHASE_0",
+  "memory_ref_fb_div": [
+    1,
+    20
+  ],
+  "video_ref_fb_div": [
+    2,
+    40
+  ],
+  "source_sha256": {
+    "rtl/al_ip/sys_pll.v": "78e088a296aaa44042ddaee9a6a9702a9c49d62604f8c6d34d25abc08b91aac1",
+    "rtl/al_ip/sys_pll.ipc": "723aa6600390e886e259136c16c40b6b031cb326626f640f18c2eb117b4f4752",
+    "rtl/al_ip/medq_pll.v": "ef9f13a8f1c6c2bcc854ce9fa2daa75931f5f7311b3f9d816d4bf765405f7811",
+    "rtl/al_ip/medq_pll.ipc": "44ec4262094321245478658e4b9ecbaef073ec3527e0933b4782ae4faf65f0e5"
+  },
+  "original_clock_evidence_retained": "baseline/timing_closure_20261026T235940Z/before_changes.zip",
+  "vendor_model_evidence": "sim/vendor_pll/latest.json"
+}

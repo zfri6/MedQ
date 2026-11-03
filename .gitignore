@@ -1,0 +1,11 @@
+/prj/td/runs/*/output/
+/prj/td/reports/
+/prj/td/output/
+**/__pycache__/
+*.pyc
+**/work/
+*.wlf
+*.vcd
+*.rar
+*.zip
+.env

@@ -1,0 +1,7 @@
+{
+  "status": "EXPECTED_FAIL_OBSERVED",
+  "scope": "New boundary TB rejects the exact previously signed input RTL; corrected RTL independently passes same TB",
+  "old_input_sha256": "d82163c5bf007c773f441c6c4af67cba2a7e27c6c407895e92e51001ad672f79",
+  "current_tb_sha256": "56e76b243e2555e5495d278d37da02df22dd1d9cad3ee88c740109c9cdebd4ed",
+  "diagnostic": "ERROR pending paused debounce replayed after resume"
+}

@@ -1,0 +1,41 @@
+{
+  "review_thread": "01a178e4-b36c-7041-8c3c-2860793ea4f1",
+  "snapshot_sha256": "df29cdd5991dbad1bb097ca9b5570bf35741bc5111016a3a94c88c6cae82061e",
+  "imports": [
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/include/global_def.v",
+      "destination": "rtl/al_ip/sdram_vendor/global_def.v",
+      "sha256": "d71c81cbc67af935bf6cb9762c0dd6cd25e5a5297e2098f880406e090ac0b446"
+    },
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/include/sdr_as_ram.enc.v",
+      "destination": "rtl/al_ip/sdram_vendor/sdr_as_ram.enc.v",
+      "sha256": "767dbdfbd83d42223b77dfa7deab42ce8216a8fd6f6cb41b7e7593d9a345ba57"
+    },
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/include/sdr_init_ref.enc.v",
+      "destination": "rtl/al_ip/sdram_vendor/sdr_init_ref.enc.v",
+      "sha256": "6da5945f4af793610d0d64c65c7e5d2d1c86ed4c11bc5fdeacd27eb03178b9f6"
+    },
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/include/sdr_wrrd.enc.v",
+      "destination": "rtl/al_ip/sdram_vendor/sdr_wrrd.enc.v",
+      "sha256": "c7d7fe07d75f66aa88d9f986b3006319c995162434f104f9990664b374cdfdd2"
+    },
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/IP/sys_pll.v",
+      "destination": "rtl/al_ip/sys_pll.v",
+      "sha256": "98b5c9e0860e1bf61ba96b3356e4735eb12c981d3cf6be6c1cbb7a2cd9668194"
+    },
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/IP/sys_pll.ipc",
+      "destination": "rtl/al_ip/sys_pll.ipc",
+      "sha256": "e0120eac778fee7accca2b55301ca67accc604983729c4c8dd22bf3c09b7ab7e"
+    },
+    {
+      "source": "HX4S20_Contest_202606/FPGA-BuildingGuide-main/FPGA-BuildingGuide-main/src/user_source/hdl_source/IP/sdram.v",
+      "destination": "rtl/al_ip/sdram.v",
+      "sha256": "1487e8583bbf52fe6d079a2854c10ebff2e569a3872a9088c1c9717ba14d17fe"
+    }
+  ]
+}

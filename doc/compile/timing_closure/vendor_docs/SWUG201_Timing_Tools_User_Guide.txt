@@ -1,0 +1,2530 @@
+
+=== PDF PAGE 1 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TangDynasty®时序工具用户手册 
+ 
+ 
+上海安路信息科技股份有限公司 
+ 
+SWUG_201（v1.1）2025 年 1 月 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PDF PAGE 2 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com I 
+2025.01   
+ 
+目 录 
+目 录 ................................ ......................  I 
+1 概述 ................................ .....................  1 
+2 时序约束工具 ................................ ............. 1 
+2.1 Timing Wizard 启动方式 ..................................................... 1 
+2.2 Timing Wizard 主界面 ....................................................... 2 
+2.2.1 Clocks .............................................................. 4 
+2.2.1.1 Create Clock .................................................. 4 
+2.2.1.2 Create Generated Clock ........................................ 9 
+2.2.1.3 Rename Auto-Derived Clocks ................................... 12 
+2.2.1.4 Derive Clocks ................................................ 16 
+2.2.1.5 Set Clock Latency ............................................ 20 
+2.2.1.6 Set Clock Uncertainty ........................................ 24 
+2.2.1.7 Set Clock Groups ............................................. 28 
+2.2.1.8 Set Clock Sense .............................................. 31 
+2.2.2 Inputs ............................................................. 35 
+2.2.2.1 Set Input Delay .............................................. 35 
+2.2.3 Outputs ............................................................ 39 
+2.2.3.1 Set Output Delay ............................................. 40 
+2.2.4 Exceptions ......................................................... 44 
+2.2.4.1 Set Max Delay ................................................ 45 
+2.2.4.2 Set Min Delay ................................................ 49 
+2.2.4.3 Set Multicycle Path .......................................... 53 
+2.2.4.4 Set False Path ............................................... 57 
+2.2.5 Summary ............................................................ 60 
+=== PDF PAGE 3 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com II 
+2025.01   
+ 
+3 时序分析报告 ................................ ............ 64 
+3.1 Timing Report ............................................................ 64 
+3.1.1 Timing Report 启动方式 .............................................. 64 
+3.1.2 Timing Option ...................................................... 65 
+3.1.2.1 Report Name 设置 ............................................. 66 
+3.1.2.2 Options 设置 ................................................. 66 
+3.1.2.3 Target 设置 .................................................. 67 
+3.1.2.4 Command ...................................................... 69 
+3.1.3 Timing Report 主界面 ................................................ 69 
+3.1.3.1 Timing General ............................................... 70 
+3.1.3.2 Timing Setting ............................................... 70 
+3.1.3.3 Timing Status ................................................ 71 
+3.1.3.4 Intra-Clock Paths ............................................ 74 
+3.1.3.5 Inter-Clock Paths ............................................ 80 
+3.1.3.6 IP Timing Report ............................................. 81 
+3.1.3.7 Timing Exception Report ...................................... 83 
+3.1.3.8 Ignored Report ............................................... 84 
+3.2 Logic Level Report ....................................................... 87 
+3.2.1 Logic Level Report 启动方式 ......................................... 87 
+3.2.2 Logic Level Options ................................................ 88 
+3.2.3 Logic Level Report 主界面 ........................................... 88 
+3.2.3.1 Default 配置 ................................................. 88 
+3.2.3.2 Worst 配置 .................................................... 90 
+3.3 Check-Timing Report ...................................................... 91 
+3.3.1 Check-Timing Report 启动方式 ........................................ 91 
+3.3.2 Check Timing Options ............................................... 92 
+=== PDF PAGE 4 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com III 
+2025.01   
+ 
+3.3.3 Check-Timing Report 主界面 .......................................... 92 
+3.4 Clock Tree Report ........................................................ 94 
+3.4.1 Clock Tree Report 启动方式 .......................................... 94 
+3.4.2 时钟树界面 ......................................................... 96 
+3.4.2.1 时钟树界面工具栏介绍 ......................................... 96 
+3.4.2.2 时钟树拓扑结构 ............................................... 98 
+3.4.3 Property .......................................................... 101 
+3.5 Clock Intersection Report ............................................... 102 
+3.5.1 Clock Intersection Report 启动方式 ................................. 102 
+3.5.2 Clock Intersection Report 主界面 ................................... 103 
+3.5.2.1 Clock Intersection 数据表 .................................... 103 
+3.5.2.2 N*N 方格图 ................................................... 108 
+3.5.2.3 Clock Intersection Report 工具栏 ............................. 109 
+版本信息 ................................ ................. 111 
+免责声明 ................................ ................. 111 
+ 
+   
+=== PDF PAGE 5 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 1 
+2025.01   
+ 
+1 概述 
+本文档主要介绍了TangDynasty®（以下简称TD 软件）软件中时序约束工具Timing Wizard 和静态
+时序分析相关的各类报告Check-Timing Report、Timing Report、Logic Level Report、Clock Tree 
+Report、Clock Inter Section Report 的界面操作和使用。通过此文档，可协助用户在设计过程中完
+成系统的时序约束，并通过静态时序分析中的各项报告对设计系统的时序进行了解与分析其性能是否
+满足时序要求。 
+2 时序约束工具 
+TD 软件的时序约束工具Timing Wizard，是用于辅助用户对设计进行时序约束的工具。 用户对设计
+进行时序约束有两种方式：第一种，通过添加SDC 文件，SDC 文件可用户新建并写入SDC 命令或添加已
+有 SDC 文件；第二种，通过 Timing Wizard 界面设置时序约束。本文档仅详细介绍如何通过 Timing 
+Wizard 进行时序约束设计的方法。 
+2.1 Timing Wizard 启动方式 
+当 Flow 运行完成 Syn Opt 的 Optimize RTL ，并执行 Open Run 操作后，才可打开时序约束界面
+Timing Wizard，否则处于置灰即不可操作状态。 
+鼠标点击TD 主界面菜单栏Tools，在下拉菜单中点选Timing Wizard。如下图所示。 
+ 
+图 2-1 Timing Wizard 启动方式 
+此时会弹Warning 窗口，如下图所示，提示更改Timing Wizard 不会导致重启运行Optimize RTL 
+stage。如果不想更改 Timing Wizard 点击 Cancel 按钮进行取消，点击 Continue 即可打开 Timing 
+Wizard 主界面。 
+
+=== PDF PAGE 6 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 2 
+2025.01   
+ 
+ 
+图 2-2 Timing Wizard 启动时 Warning 提示窗 
+2.2 Timing Wizard 主界面 
+Timing Wizard 主界面如下图所示。主界面分为上、下两个窗口，以及最下面的三个全局按钮。 
+ 
+图 2-3 Timing Wizard 主界面 
+上方窗口为各SDC 命令设置窗口，默认为Create Clock 设置界面。 
+Timing Wizard 2.0 上方SDC 命令设置窗口包含如下五个部分： 
+ Clocks：该部分主要包含创建或定义时钟相关约束的SDC 命令。 
+ Inputs：该部分用于创建输入延迟约束的SDC 命令。 
+ Output：该部分用于创建输出延迟约束的SDC 命令。 
+ Exception：该部分用于创建时序例外约束的SDC 命令。  
+
+=== PDF PAGE 7 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 3 
+2025.01   
+ 
+ Summary：该部分显示已创建的时钟和时序路径的所有约束。 
+下方显示当前界面已生成的SDC 命令窗口，包括用户自定义SDC 命令和 IP 自动生成SDC 命令（IP
+命令前方有带“锁”符号，此类命令用户不可更改）。界面默认显示Create Clock已生成SDC 命令，如
+下图所示。 
+ 
+图 2-4 主界面 SDC 命令显示窗口 
+列表中各项表头释义如下所示。 
+ Position：SDC 命令编号。 
+ Command：SDC 命令。 
+ Source File：所属SDC 文件。 
+ Scoped Cell：调用的IP 
+ Current Instance：IP 例化名 
+全局按钮，包括Save,Apply,Cancel 三个按钮，对全局所有命令生效，如下图所示。 
+ 
+图 2-5 全局按钮 
+如果所有约束设置完成， 即可点击下方全局Apply 按钮， 此时会对所有SDC 命令进行语法、 依赖或
+冲突关系等检查， 并跳转到Summary 界面， 所有SDC 命令都会出现在Summary 列表里， 确保所有命令无
+误后，用户即可点击Save 按钮进行保存到相应SDC 文件，并退出Timing Wizard 界面。如果直接点击
+Save，软件也会先执行Apply 的功能再进行保存，如果SDC 命令有错误，则Save 置灰，无法保存，用
+
+=== PDF PAGE 8 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 4 
+2025.01   
+ 
+户可通过TD 主界面的Console 窗口查看错误位置并更改。用户可点击Cancel 按钮， 即可取消所有对原
+SDC 文件的更改，并退出Timing Wizard 界面。 
+2.2.1 Clocks 
+用户可通过Clocks 下的各界面创建或定义时钟相关的SDC 命令。每一个约束设置界面对应不同的
+SDC 命令。其界面如下图所示，展示了各时钟相关SDC 命令格式。 
+ 
+图 2-6 Clocks 界面 
+2.2.1.1 Create Clock 
+Create Clock 设置界面， 可生成SDC 命令create_clock,用于定义一个Primary 时钟即主时钟，指
+定其属性，如名称，周期，上升、下降沿时间或占空比等。 
+点击Timing Wizard 主界面中Create Clock，其界面如下图所示。 
+
+=== PDF PAGE 9 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 5 
+2025.01   
+ 
+ 
+图 2-7 Create Clock 设置界面 
+ Clock Name：指定主时钟名称，不可缺省。 
+ Source Objects：指定创建主时钟的目标时钟管脚，一般为FPGA 外部输入时钟管脚，或硬核
+IP 输出时钟管脚， 如果该项参数缺省， 则建立的是虚拟时钟。目标节点可通过点击右侧Search
+符号， 查找相应的时钟管脚，如下图2-8 所示，其支持get_ports，get_pins，get_nets 进行
+过滤查找。 
+ 
+图 2-8 Target 信号查找窗 
+
+=== PDF PAGE 10 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 6 
+2025.01   
+ 
+过滤匹配设置通过点击Filter 的search option 进行选择， 如下图所示。 其它命令设置界面Search
+信号过滤界面亦如此。 
+ 
+图 2-9 search option 设置  
+ Add： 用于在Target 所选管脚上已经定义过时钟的情况下，可勾选Add， 定义一个新时钟加入
+至该管脚，如不勾选Add 则新的约束将覆盖已有的约束命令。 
+ Period：指定主时钟周期，单位为ns，支持小数点后三位数。 
+ Rise：指定时钟第一个上升沿时间，如缺省，默认值为0.000，取值范围为0~Period。 
+ Fall：指定时钟第一个下降沿时间，如缺省，默认值为Period/2，取值范围0~Period。 
+ SDC Command：通过各属性设置，生成的create_clock 命令，支持用户复制。 
+各项属性设置完成后，点击Ok 进行创建，如各属性设置不对，Ok 为置灰状态，则无法创建。可通
+过点击 Clear 按钮清除当前设置。 创建成功后， 如下图 2-10 所示，会在界面下方窗口列出新建的
+create_clock 命令。如果工程中原已存在的create_clock SDC 约束命令，也会一并列出。 
+
+=== PDF PAGE 11 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 7 
+2025.01   
+ 
+ 
+图 2-10 create_clock 约束设置示例 
+可点击Reference 按钮，查看create_clock 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-11 Reference 窗口图 
+界面下方命令显示窗口支持 SDC 命令反标功能，通过点击相应的命令即可将其反标到命令设置窗
+口，进行查看或更改参数设置，如下图所示。如果当前命令没有做任何更改，则Ok 置灰，无法重新创
+建。 
+
+=== PDF PAGE 12 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 8 
+2025.01   
+ 
+ 
+图 2-12 已建 create_clock 命令反标方式 
+可通过下方命令显示窗口的工具栏“+” 、 “-” 按钮新建或删除已有SDC 命令，如下图所示。通过
+点击“+”号按钮，即可让Create Clock 设置界面恢复默认状态，进行新命令的设置。双击选择想删除
+的命令，再点击“-”号按钮，即可删除该命令。 
+ 
+图 2-13 create_clock 命令新建、删除按钮 
+create_clock 命令创建完成后，可进入其它界面继续创建命令。如所有命令创建完成，可以点击
+Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消所有设
+置。  
+
+=== PDF PAGE 13 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 9 
+2025.01   
+ 
+2.2.1.2 Create Generated Clock 
+Create Generated Clock 设置界面，用于定义一个派生时钟，设置派生时钟Generated Clock 与
+主时钟Master Clock 的频率与相位（边沿）关系，并生成相应的SDC 命令create_generated_clock。
+Generated Clock 属于Master Clock 所在的时钟域，在时序报告中也将具有和 Master Clock 相同的
+时序起点。 
+点击Create Generated Clock，进入其设置界面，如下图所示。 
+ 
+图 2-14 Create Generated Clock 设置界面 
+界面中相关参数所设值必须保证正确有效， 否则设置界面的Apply 按钮置灰，无法进行创建。相关
+参数设置如下所示： 
+ Clock Name: 指定派生时钟名，不可缺省。 
+ Master Pin：指定生成时钟的驱动时钟源点，即Master Clock 所在的源点，该源点可以是物
+理上存在的任意时钟节点，点击 Master Pin 的下拉菜单，系统会列出设计中所有已存在的时
+钟节点，选择需要的时钟源点即可。 
+ Master Clock：指定时钟源点上的驱动时钟，同一个时钟源点可能会被创建了多个不同时钟，
+因此需要指定约束目标的驱动时钟是哪一个，单击 Master Clock 的下拉菜单， 选择需要的时
+钟即可。  
+
+=== PDF PAGE 14 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 10 
+2025.01   
+ 
+ Source Objects：用于指定生成时钟的约束对象，可通过单击右侧search 符号，在弹出的窗
+口中选择需要的时钟节点，可通过get_ports、get_pins、get_nets 进行过滤筛选。 
+ Add：指定对同一生成时钟约束对象进行多次约束，可以约束为不同的频率、不同的相位或不
+同的占空比。在该时钟节点上已有约束的情况下， 如果省略该参数， 则新的约束覆盖已有的约
+束命令。 
+ By Clock Frequency：如果勾选此项，则基于时钟频率关系的方式设置生成时钟，将可通过分
+频参数Divide source clock frequency by 或倍频参数Multiply source clock frequency 
+by 来设置，并配合Phase 参数调整相位。与By Clock Edges 设置存在互斥关系。 
+ Divide source clock frequency by：指定生成时钟和驱动时钟的分频系数，数值为正, 默认
+值为1.000，数据格式支持小数点后三位。与Multiply source clock frequency by 设置存
+在互斥行为。 
+ Multiply source clock frequency by：指定生成时钟和驱动时钟的倍频系数，数值为正，默
+认值为1.000，数据格式支持小数点后三位。与Divide source clock frequency by 设置存
+在互斥行为。 
+ Duty Cycle：配合Divide source clock frequency by 选项使用， 用以调节生成时钟占空比，
+默认值为50 即50%，取值范围是0～100。 
+ Invert waveform：用于配合By Clock Frequency 选项使用，勾选该选项，为将生成时钟的
+波形反转。 
+ By Clock Edges：如果勾选此项，则基于时钟相位关系的方式设置生成时钟，将可通过时钟沿
+对应关系参数Edge List 和时钟沿偏移参数Edge Shift List 来设置。与By Clock Frequency
+设置存在互斥关系。 
+ Edge List：指定生成时钟的沿与驱动时钟的沿的对应关系，界面中三个框，分别指定新生成
+时钟的第一个上升沿，第一个下降沿，第二个上升沿对应驱动时钟的相应边沿。 
+ Edge Shift List：该选项仅在-edge 选项设置正确才有效，用于指定生成时钟的沿与驱动时
+钟的沿的偏移关系。 界面中三个框的所设值为整数， 单位为ns， 该值的正负表示偏移的方向，
+为正时向右偏移，为负时向左偏移。 
+ Phase Value：指定生成时钟波形的相位移动，默认值为0，取值范围是0～360 之间，数据格
+式支持小数点后三位。 
+可点击Reference 按钮， 查看create_generated_clock 命令相关参数说明和示例， 如下图2-15 所
+示。 
+=== PDF PAGE 15 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 11 
+2025.01   
+ 
+ 
+图 2-15 create_generated_clock Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Create Generated Clock 设置完成，可进入其它界面继续创建命令。如所有命令创建完
+成， 可以点击Apply 按钮进行检查无误后，点Save 按钮保存到相应SDC 文件。 或点击Cancel 按钮进行
+取消所有设置。 
+如下图所示，通过Create Generated Clock 界面创建了一个派生时钟demo_clk。 
+
+=== PDF PAGE 16 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 12 
+2025.01   
+ 
+ 
+图 2-16 create_generated_clock 约束示例 
+生成的派生时钟demo_clk_gen 与驱动时钟demo_clk 的波形关系如下图所示。 
+ 
+demo_clk
+demo_clk_gen  
+图 2-17 create_generated_clock 约束生成时钟波形示意图 
+2.2.1.3 Rename Auto-Derived Clocks 
+Rename Auto-Derived Clocks 设置界面，展示了工程中用到的如HXT、PCIe、DDR、PROCESSORSYSTEM
+等相关硬核所驱动的输出时钟，用户可对这些时钟进行重命名，并生成相应的Rename 命令。 
+Auto-Derived Clocks 指软件工具自动约束的时钟或者IP 自带SDC 文件内的时钟。 
+点击Timing Wizard 主界面中Rename Auto-Derived Clocks，其界面如下图所示。 
+
+=== PDF PAGE 17 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 13 
+2025.01   
+ 
+ 
+图 2-18 Rename Auto-Derived Clocks 设置界面 
+Rename Auto-Derived Clocks，其界面分为Listview 和 Treeview 两个页面。 
+ ListView 
+如下图所示， 为ListView 界面， 即平铺结构设置界面。用户可通过界面上方Search 输入时钟名进
+行时钟查找。 
+
+=== PDF PAGE 18 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 14 
+2025.01   
+ 
+ 
+图 2-19 Rename Auto-Derived Clocks ListView 界面 
+ListView 界面表头属性如下所示： 
+ Rename：对硬核输出时钟自定义重命名，也可以缺省， 则软件默认以其对应输出时钟管脚命名。 
+ Clock Name：硬核模块输出时钟默认名。 
+ Master Clock： 驱动该输出时钟的Master clock时钟名，如果该时钟为源时钟， 则显示为空。 
+ Source Objects：该输出时钟所对应的物理时钟管脚。 
+可点击Reference 按钮，查看rename 命令相关参数说明和示例，如下图所示。 
+
+=== PDF PAGE 19 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 15 
+2025.01   
+ 
+ 
+图 2-20 /Rename Auto-Derived Clocks Reference 界面 
+时钟 Rename 设置完成后，点击设置窗口 Ok，即可在下方命令显示窗口生成相应的命令,同时也会
+映射到TreeView 界面。 
+删除某条rename 命令，只能通过设置窗口进行删除相应的rename 名字并点击设置窗口Ok 即可删
+除相应时钟rename 命令。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Rename Auto-Derived Clocks 设置完成，可进入其它界面继续创建命令。如所有命令创
+建完成，可以点击全局Apply 按钮进行检查无误后，点Save 按钮保存到相应SDC 文件。或点击Cancel
+按钮进行取消所有设置。 
+ TreeView 
+如下图所示，为TreeView 界面，即树形结构设置界面。此界面以各硬核模块时钟驱动级联方向进
+行树形结构展示，方便用户查看硬核模块时钟之间的驱动关系。 
+
+=== PDF PAGE 20 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 16 
+2025.01   
+ 
+ 
+图 2-21 Rename Auto-Derived Clocks TreeView 界面 
+2.2.1.4 Derive Clocks 
+Derive Clocks 设置界面，用于设置自动驱动PLL 或带有分频功能的Clock Buffer 的输出时钟约
+束命令drive_clocks，该命令将相应的输出时钟管脚以输入时钟管脚的时钟作为主时钟Master Clock 
+调用 create_generated_clock 生成相应的派生时钟Generated Clock，生成时钟的频率、相位都将严
+格按照 PLL 或 Clock Buffer的设置参数而定。需要注意的是，当PLL 支持2 个或以上可选输入参考时
+钟时，derive_clocks 将依据参考时钟选择信号的值来确定， 如果参考时钟选择信号是常数则只会选择
+其中一路输入参考时钟做驱动生成派生时钟； 如果参考时钟选择信号是变量， 则会分别对每一路输入参
+考时钟做驱动生成各自的派生时钟。 
+Derive Clocks 设置界面将对原有自动驱动时钟约束命令derive_pll_clocks 和rename 命令进行
+更新替换成新的derive_clocks 和rename 命令。 
+点击Timing Wizard 主界面中Derive Clocks，即进入其设置界面，如下图所示。如果系统内有例
+化 PLL 或具有分频功能的Clock Buffer 如LCLK、DBUF 等，则可通过Derive Clocks 界面来设置约束
+其各输出时钟。 
+
+=== PDF PAGE 21 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 17 
+2025.01   
+ 
+ 
+图 2-22 Derive Clocks 设置界面 
+进入主界面后，通过勾选Drive clocks ，并点击Ok，即可生成derive_clocks 命令。此时界面会
+出现工程中所有可自动约束的PLL 和Clock Buffer。有ListView 和TreeView 两种显示方式进行设置。 
+ ListView 
+如下图所示，为ListView 界面，即平铺结构设置界面。此界面以各输出时钟的平铺结构展示，方
+便用户快速查找对应的时钟管脚及其所属驱动时钟域。 
+
+=== PDF PAGE 22 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 18 
+2025.01   
+ 
+ 
+图 2-23 Derive Clocks ListView 设置界面 
+ListView 界面表头属性如下所示： 
+ Rename： 对输出时钟自定义重命名，也可以缺省， 则软件默认以其对应输出时钟管脚编号命名。 
+ Clock Name：自动驱动约束命令各输出时钟默认名。 
+ Master Pin：驱动输出时钟的Master clock 的物理时钟管脚。 
+ Master Clock：驱动输出时钟的Master clock 时钟名。 
+ Source Objects：自动驱动约束命令各输出时钟所对应的物理时钟管脚。 
+可点击Reference 按钮，查看rename 命令相关参数说明和示例，如下图所示。 
+
+=== PDF PAGE 23 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 19 
+2025.01   
+ 
+ 
+图 2-24 Rename Derive Clocks Reference 界面 
+时钟 Rename 设置完成后，点击设置窗口 Ok，即可在下方命令显示窗口生成相应的命令,同时也会
+映射到TreeView 界面。 
+删除某条rename 命令，只能通过设置窗口进行删除相应的rename 名字并点击设置窗口Ok 即可删
+除相应时钟rename 命令。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+ TreeView 
+如下图所示，为TreeView 界面，即树形结构设置界面。此界面以主时钟驱动级联方向进行树形结
+构展示，方便用户查看各时钟之间的驱动关系。 
+
+=== PDF PAGE 24 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 20 
+2025.01   
+ 
+ 
+图 2-25 Derive Clocks TreeView 设置界面 
+可在所有时钟输出管脚后方框内输入用户自定义时钟Rename， 即可生成rename 命令， 也可以缺省
+相应输出时钟Rename 设置，则软件默认以其对应输出时钟管脚编号命名。 
+时钟Rename 设置完成后，点击设置窗口Ok，即可在下方命令显示窗口生成相应的命令，同时也会
+映射到ListView 界面。 
+此时如果Derive Clocks设置完成， 可进入其它界面继续创建命令。 如所有命令创建完成， 可以点
+击全局 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消
+所有设置。 
+2.2.1.5 Set Clock Latency 
+Set Clock Latency设置界面， 用于设置时钟的最大、 最小延迟。 用此界面可生成set_clock_latency 
+的 SDC 命令。 
+点击Set Clock Latency 即进入其设置界面，如下图所示。 
+主时钟，时钟源点 
+第一级PLL 
+第二级PLL 
+第二级PLL 
+Rename 自定义生成时钟名 
+第二级PLL 驱动时钟 
+第二级PLL 驱动时钟 
+=== PDF PAGE 25 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 21 
+2025.01   
+ 
+ 
+图 2-26 Set Clock Latency 设置界面 
+ Relative Clock：指定时钟，通过点击search 符号，会将可用的时钟列出，选择需要约束的
+时钟即可。 
+ Objects： 指定约束时钟， 通过点击search 符号， 会将可用的时钟列出， 选择需要约束的时钟
+管脚即可。 
+ Latency Value：指定延迟的值，数据格式支持小数点后三位。 
+ Source：勾选Source 项，即指定该时钟延迟为源延迟即Source Latency，默认为不勾选，即
+为布线延迟Network Latency，在布线后的时序分析中，该值将被实际的布线延时所替代。 
+ Source latency variation bound：用于指定同一corner 下的最大或最小时钟源延迟，仅当
+Source 参数勾选时有效； 默认值为early/late,即指定时钟源延迟的最大、 最小延迟值为相同
+设置值；early，指定最小时钟源延迟为设置值；late，指定最大时钟源延迟为设置值。 
+ Operating condition ：指定本命令分析corner，可选选项 max/min 、max、min；默认值为
+Max/min，即同时用于fast、slow corner 下分析；Min，指定本命令在fast corner 下分析；
+Max，指定本命令在slow corner 下分析。 
+ Clock latency：指定时钟沿延迟，可选选项rise/fall、rise、fall；默认值为rise/fall,
+即延迟同时用于时钟上升沿和下降沿；rise， 指定延迟值用于时钟上升沿；fall， 指定延迟值
+
+=== PDF PAGE 26 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 22 
+2025.01   
+ 
+用于时钟下降沿。 
+可点击Reference 按钮，查看set_clock_latency 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-27 set_clock_latency Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Clock Latency设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可
+以点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消
+所有设置。 
+如下图所示，在Set Clock Latency 指定了demo_clk 的Source Latency 为1ns 的命令。 
+
+=== PDF PAGE 27 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 23 
+2025.01   
+ 
+ 
+图 2-28 set_clock_latency 约束设置示例 
+在静态时序分析时对 demo_clk 时钟域相关路径的时序分析时就会引入设置的Source Latency,如
+下图所示。相应时序分析报告查看方式，请参考Timing Report 相关章节。 
+
+=== PDF PAGE 28 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 24 
+2025.01   
+ 
+ 
+图 2-29 set_clock_latency 约束在时序分析报告对应延迟 
+2.2.1.6 Set Clock Uncertainty  
+Set Clock Uncertainty 设置界面，用于设置增加时钟Clock Uncertainty，对时钟加入周期不稳
+定因素。用此界面可生成set_clock_uncertainty 的SDC 命令。 
+点击Set Clock Uncertainty，即进入其设置界面，如下图所示。 
+
+=== PDF PAGE 29 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 25 
+2025.01   
+ 
+ 
+图 2-30 Set Clock Uncertainty 设置界面 
+ Object：指定要约束的节点， 可以是单个节点，也可以是多个节点一起约束； 通过点击Search
+符号进行过滤搜索，支持get_pins、get_regs、get_clocks。 
+ Uncertainty value：指定Uncertainty 的值，数据格式支持小数点后三位，单位为ns。 
+ Uncertainty type： 指定约束用于Setup 时序分析还是Hold 时序分析，可选选项为setup/hold、
+setup、hold；默认值为setup/hold， 即约束同时用于Setup 和hold 时序分析；setup，即只
+对 Setup 时序分析生效；hold，即只对hold 时序分析生效。 
+可点击Reference 按钮，查看set_clock_uncertainty 命令相关参数说明和示例，如下图所示。 
+
+=== PDF PAGE 30 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 26 
+2025.01   
+ 
+ 
+图 2-31 set_clock_uncertainty Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果 Set Clock Uncertainty 设置完成，可进入其它界面继续创建命令。如所有命令创建完
+成， 可以点击Apply 按钮进行检查无误后， 点Save 按钮保存到相应SDC 文件。 或点击Cancel 按钮进行
+取消所有设置。 
+如下图所示，在Set Clock Uncertainty 指定了demo_clk 的 Uncertainty 为1ns 的命令。 
+
+=== PDF PAGE 31 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 27 
+2025.01   
+ 
+ 
+图 2-32 set_clock_uncertainty 约束设置示例 
+在静态时序分析时对demo_clk 时钟域相关路径的时序分析时就会考虑设置的Uncertainty 值， 在
+时序分析报告 Timing Report 体现在 Clock Uncertainty 延迟，包括软件默认加入 和用户设置 的
+Uncertainty，如下图所示。 
+
+=== PDF PAGE 32 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 28 
+2025.01   
+ 
+ 
+图 2-33 set_clock_uncertainty 约束在时序分析报告对应延迟 
+2.2.1.7 Set Clock Groups 
+Set Clock Groups 界面，用于为时钟域设定分组，不分析跨时钟组的时序路径。可生成SDC 命令
+set_clock_groups。 其与set_false_path 命令禁止分析单方向的时序分析约束不同，set_clock_groups
+命令禁止时钟组之间双方向的时序分析。 
+点击Timing Wizard 主界面中Set Clock Groups，即进入相关设置界面，如下图所示。 
+
+=== PDF PAGE 33 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 29 
+2025.01   
+ 
+ 
+图 2-34 Set Clock Groups 设置界面 
+界面中相关参数设置如下： 
+ Group Name：用于指定时钟组名称，可缺省。 
+ Groups：用于指定时钟组，可点击 Search 符号进行查找需要的时钟，该命令最少需要指定一
+个时钟组，可通过“+”号增加group 时钟组，则该指令后各Group 指定的对象时钟之间互斥
+即不进行时序分析。如果只指定一个时钟组， 则不分析该时钟组与其它所有时钟之间的时序路
+径。 
+ Exclusive：表示时钟之组之间是互斥的，即时钟不会再同一时刻同时有效；目前与Async 是
+相同的效果。 
+ Async：表示时钟组之间是异步时钟，即指被约束时钟之间有完全不同的时钟源；目前与
+Exclusive 是相同的效果。 
+可点击Reference 按钮，查看set_clock_groups 命令相关参数说明和示例，如下图所示。 
+
+=== PDF PAGE 34 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 30 
+2025.01   
+ 
+ 
+图 2-35 set_clock_groups Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Clock Groups 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可
+以点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消
+所有设置。 
+如下图所示， 在Set Clock Groups里指定了时钟clk_25m 和clk_27m 为互斥时钟， 在时序分析时，
+则不会对这两个时钟之间的时序路径进行分析。 
+
+=== PDF PAGE 35 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 31 
+2025.01   
+ 
+ 
+图 2-36 Set Clock Groups 设置示例 
+2.2.1.8 Set Clock Sense 
+Set Clock Sense 界面，该命令可以实现定义的时钟从指定的网表对象停止时钟的传播功能。可生
+成 SDC 命令set_clock_sense。  
+点击Timing Wizard 主界面中Set Clock Sense，即进入相关设置界面，如下图所示。 
+
+=== PDF PAGE 36 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 32 
+2025.01   
+ 
+ 
+图 2-37 Set Clock Sense 设置界面 
+界面中相关参数设置如下： 
+ Unateness：默认选项 stop propagation ，对应命令中的参数-stop_propatation，即指定时
+钟在指定单元开始停止传播。 
+ Clocks：指定应用的时钟对象列表；如果不指定Clocks 选项，则会通过 Objects 指定的对象
+的所有时钟。 
+可点击Reference 按钮，查看set_clock_sense 命令相关参数说明和示例，如下图所示。 
+
+=== PDF PAGE 37 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 33 
+2025.01   
+ 
+ 
+图 2-38 set_clock_sense Reference 界面 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Clock Sense 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可以
+点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消所
+有设置。 
+如下图所示，指定了时钟clk1_gen0 所驱动的col_cnt[*]应用set_clock_sense 约束命令。 
+
+=== PDF PAGE 38 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 34 
+2025.01   
+ 
+ 
+图 2-39 set_clock_sense 示例 
+引入set_clock_sense 命令后， 在时序分析时,则不会去分析clk1_gen0 所驱动的col_cnt[*]为时
+序起点的所有时序路径的时序。 在时序报告中将会把相应的路径放入Ignored Report中， 如下图所示。 
+ 
+图 2-40 set_clock_sense 约束在时序分析报告查看 
+  
+
+=== PDF PAGE 39 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 35 
+2025.01   
+ 
+2.2.2 Inputs 
+用 于 创 建 输 入 管 脚 延 迟 相 关 约 束 ，点击 Inputs ， 其 界 面 如 下 图 所 示 ， 展 示 了SDC 命令
+set_input_delay 的格式。 
+ 
+图 2-41 Inputs 界面 
+2.2.2.1 Set Input Delay  
+Set Input Delay 设置界面，用于设置输入端口的延时，用于定义外部信号到达fpga 的输入端口
+所需的延时。 
+点击Timing Wizard 主界面中Set Input Delay，即可进入其设置界面，如下图所示。 
+
+=== PDF PAGE 40 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 36 
+2025.01   
+ 
+ 
+图 2-42 Set Input Delay 设置界面 
+ Clock：指定输入延时所对应的时钟。点击search 查找按钮， 将在弹出的信号列表里列出所有
+时钟，选择需要的时钟即可。 
+ Target：指定输入管脚约束对象，可支持多个管脚；点击search 查找按钮，可在弹出的列表
+里选择目标输入ports。 
+ Reference：指定参考点，为Input Delay 添加一个参考点，该点可以是pin 或者port，工具
+会考虑参考点处的Source Latency 和Network Latency，用作Input delay 的时序分析。 
+ Delay Value：指定输入延迟的数值，数据格式支持小数点后三位，单位为ns。 
+ Max/Min： 指定延迟为最大/最小输入延迟， 可选选项有max/min、max、min； 默认值为max/min,
+即指定最大最小输入延迟为设置值， 同时用于Setup 和Hold 时序检查；max，指定延迟为最大
+输入延迟，用于时序分析中Setup 时序检查；min，指定延迟为最小输入延迟，用于时序分析
+中 Hold 时序检查。 
+ Slow/Fast： 指定本命令分析corner， 可选选项slow/fast 、slow、fast； 默认值为slow/fast，
+即同时用于fast、slow corner 下分析；fast，指定本命令在fast corner 下分析；slow，指
+定本命令在slow corner 下分析。 
+ Source Latency Included： 勾选此项，指定该延迟已包含时钟的源延迟， 时序分析时从Input 
+
+=== PDF PAGE 41 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 37 
+2025.01   
+ 
+Delay 中减去Clock Source Latency。 
+ Network Latency Included：勾选此项，指定该延迟已包含时钟的网络延迟，时序分析时从
+Input Delay 中减去Clock Network Latency。 
+ Clock Fall： 勾选此项，时序分析时Delay 值以时钟下降沿作为参考， 该选项须同Clock 一起
+使用。 
+ Add Delay：勾选此项，用于不同的Clock Edge 或 Reference 约束Input 在同一个目标端口
+上时，工具会计算多个Delay 值的和作为目标端口的Input Delay 值。如果不勾选Add Delay
+参数，在同一Clock 和Target 上先后约束多个 Input 的情况下，后面设定的Input Delay 约
+束命令会覆盖前面的Input 约束命令。 
+可点击Reference 按钮，查看set_input_delay 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-43 set_input_delay Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Input Delay设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可以
+点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消所
+有设置。 
+
+=== PDF PAGE 42 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 38 
+2025.01   
+ 
+如下图所示，对输入管脚mode 指定了 Input Delay 最大为 0.5ns 的 set_input_delay 的约束命
+令。 
+ 
+图 2-44 set_input_delay 约束设置示例 
+引入输入延迟约束， 会让软件考虑到输入数据的延迟， 从而调整时钟到路径终点即采样寄存器的布
+线延迟， 平衡时钟树。 需根据实际的外部电路情况进行正确设置， 否则容易造成时序不收敛的情况。在
+时序分析报告Timing Report 中体现在Input Delay 延迟，如下图所示。 
+
+=== PDF PAGE 43 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 39 
+2025.01   
+ 
+ 
+图 2-45 set_input_delay 约束在时序分析报告对应延迟 
+2.2.3 Outputs 
+用 于 创 建 输 出 管 脚 延 迟 相 关 约 束 ， 点 击Outputs ， 其 界 面 如 下 图 所 示 ， 展 示 了SDC 命令
+set_output_delay 的格式。 
+
+=== PDF PAGE 44 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 40 
+2025.01   
+ 
+ 
+图 2-46 Outputs 界面 
+2.2.3.1 Set Output Delay 
+Set Output Delay 设置界面，用于设置输出端口的延时，定义从fpga 的输出端口输出到外部寄存
+器所需的延迟。 
+点击Timing Wizard 主界面中Set Output Delay，即可进入其设置界面，如下图所示。 
+
+=== PDF PAGE 45 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 41 
+2025.01   
+ 
+ 
+图 2-47 Set Output Delay 设置界面 
+ Clock： 指定输出延时所对应的时钟。 点击search 查找按钮， 将在弹出的信号列表里列出所有
+时钟，选择需要的时钟即可。 
+ Target：指定输出管脚约束对象，可支持多个管脚；点击search 查找按钮，可在弹出的列表
+里选择目标输出ports。 
+ Reference：指定参考点，为Output Delay 添加一个参考点，该点可以是pin 或者port，工
+具会考虑参考点处的Source Latency 和Network Latency，用作Output delay 的时序分析。 
+ Delay Value：指定输出延迟的数值，数据格式支持小数点后三位，单位为ns。 
+ Max/Min： 指定延迟为最大/最小输出延迟， 可选选项有max/min、max、min； 默认值为max/min,
+即指定最大最小输出延迟都为设置值， 同时用于Setup 和Hold 时序检查；max， 指定延迟为最
+大输出延迟，用于时序分析中Setup 时序检查；min，指定延迟为最小输出延迟，用于时序分
+析中Hold 时序检查。 
+ Slow/Fast： 指定本命令分析corner， 可选选项slow/fast 、slow、fast； 默认值为slow/fast，
+即同时用于fast、slow corner 下分析；fast，指定本命令在fast corner 下分析；slow，指
+定本命令在slow corner 下分析。 
+ Source Latency Included： 勾选此项， 指定该延迟已包含时钟的源延迟， 时序分析时从Output 
+
+=== PDF PAGE 46 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 42 
+2025.01   
+ 
+Delay 中减去Clock Source Latency。 
+ Network Latency Included：勾选此项，指定该延迟已包含时钟的网络延迟，时序分析时从
+Output Delay 中减去Clock Network Latency。 
+ Clock Fall： 勾选此项， 时序分析时Delay 值以时钟下降沿作为参考， 该选项须同Clock 一起
+使用。 
+ Add Delay：勾选此项，用于不同的Clock Edge 或Reference 约束Output Delay 在同一个目
+标端口上时， 工具会计算多个Delay 值的和作为目标端口的Output Delay 值。 如果不勾选Add 
+Delay 参数，在同一 Clock 和 Target 上先后约束多个 Output Delay 的情况下，后面设定的
+Output Delay 约束命令会覆盖前面的Output Delay 约束命令。 
+可点击Reference 按钮，查看set_output_delay 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-48 set_output_delay Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Output Delay 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可
+以点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消
+所有设置。 
+如下图所示，对输出管脚cnt 指定了Output Delay 最大为0.5ns 的set_output_delay 的约束命
+令。 
+
+=== PDF PAGE 47 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 43 
+2025.01   
+ 
+ 
+图 2-49 set_output_delay 约束设置示例 
+引入输出延迟约束， 会让软件考虑到输出数据管脚的延迟，从时序分析报告中分析输出数据是否能
+满足外部电路的采样时序。 需根据实际的外部电路情况进行正确设置， 否则容易造成时序不收敛的情况。
+在时序分析报告Timing Report 中体现在Output Delay 延迟，如下图所示。 
+
+=== PDF PAGE 48 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 44 
+2025.01   
+ 
+ 
+图 2-50 set_output_delay 约束在时序分析报告对应延迟 
+2.2.4 Exceptions 
+用于创建时序例外约束相关的命令， 其包括set_max_delay、set_min_delay、set_muticycle_path、
+set_false_path 命令设置。点击Exceptions，其界面如下图所示，展示了相关SDC 命令的格式。 
+
+=== PDF PAGE 49 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 45 
+2025.01   
+ 
+ 
+图 2-51 Exceptions 界面 
+2.2.4.1 Set Max Delay  
+Set Max Delay 设置界面，用于指定时序路径允许的最大延迟。 
+点击Timing Wizard 主界面中Set Max Delay，即可进入其设置界面，如下图所示。 
+
+=== PDF PAGE 50 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 46 
+2025.01   
+ 
+ 
+图 2-52 Set Max Delay 设置界面 
+ From： 必须为时序路径的起点，即为input port 或寄存器的时钟输入端口。from 对象为clock
+管脚时，约束对象包含所有被该时钟驱动的路径；from 对象为input port 时，约束对象为以
+该 input port为起点的时序路径；对象为cell 时， 约束对象包含所有在该cell 中的寄存器。
+如果from 对象不施加在时序路径起点， 行为和施加在时序路径起点一致。可通过点击search
+按钮在弹出的信号列表进行查找，支持 get_ports、get_pins、get_cells、get_regs、
+get_clocks 过滤查找。默认选项 rise/fall，对应命令中参数-from，即可支持的对象为所有
+时序路径起点； 选项rise，对应命令中参数-rise_from，即以时钟上升沿作为参考， 其对象是
+clocks，查找列表只支持get_clocks 过滤查找；选项fall，对应命令中参数-fall_from，即
+以时钟下降沿作为参考，其中对象是clocks，查找列表只支持get_clocks 过滤查找。 
+ Through：指定了该时序路径必须通过的中间点，查找列表支持get_pins、get_nets 进过滤查
+找，当有多个 through 选项时，目标时序路径必须依次经过每一个中间点。可通过“+” 、 “-”
+符号进行添加、删除经过节点。 
+ To：为时序路径的终点，即为寄存器的非时钟的输入端口或output port。如果To 对象不施
+加在时序路径终点，行为和施加在时序路径终点一致。可通过点击search 按钮在弹出的信号
+列表进行查找，支持get_ports、get_pins、get_regs、get_cells、get_clocks 过滤查找。
+默认选项rise/fall，对应命令中参数-to， 即可支持的对象为所有时序路径终点； 选项rise，
+对应命令中参数 -rise_to，即 以时钟 上升沿作为参考，对象是 clocks，查找列表只支持
+
+=== PDF PAGE 51 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 47 
+2025.01   
+ 
+get_clocks 过滤查找；选项fall，对应命令中参数-fall_to，即以时钟下降沿作为参考，对
+象是clocks，查找列表只支持get_clocks 过滤查找。 
+ Delay value：延时数值，数字格式是保留小数点后三位，单位为ns。 
+ Datapath_only：勾选此项，可用于消除时钟的jitter/skew/pessimism 计算，仅考虑数据路
+径延迟即第一个触发器的Clock-to-Q 延迟、 触发器之间的连线延迟以及第二个触发器的建立
+时间。 
+可点击Reference 按钮，查看set_max_delay 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-53 set_max_delay Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Max Delay 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可以点
+击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消所有
+设置。 
+如下图所示， 对寄存器signal_meta 到寄存器sinal_dst 约束了最大路径延迟为2ns， 即路径的延
+迟裕量Budget 变成了2ns。 
+
+=== PDF PAGE 52 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 48 
+2025.01   
+ 
+ 
+图 2-54 set_max_delay 约束设置示例 
+set_max_delay 在时序分析报告Timing Report 中会在Timing Exception Report分类中报告其路
+径分析，如下图2-56 所示。可在此找到该约束对应的编号。 
+ 
+图 2-55 set_max_delay 在时序分析报告对应约束编号 
+然后通过约束编号Constraint3，找到对应的详细路径信息，如下图所示。 
+
+=== PDF PAGE 53 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 49 
+2025.01   
+ 
+ 
+图 2-56 set_max_delay 在时序分析报告对应延迟 
+2.2.4.2 Set Min Delay  
+Set Min Delay 设置界面，用于指定时序路径允许的最小延迟。 
+点击Timing Wizard 主界面中Set Min Delay，即可进入其设置界面，如下图所示。 
+
+=== PDF PAGE 54 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 50 
+2025.01   
+ 
+ 
+图 2-57 Set Min Delay 设置界面 
+ From： 必须为时序路径的起点，即为input port 或寄存器的时钟输入端口。from 对象为clock
+管脚时，约束对象包含所有被该时钟驱动的路径；from 对象为input port 时，约束对象为以
+该 input port 为起点的时序路径；对象为 cell 时，约束对象包含所有在该 cell 中的寄存
+器。如果 from 对象不施加在时序路径起点，行为和施加在时序路径起点一致。可通过点击
+search 按钮在弹出的信号列表进行查找， 支持get_ports、get_pins、get_cells、get_regs、
+get_clocks 过滤查找。默认选项 rise/fall，对应命令中参数-from，即可支持的对象为所有
+时序路径起点； 选项rise， 对应命令中参数-rise_from，即以时钟上升沿作为参考， 其对象是
+clocks，查找列表只支持get_clocks 过滤查找；选项fall，对应命令中参数-fall_from，即
+以时钟下降沿作为参考，其中对象是clocks，查找列表只支持get_clocks 过滤查找。 
+ Through：指定了该时序路径必须通过的中间点，查找列表支持get_pins、get_nets 进过滤查
+找，当有多个 through 选项时， 目标时序路径必须依次经过每一个中间点。 可通过 “+” 、 “-”
+符号进行添加、删除经过节点。 
+ To：为时序路径的终点，即为寄存器的非时钟的输入端口或output port。如果To 对象不施
+加在时序路径终点，行为和施加在时序路径终点一致。可通过点击search 按钮在弹出的信号
+列表进行查找，支持get_ports、get_pins、get_regs、get_cells、get_clocks 过滤查找。
+默认选项rise/fall， 对应命令中参数-to， 即可支持的对象为所有时序路径终点； 选项rise，
+
+=== PDF PAGE 55 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 51 
+2025.01   
+ 
+对应命令中参数 -rise_to，即 以时钟 上升沿作为参考，对象是 clocks，查找列表只支持
+get_clocks 过滤查找；选项fall，对应命令中参数-fall_to，即以时钟下降沿作为参考，对
+象是clocks，查找列表只支持get_clocks 过滤查找。 
+ Delay value：延时数值，数字格式是保留小数点后三位，单位为ns。 
+ Datapath_only：勾选此项，可用于消除时钟的jitter/skew/pessimism 计算，仅考虑数据路
+径延迟即第一个触发器的Clock-to-Q 延迟、 触发器之间的连线延迟以及第二个触发器的建立
+时间。 
+可点击Reference 按钮，查看set_min_delay 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-58 set_max_delay Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Min Delay 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可以点
+击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消所有
+设置。 
+如下图所示，对时钟clk_rx 到时钟clk_tx 约束了最小路径延迟为-0.5ns。  
+
+=== PDF PAGE 56 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 52 
+2025.01   
+ 
+ 
+图 2-59 set_min_delay 约束设置示例 
+set_min_delay 在时序分析报告Timing Report 中也会在Timing Exception Report分类中报告其
+路径分析， 和set_max_delay 一样， 可在此找到该约束对应的编号，然后通过约束编号找到对应的详细
+路径信息，如下图所示，其在详细路径信息报告中，相应的Budget 变成了-0.5ns。 
+
+=== PDF PAGE 57 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 53 
+2025.01   
+ 
+ 
+图 2-60 set_min_delay 在时序分析报告对应延迟 
+2.2.4.3 Set Multicycle Path  
+Set Multicycle Path 界 面 ， 用 于 设 置 允 许 多 个 时 钟 周期 延 时 的 时 序 路 径 约 束 ， 即 生 成
+set_multicycle_path 的SDC 命令。通常情况下，两个同步的寄存器进行Setup 时序检查时，路径中组
+合逻辑的Delay 必须在一个时钟周期内到达， 才能满足Setup 的时序。 但在某些情况下， 从一个寄存器
+输出到另外一个寄存器的Data 端可以允许不止一个周期的时间，且又不影响逻辑的功能。此时，可以
+将这样的路径约束为多周期路径即Multicycle Path。 
+点击Timing Wizard 主界面中Set Multicycle Path，即进入相关设置界面，如下图所示。 
+
+=== PDF PAGE 58 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 54 
+2025.01   
+ 
+ 
+图 2-61 Set Multicycle Path 设置界面 
+界面中相关参数设置如下： 
+ From： 必须为时序路径的起点，即为input port 或寄存器的时钟输入端口。from 对象为clock
+管脚时，约束对象包含所有被该时钟驱动的路径；from 对象为input port 时，约束对象为以
+该 input port 为起点的时序路径；对象为 cell 时，约束对象包含所有在该 cell 中的寄存
+器。如果 from 对象不施加在时序路径起点，行为和施加在时序路径起点一致。可通过点击
+search 按钮在弹出的信号列表进行查找， 支持get_ports、get_pins、get_cells、get_regs、
+get_clocks 过滤查找。默认选项 rise/fall，对应命令中参数-from，即可支持的对象为所有
+时序路径起点； 选项rise， 对应命令中参数-rise_from，即以时钟上升沿作为参考， 其对象是
+clocks，查找列表只支持get_clocks 过滤查找；选项fall，对应命令中参数-fall_from，即
+以时钟下降沿作为参考，其中对象是clocks，查找列表只支持get_clocks 过滤查找。 
+ Through：指定了该时序路径必须通过的中间点，查找列表支持get_pins、get_nets 进过滤查
+找，当有多个 through 选项时， 目标时序路径必须依次经过每一个中间点。 可通过 “+” 、 “-”
+符号进行添加、删除经过节点。 
+ To：为时序路径的终点，即为寄存器的非时钟的输入端口或output port 。如果 To 对象不施
+
+=== PDF PAGE 59 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 55 
+2025.01   
+ 
+加在时序路径终点，行为和施加在时序路径终点一致。可通过点击search 按钮在弹出的信号
+列表进行查找，支持get_ports、get_pins、get_regs、get_cells、get_clocks 过滤查找。
+默认选项rise/fall， 对应命令中参数-to， 即可支持的对象为所有时序路径终点； 选项rise，
+对应命令中参数 -rise_to，即 以时钟 上升沿作为参考，对象是 clocks，查找列表只支持
+get_clocks 过滤查找；选项fall，对应命令中参数-fall_to，即以时钟下降沿作为参考，对
+象是clocks，查找列表只支持get_clocks 过滤查找。 
+ Multiplier Value：指定时钟周期数。当勾选 Setup 时，进行Setup 时序检查时，将Capture 
+Clock 的沿向后推迟N 个周期。 当勾选Hold 时， 进行Hold 时序检查时， 将Capture Clock 时
+钟沿向前推进N 个周期（或Launch Clock 沿向后推迟N 个周期） 。 
+ setup/hold：指定该命令所作用的时序分析类型。默认值为 setup,为指定该命令约束作用于
+setup 时序分析；hold，点选此项，为指定该命令约束作用于Hold 时序分析。  
+ start/end：指定该命令所参考的时钟周期。默认值为end，即选择 Capture Clock 的时钟周
+期；start,点选此项， 即选择即Launch Clock 的时钟周期。 一般情况下， 选择setup 类型时，
+使用end 参数， 即Capture Clock 的时钟周期； 选择hold 类型时，使用start 参数，即Launch 
+Clock 的时钟周期。 
+可点击Reference 按钮，查看set_muticycle_path 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-62 set_muticycle_path Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+
+=== PDF PAGE 60 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 56 
+2025.01   
+ 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set Muticycle Path 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，
+可以点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取
+消所有设置。 
+如下图所示，对寄存器send_resp_data 到寄存器bcd_out 约束了-setup 多周期为2，-hold 为1。 
+ 
+图 2-63 set_multicycle_path 约束设置示例 
+set_multicycle_path 在时序分析报告Timing Report 中会在Timing Exception Report分类中报
+告其路径分析， 和set_max_delay 一样， 可在此找到该约束对应的编号，然后通过约束编号找到对应的
+详细路径信息，如下图2-65 所示，其捕获数据Capture edge 的边沿从原本的5ns 变成了10ns，即相
+应的Budget 从单周期的5ns,变成了2 个周期的10ns。 
+
+=== PDF PAGE 61 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 57 
+2025.01   
+ 
+ 
+图 2-64 set_multicycle_path 在时序分析报告对应延迟 
+2.2.4.4 Set False Path  
+Set False Path 界面，用于指定时序路径为虚假路径，即时序工具不对其进行时序分析。可生成
+SDC 命令set_false_path。 
+点击Timing Wizard 主界面中Set False Path，即进入相关设置界面，如下图所示。 
+
+=== PDF PAGE 62 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 58 
+2025.01   
+ 
+ 
+图 2-65 Set False Path 设置界面 
+界面中相关参数设置如下： 
+ From： 必须为时序路径的起点，即为input port 或寄存器的时钟输入端口。from 对象为clock
+管脚时，约束对象包含所有被该时钟驱动的路径；from 对象为input port 时，约束对象为以
+该 input port 为起点的时序路径；对象为 cell 时，约束对象包含所有在该 cell 中的寄存
+器。如果 from 对象不施加在时序路径起点，行为和施加在时序路径起点一致。可通过点击
+search 按钮在弹出的信号列表进行查找， 支持get_ports、get_pins、get_cells、get_regs、
+get_clocks 过滤查找。 
+ rise/fall：默认为该选项，对应命令中参数-from，即可支持的对象为所有时序路径起点。 
+ rise： 对应命令中参数-rise_from，即以时钟上升沿作为参考， 其对象是clocks， 查找列表只
+支持get_clocks 过滤查找。 
+ fall： 对应命令中参数-fall_from，即以时钟下降沿作为参考， 其中对象是clocks， 查找列表
+只支持get_clocks 过滤查找。 
+其中rise/fall、rise、fall 参数切换，通过点击From 后下拉菜单进行选择。 
+ Through：指定了该时序路径必须通过的中间点，查找列表支持get_pins、get_nets 进过滤查
+找，当有多个 through 选项时， 目标时序路径必须依次经过每一个中间点。 可通过 “+” 、 “-”
+
+=== PDF PAGE 63 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 59 
+2025.01   
+ 
+符号进行添加、删除经过节点。 
+ To：为时序路径的终点，即为寄存器的非时钟的输入端口或output port 。如果 To 对象不施
+加在时序路径终点，行为和施加在时序路径终点一致。可通过点击search 按钮在弹出的信号
+列表进行查找，支持get_ports、get_pins、get_regs、get_cells、get_clocks 过滤查找。 
+ rise/fall：默认为该选项，对应命令中参数-to，即可支持的对象为所有时序路径终点。 
+ rise： 对应命令中参数-rise_to，即以时钟上升沿作为参考， 对象是clocks， 查找列表只支持
+get_clocks 过滤查找。 
+ fall： 对应命令中参数-fall_to，即以时钟下降沿作为参考， 对象是clocks， 查找列表只支持
+get_clocks 过滤查找。 
+其中rise/fall、rise、fall 参数的切换，通过点击To 后下拉菜单进行选择。 
+setup/hold：指定伪路径约束作用的时序分析类型；默认值setup/hold，即setup 和hold 时序检
+查都不分析该约束路径；setup，即只在 setup 检查时起约束作用，不去分析该路径时序；hold，即只
+在 hold 检查时起约束作用，不去分析该路径的时序； 
+set_false_path 命令禁止的是单方向的时序分析，即从-from 指定的起点到-to 指定的路径终点，
+如果需要双向禁止时序分析，需要再定义一条反方向的命令。 
+可点击Reference 按钮，查看set_false_path 命令相关参数说明和示例，如下图所示。 
+ 
+图 2-66 set_false_path Reference 窗口图 
+相关参数设置完成后，在Command 栏会显示完整的SDC 命令，同样支持复制，点击Ok 即可创建成
+
+=== PDF PAGE 64 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 60 
+2025.01   
+ 
+功，并出现在下方窗口SDC 命令显示列表里。通过下方命令显示窗口上的工具栏“+” 、 “-”符号，可进
+行新建或对选择命令进行删除。 
+界面下方命令显示窗口支持SDC 命令反标功能，方式和Create Clock 界面一致，双击命令即可反
+标到设置窗口，如果当前命令没有做任何更改，则Ok 置灰，无法重新创建。 
+此时如果Set False Path 设置完成，可进入其它界面继续创建命令。如所有命令创建完成，可以
+点击 Apply 按钮进行检查无误后，点 Save 按钮保存到相应 SDC 文件。或点击 Cancel 按钮进行取消所
+有设置。 
+如下图所示，在Set False Path 里指定了从rst_pin 管脚为时序起点的路径都为伪路径，即不对
+其进行时序分析。 
+ 
+图 2-67 set_false_path 示例 
+2.2.5 Summary  
+Summary 界面，记录了所有已生成的SDC 命令，包括新建的和之前已经存在的命令，并可指定SDC
+文件保存的路径。 
+点击 Timing Wizard 主界面中 Summary，或各命令设置界完成后点下方全局 Apply 按钮，即进入
+Summary 界面。 
+
+=== PDF PAGE 65 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 61 
+2025.01   
+ 
+Summary 文件保存路径分三种情况，有不同的保存路径方式。 
+第一种情况， 当工程中没有添加任何SDC 文件时，Summary 界面为新建SDC 文件界面，如下图所示。
+此时工具默认新建SDC 文件名为以工程文件名+编号进行命名， 用户可输入自定义文件名， 并点击Browse
+选择保存路径。默认勾选Add this SDC File to the current project，即将新建SDC 文件加入到工
+程中，用户也可选择不勾选即不加入工程。 
+ 
+图 2-68 Summary 新建 SDC 文件界面 
+第二种情况， 当工程已经添加单个 SDC 文件时， 此时工具默认保存路径为当前工程中所添加的SDC
+文件路径，如下图所示。Add this SDC File to the current project 选项置灰，用户不可更改。 
+
+=== PDF PAGE 66 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 62 
+2025.01   
+ 
+ 
+图 2-69 Summary 单个 SDC 文件界面 
+第三种情况， 当工程已经添加多个SDC 文件时， 此时工具默认保存路径为当前工程中所添加的SDC
+文件列表中第一个文件，如下图所示。Add this SDC File to the current project 选项置灰，用户
+不可更改。 和前面两种情况不一样的是， 只有此次打开Timing Wizard新建立的命令， 才是保存到默认
+路径即第一个SDC 文件中，用户也可以通过点击Browse 更换到另外的SDC 文件路径；如果只是修改已
+经存在的命令，则是保存回原命令所在SDC 文件路径中。 
+
+=== PDF PAGE 67 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 63 
+2025.01   
+ 
+ 
+图 2-70 Summary 多个 SDC 文件界面 
+  
+
+=== PDF PAGE 68 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 64 
+2025.01   
+ 
+3 时序分析报告 
+3.1 Timing Report 
+Timing Report 用于对设计进行静态时序分析，查看时序路径的时序检查报告，通过Timing Report
+用户可以了解设计是否满足时序要求即是否存在setup/hold 时序违例，是否存在Clock Skew 过大，
+Net 延迟过大等时序问题，从而进行调整源代码或者时序约束或者软件优化策略达到时序收敛的目的。
+Timing Report 支持全路径和单路径的时序报告查看，支持多个报告同时查看。 
+3.1.1 Timing Report 启动方式 
+Flow 运行完Optimize Gate 或运行完Optimize Placement 或运行完Optimize Routing，并且执
+行 Open Run 操作后，分别都可启动Timing Report。此时界面有两处入口可打开Timing Report。 
+第一种方式，展开Design Summary->Timing Summary，双击Timing Report，如下图所示。 
+ 
+图 3-1 Timing Report 启动方式一 
+第二种方式，点击菜单栏Tools->Timing Analyzer->Timing Report，如下图所示。 
+
+=== PDF PAGE 69 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 65 
+2025.01   
+ 
+ 
+图 3-2 Timing Report 启动方式二 
+3.1.2 Timing Option  
+点击查看Timing Report，会弹出Timing Option 窗口，用户可根据自己的需求进行设置。如果在
+Options 页面点击Ok，此时打开的Timing Report 为全路径时序报告，如果在Target 页面点击Ok，此
+时打开的路径为指定路径的Timing Report。如下图所示。 
+ 
+图 3-3 Timing Option 设置界面一 
+
+=== PDF PAGE 70 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 66 
+2025.01   
+ 
+ 
+图 3-4 Timing Option 设置界面二 
+3.1.2.1 Report Name 设置 
+Timing Report 可支持打开多个报告界面，可通过Timing Option 主界面顶端的Report Name 来区
+分报告。用户可以自定义Timing Report 的名字，也可以默认软件设置。Report Name 的默认命名方式
+为 Flow 阶段标志+timing_report+数字编码来表示，Optimize Gate 阶段命名 synthesis，Optimize 
+Placement 阶段命名placed，Optimize Route 阶段命名routed。如：Optimize Gate 后的多个报告显
+示 的 名 字 为 synthesis_timing_report_1 、 synthesis_timing_report_2 、
+synthesis_timing_report_3…… 
+3.1.2.2 Options 设置 
+用户通过Options 一栏设置查看整个设计的总体时序报告，Option 相关参数设置完成后，点击ok，
+即可打开工程全路径的Timing Report。 
+其中Report 框内参数设置报告时序检查角度显示，相关参数如下。 
+Path Delay Type ：路径延迟类型检查选择，默认值为Max_Min，暂时不可修改，即最大延迟路径
+检查(setup、recovery)和最小延迟路径检查（hold、removal）系统都会在报告中分析显示。 
+Multi Corner：路径延迟角点选择，默认值为 Slow_Fast，暂不可修改，即路径延迟快、慢角点系
+统都会在报告中进行分析显示。 
+在静态时序分析中，系统按照最恶劣的情况进行时序检查， 以此得出的时序收敛结果才能保证设计
+工作在不同情况下都能满足时序要求。 
+因此，在setup/recovery 检查时，统按照最恶劣的情况进行时序分析：在Slow Corner（慢角点）
+中，源时钟路径采用最大延迟Slow.Max，数据路径采用最大延迟Slow.Max，目的时钟路径采用最小延
+迟 Slow.Min；在Fast Corner(慢角点)中，源时钟路径采用最大延迟Fast.Max,数据路径采用最大延迟
+
+=== PDF PAGE 71 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 67 
+2025.01   
+ 
+Fast.Max,目的时钟路径采用最小延迟 Fast.Min。在 hold/removal 检查时，系统也按照最恶劣的情况
+进行时序分析：在Slow Corner（慢角点）中，源时钟路径采用最小延迟Slow.Min，数据路径采用最小
+延迟 Slow.Min，目的时钟路径采用最大延迟Slow.Max；在Fast Corner( 慢角点)中，源时钟路径采用
+最小延迟Fast.Min,数据路径采用最小延迟Fast.Min,目的时钟路径采用最大延迟Fast-Max。 
+Path Limits 框内设置报告中时序path 数目，相关参数如下。 
+ EndPoint per path group：设置每个时钟组路径终端个数，默认值为10，用户可根据需求更
+改数值。 
+ Paths per EndPoint：设置每个终端的路径数，默认值为1，用户可根据需求更改数值。 
+ Include Ignored：勾选此项，即Timing Report 会把用户约束不进行时序分析的路径也报告
+出来，即为Timing Report 的Ignored Report 分类，默认勾选。 
+ Violation Only：勾选此项，即Timing Report 只会报告显示出有时序违例的路径。如勾选
+此项，则Include Ignored 为不可选状态。 
+ Export Timing Report：勾选此项，可通过Browse 设置导出Timing Report 的文本格式和保
+存路径，支持.txt，.rpt，.timing 三种格式。 
+3.1.2.3 Target 设置 
+用户可通过Target 界面设置查看具体某个时序路径的Timing Report，设置完成后点击ok，即可
+打开指定路径的Timing Report。 
+Timing Path 框内设置具体路径Timing Report，相关参数如下。 
+ From：指定路径起点。 
+ Through：指定路径经过的结点。 
+ To：指定路径终点。 
+ Logic Level：勾选此项，即抽取Logic Level 即逻辑级数最大的路径进行报告显示；默认不
+勾选，即抽取slack 最差的路径进行报告显示。 
+点击参数右侧的 search 查找图标可弹出查找窗口，如下图所示，通过Collection 进行过滤信号，
+目前From/To 参数支持get_ports、get_pins、get_regs、get_clocks、get_cells 过滤查找， Through
+参数只支持get_pins、get_nets 过滤查找。 
+=== PDF PAGE 72 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 68 
+2025.01   
+ 
+ 
+图 3-5 Target 设置信号查找窗 
+如果用户未指定任何路径起点或路径终点，点击OK 会弹出如下图所示警告，提示至少指定一个信
+号。 
+ 
+图 3-6 未设置任何路径点信号时 WARNING 弹窗 
+正常设置后，如下图所示，点击ok 就能查看指定路径的Timing Report 了。 
+
+=== PDF PAGE 73 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 69 
+2025.01   
+ 
+ 
+图 3-7 指定某个时钟路径 
+3.1.2.4 Command 
+Command 框内显示的是后端执行的TCL 指令，支持用户复制。 
+3.1.3 Timing Report 主界面 
+Timing Option 设置完成后，点击Ok 即可进入Timing Report 的主界面，如下图所示。界面左边
+导航栏Report Navigation分为8 个Group，如果某个Group 内有path 的setup/hold slack 为负数即
+有时序不收敛，则有黄色叹号警告图标。 
+ 
+图 3-8 Timing Report 主界面 
+主界面导航栏上方有一个查找框， 可通过输入导航栏各分类的关键字进行过滤显示相应的分类。如
+下图所示，为过滤显示Max Paths。 
+
+=== PDF PAGE 74 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 70 
+2025.01   
+ 
+ 
+图 3-9 Timing Report 导航栏查找过滤功能 
+3.1.3.1 Timing General 
+鼠标点击Timing General ，如图所示，界面右边用表格的方式展示Timing Report 创建的文本信
+息，包括：TD 版本信息，创建时间，器件，STA coverage 即静态时序分析覆盖率。 
+ 
+图 3-10 Timing General 界面 
+3.1.3.2 Timing Setting 
+鼠标点击Timing Setting，如下图所示，界面右边用表格的方式展示Timing Option 设置参数和
+sdc 文件等的文本信息。 
+
+=== PDF PAGE 75 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 71 
+2025.01   
+ 
+ 
+图 3-11 Timing Setting 界面 
+3.1.3.3 Timing Status 
+鼠标点击Timing Status， 如下图所示， 界面右上方为Clock Summary， 界面右下方为Global Status。 
+ 
+图 3-12 Clock Status 界面 
+Clock Summary显示用户sdc 文件内所有时钟的相关统计信息，把鼠标放在右侧界面Clock Summary
+上，会有关键信息的定义和注意事项浮窗，如下图所示。 
+
+=== PDF PAGE 76 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 72 
+2025.01   
+ 
+ 
+图 3-13 Clock Summary 注意事项浮窗 
+把鼠标移动到Clock Summary下的标题栏上， 并点击鼠标右键， 可通过勾选或取消勾选来进行选择
+显示需要关注的统计信息，通过点击Reset to Default 可恢复到默认标题栏状态。如下图所示。 
+ 
+图 3-14 Clock Summary 标题栏选项 
+如果想同时选择多个标题栏选项， 可通过点击more， 并在弹出的选择窗口中， 进行操作多项， 然后
+选择OK 即可，如下图所示。 
+
+=== PDF PAGE 77 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 73 
+2025.01   
+ 
+ 
+图 3-15 Clock Summary 标题栏 more 选项操作窗 
+Clock Summary 表格中各时钟相关统计信息条目解析如下表所示。 
+表 3-1 Clock Summary 信息条目含义解析表 
+Clock Summary 信息条目 含义解析 
+Name 时钟名字 
+C-Freq(Mhz)  Constraint Freqency，即sdc 约束的时钟频率 
+SWNS(ns)  
+Setup 时序检查最差路径Slack 的值，如果该值为负数（红色） ，
+则说明该时钟域内有路径Setup 时序不满足 
+STNS(ns) 
+Setup 时序检查最差路径Slack 为负数的总和，如果所有路径
+Slack 大于或等于0，则STNS 的值为0 
+HWNS(ns)  
+Hold 时序检查最差路径Slack 的值，如果该值为负数（红色） ，
+则说明该时钟域内有路径Hold 时序不满足 
+HTNS(ns) 
+Hold 时序检查最差路径Slack 为负数的总和，如果所有路径
+Slack 大于或等于0，则HTNS 的值为0 
+Skew(ns)  时钟偏斜 
+Fanout(ns)  时钟驱动的扇出数 
+Max_Level  最大逻辑级数 
+Rise(ns)  时钟上升沿时间 
+Fall(ns)  时钟下降沿时间 
+Type  
+时钟类型，Value 值包括：Infered 即软件自动添加的时钟
+buffer；User 用户调用时钟buffer；Local,本地走线。 
+C-Period(ns)  Constraint Period，即sdc 约束的时钟周期 
+R-Period(ns)  Report Min Period，时序分析报告出的时钟最小周期 
+R-Freq(Mhz)  Report Max Frequency，时序分析报告出的时钟最大频率 
+CC-From 是否有跨时钟域路径，并在其中作为launch clock 
+
+=== PDF PAGE 78 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 74 
+2025.01   
+ 
+Clock Summary 信息条目 含义解析 
+CC-to 是否有跨时钟域路径，并在其中作为capture clock 
+Global Status 表格中相关时序统计信息条目如下表所示。 
+表 3-2 Global Status 信息条目含义解析表 
+Global Status 信息条目 含义解析 
+Type 时序分析类型，Setup 和Hold 
+WNS 显示所有路径中最差路径的slack 
+TNS 显示所有路径中负slack 的和 
+注： 
+1. Global Status 内的 WNS 和 TNS 是统计了设计中所有路径中 的 Timing Path，包括 Timing 
+Exception(MCP/SMD) 的Timing Violation，而Clock Summary 中的SWNS/STNS/HWNS/HTNS 仅统
+计了Clock 本身的Timing Status,并不包括Timing Exception 的。 
+3.1.3.4 Intra-Clock Paths 
+Intra-Clock Paths 展示同时钟域路径的时序分析，即Launch Clock 和 Capture Clock 为相同的
+时钟域。点击该分类时，界面右侧Clock Domain 里显示各时钟域的主时钟和派生时钟，如下图所示。 
+ 
+图 3-16 Intra-Clock Paths 界面 
+展开Intra-Clock Paths，按层级从外往里依次为时钟Group 分类 -> Max /Min Paths 分类。时
+钟 Group 按照由Launch Clock 和Capture Clock 组成的时钟对进行分类。Max/Min Paths 为每个时钟
+Group 内最大延迟路径/最小延迟路径时序分析进行分类，Max Paths 对应Setup/Recovery 时序分析，
+Min Paths 对应Hold/Removal 时序分析。 
+点击其中一个时钟Group， 界面右侧上方显示时钟Group 的时钟对信息， 界面右侧下方显示该时钟
+Group 时序路径分析结果统计信息，如下图所示。 
+
+=== PDF PAGE 79 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 75 
+2025.01   
+ 
+ 
+图 3-17 Intra-Clock Paths 时钟对信息统计界面 
+时序分析类型Max Paths/Min Paths 
+时序分析类型包括Max Paths 和 Min Paths。Max Paths 检查最大延迟路径的Setup/Recovery 时
+序，Min Paths 检查最小延迟路径的Hold/Removal 时序，两个分类在报告中展示路径分析的方式基本
+一致。 
+以Max Paths 为例，点击Max Paths 时，如下图所示，右侧显示了10 条最大延迟路径信息，显示
+路径条数为Timing Options 设置的路径数。 
+ 
+图 3-18 Max Paths 界面 
+路径信息上方的Search 查找过滤框，可通过输入路径关键字进行查找过滤，如下图所示。 
+ 
+图 3-19 Max Paths 界面路径查找过滤功能 
+最大延迟路径信息表中的相关条目解析如下表所示。 
+
+=== PDF PAGE 80 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 76 
+2025.01   
+ 
+表 3-3 路径信息条目含义解析表 
+路径信息条目 含义解析 
+Name  路径编号 
+Start_Point 路径起点，为芯片输入管脚或时序单元的时钟输入引脚 
+End_Point 路径终点，为芯片输出管脚或时序单元的除时钟外的所有输入引脚 
+Launch_Clock  数据发送时钟 
+Capture_Clock  数据捕获时钟 
+Check_Type 路径时序检测类型，Value 值包括Setup、Recovery、Hold、Removal 
+Check_Corner 
+检查角点，Value 值包括fast、slow，fast 为快路径角点，slow 为慢
+路径角点。 
+Slack  时序松弛度，数值小于0 时表明路径有Timing Violation 即时序违规 
+Logic_Level  逻辑级数 
+Max_Fanout  时钟最大扇出数 
+Requirement  延迟裕量 
+Clock-Skew  时钟偏斜 
+Data-Path-Delay  数据路径延迟 
+Cell_perc  节点延迟在总延迟的占比 
+Net_perc  走线延迟在总延迟的占比 
+双击其中一条路径，则会在界面上方显示该路径的详细信息，如下图所示，分为Summary，Launch 
+Clock，Data，Capture Clock，Other 5 个部分，每个部分可以通过鼠标点击进行展开和收拢。 
+ 
+图 3-20 详细路径信息界面 
+ 
+
+=== PDF PAGE 81 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 77 
+2025.01   
+ 
+Summary 
+展开Summary 显示了该时序路径的统计信息，包括Slack，Begin Point，End Point，Budget，
+Data Path delay，Clock Skew，Logic Level 等信息，如下图所示。 
+ 
+图 3-21 详细路径信息 Summary 栏 
+Launch Clock 
+展开 Launch Clock 显示了Launch Clock 延时，即从时钟源点到路径起点寄存器时钟引脚所经过
+的时钟路径延迟时间，如下图所示。 
+ 
+图 3-22 详细路径信息 Launch Clock 栏 
+Data 
+展开 Data，显示了数据路径延时，即数据从路径起点寄存器输出到路径终点寄存器所经过的所有
+路径延时时间，如下图所示。  
+路径起点 
+路径终点 
+时序松弛余量，如果为负数即存在时序风险，此时字体颜色为红色 
+数据延迟时间，包括cell 延迟和net
+延迟 
+时钟偏斜，时钟到达两个寄存器clock 的延迟差。 
+数据路径通过的逻辑级数 
+延时裕量 
+Launch Clock 总延时 
+时钟到达起点寄存器的时钟pin 
+输入管脚延迟 
+IO PAD Buffer 延迟 
+线网延迟 
+时钟源点到时钟定义点的延迟 
+通过GCLK 延迟 
+通过SCLK 延迟 
+=== PDF PAGE 82 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 78 
+2025.01   
+ 
+ 
+图 3-23 详细路径信息 Data 栏 
+Capture Clock 
+展开Capture Clock，显示了Capture Clock 延时，即从时钟源到路径终点寄存器时钟引脚所经过
+的时钟路径延迟时间，如下图所示 
+ 
+图 3-24 详细路径信息 Capture 栏 
+Other 
+展开Other，显示了End Point 需满足的建立/保持时间和Clock uncertainty(包括软件自动添加
+和用户约束的uncertainty)，以及Clock Reconvergence Pessimism Removal(CRPR)即共同路径时钟
+悲观裕量去除。如下图所示。 
+ 
+图 3-25 详细路径信息 Other 栏 
+详细路径延迟信息中的信息条目解析如下表所示。 
+Capture Clock 延时 
+数据捕获沿，即Budget Time 延时裕量 
+终点寄存器的Setup Time 累加了Launch Clock 延时 
+setup clock uncertainty Time 
+数据要求时间Required Time 路径延迟悲观裕量 
+数据到达采样寄存器的总延时 
+累加了Launch Clock 的延时 
+数据路径中间节点LUT 延迟 
+时钟源点到时钟定义点的延迟 
+输入管脚延迟 
+IO PAD Buffer 延迟 
+时钟到达终点寄存器的时钟pin 
+线网延迟 
+通过GCLK 延迟 
+通过SCLK 延迟 
+=== PDF PAGE 83 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 79 
+2025.01   
+ 
+表 3-4 详细路径延迟信息条目含义解析表 
+路径延迟信息条目 含义解析 
+Delay Type  不同节点或条目延时类型  
+Location  Cell 坐标 
+Incr  延迟增量 
+Path  累计增量 
+Level  逻辑级数 
+Netlist Infor  对应的网表信息 
+Min Path 中，展示路径延迟的界面和Max Path 界面基本一致，如下图所示，此处不对界面进行展
+开讲解。 
+ 
+图 3-26 Min Paths 界面 
+注： 
+1. Timing path 的命名规则为： 
+ “/”表示层级关系； 
+ “|”表示并联关系； 
+ “.”表示从属关系。 
+  
+
+=== PDF PAGE 84 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 80 
+2025.01   
+ 
+3.1.3.5 Inter-Clock Paths 
+Inter-Clock Paths 展示跨时钟域路径的时序分析，即Launch Clock 和 Capture Clock 为不同的
+时钟域。点击该分类时，界面右侧Clock Domain 里显示所有跨时钟域的路径，如下图所示。 
+ 
+图 3-27 Inter-Clock Paths 界面 
+展开Inter-Clock Paths，其展示方式和Intra-Clock Paths 的展示方式一样，按层级从外往里依
+次为时钟Group 分类 -> Max/Min Paths 分类。 
+点击其中一个时钟Group， 界面右侧上方显示该时钟Group 信息， 界面右侧下方显示时序分析情况，
+如下图所示。 
+ 
+图 3-28 Inter-Clock Paths 时钟对信息统计界面 
+Inter-Clock Paths的每一个时钟Group 内的时序检查类型也和Intra-Clock Path 一样， 包括Max 
+Paths 和 Min Paths，Max Paths 检查Setup 时序，Min Paths 检查Hold 时序，两个分类展示详细路径
+的方式也和Intra-Clock Path 类似，这里不再做详细介绍，如下图所示。 
+
+=== PDF PAGE 85 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 81 
+2025.01   
+ 
+ 
+图 3-29 Inter-Clock 路径信息界面 
+3.1.3.6 IP Timing Report 
+IP Timing Report 为IP 内部时序分析报告。如下图所示，展开IP Timing Report，可看到逐级分
+类为：IP 层次化例化路径和名字->软件自动分配的IP 例化编号->时序分析报告类型->…， 从时序分析
+报告类型开始再往下展开， 显示模式和主界面模式一致， 可能包含Input Timing(intra/inter-clock)、
+Output Timing(intra/inter-clock)、Timing Exception 等， 根据不同IP 所含的路径类型不同而不同。
+其中IP 的Ignored Path 报告放入主界面Ignored Report 下的IP 分类中。 
+ 
+图 3-30 IP Timing Report 界面 
+需注意的是对于IP 中的时序分析报告类型Input Timing 指的是IP 输入端口的Input Delay 时
+序分析。IP 中的Output Timing 指的是IP 的输出端口的Output Delay 时序分析。 
+如下图所示，为IP 的输入端口时序分析。 
+
+=== PDF PAGE 86 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 82 
+2025.01   
+ 
+ 
+图 3-31 IP Timing Report 中 IP 输入端口时序分析 
+如下图所示，为IP 输出端口的时序分析。 
+ 
+图 3-32 IP Timing Report 中 IP 输出端口时序分析 
+IP 输入端口时序分析 
+IP 输出端口时序分析 
+=== PDF PAGE 87 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 83 
+2025.01   
+ 
+关于IP Timing Report 中的详细时序路径分析介绍，与主界面中类似，请参考主界面时序分析类
+型各章节，此节不做具体介绍。 
+3.1.3.7 Timing Exception Report 
+Timing Exception Report 用于显示用户通过时序例外约束如sdc 命令 set_multicycle_path，
+set_max/min_delay 进行约束的路径的时序分析报告。 
+如下图所示，展开Timing Exception Report，其按照约束编号Constraint*（阿拉伯数字编号用
+*号表示）-> 约束是否有效Active/Shadowed/Ignored Paths -> 时序检查类型Max/Min Paths 进行逐
+级分类。 
+ 
+图 3-33 Timing Exception Report 界面 
+点击并展开Constraint*的列表中，会有Active Paths（约束有效路径） 、Shadowed Paths（约束
+中有被其它更高优先级SDC 命令作用而屏蔽此约束的路径）、Ignored Paths(约束路径中有被伪路径约
+束要求忽略时序分析的路径)三种分类，如果没有被屏蔽的路径，则只显示Active Paths。界面右边显
+示 SDC 约束命令以及统计信息如下图所示。 
+ 
+图 3-34 Timing Exception Report 约束编号对应界面 
+更高优先级的SDC 约束命令 
+约束路径中被伪路径约束要求忽略时序分析的路径条数 
+SDC 约束命令 
+约束命令有效的路径条数 
+约束被更高优先级命令屏蔽的路径条数 
+最大延迟路径分析 
+最小延迟路径分析 
+SDC 命令参数 
+set_false_path 约束命令 
+=== PDF PAGE 88 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 84 
+2025.01   
+ 
+界面中相关Constraint*条目的含义解析如下表所示。 
+表 3-5 Timing Exception Constraint 条目含义解析表 
+Constraint* 条目 含义解析 
+Constraint SDC 约束 
+Total Path 该约束下的路径总数 
+Active 该约束有效的路径数 
+Shadowed 该约束中有被其它更高优先级SDC 命令作用而屏蔽此约束的路径 
+Ignored 该约束路径中有被伪路径约束要求忽略时序分析的路径 
+Timing Exception Report 中 Max/Min Paths 最大延迟路径时序检查(setup)/最小延迟路径时序
+检查(hold)报告展示方式与Intra-Clock Paths内的Max/Min Paths一致， 如下图所示， 这里不再做详
+细描述。 
+ 
+图 3-35 Timing Exception Report 路径信息界面 
+3.1.3.8 Ignored Report 
+Ignored Report 展示了用户通过时序约束忽略时序分析的路径，如SDC 命令set_false_path 和 
+set_clock_groups 约束。 
+展开Ignored Report ，列表通过约束命令类型进行分类，如下图所示。Async/Exclusive Groups 
+为 SDC 命令set_clock_groups 约束的路径，False Path 为SDC 命令set_false_paths 约束的路径。 
+
+=== PDF PAGE 89 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 85 
+2025.01   
+ 
+ 
+图 3-36 Ignored Report 界面 
+Async/Exclusive Groups 
+展开Async/Exclusive Groups，其按照Launch Clock（发送时钟）到Capture Clock（捕获时钟）
+对的分类进行展示通过SDC 命令set_clock_groups 进行忽略的时序路径。其详细路径信息显示方式如
+下图所示，因设置约束忽略该时钟驱动下的路径时序分析，报告仅显示了路径的 Start-Point，End-
+Point，Launch-Clock，Capture-Clock，Check-Type 信息，以及数据路径信息。 
+ 
+图 3-37 Async/Exclusive Groups 路径信息界面 
+False Path 
+点击 False Path，右边界面通过表格的方式按照约束编号 Constraint*的分类展示整个工程中包
+括 IP 中所有 set_false_path 的命令信息。展开False Paths 按约束来源分成Flow 和 IP 两类，Flow
+为用户SDC 约束，IP 为工程内IP 自带的SDC 约束。如下图所示。 
+
+=== PDF PAGE 90 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 86 
+2025.01   
+ 
+ 
+图 3-38 False Path 界面 
+如下图所示， 展开Flow， 其按照约束编号Constraint*分类进行展示通过SDC 命令set_false_paths
+进行忽略的时序路径。 点击其中一个Constraint*，此时界面右边显示SDC 约束命令以及路径统计信息
+分为 Max 和 Min，与 Timing Exception Report 界面类似，相关条目含义可参考 Timing Exception 
+Report 章节中的表 3-5。 
+ 
+图 3-39 False Path 约束编号界面 
+展开其中一个Constraint*，同样是Max Paths 和Min Paths 的时序检测分类，其详细路径信息
+显示方式如下图3-44 所示， 因设置约束忽略该时钟驱动下的路径时序分析， 报告仅显示了路径的Start-
+Point，End-Point，Launch-Clock，Capture-Clock，Check-Type 信息，以及数据路径信息。 
+
+=== PDF PAGE 91 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 87 
+2025.01   
+ 
+ 
+图 3-40 False Path 路径信息界面 
+3.2 Logic Level Report 
+Logic Level Report 可查看设计中所有时钟所驱动的时序路径的逻辑级数统计，从而了解整个设
+计的逻辑级数是否合理，用于协助对设计进行时序分析。 
+3.2.1 Logic Level Report 启动方式 
+当Flow 运行完Optimize RTL 后，即可从TD 主界面点击菜单栏Tools -> Timing Analyzer -> 
+Logic Level Report 即可打开Logic Level Report，如下图所示。 
+ 
+图 3-41 Logic Level Report 启动方式 
+
+=== PDF PAGE 92 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 88 
+2025.01   
+ 
+3.2.2 Logic Level Options 
+点选Logic Level Report 后，会弹出Logic Level Options 窗口，如下图3-42 所示。 
+ 
+图 3-42 Logic Level Option 
+ Report Name ：Logic Level Report 名 字 ， 用 户 可 自 定 义 报 告 的 名 字 ， 软 件 默 认 为
+logic_level_report_x， 其中x 为按打开报告顺序从1 开始进行编号。 支持同时打开多个Logic 
+Level Report。 
+ Default：默认选项，即默认打开以各时钟的所有时序路径逻辑级数统计报告。 
+ Worst：如果选择Worst，则统计各时钟下setup 时序检测裕量slack 最差的路径的逻辑级数
+报告。Value 值设置最差slack 的时序终点个数，默认值为1，有效值为1~10000 的整数。 
+ Export Timing Report：勾选即可导出Logic Level Report的.txt 格式的文本文件，通过点
+击 Browse 进行路径存储选择。 
+ Command：显示后台执行的TCL 命令。 
+Logic Timing Options 相关设置完成后，点击Ok 按钮即可打开相应的Logic Level Report 主界
+面，点击Cancel 可取消执行。 
+3.2.3 Logic Level Report 主界面 
+3.2.3.1 Default 配置 
+在Logic Timing Options 配置选择Default 选项时，即默认打开以各时钟的所有时序路径逻辑级
+数统计报告。点击Ok，Logic Level Report 主界面如下图所示。 
+
+=== PDF PAGE 93 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 89 
+2025.01   
+ 
+ 
+图 3-43 Logic Level Report 主界面之 Default 配置 
+主界面中，逻辑级数以表格的方式进行罗列。 
+ Clock-Name：该列显示各时钟名。 
+ Max_Level：该列为对应各时钟驱动的路径中逻辑级数最大为多少级。 
+标题栏的数字0 到 30+：表示对应的逻辑级数。 
+表格中，Clock-Name 和 Logic Level 所对应的数值表示，该时钟驱动路径逻辑级数所对应的路径
+数。 
+以表格中时钟名为clk_156 为例，其驱动的时序路径中逻辑级数为0 的路径数有89 个，逻辑级数
+为 1 的路径数有35 个，逻辑级数为2 的路径数有 10 个，逻辑级数为3 的路径数有2 个，逻辑级数为4
+的路径数有 4 个，逻辑级数等于或大于5 的路径数为0 个。 
+其中蓝色数字， 可通过鼠标进行点击， 并在表格下方界面显示相应的路径信息。 如下图3-44 所示，
+最 多 显 示 10 条 path 。 包 括 slack,Logic_Level,Max_Fanout,Start-Point,End-Point,Launch-
+Clock,Capture-Clock 等路径信息， 其显示方式和Timing Report一样， 具体含义可参考Timing Report 
+相关章节。 
+ 
+图 3-44 Logic Level Report 中路径信息 
+
+=== PDF PAGE 94 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 90 
+2025.01   
+ 
+双击其中一条 Path 可显示该时序路径所经过的详细节点以及延迟信息，如下图所示。其包含
+Summary，Launch Clock，Data，Capture Clock，Other 5 个部分，其与Timing Report 的详细路径信
+息一样，可参考Timing Report 相关章节了解各部分含义。 
+ 
+图 3-45 Logic Level Report 中路径详细时序信息 
+3.2.3.2 Worst 配置 
+在Logic Timing Options 配置选择Worst 选项时，并配置路径数为10，如下图所示。 
+ 
+图 3-46 Logic Level Option 之 Worst 配置 
+点击Ok，统计各时钟下setup 时序检测裕量slack 最差的路径的逻辑级数报告。主界面如下图所示。 
+
+=== PDF PAGE 95 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 91 
+2025.01   
+ 
+ 
+图 3-47 Logic Level Report 主界面之 Worst 配置 
+界面中相关表头含义与 Default 界面类似，但所报告出的路径数是通过 setup 时序检查进行过滤
+出了最差slack 的10 个路径。 
+其路径显示方式和Default 界面路径显示一致， 了解相应的路径时序分析可参考Timing Report相
+关章节。 
+3.3 Check-Timing Report 
+Check-Timing Report用于检查设计中有需要约束但没有进行约束的时钟和输入输出管脚，从而提
+醒用户进行约束以提高约束的完整性。 
+3.3.1 Check-Timing Report 启动方式 
+当Flow 运行完Optimize RTL 后，即可从TD 主界面点击菜单栏Tools -> Timing Analyzer -> 
+Check-Timing Report 即可打开Check-Timing Report，如下图所示。 
+ 
+图 3-48 Check-Timing Report 启动方式 
+
+=== PDF PAGE 96 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 92 
+2025.01   
+ 
+3.3.2 Check Timing Options 
+点选Check-Timing Report 后，会弹出Check Timing Options 窗口，如下图所示。 
+ 
+图 3-49 Check Timing Options 界面 
+ Report Name ：Check-Timing Report 名 字 ， 用 户 可 自 定 义 报 告 的 名 字 ， 软 件 默 认 为
+check_timing_report_x，其中 x 为按打开报告顺序从 1 开始进行编号。支持同时打开多个
+Check-Timing Report。 
+ Export Timing Check Report：勾选此项，可以导出Check-Timing Report 的.txt 格式文本
+文件。 
+ Command：显示Check-Timing Report 的 TCL 命令。 
+相关参数设置完成后，点击OK 即可打开Check-Timing Report，点击Cancel 即可取消。 
+3.3.3 Check-Timing Report 主界面 
+Check Timing Options 窗口设置完成后，点击Ok 按钮即可打开Check-Timing Report，其主界面
+如下图所示。 
+ 
+图 3-50 Check Timing Report 主界面 
+Check-Timing Report主界面分为左右两部分， 左边为Check Timing 导航栏， 包括no_input_delay，
+no_output_delay，no_clock，dummy_node 四项；右边为各项详细内容。 
+点击Check Timing，右边显示各项的统计信息，如下图所示。 
+
+=== PDF PAGE 97 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 93 
+2025.01   
+ 
+ 
+图 3-51 Check Timing 界面 
+ Timing Check：列出所检查的项。 
+ Count：统计该项未进行时序约束的个数。 
+ Severity：未约束的影响等级，目前只显示HIGH，即表示对时序分析影响较大；  
+点击 no_input_delay, 右边界面列出了所有未约束set_input_delay 的输入管脚，如果所有输入
+管脚都约束了，则显示空白。其界面如下图所示。 
+ 
+图 3-52 no_input_delay 界面 
+点击 no_output_delay，右边界面列出了所有未约束 set_output_delay 的输出管脚，如果所有输
+出管脚都约束了，则显示空白。其界面如下图所示。 
+ 
+图 3-53 no_output_delay 界面 
+
+=== PDF PAGE 98 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 94 
+2025.01   
+ 
+点击 no_clock，右边界面列出了所有未约束时钟频率的时钟，如果所有时钟都约束了，则显示空
+白。其界面如下图所示。 
+ 
+图 3-54 no_clock 界面 
+点击dummy_node，右边界面列出了所有时序孤立点， 如果所有节点都被时序所覆盖， 则显示空白。
+如果节点没被分析到，成为时序孤立点，其界面如下图所示。 
+ 
+图 3-55 dummy_node 界面 
+注： 
+1.该dummy_node 界面报告的内容可能存在预期的悬空， 比如const lut 输出引脚、 配置相关的IO 引脚
+等等，用户需对照网表自行检查。若无法确定，需联系技术支持反馈问题。 
+3.4 Clock Tree Report 
+Clock Tree Report，展示了设计中详细的时钟网络拓扑结构以及整个时钟的最大时钟偏差。通过
+Clock Tree Report 可查看各时钟域主时钟与生成时钟的拓扑结构和时钟源到各时钟终端的时钟偏差。 
+3.4.1 Clock Tree Report 启动方式 
+Flow 运行完Optimize Gate 或运行完Optimize Placement 或运行完Optimize Routing，并且执
+
+=== PDF PAGE 99 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 95 
+2025.01   
+ 
+行 Open Run 操作后，分别都可启动Clock Tree Report。需注意的是Optimize Gate 和Placement 后
+打开的Clock Tree Report 只有时钟树拓扑结构，没有时钟Max Skew 信息。此时界面有两处入口可打
+开 Clock Tree Report。 
+第一种方式，展开Design Summary –> Timing Summary  双击Clock Tree Report，可打开Clock 
+Tree Report 界面，如下图所示。 
+ 
+图 3-56 Clock Tree Report 启动方式一 
+第二钟方式，也可通过菜单栏Tools->Timing Analyzer 点选Clock Tree Report，打开界面，如
+下图所示。 
+ 
+图 3-57 Clock Tree Report 启动方式二 
+
+=== PDF PAGE 100 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 96 
+2025.01   
+ 
+3.4.2 时钟树界面 
+打开Clock Tree Report ，其主界面分成两个部分，界面下方为时钟树界面即时钟网络拓扑结构，
+界面右上方为Property 界面即节点属性，如下图所示。 
+ 
+图 3-58 Clock Tree Report 主界面 
+3.4.2.1 时钟树界面工具栏介绍 
+Clock Tree Report 主界面下方为时钟树界面，其界面左边工具栏的箭头可对时钟树进行折叠与展
+开操作。 点击向上箭头为折叠， 点击向下箭头为展开， 默认情况下报告为时钟树展开状态。 如下图所示
+为折叠后效果。 
+ 
+图 3-59 时钟树折叠效果 
+点击工具栏中设置图标，会打开时钟树相关设置Clock Tree Options 窗口，如下图所示。 
+
+=== PDF PAGE 101 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 97 
+2025.01   
+ 
+ 
+图 3-60 Clock Tree Options 窗口 
+Visibility 设置界面，可以通过取消勾选Show Topology、Show Max Skew让拓扑结构中不显示相
+应的信息，击下方Apply 按钮后即可生效。通过Filter Clock By 一栏，点击下拉列表中的时钟类型，
+进行筛选出相应的时钟树显示，点击Apply 按钮即可生效。点击下方Reset 按钮可复位所有设置包括
+Colors 界面设置到默认状态。如下图所示。 
+ 
+图 3-61 Clock Tree Options 设置栏 Visibility 
+Colors 设置界面，用户可更改时钟树中各节点的颜色方块显示，鼠标双击表格中Color 一栏的颜
+色，可更改对应Item 的颜色，更改完成点击下方Apply 按钮即可生效。点击下方Reset 按钮复位所有
+设置包括Visibility 界面设置到默认状态。如下图所示。 
+
+=== PDF PAGE 102 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 98 
+2025.01   
+ 
+ 
+图 3-62 Clock Tree Options 设置栏 Colors 
+点击工具栏中查找图标，即可打开查找框，进行关键字查找过滤如下图所示。通过点击in 下拉列
+表，可进行查找目标属性过滤包括Clock、Pin、Net、Clock Group。 
+ 
+图 3-63 Clock Tree 查找功能 
+3.4.2.2 时钟树拓扑结构 
+时钟树是由许多缓冲单元(buffer)及其相互连接关系搭建的树状结构。树根表示时钟信号的源点，
+叶子即时钟终端表示电路中时序器件 （如寄存器） 的时钟引脚。 树干部分表示从时钟源点到时序器件的
+时钟引脚所需经过的布线以及缓冲单元。 信号从时钟源点传播到时序器件的时钟引脚的过程中， 经过多
+级缓冲器（数量根据设计需要而定） ，因此，时钟树中叶子结点的高度可能不一。 
+展开Clock Tree Report 中某一个时钟树，第一级为时钟树名，括号内统计该时钟树内有多少个
+时钟；第二级为时钟树内各时钟名，括号内显示该时钟频率和时钟类型；第三级分为TOPOLOGY(时钟网
+络拓朴结构)和MAX_SKEW(最大时钟偏差)。 
+
+=== PDF PAGE 103 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 99 
+2025.01   
+ 
+如下图所示，在测试Demo 中，展开时钟树clk_156_1 其有3 个时钟，主时钟clk_156_1,派生时钟
+clk_out1_clk_wiz_0_1,派生时钟clk_out2_1,三个时钟频率均为156.250MHZ。 
+ 
+图 3-64 时钟树结构 
+ TOPOLOGY 
+TOPOLOGY(时钟网络拓扑结构)是以时钟驱动前后关系的引脚为基本单元进行逐级描述。 其中时钟树
+拓朴结构中的时钟终端即时序器件的时钟引脚分为两级折叠。 
+第一级为时钟路径类型，包括： 
+ GLOBAL_NETWORK：走全局时钟网络。 
+ LOCAL_NETWORK：走本地互联网络。 
+ NONCLOCK：表示终端引脚为非时钟功能。 
+第二级为时钟进入的逻辑单元如 MSLICE，LSLICE，ERAM 等。 
+如下图所示，为测试 Demo 中 Primary 时钟 clk_156_1 和派生时钟 clk_out1_clk_wiz_0_1 的
+TOPOLOGY。 
+
+=== PDF PAGE 104 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 100 
+2025.01   
+ 
+ 
+图 3-65 时钟树 TOPOLOGY 界面 
+ MAX SKEW 
+MAX SKEW(最大时钟偏差)， 比较时钟源到任意一个终端引脚的最小延时和最大延时， 得到的差值即
+为最大时钟偏差。其分为MAX RISE SKEW（上升沿时钟偏差）和MAX FALL SKEW（下降沿时钟偏差） 。 
+一组偏差内的引脚按类进行描述，有： 
+ FASTEST：从源端到终端延时最短的引脚集合。 
+ SLOWEST：从源端到终端延时最长的引脚集合。 
+ MUTUAL：从源端到所有终端延时最长与最短延时均相同的引脚集合。 
+如下图所示，显示了测试Demo 时钟clk_out1_clk_wiz_0_1 的MAX SKEW。 
+ 
+图 3-66 时钟树 MAX SKEW 界面 
+时钟从时钟管脚.ipad 进
+入 IOB 并从 .di 输出 ，到达
+PLL 参考时钟引脚 .refclk，
+PLL 有两个输出时钟.clkc[0]
+和.clkc[1]。 
+该时钟为LOCAL NETWORK 
+时钟从 PLL 输出引
+脚.clkc[0]输出，经过
+bufg 进入PLL 时钟反馈
+网络后输出，驱动不同
+的 逻辑 单元
+PLL/ERAM/LSLICE。该时
+钟 走 的是 GLOBAL 
+NETWORK。 
+=== PDF PAGE 105 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 101 
+2025.01   
+ 
+注： 
+1. MAX_RISE_SKEW/MAX_FALL_SKEW 括号内的值因CRPR， 即去除了共同路径延迟差异， 会与通过SLOWEST 
+– FASTEST 延时计算得来的MAX_SKEW 不完全匹配。 
+3.4.3 Property 
+Property 界面位于Clock Tree Report主界面的右上方。 其与下方时钟树拓扑结构界面是联动的，
+鼠标点击拓扑结构中不同的节点，会有不同的属性界面对该节点的信息以表格的方式展示。 
+如下图所示，为点击主时钟时，Property 界面显示信息。 
+ 
+图 3-67 Property 界面 
+如下图所示，为点击pad 时，Property 界面显示信息。 
+ 
+图 3-68 Property 属性示例 
+Property 界面中相关条目信息含义解析如下表所示。 
+
+=== PDF PAGE 106 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 102 
+2025.01   
+ 
+表 3-6 Property 条目信息含义解析表 
+Property 条目 含义解析 
+name 结点名 
+driver 驱动结点名 
+arc_type 结点属性 
+net 相连线网 
+inst cell 例化名 
+Inst_loc cell 坐标 
+Delay(slow corner) 结点延迟(慢速角点) 
+Delay(fast corner) 结点延迟(快速角点) 
+3.5 Clock Intersection Report 
+Clock intersection Report，用于查看各时钟之间的关系。 
+3.5.1 Clock Intersection Report 启动方式 
+当 Flow 运行完Optimize Gate 并执行Open Run 后，可通过两种方式打开Clock Intersection 
+Report。 
+方式一，展开Design Summary –> Timing Summary  双击 Clock Intersection Report，可打开
+Clock Intersection Report 界面，如下图所示。 
+ 
+图 3-69 Clock Intersection Report 启动方式一 
+
+=== PDF PAGE 107 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 103 
+2025.01   
+ 
+方式二，也可通过菜单栏Tools->Timing Analyzer 点选Clock Intersection Report 打开界面，
+如下图所示。 
+ 
+图 3-70 Clock Intersection Report 启动方式二 
+3.5.2 Clock Intersection Report 主界面 
+打开 Clock Intersection Report 主界面 如下 图所 示，分 为两个 部分，界 面下方 为 Clock 
+Intersection 数据表，界面上方为N*N 方格图。 
+ 
+图 3-71 Clock Intersection Report 主界面 
+3.5.2.1 Clock Intersection 数据表 
+Clock Intersection 界面下方为各源时钟（Source Clock）到目的时钟（Destination Clock）之
+间的路径信息数据表，如下图所示。 
+
+=== PDF PAGE 108 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 104 
+2025.01   
+ 
+ 
+图 3-72 Clock Intersection 数据表 
+该数据表包含了一个搜索功能以及Show Max Data，Show Min Data，Slow Corner，Fast Corner 
+这 4 个选项。其中搜索功能，可根据不同的匹规则进行搜索，默认选择 Case Insensitive,Regular 
+Expression,Match Anywhere 匹配规则进行搜索，如下图所示。 
+ 
+图 3-73 Clock Intersection Report 主界面 
+各个匹配规则含义如下所示。 
+ Case Sensitive：区分大小写； 
+ Case Insensitive：不分大小写； 
+ Regular Expression：正则表达式； 
+ Fixed String：固定的字符串； 
+ Wild Cards：通配符； 
+ Match Anywhere：在任何地方匹配； 
+ Match from Start：在字符开头进行匹配； 
+ Match Exactly：精确匹配。 
+在图 3-72 中，默认勾选Show Max Data和Slow Corner 选项，可手动更改，勾选想要显示的时钟
+路径信息进行列表的切换。各选项的含义如下所示。 
+
+=== PDF PAGE 109 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 105 
+2025.01   
+ 
+ Show Max Data：勾选此项为Setup 时序分析，默认勾选。 
+ Show Min Data：勾选此项为Hold 时序分析。 
+ Slow Corner：勾选此项为慢路径延迟角度，默认勾选。 
+ Fast Corner：为快路径延迟角度。 
+数据表中的每一行的数据均是时钟“单向”的， 即从一个Source Clock（源时钟） 到Destination 
+Clock（目的时钟） 。如果两个不同时钟之间互有信号发送和捕获，则在此表格中需要分两行进行描述。
+数据表中各信息条目的含义如下表所示。 
+表 3-7 数据表信息条目含义解析表 
+数据表条目 含义解析 
+Source Clock 源时钟，即数据发送时钟 
+Destination Clock 目的时钟，即数据捕获时钟 
+Edges(WNS) 为最差时序路径的发送、 捕获时钟的触发沿 
+WNS (ns) 
+为最差时序路径的slack（时序裕量），slack 小于0，说
+明存在时序违例 
+TNS (ns) 
+为该时钟关系的所有时序路径分析中slack 为负数的总
+和，若没有时序违例该值为0 
+Failing Endpoints(TNS) 为下降沿捕获的路径终端数 
+Total Endpoints(TNS) 总的路径终端数 
+Total Path 总的路径数 
+Timing Req(WNS) 路径延迟预算 
+Clock Pair Classification 时钟间交叉关系分类，参考表 3-8 
+Inter-clock Constraints 时钟间约束状态，参考表 3-9 
+数据表中信息条目Clock Pair Classification，为对Source Clock 和 Destination Clock 时
+钟对按照时序约束进行分类,可能出现的标签和含义如下表所示。 
+表 3-8 Clock Pair Classification 分类表 
+分类标签 含义解析 
+IGNORED  
+使用 set_clock_groups 或者 set_false_path 指定此单向时钟关
+系中的所有路径不考虑时序分析 
+VIRTUAL  
+表示 Source Clock 或者 Destination Clock 中至少有一个是 
+Virtual Clock  
+DERIVED  
+表示Source Clock 或者 Destination Clock 中至少有一个是
+derived_clocks 生成的时钟 
+NO_COMMON_MASTER  表示两个时钟来自于两个 Primary Clock  
+NO_EXPAND  表示两个时钟完全是异步时钟，或不可扩展时钟即在1000 个时钟周
+=== PDF PAGE 110 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 106 
+2025.01   
+ 
+分类标签 含义解析 
+期内两个时钟找不到时钟沿重合的点 
+CLEAN  
+表示两个时钟同属一个 Primary Clock 定义的时钟域，且有限时间
+跨度内同步 
+数据表中信息条目 Inter-clock Constraints 为两个时钟间的关系，可能出现的标签和含义如下
+表所示。 
+表 3-9 Inter-clock Constraints 关系表 
+关系标签 含义解析 
+NOPATH  
+不存在此单向时钟关系的时序路径，即不存在此 Souce Clock 到
+Destination Clock 的数据传递路径；在 N*N 方格中默认为灰色显
+示。 
+FALSE_PATH  
+此单向时钟关系中的所有时序路径均被 set_false_path 约束成了
+伪路径，要求忽略；在N*N 方格中默认为蓝色显示。 
+EXCLUSIVE_GROUPS  
+此单向时钟关系中的所有时序路径均被 set_clock_groups 约束成
+不相关路径，要求忽略；在N*N 方格中默认为紫色显示。 
+TIMED_SAFE  
+Source Clock 和 Destination Clock 存在同步关系；在N*N 方格
+中默认为绿色显示。 
+TIMED_UNSAFE  
+Source Clock和 Destination Clock存在异步关系；在N*N 方格中
+默认为红色显示。 
+PT_FP_SAFE  
+Source Clock和 Destination Clock存在同步关系，至少有一条时
+序路径被set_false_path 约束成了伪路径要求忽略；在N*N 方格中
+默认为青色显示。 
+PT_FP_UNSAFE  
+Source 和 Destination 存在异步关系 ，至少有一条时序路径被
+set_false_path 约束成了伪路径要求忽略；在N*N 方格中默认为橙
+色显示。 
+鼠标单击选择数据表其中一行， 右键可以对该组时钟进行包括时序例外约束、 时序报告等操作， 如
+下图所示。 
+ 
+图 3-74 数据表右键功能 
+
+=== PDF PAGE 111 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 107 
+2025.01   
+ 
+右键功能介绍如下。 
+ Report Timing： 
+点击Report Timing，可调出该组时钟间的时序报告，如下图所示。时序报告相关操作请参阅本文
+档 3.1 节 Timing Report。 
+ 
+图 3-75 右键 Report Timing 功能 
+ Set Clock Groups，Set False Paths，Set Multicycle path，Set Max Delay： 
+点击这些选项，会弹出如下图所示 Warning 弹窗，提示更改 Timing Wizard 不会导致重启运行
+Optimize RTL stage。 
+ 
+图 3-76 跳转 Timing Wizard 前 Warning 弹窗 
+如果点击 Warning 弹窗中 Cancel 按钮，则取消操作，点击 Continue 即会打开 Timing Wizard 可
+对该组时钟进行时序例外相关约束。如下图所示，为点击Set Clock Groups，即跳转至Timing Wizard
+界面，点击 Ok 按钮即可生成相应的set_clock_groups 命令，点击Save 即会保存到SDC 文件。Timing 
+Wizard 具体操作方法请参阅本文档第2 章 时序约束工具相关章节。 
+
+=== PDF PAGE 112 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 108 
+2025.01   
+ 
+ 
+图 3-77 跳转 Timing Wizard 界面 
+ Copy Selected All Columns： 
+复制数据表中所选择行的时钟关系所有信息。 
+ Copy Clock Pair： 
+复制数据表中所选择行的时钟对名字。 
+右键功能可在Timing Wizard 不关闭的情况下，继续在Clock Intersection Report 进行其他时
+钟对的时序例外约束，而不需要频繁关闭界面后进行跳转。 
+3.5.2.2 N*N 方格图 
+Clock Intersection 主界面上方为N*N 方格图，是根据 Clock Intersection 数据表中 Inter-
+clock Constraints 条目分类进行映射画出。 
+图中纵向为 Source clocks，横向为 Destination Clocks，不同的 Inter-clock Constraints 分
+类对应不同的的颜色，如下图所示。 
+
+=== PDF PAGE 113 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 109 
+2025.01   
+ 
+ 
+图 3-78 N*N 方格图 
+点击图中某个时钟关系方格，右键也会有和数据表一样的功能能，如下图所示。 
+ 
+图 3-79 N*N 方格右键功能图 
+3.5.2.3 Clock Intersection Report 工具栏 
+点击Clock Intersection主界面左上角工具栏的设置按钮，即可打开Clock Intersecton Options
+窗口。 
+Options 窗口中Visibility 一栏可以通过勾选来筛选在N*N 方格中显示哪些Clock，如下图所示。
+点击下方Reset 可以复位Visibility 同时复位Colors 到默认设置。 
+
+=== PDF PAGE 114 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 110 
+2025.01   
+ 
+ 
+图 3-80 Clock Intersection Options 设置栏 Visibility 
+Options 窗口中Colors 一栏可以对N*N 方格中各Inter-clock Constraints 分类的颜色进行自定
+义修改。如下图所示，通过双击Color 列表某一行，在弹出的Select Color 窗口中选择颜色后，点击
+OK 即可对相应分类的颜色更改；点击下方Reset 可以复位Colors 同时复位Visibility 到默认设置。 
+ 
+图 3-81 Clock Intersection Options 设置栏 Colors 
+  
+
+=== PDF PAGE 115 ===
+ 
+ 
+TangDynasty®时序工具用户手册  
+SWUG201_1.1 www.anlogic.com 111 
+2025.01   
+ 
+版本信息 
+日期 版本 修订记录 
+2024/09/24 1.0 首次根据版本软件TD6.0.3 发布手册. 
+2025/01/16 1.1 增加了3.3.3 节 dummy_node 界面介绍 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+版权所有©2025 上海安路信息科技股份有限公司  
+未经本公司书面许可， 任何单位和个人都不得擅自摘抄、 复制、 翻译本文档内容的部分或全部， 并不得
+以任何形式传播。  
+免责声明  
+本文档并未授予任何知识产权的许可， 并未以明示或暗示， 或以禁止发言或其他方式授予任何知识产权
+许可；本文档仅为向用户提供使用器件的参考， 协助用户正确地使用安路科技产品之用， 其著作权归安
+路科技所有；本文档所展示的任何产品信息均不构成安路科技对所涉产品或服务作出任何明示或默示
+的声明或保证。  
+安路科技将不定期地对本文档进行更新、 修订。 用户如需获取最新版本的文档， 可通过安路科技的官方
+网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。 

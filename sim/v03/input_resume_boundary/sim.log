@@ -1,0 +1,37 @@
+
+===== vsim =====
+$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_v03_inputs -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c -voptargs="+acc" work.tb_v03_inputs -do "run -all; quit -f" 
+# Start time: 20:46:31 on Oct 30,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_v03_inputs(fast)
+# Loading work.medq_board_inputs(fast)
+# Loading work.medq_v03_inputs(fast)
+# run -all
+# PASS synchronized/debounced four keys: bounce, long hold, 8 initial switch levels, both doctor edges, pause drop and no replay, unused SW
+# ** Note: $finish    : C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_v03_inputs.v(41)
+#    Time: 66920 ns  Iteration: 1  Instance: /tb_v03_inputs
+# End time: 20:46:32 on Oct 30,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+
+[exit code 0]

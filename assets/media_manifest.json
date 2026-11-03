@@ -1,0 +1,78 @@
+{
+  "revision": "media_carousel_20261103",
+  "male_selection": "doctor_male.png",
+  "scaling": "offline Lanczos, supersampled rounded corner mask; runtime native pixels",
+  "images": [
+    {
+      "source": "assets\\media_source\\cover.jpg",
+      "source_sha256": "9710a7883faaef1b5d7e2a2fdae958d43b0949e7879764ab66132d41584fcc60",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "crop": null,
+      "runtime": "assets\\sd_root\\COVER.BMP",
+      "sha256": "ef493ecdc26838aa05788cf264184d92ed4a7def5419151f3d8fe338a68e2c6c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "format": "24-bit uncompressed top-down BMP",
+      "viewport": null
+    },
+    {
+      "source": "assets\\media_source\\doctor_male.png",
+      "source_sha256": "31c30531b1a27a6e05686ed3dede0c44c4c02386958614726652bc8655be2b98",
+      "source_size": [
+        1402,
+        1122
+      ],
+      "crop": [
+        210,
+        0,
+        1270,
+        900
+      ],
+      "runtime": "assets\\sd_root\\DOC01.BMP",
+      "sha256": "be94e60a122672c5988cdf4fe7574f2788f223987fa99a6e0d7527ca723d3de0",
+      "dimensions": [
+        640,
+        480
+      ],
+      "format": "24-bit uncompressed top-down BMP",
+      "viewport": [
+        456,
+        298,
+        152,
+        128
+      ]
+    },
+    {
+      "source": "assets\\media_source\\doctor_female.jpg",
+      "source_sha256": "14374e7fb25cf50465d1cdf45fd7e4a77b295f7f43535b31d146b5069324b1b2",
+      "source_size": [
+        1233,
+        1275
+      ],
+      "crop": [
+        160,
+        0,
+        1175,
+        855
+      ],
+      "runtime": "assets\\sd_root\\DOC02.BMP",
+      "sha256": "c88791ac05e6f4c17b4f3558d418889acf748c1b025b298d9f37729d412787f6",
+      "dimensions": [
+        640,
+        480
+      ],
+      "format": "24-bit uncompressed top-down BMP",
+      "viewport": [
+        456,
+        298,
+        152,
+        128
+      ]
+    }
+  ]
+}

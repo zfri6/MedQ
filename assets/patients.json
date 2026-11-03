@@ -1,0 +1,308 @@
+{
+  "revision": "masked_smooth_20261102",
+  "mapping": "independent existing A/B initial and C/D return counters; table order within each type",
+  "outside_list": "anonymous patient; no wrap or invented names",
+  "patients": [
+    {
+      "room": "A",
+      "list_order": 1,
+      "name": "张伟民",
+      "surname": "张",
+      "patient_type": "return",
+      "ticket": "C01",
+      "clip": 21,
+      "display_name": "张*民"
+    },
+    {
+      "room": "A",
+      "list_order": 2,
+      "name": "李娜芳",
+      "surname": "李",
+      "patient_type": "return",
+      "ticket": "C02",
+      "clip": 22,
+      "display_name": "李*芳"
+    },
+    {
+      "room": "A",
+      "list_order": 3,
+      "name": "王磊军",
+      "surname": "王",
+      "patient_type": "return",
+      "ticket": "C03",
+      "clip": 23,
+      "display_name": "王*军"
+    },
+    {
+      "room": "A",
+      "list_order": 4,
+      "name": "陈静怡",
+      "surname": "陈",
+      "patient_type": "return",
+      "ticket": "C04",
+      "clip": 24,
+      "display_name": "陈*怡"
+    },
+    {
+      "room": "A",
+      "list_order": 5,
+      "name": "刘洋帆",
+      "surname": "刘",
+      "patient_type": "return",
+      "ticket": "C05",
+      "clip": 25,
+      "display_name": "刘*帆"
+    },
+    {
+      "room": "A",
+      "list_order": 6,
+      "name": "赵敏华",
+      "surname": "赵",
+      "patient_type": "initial",
+      "ticket": "A01",
+      "clip": 26,
+      "display_name": "赵*华"
+    },
+    {
+      "room": "A",
+      "list_order": 7,
+      "name": "黄凯文",
+      "surname": "黄",
+      "patient_type": "initial",
+      "ticket": "A02",
+      "clip": 27,
+      "display_name": "黄*文"
+    },
+    {
+      "room": "A",
+      "list_order": 8,
+      "name": "周婷婷",
+      "surname": "周",
+      "patient_type": "initial",
+      "ticket": "A03",
+      "clip": 28,
+      "display_name": "周*婷"
+    },
+    {
+      "room": "A",
+      "list_order": 9,
+      "name": "吴昊然",
+      "surname": "吴",
+      "patient_type": "initial",
+      "ticket": "A04",
+      "clip": 29,
+      "display_name": "吴*然"
+    },
+    {
+      "room": "A",
+      "list_order": 10,
+      "name": "徐琳娜",
+      "surname": "徐",
+      "patient_type": "initial",
+      "ticket": "A05",
+      "clip": 30,
+      "display_name": "徐*娜"
+    },
+    {
+      "room": "A",
+      "list_order": 11,
+      "name": "孙杰明",
+      "surname": "孙",
+      "patient_type": "initial",
+      "ticket": "A06",
+      "clip": 31,
+      "display_name": "孙*明"
+    },
+    {
+      "room": "A",
+      "list_order": 12,
+      "name": "林芳怡",
+      "surname": "林",
+      "patient_type": "initial",
+      "ticket": "A07",
+      "clip": 32,
+      "display_name": "林*怡"
+    },
+    {
+      "room": "A",
+      "list_order": 13,
+      "name": "何超群",
+      "surname": "何",
+      "patient_type": "initial",
+      "ticket": "A08",
+      "clip": 33,
+      "display_name": "何*群"
+    },
+    {
+      "room": "A",
+      "list_order": 14,
+      "name": "郑雪梅",
+      "surname": "郑",
+      "patient_type": "initial",
+      "ticket": "A09",
+      "clip": 34,
+      "display_name": "郑*梅"
+    },
+    {
+      "room": "A",
+      "list_order": 15,
+      "name": "高峰宇",
+      "surname": "高",
+      "patient_type": "initial",
+      "ticket": "A10",
+      "clip": 35,
+      "display_name": "高*宇"
+    },
+    {
+      "room": "B",
+      "list_order": 1,
+      "name": "马宁远",
+      "surname": "马",
+      "patient_type": "return",
+      "ticket": "D01",
+      "clip": 36,
+      "display_name": "马*远"
+    },
+    {
+      "room": "B",
+      "list_order": 2,
+      "name": "胡悦欣",
+      "surname": "胡",
+      "patient_type": "return",
+      "ticket": "D02",
+      "clip": 37,
+      "display_name": "胡*欣"
+    },
+    {
+      "room": "B",
+      "list_order": 3,
+      "name": "罗斌杰",
+      "surname": "罗",
+      "patient_type": "return",
+      "ticket": "D03",
+      "clip": 38,
+      "display_name": "罗*杰"
+    },
+    {
+      "room": "B",
+      "list_order": 4,
+      "name": "唐莉娜",
+      "surname": "唐",
+      "patient_type": "return",
+      "ticket": "D04",
+      "clip": 39,
+      "display_name": "唐*娜"
+    },
+    {
+      "room": "B",
+      "list_order": 5,
+      "name": "蔡宇航",
+      "surname": "蔡",
+      "patient_type": "return",
+      "ticket": "D05",
+      "clip": 40,
+      "display_name": "蔡*航"
+    },
+    {
+      "room": "B",
+      "list_order": 6,
+      "name": "杨帆宇",
+      "surname": "杨",
+      "patient_type": "initial",
+      "ticket": "B01",
+      "clip": 41,
+      "display_name": "杨*宇"
+    },
+    {
+      "room": "B",
+      "list_order": 7,
+      "name": "许晴雯",
+      "surname": "许",
+      "patient_type": "initial",
+      "ticket": "B02",
+      "clip": 42,
+      "display_name": "许*雯"
+    },
+    {
+      "room": "B",
+      "list_order": 8,
+      "name": "梁森杰",
+      "surname": "梁",
+      "patient_type": "initial",
+      "ticket": "B03",
+      "clip": 43,
+      "display_name": "梁*杰"
+    },
+    {
+      "room": "B",
+      "list_order": 9,
+      "name": "袁静怡",
+      "surname": "袁",
+      "patient_type": "initial",
+      "ticket": "B04",
+      "clip": 44,
+      "display_name": "袁*怡"
+    },
+    {
+      "room": "B",
+      "list_order": 10,
+      "name": "邓超然",
+      "surname": "邓",
+      "patient_type": "initial",
+      "ticket": "B05",
+      "clip": 45,
+      "display_name": "邓*然"
+    },
+    {
+      "room": "B",
+      "list_order": 11,
+      "name": "彭宇轩",
+      "surname": "彭",
+      "patient_type": "initial",
+      "ticket": "B06",
+      "clip": 46,
+      "display_name": "彭*轩"
+    },
+    {
+      "room": "B",
+      "list_order": 12,
+      "name": "曹颖欣",
+      "surname": "曹",
+      "patient_type": "initial",
+      "ticket": "B07",
+      "clip": 47,
+      "display_name": "曹*欣"
+    },
+    {
+      "room": "B",
+      "list_order": 13,
+      "name": "韩旭东",
+      "surname": "韩",
+      "patient_type": "initial",
+      "ticket": "B08",
+      "clip": 48,
+      "display_name": "韩*东"
+    },
+    {
+      "room": "B",
+      "list_order": 14,
+      "name": "蒋欣怡",
+      "surname": "蒋",
+      "patient_type": "initial",
+      "ticket": "B09",
+      "clip": 49,
+      "display_name": "蒋*怡"
+    },
+    {
+      "room": "B",
+      "list_order": 15,
+      "name": "方明远",
+      "surname": "方",
+      "patient_type": "initial",
+      "ticket": "B10",
+      "clip": 50,
+      "display_name": "方*远"
+    }
+  ],
+  "display_policy": "first character + one literal asterisk + last character; audio full name"
+}

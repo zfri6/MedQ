@@ -1,0 +1,134 @@
+{
+  "oracle": "direct independently positioned font rasters, no RTL/generated layout/atlas import",
+  "width": 384,
+  "height": 20,
+  "cases": [
+    {
+      "room": 0,
+      "kind": 1,
+      "is_return": false,
+      "text": "A01赵*华取号成功，请候诊",
+      "width": 208
+    },
+    {
+      "room": 0,
+      "kind": 2,
+      "is_return": true,
+      "text": "C01张*民回诊取号成功，请候诊",
+      "width": 235
+    },
+    {
+      "room": 0,
+      "kind": 3,
+      "is_return": false,
+      "text": "请A01赵*华到A诊室就诊",
+      "width": 201
+    },
+    {
+      "room": 0,
+      "kind": 4,
+      "is_return": true,
+      "text": "C01张*民已到位，就诊中",
+      "width": 186
+    },
+    {
+      "room": 0,
+      "kind": 5,
+      "is_return": true,
+      "text": "C01张*民就诊结束",
+      "width": 139
+    },
+    {
+      "room": 0,
+      "kind": 6,
+      "is_return": false,
+      "text": "A诊室已暂停叫号",
+      "width": 129
+    },
+    {
+      "room": 0,
+      "kind": 7,
+      "is_return": false,
+      "text": "A诊室已开启叫号",
+      "width": 129
+    },
+    {
+      "room": 0,
+      "kind": 8,
+      "is_return": true,
+      "text": "C01张*民未到位，已过号",
+      "width": 187
+    },
+    {
+      "room": 0,
+      "kind": 9,
+      "is_return": false,
+      "text": "A诊室取号失败·满员或号尽",
+      "width": 211
+    },
+    {
+      "room": 1,
+      "kind": 1,
+      "is_return": false,
+      "text": "B01杨*宇取号成功，请候诊",
+      "width": 205
+    },
+    {
+      "room": 1,
+      "kind": 2,
+      "is_return": true,
+      "text": "D01马*远回诊取号成功，请候诊",
+      "width": 236
+    },
+    {
+      "room": 1,
+      "kind": 3,
+      "is_return": false,
+      "text": "请B01杨*宇到B诊室就诊",
+      "width": 196
+    },
+    {
+      "room": 1,
+      "kind": 4,
+      "is_return": true,
+      "text": "D01马*远已到位，就诊中",
+      "width": 187
+    },
+    {
+      "room": 1,
+      "kind": 5,
+      "is_return": true,
+      "text": "D01马*远就诊结束",
+      "width": 140
+    },
+    {
+      "room": 1,
+      "kind": 6,
+      "is_return": false,
+      "text": "B诊室已暂停叫号",
+      "width": 127
+    },
+    {
+      "room": 1,
+      "kind": 7,
+      "is_return": false,
+      "text": "B诊室已开启叫号",
+      "width": 127
+    },
+    {
+      "room": 1,
+      "kind": 8,
+      "is_return": true,
+      "text": "D01马*远未到位，已过号",
+      "width": 188
+    },
+    {
+      "room": 1,
+      "kind": 9,
+      "is_return": false,
+      "text": "B诊室取号失败·满员或号尽",
+      "width": 209
+    }
+  ],
+  "sha256": "0749ff998991b8ff8bf146f633d5f868233a2767dd1ecef0f0520b66b5e0f301"
+}

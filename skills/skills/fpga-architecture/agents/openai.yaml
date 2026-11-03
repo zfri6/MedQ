@@ -1,0 +1,6 @@
+interface:
+  display_name: "FPGA Architecture"
+  short_description: "规划模块拆分、接口契约、时钟复位 CDC 与顶层骨架"
+  default_prompt: "Use $fpga-architecture to create module partitioning, interface contracts, clock/reset/CDC notes, and an RTL top skeleton."
+policy:
+  allow_implicit_invocation: true

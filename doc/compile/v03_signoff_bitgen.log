@@ -1,0 +1,2 @@
+STA_SIGNOFF_PASS {'SWNS': 0.1, 'STNS': 0.0, 'HWNS': 0.023, 'HTNS': 0.0} doc\compile\timing_closure\20261030T123755Z_242fb81b\signoff.json
+BITGEN_PASS prj/td/runs/bitgen_20261030T124340Z_e779adc6/MedQ_v0.3_timing_20261030.bit SHA256 4df401b663d1f999ec98ad31a9773c08731f882c852d661c8bafe345bd82e930

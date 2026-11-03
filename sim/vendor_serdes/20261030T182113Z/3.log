@@ -1,0 +1,36 @@
+$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_tmds_serdes_eg4 work.glbl -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c -voptargs="+acc" work.tb_tmds_serdes_eg4 work.glbl -do "run -all; quit -f" 
+# Start time: 02:21:15 on Oct 31,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_tmds_serdes_eg4(fast)
+# Loading work.serdes_vendor_case(fast)
+# Loading work.tmds_serdes(fast)
+# Loading work.EG_LOGIC_ODDR(fast)
+# Loading work.serdes_vendor_case(fast__1)
+# Loading work.glbl(fast)
+# run -all
+# PASS EG4 ODDR: four lanes, 1200 words per phase, all 1024 input codes, both DDR edges, reset/restart
+# ** Note: $finish    : tb_tmds_serdes_eg4.v(79)
+#    Time: 48145 ns  Iteration: 2  Instance: /tb_tmds_serdes_eg4
+# End time: 02:21:17 on Oct 31,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0

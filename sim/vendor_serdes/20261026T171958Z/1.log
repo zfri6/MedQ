@@ -1,0 +1,25 @@
+$ C:\modeltech64_10.4\win64\vlog.exe -work work eg_logic_io.v eg_phy_glbl.v tmds_serdes.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+Start time: 01:19:58 on Oct 27,2026
+vlog -work work eg_logic_io.v eg_phy_glbl.v tmds_serdes.v 
+-- Compiling module EG_LOGIC_IDELAY
+-- Compiling module EG_LOGIC_IDDR
+-- Compiling module EG_LOGIC_ODDR
+-- Compiling module EG_LOGIC_IDDRx2
+-- Compiling module EG_LOGIC_ODELAY
+-- Compiling module EG_LOGIC_ODDRx2
+-- Compiling module EG_LOGIC_ODDRx2l
+-- Compiling module glbl
+-- Compiling module tmds_serdes
+
+Top level modules:
+	EG_LOGIC_IDELAY
+	EG_LOGIC_IDDR
+	EG_LOGIC_IDDRx2
+	EG_LOGIC_ODELAY
+	EG_LOGIC_ODDRx2
+	EG_LOGIC_ODDRx2l
+	glbl
+	tmds_serdes
+End time: 01:19:58 on Oct 27,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

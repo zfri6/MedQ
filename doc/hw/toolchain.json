@@ -1,0 +1,157 @@
+{
+  "target": {
+    "family": "EG4",
+    "device": "EG4S20BG256",
+    "device_db": "eagle_s20.db",
+    "package": "BG256"
+  },
+  "td": {
+    "td_home": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116",
+    "td_exe": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td.exe",
+    "device_db": "eagle_s20.db",
+    "arch_dbs": [
+      "dr1_90.db",
+      "eagle_15.db",
+      "eagle_20.db",
+      "eagle_s20.db",
+      "ef2_1.db",
+      "ef2_2.db",
+      "ef2_4.db",
+      "ef2_s4.db",
+      "ef3_1.db",
+      "ef3_10.db",
+      "ef3_4.db",
+      "ef3_45.db",
+      "ef3_5.db",
+      "ef3_7.db",
+      "ef3_9.db",
+      "ef4_9.db",
+      "ph1_100.db",
+      "ph1_100p.db",
+      "ph1_180.db",
+      "ph1_35p.db",
+      "ph1_400.db",
+      "ph1_50p.db",
+      "ph1_60.db",
+      "ph1_60c.db",
+      "ph1_90.db",
+      "ph2_106.db",
+      "sf1_6.db",
+      "sf2_1.db",
+      "system.db"
+    ],
+    "sim_release": {
+      "common": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/common",
+      "dr1": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/dr1",
+      "ef2": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/ef2",
+      "ef3": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/ef3",
+      "ef4": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/ef4",
+      "eg4": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/eg4",
+      "ph1": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/ph1",
+      "ph1p": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/ph1p",
+      "ph2": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/ph2",
+      "sf1": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/sf1",
+      "sf2": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/sim_release/sf2"
+    },
+    "warnings": [],
+    "command_exe": "C:/Anlogic/TD_6.2.1_Engineer_6.2.168.116/bin/td_commands_prompt.exe",
+    "package_selector": "EG4S20BG256",
+    "batch_mode": "td_commands_prompt.exe script.tcl (forward-slash paths)",
+    "device_import_verified": true,
+    "license_status": "PASS",
+    "license_evidence": "prj/td/runs/20261103T061423Z_c18a20e8/result.json",
+    "whole_system_synthesized": true,
+    "batch_driver": "prj/td/medq_td.py",
+    "analysis_method": "per-source analyze -file; elaborate -top",
+    "full_top_analysis_status": "PASS_after_generated_medq_pll",
+    "full_top_analysis_evidence": "prj/td/runs/20261103T061423Z_c18a20e8/result.json",
+    "hardware_functional_integration_complete": true,
+    "top_synthesis_scope": "SW1 call-only gate, live enqueue/display, independent A/B/C/D sequences, four-level AA 4K font, 21 speech clips; dual-corner setup/hold PASS; no board test",
+    "gate_synthesis_evidence": "prj/td/runs/20261101T175048Z_238c39bd/result.json",
+    "gui_project_open_verified": true,
+    "generated_pll": "rtl/al_ip/medq_pll.v",
+    "gate_resource_status": {
+      "IO": {
+        "used": 40,
+        "available": 188
+      },
+      "lut": {
+        "used": 14780,
+        "available": 19600
+      },
+      "reg": {
+        "used": 7834,
+        "available": 19600
+      },
+      "bram": {
+        "used": 42,
+        "available": 64
+      },
+      "bram32k": {
+        "used": 0,
+        "available": 16
+      },
+      "dsp": {
+        "used": 20,
+        "available": 29
+      },
+      "pad": {
+        "used": 44,
+        "available": 188
+      },
+      "pll": {
+        "used": 2,
+        "available": 4
+      },
+      "gclk": {
+        "used": 2,
+        "available": 16
+      }
+    },
+    "implementation_status": "native_routed_strict_signoff_PASS",
+    "bitstream_generated": true,
+    "timing_signoff": "doc/compile/timing_closure/20261103T061423Z_c18a20e8/signoff.json",
+    "bitstream_evidence": "prj/td/runs/bitgen_20261103T063042Z_1db5f403/result.json",
+    "physical_resource_status": {
+      "IO": {
+        "used": 40,
+        "available": 188
+      },
+      "lut": {
+        "used": 15268,
+        "available": 19600
+      },
+      "reg": {
+        "used": 5927,
+        "available": 19600
+      },
+      "bram": {
+        "used": 56,
+        "available": 64
+      },
+      "bram32k": {
+        "used": 0,
+        "available": 16
+      },
+      "dsp": {
+        "used": 17,
+        "available": 29
+      },
+      "pad": {
+        "used": 44,
+        "available": 188
+      },
+      "pll": {
+        "used": 2,
+        "available": 4
+      },
+      "gclk": {
+        "used": 2,
+        "available": 16
+      }
+    }
+  },
+  "modelsim_bin": "C:/modeltech64_10.4/win64",
+  "iverilog_bin": "C:/iverilog/bin",
+  "workspace_ascii": false
+}

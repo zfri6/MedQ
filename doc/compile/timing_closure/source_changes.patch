@@ -1,0 +1,993 @@
+--- before/prj/constr/top.sdc
++++ after/prj/constr/top.sdc
+@@ -1,9 +1,22 @@
+-# MedQ clock constraints DRAFT. See hardware_readiness.json before implementation.
++# MedQ clock constraints. Real PLL frequencies/phases are inferred, not relaxed.
+ # 50 MHz supported by HX_CESHI_EG4S_BORD and clk_wize FIN=50.000.
+ create_clock -name clk_sys -period 20 -waveform {0 10} [get_ports {clk50mhz}]
+ # Infer the real 25/125 MHz relationship from the preserved generated wrapper.
+ derive_clocks -instance [get_cells {u_medq_pll/pll_inst}]
+ derive_clocks -instance [get_cells {u_sys_pll/pll_inst}]
+-# medq_pll: C0=125 MHz, C1=25 MHz; sys_pll: C1=100 MHz, C2=100 MHz/180.
++# medq_pll: C0=125 MHz, C1=25 MHz; sys_pll: C0/C1=50 MHz, C2=50 MHz/+8ns.
+ # No global clock-group or false-path exceptions: preserve related-clock checks.
+-# CDC/reset exceptions and external SD/UART timing need TD path-level review.
++# Keep the conservative SIP max-output 5ns model, but use the correct negative
++# output-delay sign for a positive 1ns SDRAM input hold requirement. This tightens
++# the native default min=+1ns by 2ns; it does not relax a failing path.
++set_output_delay -clock [get_clocks {u_sys_pll/pll_inst.clkc[2]}] -reference_pin [get_pins {u_sdram_ctrl_wrap/u_hardware/u_device/sdram.clk}] -max 5.0 [get_pins {u_sdram_ctrl_wrap/u_hardware/u_device/sdram.dq* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.addr* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.ba* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.ras_n u_sdram_ctrl_wrap/u_hardware/u_device/sdram.cas_n u_sdram_ctrl_wrap/u_hardware/u_device/sdram.we_n u_sdram_ctrl_wrap/u_hardware/u_device/sdram.dm* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.cke u_sdram_ctrl_wrap/u_hardware/u_device/sdram.cs_n}]
++set_output_delay -clock [get_clocks {u_sys_pll/pll_inst.clkc[2]}] -reference_pin [get_pins {u_sdram_ctrl_wrap/u_hardware/u_device/sdram.clk}] -min -1.0 [get_pins {u_sdram_ctrl_wrap/u_hardware/u_device/sdram.dq* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.addr* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.ba* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.ras_n u_sdram_ctrl_wrap/u_hardware/u_device/sdram.cas_n u_sdram_ctrl_wrap/u_hardware/u_device/sdram.we_n u_sdram_ctrl_wrap/u_hardware/u_device/sdram.dm* u_sdram_ctrl_wrap/u_hardware/u_device/sdram.cke u_sdram_ctrl_wrap/u_hardware/u_device/sdram.cs_n}]
++# Per-interface local routing budgets; see timing_closure/io_contract.md.
++# Asynchronous contacts/UART terminate at the first synchronizer, whose input
++# cannot have a synchronous setup/hold relationship. Subsequent stages retain
++# their full clock checks. SD mode 0 has >=40ns per data half-cycle.
++set_max_delay -datapath_only 8.0 -from [get_ports {KEY* SW* UART_RX SD_MISO}]
++set_max_delay -datapath_only 20.0 -from [all_registers] -to [get_ports {LED* SEG_DATA* SEG_SEL* BUZZER UART_TX}]
++set_max_delay -datapath_only 8.0 -from [all_registers] -to [get_ports {SD_MOSI SD_SCLK SD_nCS}]
++# Maximum FPGA-local DDR pad latency, not a board/HDMI receiver eye measurement.
++set_max_delay -datapath_only 4.0 -from [all_registers] -to [get_ports {HDMI_CLK_P HDMI_D0_P HDMI_D1_P HDMI_D2_P}]
+--- before/prj/td/medq_td.py
++++ after/prj/td/medq_td.py
+@@ -83,14 +83,19 @@
+         lines += ['read_adc {prj/constr/top.adc}', 'read_sdc {prj/constr/top.sdc}']
+     if mode != 'analyze':
+         lines += ['optimize_rtl', f'report_area -file {rep}_rtl.area',
++                  'set_param gate map_mode area_prior', 'set_param gate pack_effort high',
+                   f'optimize_gate -packarea {rep}_gate.area',
+                   f'export_db prj/td/output/{name}_gate.db', 'puts "MEDQ_STAGE_SYNTHESIZED"']
+     if mode in ('implement', 'bitgen'):
+-        lines += ['legalize_phy_inst', 'update_timing', 'place', 'route',
++        lines += ['legalize_phy_inst', 'update_timing',
++                  'set_param route effort routability',
++                  'place', 'route', 'fix_hold',
+                   f'report_area -io_info -file {rep}_phy.area', 'update_timing -mode final',
+                   f'report_timing_status -file {rep}_phy.ts',
+-                  f'report_timing_summary -file {rep}_pr.timing',
++                  f'report_timing_summary -ep_num 500 -file {rep}_pr.timing',
+                   f'report_timing_exception -file {rep}_exception.timing',
++                  f'report_timing_ignored -ep_num 500 -file {rep}_ignored.timing',
++                  f'check_timing -verbose -file {rep}_constraint_health.rpt',
+                   f'export_db prj/td/output/{name}_pr.db', 'puts "MEDQ_STAGE_IMPLEMENTED"']
+     if mode == 'bitgen':
+         lines += [f'bitgen -bit prj/td/output/{name}.bit']
+--- before/prj/td/test_td_flow.py
++++ after/prj/td/test_td_flow.py
+@@ -4,6 +4,10 @@
+ import subprocess
+ import sys
+ import xml.etree.ElementTree as ET
++import json
++import io
++from contextlib import redirect_stdout
++from unittest.mock import patch
+ from pathlib import Path
+ import medq_td
+ 
+@@ -77,9 +81,15 @@
+         self.assertIsNotNone(root.find('Source_Files/SDC_FILE/File'))
+ 
+     def test_current_readiness_blocks_bitgen(self):
+-        run=subprocess.run([sys.executable,str(medq_td.ROOT/'prj/td/medq_td.py'),'--mode','bitgen'],
+-                           cwd=medq_td.ROOT,capture_output=True,text=True)
+-        self.assertEqual(run.returncode,2);self.assertIn('BLOCKED',run.stdout)
++        # The actual project's readiness changes after successful signoff.
++        # Keep this negative control isolated from real release state.
++        ready=self.stage/'prj/td/hardware_readiness.json'
++        ready.parent.mkdir(parents=True,exist_ok=True)
++        ready.write_text(json.dumps({'required':{'clock_and_cdc_constraints_reviewed':False}}))
++        output=io.StringIO()
++        with patch.object(medq_td,'ROOT',self.stage),patch.object(sys,'argv',['medq_td','--mode','bitgen']),redirect_stdout(output):
++            code=medq_td.main()
++        self.assertEqual(code,2);self.assertIn('BLOCKED',output.getvalue())
+ 
+ 
+ if __name__=='__main__':unittest.main()
+--- before/rtl/al_ip/medq_pll.ipc
++++ after/rtl/al_ip/medq_pll.ipc
+@@ -6,9 +6,8 @@
+         <create_VHDL>true</create_VHDL>
+     </GeneralConfig>
+     <Page1>
+-        <clk_num>CLKC0</clk_num>
+         <enable_reset>ENABLE</enable_reset>
+-        <feedback_mode>Normal</feedback_mode>
++        <feedback_mode>No compensation</feedback_mode>
+         <input_frequency>50.0000000000000000MHz</input_frequency>
+         <pll_lock>ENABLE</pll_lock>
+         <speed_grade>Any</speed_grade>
+@@ -18,7 +17,7 @@
+     </Page2>
+     <Page3>
+         <division_factor>2</division_factor>
+-        <multiplication_factor>5</multiplication_factor>
++        <multiplication_factor>40</multiplication_factor>
+         <setting>frequncy_setting</setting>
+         <clocks>
+             <clock>
+--- before/rtl/al_ip/medq_pll.v
++++ after/rtl/al_ip/medq_pll.v
+@@ -48,8 +48,9 @@
+     .DPHASE_SOURCE("DISABLE"),
+     .DYNCFG("DISABLE"),
+     .FIN("50.000000"),
+-    .FEEDBK_MODE("NORMAL"),
+-    .FEEDBK_PATH("CLKC0_EXT"),
++    .FEEDBK_MODE("NOCOMP"),
++    // Native VCO feedback: 50 MHz * 40 / 2 = 1 GHz; output ratios retained.
++    .FEEDBK_PATH("VCO_PHASE_0"),
+     .STDBY_ENABLE("DISABLE"),
+     .PLLRST_ENA("ENABLE"),
+     .SYNC_ENABLE("DISABLE"),
+@@ -59,7 +60,7 @@
+     .LPF_CAPACITOR(1),
+     .LPF_RESISTOR(8),
+     .REFCLK_DIV(2),
+-    .FBCLK_DIV(5),
++    .FBCLK_DIV(40),
+     .CLKC0_ENABLE("ENABLE"),
+     .CLKC0_DIV(8),
+     .CLKC0_CPHASE(7),
+@@ -77,7 +78,7 @@
+     .reset(reset),
+     .stdby(1'b0),
+     .extlock(extlock),
+-    .load_reg(1'b0),
++    .load_reg(5'b00000),
+     .psclk(1'b0),
+     .psdown(1'b0),
+     .psstep(1'b0),
+@@ -89,7 +90,7 @@
+     .di(8'b00000000),
+     .daddr(6'b000000),
+     .do({medq_pll_open8, medq_pll_open7, medq_pll_open6, medq_pll_open5, medq_pll_open4, medq_pll_open3, medq_pll_open2, medq_pll_open1}),
+-    .fbclk(clk0_out),
++    .fbclk(1'b0),
+     .clkc({medq_pll_open10, medq_pll_open9, clk2_out, clk1_out, clk0_buf}) 
+   );
+ 
+--- before/rtl/al_ip/sys_pll.ipc
++++ after/rtl/al_ip/sys_pll.ipc
+@@ -8,8 +8,7 @@
+     <Page1>
+         <speed_grade>Any</speed_grade>
+         <input_frequency>50.0000000000000000MHz</input_frequency>
+-        <feedback_mode>Normal</feedback_mode>
+-        <clk_num>CLKC0</clk_num>
++        <feedback_mode>No compensation</feedback_mode>
+         <enable_reset>ENABLE</enable_reset>
+     </Page1>
+     <Page2>
+@@ -17,7 +16,7 @@
+     </Page2>
+     <Page3>
+         <setting>frequncy_setting</setting>
+-        <multiplication_factor>1</multiplication_factor>
++        <multiplication_factor>20</multiplication_factor>
+         <division_factor>1</division_factor>
+         <clocks>
+             <clock>
+@@ -28,15 +27,15 @@
+             </clock>
+             <clock>
+                 <id>1</id>
+-                <clock_division_factor>10</clock_division_factor>
+-                <clock_frequency>100.0000000000000000MHz</clock_frequency>
++                <clock_division_factor>20</clock_division_factor>
++                <clock_frequency>50.0000000000000000MHz</clock_frequency>
+                 <phase_shift>0.0000000000000000deg</phase_shift>
+             </clock>
+             <clock>
+                 <id>2</id>
+-                <clock_division_factor>10</clock_division_factor>
+-                <clock_frequency>100.0000000000000000MHz</clock_frequency>
+-                <phase_shift>180.0000000000000000deg</phase_shift>
++                <clock_division_factor>20</clock_division_factor>
++                <clock_frequency>50.0000000000000000MHz</clock_frequency>
++                <phase_shift>144.0000000000000000deg</phase_shift>
+             </clock>
+         </clocks>
+     </Page3>
+--- before/rtl/al_ip/sys_pll.v
++++ after/rtl/al_ip/sys_pll.v
+@@ -16,8 +16,10 @@
+ //	Clock information:
+ //		Clock name	| Frequency 	| Phase shift
+ //		C0        	| 50.000000MHZ	| 0.0000  DEG  
+-//		C1        	| 100.000000MHZ	| 0.0000  DEG  
+-//		C2        	| 100.000000MHZ	| 180.0000 DEG  
++//		C1        	| 50.000000MHZ	| 0.0000  DEG  
++//		C2        	| 50.000000MHZ	| 144.0000 DEG  
++// MedQ timing revision: retain the 1 GHz VCO/feedback, use a 20 ns memory
++// period and an 8 ns SDRAM launch phase. See timing_closure report/bandwidth TB.
+ ///////////////////////////////////////////////////////////////////////////////
+ `timescale 1 ns / 100 fs
+ 
+@@ -48,8 +50,10 @@
+     .DPHASE_SOURCE("DISABLE"),
+     .DYNCFG("DISABLE"),
+     .FIN("50.000000"),
+-    .FEEDBK_MODE("NORMAL"),
+-    .FEEDBK_PATH("CLKC0_EXT"),
++    .FEEDBK_MODE("NOCOMP"),
++    // TD 6.2 rejects legacy CLKC0_INT. Native VCO feedback retains 1 GHz
++    // with FBCLK_DIV=20 and avoids an external local feedback route.
++    .FEEDBK_PATH("VCO_PHASE_0"),
+     .STDBY_ENABLE("DISABLE"),
+     .PLLRST_ENA("ENABLE"),
+     .SYNC_ENABLE("DISABLE"),
+@@ -59,25 +63,25 @@
+     .LPF_CAPACITOR(1),
+     .LPF_RESISTOR(2),
+     .REFCLK_DIV(1),
+-    .FBCLK_DIV(1),
++    .FBCLK_DIV(20),
+     .CLKC0_ENABLE("ENABLE"),
+     .CLKC0_DIV(20),
+     .CLKC0_CPHASE(19),
+     .CLKC0_FPHASE(0),
+     .CLKC1_ENABLE("ENABLE"),
+-    .CLKC1_DIV(10),
+-    .CLKC1_CPHASE(9),
++    .CLKC1_DIV(20),
++    .CLKC1_CPHASE(19),
+     .CLKC1_FPHASE(0),
+     .CLKC2_ENABLE("ENABLE"),
+-    .CLKC2_DIV(10),
+-    .CLKC2_CPHASE(4),
++    .CLKC2_DIV(20),
++    .CLKC2_CPHASE(7),
+     .CLKC2_FPHASE(0) 
+   ) pll_inst (
+     .refclk(refclk),
+     .reset(reset),
+     .stdby(1'b0),
+     .extlock(extlock),
+-    .load_reg(1'b0),
++    .load_reg(5'b00000),
+     .psclk(1'b0),
+     .psdown(1'b0),
+     .psstep(1'b0),
+@@ -89,7 +93,7 @@
+     .di(8'b00000000),
+     .daddr(6'b000000),
+     .do({open, open, open, open, open, open, open, open}),
+-    .fbclk(clk0_out),
++    .fbclk(1'b0),
+     .clkc({open, open, clk2_out, clk1_out, clk0_buf}) 
+   );
+ 
+--- before/rtl/asset_loader.v
++++ after/rtl/asset_loader.v
+@@ -80,6 +80,14 @@
+     wire bp_header,bp_valid,bp_done,bp_error;
+     wire [10:0] bp_width,bp_height,bp_x,bp_y;
+     wire [23:0] bp_rgb;
++    // Header dimensions are stable before pixels start. Decode native size once,
++    // rather than putting the BMP width comparator on every scaler handshake.
++    reg native_size;
++    always @(posedge clk_sys or negedge rst_n_sys) begin
++        if(!rst_n_sys) native_size<=0;
++        else if(bmp_start) native_size<=0;
++        else if(bp_header) native_size<=bp_width==640 && bp_height==480;
++    end
+     bmp_parser u_bmp(.clk(clk_sys),.rst_n(rst_n_sys),.start(bmp_start),.in_valid(fr_valid && fr_ready && image_mode),.in_data(fr_data),
+         .hdr_valid(bp_header),.img_width(bp_width),.img_height(bp_height),.img_bpp(),.img_topdown(),
+         .px_valid(bp_valid),.px_rgb(bp_rgb),.px_x(bp_x),.px_y(bp_y),.done(bp_done),.err(bp_error),.err_code());
+@@ -104,7 +112,7 @@
+             endcase
+         end
+     end
+-    bilinear_scaler u_scaler(.clk(clk_sys),.rst_n(rst_n_sys),.bypass(bp_width==640 && bp_height==480),
++    bilinear_scaler u_scaler(.clk(clk_sys),.rst_n(rst_n_sys),.bypass(native_size),
+         .src_w(bp_width),.src_h(bp_height),.in_valid(pixel_count!=0),.in_ready(sc_ready),
+         .in_rgb(pixel_fifo[pixel_r][23:0]),.in_x(pixel_fifo[pixel_r][34:24]),.in_y(pixel_fifo[pixel_r][45:35]),.in_last(1'b0),
+         .out_ready(sc_out_ready),.out_valid(sc_valid),.out_rgb(sc_rgb),.out_x(sc_x),.out_y(sc_y),.out_last(sc_last));
+@@ -122,6 +130,7 @@
+     assign fr_ready=image_mode ? pixel_count<12 : word_wlevel<1000;
+     reg [1:0] wm_state;
+     reg [8:0] wm_len,wm_left;
++    reg [8:0] wm_available,wm_row_limit;
+     reg [21:0] wm_addr;
+     reg done_toggle,done_target;
+     reg [1:0] flush_sync,mode_sync,done_sync;
+@@ -131,11 +140,22 @@
+     always @(posedge clk_mem or negedge rst_n_mem) begin
+         if (!rst_n_mem) begin
+             wm_state<=0; wm_len<=0; wm_left<=0; wm_addr<=0; done_toggle<=0; flush_sync<=0; mode_sync<=0;
++            wm_available<=0;wm_row_limit<=0;
+         end else begin
+             flush_sync<={flush_sync[0],flush}; mode_sync<={mode_sync[0],image_mode};
+             case (wm_state)
+                 0: if (word_valid && (word_rlevel>=64 || flush_sync[1])) begin
+-                    wm_addr<=word_data[53:32]; wm_len<=burst_length[8:0]; wm_left<=burst_length[8:0]; wm_state<=1;
++                    // The FIFO head cannot move until DATA. Snapshot a safe
++                    // lower bound, then compare it with the row limit next cycle.
++                    wm_addr<=word_data[53:32];
++                    wm_available<=available[8:0];
++                    wm_row_limit<=mode_sync[1] && row_left<64 ? row_left[8:0] : 9'd64;
++                    wm_state<=3;
++                end
++                3: begin
++                    wm_len<=wm_row_limit<wm_available ? wm_row_limit : wm_available;
++                    wm_left<=wm_row_limit<wm_available ? wm_row_limit : wm_available;
++                    wm_state<=1;
+                 end
+                 1: if (wr_req_ready) wm_state<=2;
+                 2: if (wr_wr_valid && wr_wr_ready) begin
+--- before/rtl/audio_pcm_player.v
++++ after/rtl/audio_pcm_player.v
+@@ -76,6 +76,7 @@
+     end
+     localparam IDLE=0, FIRST=1, NEXT=2, RUN=3;
+     reg [1:0] state,phase;
++    reg play_started;
+     reg half_word;
+     reg [21:0] fetched,sources_left;
+     reg signed [15:0] current_sample,next_sample;
+@@ -88,11 +89,11 @@
+         if (!rst_n_pix) begin
+             request_toggle<=0; base_hold<=0; count_hold<=0;
+             state<=IDLE; phase<=0; half_word<=0; fetched<=0; sources_left<=0;
+-            current_sample<=0; next_sample<=0; sample<=0; play_busy<=0; play_done<=0; underrun<=0;
++            current_sample<=0; next_sample<=0; sample<=0; play_busy<=0; play_done<=0; underrun<=0;play_started<=0;
+         end else begin
+             play_done<=0;
+             if (play_req && !play_busy) begin
+-                sample<=0; underrun<=0; phase<=0; half_word<=0; fetched<=0;
++                sample<=0; underrun<=0; phase<=0; half_word<=0; fetched<=0;play_started<=0;
+                 base_hold<=play_base; count_hold<=play_samples; sources_left<=play_samples;
+                 if (play_samples==0) begin play_done<=1; state<=IDLE; end
+                 else begin request_toggle<=~request_toggle; state<=FIRST; play_busy<=1; end
+@@ -101,9 +102,9 @@
+                     fetched<=fetched+1'b1; half_word<=!half_word;
+                     if (state==FIRST) begin
+                         current_sample<=incoming;
+-                        if (count_hold==1) begin next_sample<=incoming; state<=RUN; end
++                        if (count_hold==1) begin next_sample<=incoming; state<=RUN;play_started<=1; end
+                         else state<=NEXT;
+-                    end else begin next_sample<=incoming; state<=RUN; end
++                    end else begin next_sample<=incoming; state<=RUN;play_started<=1; end
+                 end
+                 if (stb && play_busy) begin
+                     if (state==RUN) begin
+@@ -116,7 +117,10 @@
+                                 if (sources_left>2) state<=NEXT;
+                             end
+                         end else phase<=phase+1'b1;
+-                    end else begin sample<=0; underrun<=1; end
++                    // Busy includes descriptor CDC/initial prefetch. Output
++                    // silence until primed; only a gap after playback started
++                    // is a real underrun. Mid-clip starvation remains sticky.
++                    end else begin sample<=0;if(play_started)underrun<=1;end
+                 end
+             end
+         end
+--- before/rtl/frame_reader.v
++++ after/rtl/frame_reader.v
+@@ -6,6 +6,8 @@
+     input wire frame_start, line_start, de,
+     output reg [23:0] px_rgb,
+     output reg underrun,
++    output wire primed,
++    output reg urgent,
+     output wire disp_req_valid,
+     input wire disp_req_ready,
+     output wire [21:0] disp_req_addr,
+@@ -25,6 +27,12 @@
+     wire fifo_ready, fifo_valid;
+     wire [31:0] fifo_data;
+     wire [11:0] wlevel, rlevel;
++    // Pixel-domain readiness: enough data to absorb burst/refresh arbitration.
++    assign primed = rlevel>=12'd1536;
++    always @(posedge clk_mem or negedge rst_n_mem)begin
++        if(!rst_n_mem)urgent<=1;
++        else urgent<=wlevel<12'd1536;
++    end
+     medq_async_fifo #(.W(32),.AW(11)) pixels (
+         .wclk(clk_mem),.wrst_n(rst_n_mem),.wvalid(disp_rd_valid && state==READ),
+         .wdata(disp_rd_data),.wready(fifo_ready),.wlevel(wlevel),
+--- before/rtl/medq_sdram_adapter.v
++++ after/rtl/medq_sdram_adapter.v
+@@ -1,7 +1,7 @@
+ `timescale 1ns/1ps
+ // MedQ adaptation of the supplied BL4 application interface; not vendor code.
+ // Full bursts are buffered so application backpressure cannot stop physical DQ.
+-module medq_sdram_adapter (
++module medq_sdram_adapter #(parameter MEM_CLK_HZ=50000000) (
+  input wire clk,clk_sdram,rst_n,
+  input wire mem_req_valid,
+  output wire mem_req_ready,
+@@ -36,6 +36,7 @@
+     state==RD ? (mem_rd_ready ? next_consumed[7:0] : consumed[7:0]) : 8'd0;
+  wire [22:0] request_end={1'b0,mem_req_addr}+{14'd0,mem_req_len};
+  wire legal=mem_req_len!=0 && mem_req_len<=256 && !mem_req_addr[21] && request_end<=23'd2097152;
++ reg request_checked,request_legal;
+  wire core_busy,core_refresh,core_valid;
+  wire [31:0] core_data;
+  wire app_write=state==WI && rst_n;
+@@ -52,9 +53,12 @@
+  reg refresh_due;
+  reg [4:0] quiet;
+  reg [14:0] refresh_watchdog;
++ localparam REFRESH_CYCLES=MEM_CLK_HZ/64000;
+  wire refresh_request=refresh_state==2;
+  wire physically_quiet=!app_write && !app_read && !core_valid && !core_busy && !core_refresh;
+- assign mem_req_ready=rst_n && init_done && state==IDLE && refresh_state==0 && !refresh_due && legal;
++ // The requester holds valid/address/length until ready. Check the wide address
++ // sum in a separate cycle so it does not feed every master's ready/counter CE.
++ assign mem_req_ready=rst_n && init_done && state==IDLE && refresh_state==0 && !refresh_due && request_checked && request_legal;
+  assign mem_wr_ready=rst_n && state==WC;
+  assign mem_rd_valid=rst_n && state==RD;
+  assign mem_rd_data=mem_rd_valid ? buffer_q : 32'd0;
+@@ -76,7 +80,7 @@
+    end else begin
+      if(physically_quiet)begin if(quiet!=31)quiet<=quiet+1'b1;end else quiet<=0;
+      if(refresh_request)begin refresh_timer<=0;refresh_due<=0;end
+-     else if(refresh_timer==1561)refresh_due<=1;
++     else if(refresh_timer==REFRESH_CYCLES-1)refresh_due<=1;
+      else if(!refresh_due)refresh_timer<=refresh_timer+1'b1;
+      if(refresh_state!=0)begin
+        if(refresh_watchdog!=32767)refresh_watchdog<=refresh_watchdog+1'b1;
+@@ -96,8 +100,13 @@
+    if(!rst_n)begin
+      state<=IDLE;write_op<=0;base<=0;offset<=0;length<=0;physical_length<=0;
+      collected<=0;issued<=0;received<=0;consumed<=0;watchdog<=0;fault<=0;
++     request_checked<=0;request_legal<=0;
+    end else begin
+-     if(mem_req_valid && !legal)fault<=1;
++     if(state!=IDLE || !mem_req_valid)request_checked<=0;
++     else if(!request_checked)begin
++       request_checked<=1;request_legal<=legal;
++       if(!legal)fault<=1;
++     end
+      if(state==LAUNCH || state==WP || state==WI || state==RI || state==TAIL)begin
+        if(watchdog!=32767)watchdog<=watchdog+1'b1;
+      end else watchdog<=0;
+@@ -105,6 +114,7 @@
+      if(refresh_watchdog==32767 || watchdog==32767)begin fault<=1;state<=FAILED;end
+      else case(state)
+        IDLE:if(mem_req_valid && mem_req_ready)begin
++         request_checked<=0;
+          base<={mem_req_addr[20:2],2'b00};offset<=mem_req_addr[1:0];length<=mem_req_len;
+          physical_length<=({7'd0,mem_req_addr[1:0]}+mem_req_len+9'd3)&9'h1fc;
+          write_op<=mem_req_we;collected<=0;issued<=0;received<=0;consumed<=0;
+--- before/rtl/sdram_arbiter.v
++++ after/rtl/sdram_arbiter.v
+@@ -21,6 +21,7 @@
+ 
+     // ---- Master port D: display (second priority) ----
+     input  wire        disp_req_valid,
++    input  wire        disp_urgent,
+     output wire        disp_req_ready,
+     input  wire [21:0] disp_req_addr,
+     input  wire        disp_req_we,
+@@ -82,8 +83,15 @@
+     reg have_request;
+     always @* begin
+         winner=0; have_request=1;
+-        if (wr_req_valid && denied >= STARVE_MAX) winner=3;
+-        else if (aud_req_valid) winner=0;
++        if (aud_req_valid) winner=0;
++        // Reserve the turnaround slot too: the reader needs an IDLE cycle
++        // before it can raise its next request. Otherwise a pending writer wins
++        // that one-cycle gap after every display burst despite a low FIFO.
++        else if (disp_urgent) begin
++            if(disp_req_valid)winner=1;
++            else have_request=0;
++        end
++        else if (wr_req_valid && denied >= STARVE_MAX) winner=3;
+         else if (disp_req_valid) winner=1;
+         else if (tr_req_valid) winner=2;
+         else if (wr_req_valid) winner=3;
+--- before/rtl/top.v
++++ after/rtl/top.v
+@@ -48,17 +48,18 @@
+     //========================================================================
+     // Clocks and resets
+     //========================================================================
+-    wire clk_sys = clk50mhz;                 // 50 MHz, no PLL
++    wire clk_sys;                            // 50 MHz, PLL feedback global clock
+     wire clk_pix;                            // 25 MHz
+     wire clk_ser;                            // 125 MHz
+-    wire clk_mem;                            // 100 MHz
+-    wire clk_sdram;                          // 100 MHz, 180 degrees
++    wire clk_mem;                            // 50 MHz
++    wire clk_sdram;                          // 50 MHz, +8 ns / 144 degrees
+     wire pll_locked;
+ 
+     wire rst_n_sys, rst_n_pix, rst_n_mem;
+     wire [7:0] service_status_sys,service_status_pix;
+ 
+ `ifdef SIMULATION
++    assign clk_sys=clk50mhz;
+     // Preserve the established behavioral clock profile for business regression.
+     // generate with TD IP Generator -> rtl/al_ip/clk_wize.v  (ALREADY PRESENT, reused from DEMO 31)
+     // 50 MHz -> C0 125 MHz (clk_ser), C1 25 MHz (clk_pix)
+@@ -70,14 +71,14 @@
+     );
+ 
+     // generate with TD IP Generator -> rtl/al_ip/pll_mem.v   (NOT YET GENERATED, needs TD)
+-    // 50 MHz -> 100 MHz for the SDRAM domain, must export extlock
++    // Behavioral counterpart of sys_pll: 50 MHz and +8 ns SDRAM clock.
+     pll_mem u_pll_mem (
+         .refclk   (clk50mhz),
+         .reset    (1'b0),
+         .extlock  (pll_locked),
+-        .clk0_out (clk_mem)
++        .clk0_out (clk_mem),
++        .clk1_out (clk_sdram)
+     );
+-    assign clk_sdram=~clk_mem;
+ `else
+     wire video_locked,memory_locked;
+     assign pll_locked=video_locked & memory_locked;
+@@ -85,10 +86,10 @@
+         .refclk(clk50mhz), .reset(1'b0), .extlock(video_locked),
+         .clk0_out(clk_ser), .clk1_out(clk_pix), .clk2_out()
+     );
+-    // Preserved reference PLL: C1 100 MHz, C2 100 MHz / 180 degrees.
++    // Timing-closed memory profile: C0/C1 50 MHz, C2 50 MHz / 144 degrees.
+     sys_pll u_sys_pll (
+         .refclk(clk50mhz),.reset(1'b0),.extlock(memory_locked),
+-        .clk0_out(),.clk1_out(clk_mem),.clk2_out(clk_sdram)
++        .clk0_out(clk_sys),.clk1_out(clk_mem),.clk2_out(clk_sdram)
+     );
+ `endif
+ 
+@@ -220,6 +221,7 @@
+     wire [21:0] mem_req_addr;  wire [8:0] mem_req_len;
+     wire [31:0] mem_wr_data,   mem_rd_data;
+     wire        sdram_init_done,memory_fault;
++    wire main_urgent;
+ 
+     sdram_arbiter u_sdram_arbiter (
+         .clk(clk_mem), .rst_n(rst_n_mem),
+@@ -227,7 +229,7 @@
+         .aud_req_addr(aud_req_addr),    .aud_req_we(aud_req_we), .aud_req_len(aud_req_len),
+         .aud_wr_valid(aud_wr_valid),    .aud_wr_ready(aud_wr_ready), .aud_wr_data(aud_wr_data),
+         .aud_rd_valid(aud_rd_valid),    .aud_rd_ready(aud_rd_ready), .aud_rd_data(aud_rd_data),
+-        .disp_req_valid(disp_req_valid),.disp_req_ready(disp_req_ready),
++        .disp_req_valid(disp_req_valid),.disp_urgent(main_urgent),.disp_req_ready(disp_req_ready),
+         .disp_req_addr(disp_req_addr),  .disp_req_we(disp_req_we), .disp_req_len(disp_req_len),
+         .disp_wr_valid(disp_wr_valid),  .disp_wr_ready(disp_wr_ready), .disp_wr_data(disp_wr_data),
+         .disp_rd_valid(disp_rd_valid),  .disp_rd_ready(disp_rd_ready), .disp_rd_data(disp_rd_data),
+@@ -289,15 +291,24 @@
+         .frame_start(vt_frame_start), .line_start(vt_line_start),
+         .frame_cnt(vt_frame_cnt));
+ 
+-    wire [23:0] rgb_cur, rgb_next, rgb_trans;
++    wire [23:0] rgb_cur, rgb_next, rgb_trans, rgb_prefetched;
+     wire        disp_underrun, tr_underrun, tr_need_second;
++    wire main_primed;
++    reg frame_data_enabled;
++    // SDRAM power-up may span initial active lines. Keep the loading OSD on a
++    // defined background, prefill the FIFO, then start only at a frame boundary.
++    always @(posedge clk_pix or negedge rst_n_pix)begin
++        if(!rst_n_pix)frame_data_enabled<=0;
++        else if(vt_frame_start && main_primed)frame_data_enabled<=1;
++    end
++    assign rgb_cur=frame_data_enabled ? rgb_prefetched : 24'h101f2a;
+ 
+     frame_reader u_frame_reader_main (
+         .clk_pix(clk_pix), .rst_n_pix(rst_n_pix),
+         .clk_mem(clk_mem), .rst_n_mem(rst_n_mem),
+         .fb_base(22'h000000), .frame_start(vt_frame_start),
+-        .line_start(vt_line_start), .de(vt_de),
+-        .px_rgb(rgb_cur), .underrun(disp_underrun),
++        .line_start(vt_line_start), .de(vt_de && frame_data_enabled),
++        .px_rgb(rgb_prefetched), .underrun(disp_underrun), .primed(main_primed), .urgent(main_urgent),
+         .disp_req_valid(disp_req_valid), .disp_req_ready(disp_req_ready),
+         .disp_req_addr(disp_req_addr),   .disp_req_we(disp_req_we), .disp_req_len(disp_req_len),
+         .disp_wr_valid(disp_wr_valid),   .disp_wr_ready(disp_wr_ready), .disp_wr_data(disp_wr_data),
+@@ -308,7 +319,7 @@
+         .clk_mem(clk_mem), .rst_n_mem(rst_n_mem),
+         .fb_base(22'h04B000), .frame_start(vt_frame_start),
+         .line_start(vt_line_start), .de(vt_de & tr_need_second),
+-        .px_rgb(rgb_next), .underrun(tr_underrun),
++        .px_rgb(rgb_next), .underrun(tr_underrun), .primed(), .urgent(),
+         .disp_req_valid(tr_req_valid), .disp_req_ready(tr_req_ready),
+         .disp_req_addr(tr_req_addr),   .disp_req_we(tr_req_we), .disp_req_len(tr_req_len),
+         .disp_wr_valid(tr_wr_valid),   .disp_wr_ready(tr_wr_ready), .disp_wr_data(tr_wr_data),
+--- before/rtl/top_skeleton.v
++++ after/rtl/top_skeleton.v
+@@ -205,7 +205,7 @@
+         .aud_req_addr(aud_req_addr),    .aud_req_we(aud_req_we), .aud_req_len(aud_req_len),
+         .aud_wr_valid(aud_wr_valid),    .aud_wr_ready(aud_wr_ready), .aud_wr_data(aud_wr_data),
+         .aud_rd_valid(aud_rd_valid),    .aud_rd_ready(aud_rd_ready), .aud_rd_data(aud_rd_data),
+-        .disp_req_valid(disp_req_valid),.disp_req_ready(disp_req_ready),
++        .disp_req_valid(disp_req_valid),.disp_urgent(1'b0),.disp_req_ready(disp_req_ready),
+         .disp_req_addr(disp_req_addr),  .disp_req_we(disp_req_we), .disp_req_len(disp_req_len),
+         .disp_wr_valid(disp_wr_valid),  .disp_wr_ready(disp_wr_ready), .disp_wr_data(disp_wr_data),
+         .disp_rd_valid(disp_rd_valid),  .disp_rd_ready(disp_rd_ready), .disp_rd_data(disp_rd_data),
+@@ -271,7 +271,7 @@
+         .clk_mem(clk_mem), .rst_n_mem(rst_n_mem),
+         .fb_base(22'h000000), .frame_start(vt_frame_start),
+         .line_start(vt_line_start), .de(vt_de),
+-        .px_rgb(rgb_cur), .underrun(disp_underrun),
++        .px_rgb(rgb_cur), .underrun(disp_underrun), .primed(), .urgent(),
+         .disp_req_valid(disp_req_valid), .disp_req_ready(disp_req_ready),
+         .disp_req_addr(disp_req_addr),   .disp_req_we(disp_req_we), .disp_req_len(disp_req_len),
+         .disp_wr_valid(disp_wr_valid),   .disp_wr_ready(disp_wr_ready), .disp_wr_data(disp_wr_data),
+@@ -282,7 +282,7 @@
+         .clk_mem(clk_mem), .rst_n_mem(rst_n_mem),
+         .fb_base(22'h04B000), .frame_start(vt_frame_start),
+         .line_start(vt_line_start), .de(vt_de & tr_need_second),
+-        .px_rgb(rgb_next), .underrun(tr_underrun),
++        .px_rgb(rgb_next), .underrun(tr_underrun), .primed(), .urgent(),
+         .disp_req_valid(tr_req_valid), .disp_req_ready(tr_req_ready),
+         .disp_req_addr(tr_req_addr),   .disp_req_we(tr_req_we), .disp_req_len(tr_req_len),
+         .disp_wr_valid(tr_wr_valid),   .disp_wr_ready(tr_wr_ready), .disp_wr_data(tr_wr_data),
+--- before/sim/package_release.py
++++ after/sim/package_release.py
+@@ -1,16 +1,36 @@
+ """Freeze v0.2 only from current passing functional evidence and honest TD status."""
+ from pathlib import Path
+ from datetime import datetime,timezone
+-import hashlib,json,zipfile
++import argparse,hashlib,json,zipfile,sys
+ import run_regression
+ ROOT=Path(__file__).resolve().parents[1]
+ def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+ def main():
++    ap=argparse.ArgumentParser(description=__doc__)
++    ap.add_argument('--timing',action='store_true',help='require complete STA/functional evidence and include the verified bitstream/checkpoint')
++    args=ap.parse_args()
+     r=json.loads((ROOT/'sim/regression_result.json').read_text(encoding='utf-8'))
+     assert r['status']=='PASS' and r['source_sha256']==run_regression.hashes(),'Stale/failed functional regression'
+     origin=json.loads((ROOT/'baseline/v0.1/source_copy_manifest.json').read_text(encoding='utf-8'))
+     assert digest(ROOT/'baseline/v0.1/MedQ_v0.1_20261027.zip')==origin['origin_archive_sha256']
+     assert all(digest(ROOT.parent/p)==d for p,d in origin['copied_files'].items()),'Original v0.1 modified'
++    timing_bit=None
++    if args.timing:
++        sys.path.insert(0,str(ROOT/'prj/td'))
++        import signoff_timing
++        signoff_timing.simulation_gate()
++        pointer=json.loads((ROOT/'prj/td/latest_timing_bitstream.json').read_text(encoding='utf-8'))
++        timing_bit=json.loads((ROOT/pointer['result']).read_text(encoding='utf-8'))
++        assert pointer['status']=='PASS' and timing_bit['status']=='PASS'
++        signoff_timing.check_hashes(timing_bit['source_sha256'])
++        signoff_timing.check_hashes(timing_bit['simulation_evidence_sha256'])
++        assert digest(ROOT/timing_bit['bitstream'])==timing_bit['bitstream_sha256']
++        signed=json.loads((ROOT/timing_bit['parent_signoff']).read_text(encoding='utf-8'))
++        assert digest(ROOT/timing_bit['parent_signoff'])==timing_bit['parent_signoff_sha256'] and signed['status']=='PASS'
++        assert timing_bit['native_timing']['met'] and timing_bit['native_timing']['values']==signed['timing']['values']
++        assert digest(ROOT/signed['route_db'])==signed['route_db_sha256']==timing_bit['route_db_sha256']
++        protected=json.loads(next((ROOT/'baseline').glob('timing_closure_*/manifest.json')).read_text(encoding='utf-8'))
++        assert all(digest(ROOT/p)==d for p,d in protected['protected_old_deliverables'].items()),'Frozen old deliverable modified'
+     evidence={};files=set()
+     for directory in ['rtl','tb','doc','prj/constr','sim/ui','baseline','rules']:
+         for p in (ROOT/directory).rglob('*'):
+@@ -31,14 +51,28 @@
+         files.add(ROOT/pointer)
+         for p in (ROOT/j['result']).parent.rglob('*'):
+             if p.is_file() and p.suffix not in ('.db','.wlf','.bit'):files.add(p)
++    if args.timing:
++        for pointer in ['sim/vendor_sdram/latest_adapter_real_pll.json','sim/vendor_sdram/latest_bandwidth_real_pll.json','prj/td/latest_timing_signoff.json','prj/td/latest_timing_bitstream.json']:
++            j=json.loads((ROOT/pointer).read_text(encoding='utf-8'));evidence[pointer]=j;files.add(ROOT/pointer)
++            for p in (ROOT/j['result']).parent.rglob('*'):
++                if p.is_file() and p.suffix not in ('.wlf','.vcd','.pyc'):files.add(p)
++        files.add(ROOT/signed['route_db'])
++        # Keep the old v0.2 archive and its manifest inside the new handoff too.
++        files.update((ROOT/'deliverables').glob('MedQ_v0.2_20261027.*'))
+     # All v0.2 attempt reports, including failures, are evidence in this version.
+     for p in (ROOT/'prj/td/runs').rglob('*'):
+-        if p.is_file() and p.suffix in ('.log','.json','.area','.ts','.timing','.qor','.tcl','.al','.txt'):files.add(p)
++        if p.is_file() and p.suffix in ('.log','.json','.area','.ts','.timing','.qor','.tcl','.al','.txt','.rpt'):files.add(p)
+     manifest={p.relative_to(ROOT).as_posix():digest(p) for p in sorted(files)}
+     meta={'name':'MedQ','version':'0.2','frozen_utc':datetime.now(timezone.utc).isoformat(),
+           'scope':'functional simulation plus actual TD reports; no board acceptance; timing status in doc/compile/v02_report.md',
+           'original_v01_unchanged':True,'evidence':evidence,'source_and_artifact_sha256':manifest}
+-    out=ROOT/'deliverables';out.mkdir(exist_ok=True);archive=out/'MedQ_v0.2_20261027.zip'
++    if args.timing:
++        meta.update(version='0.2-timing-r1',scope='full PC functional regression, vendor PLL/serializer profiles, independent physical SDRAM AC/refresh/concurrent bandwidth model and routed slow/fast STA; board validation pending',
++                    board_test_status='not_tested',original_v02_unchanged=True,
++                    bitstream=timing_bit['bitstream'],bitstream_sha256=timing_bit['bitstream_sha256'],
++                    timing=timing_bit['native_timing'],signoff=signed,
++                    memory_clock_mhz=50,sdram_phase_ns=8,video_pixel_mhz=25,video_serial_mhz=125)
++    out=ROOT/'deliverables';out.mkdir(exist_ok=True);archive=out/('MedQ_v0.2_timing_closed_20261027.zip' if args.timing else 'MedQ_v0.2_20261027.zip')
+     assert not archive.exists(),'Refuse overwrite frozen release'
+     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+         for p in sorted(files):z.write(p,p.relative_to(ROOT).as_posix())
+--- before/sim/run_vendor_sdram.py
++++ after/sim/run_vendor_sdram.py
+@@ -8,11 +8,14 @@
+     ap=argparse.ArgumentParser(description=__doc__)
+     ap.add_argument('--probe',action='store_true')
+     ap.add_argument('--system',action='store_true',help='full MedQ top, real memory controller, behavioral clocks/serializer')
++    ap.add_argument('--bandwidth',action='store_true',help='two VGA frames through real SDRAM and display FIFO at 50 MHz memory')
++    ap.add_argument('--real-pll',action='store_true',help='drive the hardware/bandwidth TB with sys_pll and installed vendor PLL/glbl models')
+     ap.add_argument('--system-tb',choices=['tb_top','tb_basic_calling'],default='tb_top')
+     ap.add_argument('--timeout',type=int,default=180)
+     a=ap.parse_args()
+-    if a.probe and a.system:ap.error('choose one profile')
+-    top=a.system_tb if a.system else 'tb_sdram_core_probe' if a.probe else 'tb_sdram_hardware'
++    if sum([a.probe,a.system,a.bandwidth])>1:ap.error('choose one profile')
++    if a.real_pll and (a.probe or a.system):ap.error('--real-pll is for adapter/bandwidth profiles')
++    top='tb_sdram_bandwidth' if a.bandwidth else a.system_tb if a.system else 'tb_sdram_core_probe' if a.probe else 'tb_sdram_hardware'
+     tc=json.loads((ROOT/'doc/hw/toolchain.json').read_text(encoding='utf-8'))
+     ms=Path(tc['modelsim_bin']);lib=Path(tc['td']['td_home'])/'sim_release/eg4'
+     files=list((ROOT/'rtl/al_ip/sdram_vendor').glob('*'))
+@@ -24,6 +27,8 @@
+     else:
+         files+=[ROOT/f'tb/vendor/{top}.v']
+         if not a.probe:files+=[ROOT/'rtl/medq_sdram_adapter.v',ROOT/'rtl/al_ip/sdram.v',ROOT/'tb/vendor/medq_sdram_device_model.v']
++        if a.bandwidth:files+=[ROOT/'rtl/frame_reader.v',ROOT/'rtl/medq_async_fifo.v',ROOT/'rtl/sdram_arbiter.v']
++    if a.real_pll:files+=[ROOT/'rtl/al_ip/sys_pll.v',lib/'eg_logic_clk.v',lib/'eg_phy_pll.v',lib/'eg_phy_glbl.v']
+     digests={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+     stage=Path(tempfile.mkdtemp(prefix='medq_sdram_'))
+     out=ROOT/'sim/vendor_sdram'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+@@ -40,6 +45,14 @@
+     # Keep its bytes; scope this documented compatibility switch to this runner.
+     commands=[[str(ms/'vlib.exe'),'work'],[str(ms/'vlog.exe'),'-sv','-suppress','2121','+incdir+.+compat','-work','work']+sources,
+       [str(ms/'vsim.exe'),'-c',f'work.{top}','-do','run -all; quit -f']]
++    if a.real_pll:
++        commands[1].insert(1,'+define+MEDQ_VENDOR_PLL')
++        commands[2].insert(3,'work.glbl')
++        # The vendor PLL's Verilog port named "do" is an SV keyword. Compile
++        # that unmodified library/wrapper as Verilog, separately from the TB.
++        pll_names=['eg_logic_clk.v','eg_phy_pll.v','eg_phy_glbl.v','sys_pll.v']
++        commands[1]=[v for v in commands[1] if v not in pll_names]
++        commands.insert(1,[str(ms/'vlog.exe'),'-work','work']+pll_names)
+     if a.system:
+         core=[p.name for p in files if p.name.endswith('.enc.v') or p.name=='global_def.v']
+         application=[p for p in sources if p not in core]
+@@ -58,12 +71,14 @@
+     if any(hashlib.sha256(p.read_bytes()).hexdigest()!=digests[str(p)] for p in files):status='SOURCES_CHANGED'
+     result={'status':status,'top':top,'details':details,'input_sha256':digests,'stage':stage.as_posix(),
+       'core_defines':[],'application_defines':['SIMULATION','MEDQ_REAL_SDRAM'] if a.system else [],
+-      'simulation_define':a.system,'scope':('protocol observation only; installed EG SDRAM model is an empty shell' if a.probe else
+-      'original encrypted controller plus independent BL4/CL3 physical SDRAM command/data model; not vendor timing, board or STA evidence')}
++      'simulation_define':a.system,'real_pll':a.real_pll,
++      'scope':('protocol observation only; installed EG SDRAM model is an empty shell' if a.probe else
++      'original encrypted controller plus independent BL4/CL3 physical SDRAM model with AC/refresh checks; optional installed PLL model; not board or routed STA evidence')}
+     (out/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+     for artifact in stage.glob('*.ppm'):shutil.copy2(artifact,out/artifact.name)
+     (ROOT/'sim/vendor_sdram/latest.json').write_text(json.dumps({'status':status,'result':(out/'result.json').relative_to(ROOT).as_posix()},indent=2)+'\n')
+-    profile='probe' if a.probe else ('basic' if top=='tb_basic_calling' else 'system') if a.system else 'adapter'
++    profile='bandwidth' if a.bandwidth else 'probe' if a.probe else ('basic' if top=='tb_basic_calling' else 'system') if a.system else 'adapter'
++    if a.real_pll:profile+='_real_pll'
+     (ROOT/f'sim/vendor_sdram/latest_{profile}.json').write_text(json.dumps({'status':status,'result':(out/'result.json').relative_to(ROOT).as_posix()},indent=2)+'\n')
+     print(f'{status}: {out.relative_to(ROOT)}')
+     print(last[-6000:] if a.probe or status!='PASS' else '\n'.join(l for l in last.splitlines() if 'PASS' in l or 'CHECK' in l))
+--- before/tb/sim_anlogic_stubs.v
++++ after/tb/sim_anlogic_stubs.v
+@@ -5,10 +5,11 @@
+     always #4 clk0_out=reset ? 0 : ~clk0_out;
+     always #20 clk1_out=reset ? 0 : ~clk1_out;
+ endmodule
+-module pll_mem(input wire refclk,reset,output reg extlock,output reg clk0_out);
++module pll_mem(input wire refclk,reset,output reg extlock,output reg clk0_out,output reg clk1_out);
+     integer lock_count;
+-    initial begin extlock=0; clk0_out=0; lock_count=0; end
+-    always #5 clk0_out=reset ? 0 : ~clk0_out;
++    initial begin extlock=0; clk0_out=0; clk1_out=0; lock_count=0; end
++    always #10 clk0_out=reset ? 0 : ~clk0_out;
++    initial begin #8;forever #10 clk1_out=reset ? 0 : ~clk1_out;end
+     always @(posedge refclk) begin
+         if(reset) begin lock_count<=0; extlock<=0; end
+         else if(lock_count<16) lock_count<=lock_count+1;
+--- before/tb/tb_basic_calling.v
++++ after/tb/tb_basic_calling.v
+@@ -9,7 +9,7 @@
+   .HDMI_CLK_P(hc),.HDMI_D0_P(h0),.HDMI_D1_P(h1),.HDMI_D2_P(h2));
+ `ifdef MEDQ_REAL_SDRAM
+  wire [31:0] device_errors,refreshes;
+- medq_sdram_device_model physical(.clk(dut.u_sdram_ctrl_wrap.u_hardware.sdram_clk),.rst_n(dut.rst_n_mem),
++ medq_sdram_device_model physical(.clk(dut.u_sdram_ctrl_wrap.u_hardware.sdram_clk),.rst_n(dut.rst_n_mem),.initialized(dut.sdram_init_done),
+   .ras_n(dut.u_sdram_ctrl_wrap.u_hardware.ras_n),.cas_n(dut.u_sdram_ctrl_wrap.u_hardware.cas_n),
+   .we_n(dut.u_sdram_ctrl_wrap.u_hardware.we_n),.addr(dut.u_sdram_ctrl_wrap.u_hardware.phy_addr),
+   .ba(dut.u_sdram_ctrl_wrap.u_hardware.bank),.dm(dut.u_sdram_ctrl_wrap.u_hardware.mask),
+--- before/tb/tb_sdram_arbiter.v
++++ after/tb/tb_sdram_arbiter.v
+@@ -16,7 +16,7 @@
+         .aud_req_valid(req[0]),.aud_req_ready(ready[0]),.aud_req_addr(addr[0]),.aud_req_we(we[0]),.aud_req_len(len[0]),
+         .aud_wr_valid(wvalid[0]),.aud_wr_ready(wready[0]),.aud_wr_data(wdata[0]),
+         .aud_rd_valid(rvalid[0]),.aud_rd_ready(rready[0]),.aud_rd_data(rdata[0]),
+-        .disp_req_valid(req[1]),.disp_req_ready(ready[1]),.disp_req_addr(addr[1]),.disp_req_we(we[1]),.disp_req_len(len[1]),
++        .disp_req_valid(req[1]),.disp_urgent(1'b0),.disp_req_ready(ready[1]),.disp_req_addr(addr[1]),.disp_req_we(we[1]),.disp_req_len(len[1]),
+         .disp_wr_valid(wvalid[1]),.disp_wr_ready(wready[1]),.disp_wr_data(wdata[1]),
+         .disp_rd_valid(rvalid[1]),.disp_rd_ready(rready[1]),.disp_rd_data(rdata[1]),
+         .tr_req_valid(req[2]),.tr_req_ready(ready[2]),.tr_req_addr(addr[2]),.tr_req_we(we[2]),.tr_req_len(len[2]),
+--- before/tb/tb_top.v
++++ after/tb/tb_top.v
+@@ -14,7 +14,7 @@
+ `ifdef MEDQ_REAL_SDRAM
+     wire [31:0] device_errors,physical_refreshes;
+     medq_sdram_device_model physical_memory(
+-      .clk(dut.u_sdram_ctrl_wrap.u_hardware.sdram_clk),.rst_n(dut.rst_n_mem),
++      .clk(dut.u_sdram_ctrl_wrap.u_hardware.sdram_clk),.rst_n(dut.rst_n_mem),.initialized(dut.sdram_init_done),
+       .ras_n(dut.u_sdram_ctrl_wrap.u_hardware.ras_n),.cas_n(dut.u_sdram_ctrl_wrap.u_hardware.cas_n),
+       .we_n(dut.u_sdram_ctrl_wrap.u_hardware.we_n),.addr(dut.u_sdram_ctrl_wrap.u_hardware.phy_addr),
+       .ba(dut.u_sdram_ctrl_wrap.u_hardware.bank),.dm(dut.u_sdram_ctrl_wrap.u_hardware.mask),
+@@ -86,7 +86,7 @@
+             end
+         end
+         co_de_previous=dut.co_de;
+-        if(call_check_active && (dut.disp_underrun || dut.pcm_underrun))$fatal(1,"ERROR integrated display/audio underrun");
++        if(call_check_active && (dut.disp_underrun || dut.pcm_underrun))$fatal(1,"ERROR integrated display/audio underrun display=%b pcm=%b level=%0d urgent=%b reader=%0d arb_owner=%0d arb_state=%0d loader=%0d play=%b",dut.disp_underrun,dut.pcm_underrun,dut.u_frame_reader_main.wlevel,dut.main_urgent,dut.u_frame_reader_main.state,dut.u_sdram_arbiter.owner,dut.u_sdram_arbiter.state,dut.u_asset_loader.state,dut.play_busy);
+     end
+     initial begin
+         wait(dut.rst_n_sys && dut.rst_n_pix && dut.rst_n_mem);
+@@ -120,5 +120,5 @@
+         $display("PASS MedQ top: real SD SPI assets, UART ACK/NAK/CRC, debounced key, three calls across CDC, 27 PCM clips, VGA/OSD/HDMI, complete captured frame");
+         $display("INFO frames=%0d memory_bursts=%0d audio_samples=%0d OSD_pixels=%0d",frames,mem_requests,audio_samples,osd_pixels);$finish;
+     end
+-    initial begin #160000000;$fatal(1,"TIMEOUT top assets=%b loader=%0d calls=%0d ack=%0d frames=%0d capture=%0d",dut.assets_ok,dut.u_asset_loader.state,calls,ack_count,frames,captured);end
++    initial begin #320000000;$fatal(1,"TIMEOUT top assets=%b loader=%0d calls=%0d ack=%0d frames=%0d capture=%0d",dut.assets_ok,dut.u_asset_loader.state,calls,ack_count,frames,captured);end
+ endmodule
+--- before/tb/vendor/medq_sdram_device_model.v
++++ after/tb/vendor/medq_sdram_device_model.v
+@@ -1,8 +1,9 @@
+ `timescale 1ns/1ps
+ // Independent SDR SDRAM command/data model, 4 banks x 2048 rows x 256 x 32.
+ // Tests BL4/CL3, DQM, command order and refresh activity. Not a vendor timing model.
+-module medq_sdram_device_model(
+- input wire clk,rst_n,ras_n,cas_n,we_n,
++module medq_sdram_device_model #(parameter real T_AC=4.5,T_IS=1.5,T_IH=1.0,
++ T_RCD=18.0,T_RP=15.0,T_RAS=35.0,T_RFC=55.0,T_REFI_MAX=31250.0) (
++ input wire clk,rst_n,initialized,ras_n,cas_n,we_n,
+  input wire [10:0] addr,input wire [1:0] ba,input wire [3:0] dm,
+  inout wire [31:0] dq,output integer refresh_count,output integer errors
+ );
+@@ -16,10 +17,14 @@
+  integer i,k,idx,burst_left,burst_col,burst_row,burst_bank;
+  reg burst_write,auto_close;
+  integer cycle,last_refresh,mode_count,write_count,read_count;
++ realtime last_edge=0,last_control=0,last_ref_time=0;
++ realtime guarded_ref_time=0;
++ reg refresh_guard=0;
++ realtime activated_at[0:3],precharged_at[0:3];
+  assign dq=drive ? drive_data : 32'bz;
+  task bad;
+   input [255:0] reason;
+-  begin errors=errors+1;$display("FAIL device cycle=%0d %0s",cycle,reason);end
++  begin errors=errors+1;if(errors<=5)$display("FAIL device cycle=%0d %0s",cycle,reason);end
+  endtask
+  task write_word;
+   input integer location;
+@@ -35,14 +40,29 @@
+   refresh_count=0;errors=0;write_count=0;read_count=0;
+   for(i=0;i<2097152;i=i+1)mem[i]=0;
+  end
++ // These are independent pin-level AC checks, separate from FPGA routed STA.
++ always @(ras_n or cas_n or we_n or addr or ba or dm)begin
++  if(rst_n && last_edge>0 && $realtime-last_edge<T_IH)bad("command hold < tIH");
++  last_control=$realtime;
++ end
+  always @(posedge clk or negedge rst_n)begin
+   if(!rst_n)begin
+    opened=0;drive<=0;pipe_valid=0;burst_left=0;cycle=0;
+    last_refresh=0;mode_count=0;auto_close=0;
++   last_ref_time=0;
++   guarded_ref_time=0;refresh_guard=0;
++   for(k=0;k<4;k=k+1)begin activated_at[k]=-1000000;precharged_at[k]=-1000000;end
+   end else begin
++   if($realtime-last_control<T_IS)bad("command setup < tIS");
++   // Power-up contents are undefined. Begin the retention deadline when the
++   // controller releases initialization, before any application data is stored.
++   if(initialized && !refresh_guard)begin refresh_guard=1;guarded_ref_time=$realtime;end
++   if(refresh_guard && $realtime-guarded_ref_time>T_REFI_MAX)bad("refresh interval exceeded");
++   if(last_ref_time>0 && {ras_n,cas_n,we_n}!=3'b111 && $realtime-last_ref_time<T_RFC)bad("command before tRFC");
++   last_edge=$realtime;
+    cycle=cycle+1;
+-   drive<=#1 pipe_valid[2];
+-   if(pipe_valid[2])drive_data<=#1 mem[pipe_addr[2]];
++   drive<=#(T_AC) pipe_valid[2];
++   if(pipe_valid[2])drive_data<=#(T_AC) mem[pipe_addr[2]];
+    pipe_valid={pipe_valid[1:0],1'b0};
+    pipe_addr[2]=pipe_addr[1];pipe_addr[1]=pipe_addr[0];
+    if(burst_left>0)begin
+@@ -56,10 +76,13 @@
+    case({ras_n,cas_n,we_n})
+     3'b011:begin // ACTIVE
+      if(opened[ba])bad("ACT on open bank");
++     if($realtime-precharged_at[ba]<T_RP)bad("ACT before tRP");
++     activated_at[ba]=$realtime;
+      opened[ba]=1;row[ba]=addr;
+     end
+     3'b100,3'b101:begin
+      if(!opened[ba])bad("column command without ACT");
++     if($realtime-activated_at[ba]<T_RCD)bad("column command before tRCD");
+      if(burst_left!=0)bad("overlapping physical burst");
+      if(mode_count==0)bad("column command before MRS");
+      burst_write=!we_n;burst_row=row[ba];burst_bank=ba;
+@@ -69,10 +92,17 @@
+      else begin pipe_valid[0]=1;pipe_addr[0]=idx;read_count=read_count+1;end
+      burst_col=(burst_col&252)|((burst_col+1)&3);burst_left=3;
+     end
+-    3'b010:begin if(addr[10])opened=0;else opened[ba]=0;end
++    3'b010:begin
++     for(k=0;k<4;k=k+1)if(addr[10] || ba==k)begin
++      if(opened[k] && $realtime-activated_at[k]<T_RAS)bad("PRE before tRAS");
++      precharged_at[k]=$realtime;opened[k]=0;
++     end
++    end
+     3'b001:begin
+      if(opened!=0 || burst_left!=0)bad("refresh with active bank/burst");
+      refresh_count=refresh_count+1;last_refresh=cycle;
++     last_ref_time=$realtime;
++     guarded_ref_time=$realtime;
+     end
+     3'b000:begin
+      if(addr!==11'h032)bad("MRS differs from BL4/CL3");
+--- before/tb/vendor/tb_medq_pll_eg4.v
++++ after/tb/vendor/tb_medq_pll_eg4.v
+@@ -5,19 +5,20 @@
+     always #10 refclk=~refclk;
+     wire lock,ser,pix,mem;
+     medq_pll dut(refclk,reset,lock,ser,pix,mem);
+-    wire memory_lock,memory_clk,memory_shift;
+-    sys_pll memory_dut(refclk,reset,memory_lock,,memory_clk,memory_shift);
++    wire memory_lock,memory_clk,memory_shift,system_clk;
++    sys_pll memory_dut(refclk,reset,memory_lock,system_clk,memory_clk,memory_shift);
+     realtime last_memory=0,last_shift=0;
+     integer memory_count=0,shift_count=0;
+     always @(posedge memory_clk)if(memory_lock && !reset)begin
+         if(last_memory!=0)begin
+-            if($realtime-last_memory<9.99 || $realtime-last_memory>10.01)$fatal(1,"ERROR memory PLL period");
++            if($realtime-last_memory<19.99 || $realtime-last_memory>20.01)$fatal(1,"ERROR memory PLL period");
++            if(system_clk!==1'b1)$fatal(1,"ERROR system/memory PLL phase");
+             memory_count=memory_count+1;
+         end
+         last_memory=$realtime;
+     end
+     always @(posedge memory_shift)if(memory_lock && !reset && last_memory!=0)begin
+-        if($realtime-last_memory<4.99 || $realtime-last_memory>5.01)$fatal(1,"ERROR memory PLL phase");
++        if($realtime-last_memory<7.99 || $realtime-last_memory>8.01)$fatal(1,"ERROR memory PLL phase measured=%0.3f ns",$realtime-last_memory);
+         shift_count=shift_count+1;
+     end
+     realtime last_ser=0,last_pix=0,last_mem=0,period;
+@@ -60,7 +61,7 @@
+             ser_count=0;pix_count=0;mem_count=0;
+             last_memory=0;memory_count=0;shift_count=0;
+         end
+-        $display("PASS EG4 PLL: video 125/25 MHz, memory 100 MHz/180 phase, lock/reset/relock, 100 measured periods per output per epoch");
++        $display("PASS EG4 PLL: video 125/25 MHz, system/memory 50 MHz, SDRAM +8ns/144deg, lock/reset/relock, 100 measured periods per output per epoch");
+         $finish;
+     end
+     initial begin #200000;$fatal(1,"TIMEOUT real EG4 PLL lock/frequency");end
+--- before/tb/vendor/tb_sdram_hardware.v
++++ after/tb/vendor/tb_sdram_hardware.v
+@@ -1,7 +1,15 @@
+ `timescale 1ns/1ps
+ module tb_sdram_hardware;
+- reg clk=0;always #5 clk=~clk;
+- wire clk_sdram=~clk;
++`ifdef MEDQ_VENDOR_PLL
++ reg refclk=0;always #10 refclk=~refclk;
++ reg pll_reset=1;initial begin #200;pll_reset=0;end
++ wire clk,clk_sdram,pll_locked;
++ sys_pll clocks(.refclk(refclk),.reset(pll_reset),.extlock(pll_locked),.clk0_out(),.clk1_out(clk),.clk2_out(clk_sdram));
++`else
++ reg clk=0;always #10 clk=~clk;
++ reg clk_sdram=0;initial begin #8;forever #10 clk_sdram=~clk_sdram;end
++ wire pll_locked=1'b1;
++`endif
+  reg rst_n=0,req=0,we=0,wvalid=0,rready=0;
+  reg [21:0] addr=0;reg [8:0] len=0;reg [31:0] wdata=0;
+  wire ready,wready,rvalid,init_done,fault;wire [31:0] rdata;
+@@ -12,7 +20,7 @@
+   .mem_wr_valid(wvalid),.mem_wr_ready(wready),.mem_wr_data(wdata),
+   .mem_rd_valid(rvalid),.mem_rd_ready(rready),.mem_rd_data(rdata),.init_done(init_done),.fault(fault));
+  wire [31:0] model_errors;wire [31:0] refresh_count;
+- medq_sdram_device_model memory(.clk(dut.sdram_clk),.rst_n(rst_n),
++ medq_sdram_device_model memory(.clk(dut.sdram_clk),.rst_n(rst_n),.initialized(init_done),
+   .ras_n(dut.ras_n),.cas_n(dut.cas_n),.we_n(dut.we_n),.addr(dut.phy_addr),
+   .ba(dut.bank),.dm(dut.mask),.dq(dut.dq),.refresh_count(refresh_count),.errors(model_errors));
+  task request;
+@@ -59,7 +67,7 @@
+  task reset_device;
+   begin
+    @(negedge clk);rst_n=0;req=0;wvalid=0;rready=0;
+-   repeat(8)@(negedge clk);rst_n=1;wait(init_done);repeat(40)@(negedge clk);
++   wait(pll_locked);repeat(8)@(negedge clk);rst_n=1;wait(init_done);repeat(40)@(negedge clk);
+   end
+  endtask
+  initial begin
+@@ -95,5 +103,5 @@
+   $display("CHECK actual encrypted core, BL4/CL3 physical data, masks, boundaries, stalls, refresh, reset; words=%0d refresh=%0d",checks,refresh_count);
+   $display("PASS tb_sdram_hardware");$finish;
+  end
+- initial begin #6000000;$display("TIMEOUT hardware state=%0d refresh_state=%0d received=%0d",dut.state,dut.refresh_state,dut.received);$finish;end
++ initial begin #12000000;$display("TIMEOUT hardware state=%0d refresh_state=%0d received=%0d",dut.state,dut.refresh_state,dut.received);$finish;end
+ endmodule

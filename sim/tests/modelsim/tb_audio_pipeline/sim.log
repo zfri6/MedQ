@@ -1,0 +1,40 @@
+
+===== vsim =====
+$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_audio_pipeline -do run -all; quit -f
+Reading C:/modeltech64_10.4/tcl/vsim/pref.tcl
+
+# 10.4
+
+# vsim -c -voptargs="+acc" work.tb_audio_pipeline -do "run -all; quit -f" 
+# Start time: 14:19:07 on Nov 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# 
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_audio_pipeline(fast)
+# Loading work.audio_sample_clk(fast)
+# Loading work.audio_announcer(fast)
+# Loading work.audio_pcm_player(fast)
+# Loading work.medq_async_fifo(fast)
+# Loading work.sdram_ctrl_wrap(fast)
+# run -all
+# PASS audio: 48kHz single strobes, all BCD digits, 18 clips, signed 3x interpolation, odd samples, repeated playback, missing clips
+# ** Note: $finish    : C:/Users/zhang/AppData/Local/Temp/medq_sim/9821ee1cb4a3/tb/tb_audio_pipeline.v(64)
+#    Time: 3376420 ns  Iteration: 2  Instance: /tb_audio_pipeline
+# End time: 14:19:09 on Nov 03,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+
+[exit code 0]
