@@ -1,3 +1,0 @@
-sample: posedge clk_pix + 1ns
-observe: [KEY, SW, input_events, qstate_pix, request, grant, play_req, play_busy, aud_req_valid, aud_rd_ready, co_rgb]
-trigger: first_mismatch

@@ -1,3 +1,0 @@
-
-===== vsim =====
-$ C:\modeltech64_10.4\win64\vsim.exe -c -voptargs=+acc work.tb_goertzel_spectrum -do run -all; quit -f

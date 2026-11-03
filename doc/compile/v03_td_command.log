@@ -1,3 +1,0 @@
-PREPARED MedQv03: 65 sources, mode=implement, no SIMULATION define
-FAIL: prj\td\runs\20261030T123307Z_5f90ba19\result.json
-PHY-9013 ERROR: Design's emb number = 84, exceeds the limit 64. There are more EMBs exceeding the limit of the device. You can try using 'report_area' in console to check the resource utilization of the device and results of Optimize Gate stage. And you can try modifying the design or changing the strategy of syn and rerunning it.
